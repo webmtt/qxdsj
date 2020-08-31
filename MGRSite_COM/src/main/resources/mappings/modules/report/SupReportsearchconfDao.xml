@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.mybatis.modules.report.dao.SupReportsearchconfDao">
+    
+	<sql id="supReportsearchconfColumns">
+		a.id AS "id",
+		a.param_name AS "paramName",
+		a.param_code AS "paramCode",
+		a.param_type AS "paramType",
+		a.parent_id AS "parent.id",
+		a.create_by AS "createBy.id",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate",
+		a.remarks AS "remarks",
+		a.del_flag AS "delFlag"
+	</sql>
+	
+	<sql id="supReportsearchconfJoins">
+	</sql>
+    
+	<select id="get" resultType="SupReportsearchconf">
+		SELECT 
+			<include refid="supReportsearchconfColumns"/>
+		FROM sup_reportsearchconf a
+		<include refid="supReportsearchconfJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="SupReportsearchconf">
+		SELECT 
+			<include refid="supReportsearchconfColumns"/>
+		FROM sup_reportsearchconf a
+		<include refid="supReportsearchconfJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date
+			</otherwise>
+		</choose>
+	</select>
+	<select id="getListByDataType" resultType="SupReportsearchconf">
+		SELECT
+		<include refid="supReportsearchconfColumns"/>
+		FROM sup_reportsearchconf a where a.del_flag = 0 and a.param_type=#{dataType} or a.parent_id='1'
+	</select>
+	<select id="findAllList" resultType="SupReportsearchconf">
+		SELECT 
+			<include refid="supReportsearchconfColumns"/>
+		FROM sup_reportsearchconf a
+		<include refid="supReportsearchconfJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date
+			</otherwise>
+		</choose>
+	</select>
+	<select id="findListById" resultType="SupReportsearchconf">
+		SELECT
+		<include refid="supReportsearchconfColumns"/>
+		FROM sup_reportsearchconf a
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL} and a.parent_id=#{parent.id}
+			<if test="paramType !=null and paramType != ''">
+				and param_type=#{paramType}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date
+			</otherwise>
+		</choose>
+	</select>
+	<insert id="insert">
+		INSERT INTO sup_reportsearchconf(
+			id,
+			param_name,
+			param_code,
+			param_type,
+			parent_id,
+			create_by,
+			create_date,
+			update_by,
+			update_date,
+			remarks,
+			del_flag
+		) VALUES (
+			#{id},
+			#{paramName},
+			#{paramCode},
+			#{paramType},
+			#{parent.id},
+			#{createBy.id},
+			#{createDate},
+			#{updateBy.id},
+			#{updateDate},
+			#{remarks},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sup_reportsearchconf SET 	
+			param_name = #{paramName},
+			param_code = #{paramCode},
+			param_type =#{paramType},
+			parent_id = #{parent.id},
+			update_by = #{updateBy.id},
+			update_date = #{updateDate},
+			remarks = #{remarks}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE sup_reportsearchconf SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id} or parent_id = #{id}
+	</update>
+
+</mapper>

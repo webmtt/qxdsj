@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.mybatis.modules.musicuser.dao.MusicInfoDao">
+
+    <sql id="musicInfoColumns">
+		a.id AS "id",
+		a.name AS "name",
+		a.password AS "password",
+		a.orgid AS "orgid",
+		a.create_by AS "createBy.id",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate",
+		a.remarks AS "remarks",
+		a.del_flag AS "delFlag"
+	</sql>
+
+    <sql id="musicInfoJoins">
+    </sql>
+
+    <select id="get" resultType="MusicInfo">
+        SELECT
+        <include refid="musicInfoColumns"/>
+        FROM music_info a
+        <include refid="musicInfoJoins"/>
+        WHERE a.id = #{id}
+    </select>
+
+    <select id="findList" resultType="MusicInfo">
+        SELECT
+        <include refid="musicInfoColumns"/>
+        FROM music_info a
+        <include refid="musicInfoJoins"/>
+        <where>
+            a.del_flag = #{DEL_FLAG_NORMAL}
+            <if test="name != null and name != ''">
+                AND a.name LIKE
+                <if test="dbName == 'oracle'">'%'||#{name}||'%'</if>
+                <if test="dbName == 'mssql'">'%'+#{name}+'%'</if>
+                <if test="dbName == 'mysql'">concat('%',#{name},'%')</if>
+            </if>
+        </where>
+        <choose>
+            <when test="page !=null and page.orderBy != null and page.orderBy != ''">
+                ORDER BY ${page.orderBy}
+            </when>
+            <otherwise>
+                ORDER BY a.update_date DESC
+            </otherwise>
+        </choose>
+    </select>
+
+    <select id="findAllList" resultType="MusicInfo">
+        SELECT
+        <include refid="musicInfoColumns"/>
+        FROM music_info a
+        <include refid="musicInfoJoins"/>
+        <where>
+            a.del_flag = #{DEL_FLAG_NORMAL}
+        </where>
+        <choose>
+            <when test="page !=null and page.orderBy != null and page.orderBy != ''">
+                ORDER BY ${page.orderBy}
+            </when>
+            <otherwise>
+                ORDER BY a.update_date DESC
+            </otherwise>
+        </choose>
+    </select>
+
+    <insert id="insert">
+		INSERT INTO music_info(
+			id,
+			name,
+			password,
+			orgid,
+			create_by,
+			create_date,
+			update_by,
+			update_date,
+			remarks,
+			del_flag
+		) VALUES (
+			#{id},
+			#{name},
+			#{password},
+			#{orgid},
+			#{createBy.id},
+			#{createDate},
+			#{updateBy.id},
+			#{updateDate},
+			#{remarks},
+			#{delFlag}
+		)
+	</insert>
+
+    <select id="getUserByName" resultType="MusicInfo">
+
+    </select>
+    <select id="getMuiscInfoByOrgId" resultType="MusicInfo">
+        SELECT
+        <include refid="musicInfoColumns"/>
+        FROM music_info a
+        <include refid="musicInfoJoins"/>
+        <where>
+            a.del_flag ='0'
+            AND a.orgid=#{orgid}
+        </where>
+    </select>
+    <update id="update">
+		UPDATE music_info SET
+			name = #{name},
+			password = #{password},
+			orgid = #{orgid},
+			update_by = #{updateBy.id},
+			update_date = #{updateDate},
+			remarks = #{remarks}
+		WHERE id = #{id}
+	</update>
+
+    <update id="delete">
+		delete from music_info
+		WHERE id = #{id}
+	</update>
+</mapper>

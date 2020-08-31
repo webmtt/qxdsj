@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.piesat.kettlescheduler.dao.KDataDao">
+  <resultMap id="BaseResultMap" type="com.piesat.kettlescheduler.model.KData">
+    <id column="data_id" jdbcType="INTEGER" property="dataId" />
+    <result column="data_name" jdbcType="VARCHAR" property="dataName" />
+    <result column="data_big_class" jdbcType="VARCHAR" property="dataBigClass" />
+    <result column="data_small_class" jdbcType="VARCHAR" property="dataSmallClass" />
+    <result column="data_service_object" jdbcType="VARCHAR" property="dataServiceObject" />
+    <result column="data_size" jdbcType="VARCHAR" property="dataSize" />
+    <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
+    <result column="add_user" jdbcType="INTEGER" property="addUser" />
+    <result column="edit_time" jdbcType="TIMESTAMP" property="editTime" />
+    <result column="edit_user" jdbcType="INTEGER" property="editUser" />
+    <result column="del_flag" jdbcType="INTEGER" property="delFlag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    data_id, data_name, data_big_class, data_small_class, data_service_object, data_size, 
+    add_time, add_user, edit_time, edit_user, del_flag
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from k_data
+    where data_id = #{dataId,jdbcType=INTEGER}
+  </select>
+
+  <select id="pageQuery" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from k_data
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from k_data
+    where data_id = #{dataId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.piesat.kettlescheduler.model.KData">
+    insert into k_data (data_id, data_name, data_big_class, 
+      data_small_class, data_service_object, data_size, 
+      add_time, add_user, edit_time, 
+      edit_user, del_flag)
+    values (#{dataId,jdbcType=INTEGER}, #{dataName,jdbcType=VARCHAR}, #{dataBigClass,jdbcType=VARCHAR}, 
+      #{dataSmallClass,jdbcType=VARCHAR}, #{dataServiceObject,jdbcType=VARCHAR}, #{dataSize,jdbcType=VARCHAR}, 
+      #{addTime,jdbcType=TIMESTAMP}, #{addUser,jdbcType=INTEGER}, #{editTime,jdbcType=TIMESTAMP}, 
+      #{editUser,jdbcType=INTEGER}, #{delFlag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.piesat.kettlescheduler.model.KData">
+    insert into k_data
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dataId != null">
+        data_id,
+      </if>
+      <if test="dataName != null">
+        data_name,
+      </if>
+      <if test="dataBigClass != null">
+        data_big_class,
+      </if>
+      <if test="dataSmallClass != null">
+        data_small_class,
+      </if>
+      <if test="dataServiceObject != null">
+        data_service_object,
+      </if>
+      <if test="dataSize != null">
+        data_size,
+      </if>
+      <if test="addTime != null">
+        add_time,
+      </if>
+      <if test="addUser != null">
+        add_user,
+      </if>
+      <if test="editTime != null">
+        edit_time,
+      </if>
+      <if test="editUser != null">
+        edit_user,
+      </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dataId != null">
+        #{dataId,jdbcType=INTEGER},
+      </if>
+      <if test="dataName != null">
+        #{dataName,jdbcType=VARCHAR},
+      </if>
+      <if test="dataBigClass != null">
+        #{dataBigClass,jdbcType=VARCHAR},
+      </if>
+      <if test="dataSmallClass != null">
+        #{dataSmallClass,jdbcType=VARCHAR},
+      </if>
+      <if test="dataServiceObject != null">
+        #{dataServiceObject,jdbcType=VARCHAR},
+      </if>
+      <if test="dataSize != null">
+        #{dataSize,jdbcType=VARCHAR},
+      </if>
+      <if test="addTime != null">
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addUser != null">
+        #{addUser,jdbcType=INTEGER},
+      </if>
+      <if test="editTime != null">
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="editUser != null">
+        #{editUser,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.piesat.kettlescheduler.model.KData">
+    update k_data
+    <set>
+      <if test="dataName != null">
+        data_name = #{dataName,jdbcType=VARCHAR},
+      </if>
+      <if test="dataBigClass != null">
+        data_big_class = #{dataBigClass,jdbcType=VARCHAR},
+      </if>
+      <if test="dataSmallClass != null">
+        data_small_class = #{dataSmallClass,jdbcType=VARCHAR},
+      </if>
+      <if test="dataServiceObject != null">
+        data_service_object = #{dataServiceObject,jdbcType=VARCHAR},
+      </if>
+      <if test="dataSize != null">
+        data_size = #{dataSize,jdbcType=VARCHAR},
+      </if>
+      <if test="addTime != null">
+        add_time = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addUser != null">
+        add_user = #{addUser,jdbcType=INTEGER},
+      </if>
+      <if test="editTime != null">
+        edit_time = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="editUser != null">
+        edit_user = #{editUser,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=INTEGER},
+      </if>
+    </set>
+    where data_id = #{dataId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.piesat.kettlescheduler.model.KData">
+    update k_data
+    set data_name = #{dataName,jdbcType=VARCHAR},
+      data_big_class = #{dataBigClass,jdbcType=VARCHAR},
+      data_small_class = #{dataSmallClass,jdbcType=VARCHAR},
+      data_service_object = #{dataServiceObject,jdbcType=VARCHAR},
+      data_size = #{dataSize,jdbcType=VARCHAR},
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      add_user = #{addUser,jdbcType=INTEGER},
+      edit_time = #{editTime,jdbcType=TIMESTAMP},
+      edit_user = #{editUser,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=INTEGER}
+    where data_id = #{dataId,jdbcType=INTEGER}
+  </update>
+</mapper>

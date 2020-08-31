@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="false" scanPeriod="60 seconds" debug="false">
+    <!-- 定义日志的根目录 -->
+    <property name="LOG_HOME" value="../logs"/>
+    <!-- 定义日志文件名称 程序名_端口号_资料类型 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg %n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+    <!--日值配置 -->
+    <appender name="qc" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HOME}/%d{yyyy-MM-dd}/surf/process-%d{yyyy-MM-dd}.log
+            </fileNamePattern>
+            <MaxHistory>180</MaxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>
+                %-5level %d{yyyy-MM-dd HH:mm:ss} %F:%L: %msg%n
+            </pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <!--日志文件最大的大小 -->
+        <triggeringPolicy
+                class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>10MB</MaxFileSize>
+        </triggeringPolicy>
+    </appender>
+
+    <appender name="messageInfo" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HOME}/%d{yyyy-MM-dd}/message-%d{yyyy-MM-dd}.log
+            </fileNamePattern>
+            <MaxHistory>180</MaxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>
+                %-5level %d{yyyy-MM-dd HH:mm:ss}: %msg%n
+            </pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="myAppender" class="out.ret2excel.MyAppender">
+        <!--<root level="INFO">-->
+            <!--<appender-ref ref="myAppender"/>-->
+        <!--</root>-->
+    </appender>
+
+    <!--配置日志数据输出类（可配置为包） -->
+    <logger name="messageInfo" additivity="false">
+        <level value="info"/>
+        <appender-ref ref="messageInfo"/>
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="qcLogger" additivity="false">
+        <level value="info"/>
+        <appender-ref ref="qc"/>
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="myAppender"/>
+    </logger>
+
+</configuration>

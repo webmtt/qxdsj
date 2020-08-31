@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tables>
+
+	<dataType name="K.0480.0001.R001">
+		<dataId>#K.0480.0001.R001</dataId>
+		<prodCode>[7]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[6]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#FY-2G降水估计（PRE）1小时、3小时、6小时产品</productDescription>
+		<productMethod>#AWX</productMethod>
+	</dataType>
+	
+	<dataType name="K.0481.0001.R001">
+		<dataId>#K.0481.0001.R001</dataId>
+		<prodCode>[7]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[6]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#FY-2G大气运动矢量（AMV）产品</productDescription>
+		<productMethod>#AWX</productMethod>
+	</dataType>
+	
+	<dataType name="K.0482.0001.R001">
+		<dataId>#K.0482.0001.R001</dataId>
+		<prodCode>[7]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[6]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#FY-2G射出长波辐射（OLR）3小时产品</productDescription>
+		<productMethod>#AWX</productMethod>
+	</dataType>
+	
+	<dataType name="K.0482.0001.R003">
+		<dataId>#K.0482.0001.R003</dataId>
+		<prodCode>[7]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[6]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#FY-2G射出长波辐射（OLR）日候旬产品</productDescription>
+		<productMethod>#AWX</productMethod>
+	</dataType>
+	
+	<dataType name="K.0482.0001.R005">
+		<dataId>#K.0482.0001.R005</dataId>
+		<prodCode>[7]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[6]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#FY-2G射出长波辐射（OLR）月产品</productDescription>
+		<productMethod>#AWX</productMethod>
+	</dataType>
+	
+	<dataType name="K.0483.0001.R001">
+		<dataId>#K.0483.0001.R001</dataId>
+		<prodCode>[7]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[6]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#FY-2G黑体亮度温度（TBB）1小时产品</productDescription>
+		<productMethod>#AWX</productMethod>
+	</dataType>
+	
+	<dataType name="K.0483.0001.R003">
+		<dataId>#K.0483.0001.R003</dataId>
+		<prodCode>[7]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[6]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#FY-2G黑体亮度温度（TBB）日候旬产品</productDescription>
+		<productMethod>#AWX</productMethod>
+	</dataType>
+	
+	<dataType name="K.0483.0001.R005">
+		<dataId>#K.0483.0001.R005</dataId>
+		<prodCode>[7]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[6]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#FY-2G黑体亮度温度（TBB）月产品</productDescription>
+		<productMethod>#AWX</productMethod>
+	</dataType>
+	
+	<dataType name="K.0715.0001.R001">
+		<dataId>#K.0715.0001.R001</dataId>
+		<prodCode>[7]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[6]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#FY4A一级数据</productDescription>
+		<productMethod>#HDF</productMethod>
+	</dataType>
+	
+	<dataType name="K.0716.0001.R001">
+		<dataId>#K.0716.0001.R001</dataId>
+		<prodCode>[7]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[6]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#FY4A二级数据</productDescription>
+		<productMethod>#HDF</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0001.R001">
+		<dataId>#J.0003.0001.R001</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#基本反射率（230公里，0.5度）</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	
+	<dataType name="J.0003.0001.R002">
+		<dataId>#J.0003.0001.R002</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#基本反射率（230公里，1.5度）</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0001.R003">
+		<dataId>#J.0003.0001.R003</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#基本反射率（230公里，2.4度） </productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0001.R004">
+		<dataId>#J.0003.0001.R004</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#基本反射率（460公里，0.5度）</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0001.R005">
+		<dataId>#J.0003.0001.R005</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#基本反射率（460公里，1.5度）</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0001.R006">
+		<dataId>#J.0003.0001.R006</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#基本反射率（460公里，2.4度）</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0001.R007">
+		<dataId>#J.0003.0001.R007</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#基本反射率（230公里，3.4度）</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0001.R008">
+		<dataId>#J.0003.0001.R008</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#基本反射率（230公里，4.3度）</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0001.R009">
+		<dataId>#J.0003.0001.R009</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#基本反射率（230公里，6.0度)</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0002.R001">
+		<dataId>#J.0003.0002.R001</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#基本速度（115公里，0.5度）</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0002.R002">
+		<dataId>#J.0003.0002.R002</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#基本速度（115公里，1.5度</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0002.R003">
+		<dataId>#J.0003.0002.R003</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#基本速度（115公里，2.4度）</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0002.R004">
+		<dataId>#J.0003.0002.R004</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#基本速度（230公里，0.5度）</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0002.R005">
+		<dataId>#J.0003.0002.R005</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#基本速度（230公里，1.5度）</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0002.R006">
+		<dataId>#J.0003.0002.R006</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#基本速度（230公里，2.4度） </productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0002.R007">
+		<dataId>#J.0003.0002.R007</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#基本速度（230公里，3.4度）  </productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0002.R008">
+		<dataId>#J.0003.0002.R008</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#基本速度（230公里，4.3度） </productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0002.R009">
+		<dataId>#J.0003.0002.R009</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#基本速度（230公里，6.0度）  </productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0003.R001">
+		<dataId>#J.0003.0003.R001</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#组合反射率（分辨率1公里）</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0003.R002">
+		<dataId>#J.0003.0003.R002</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#组合反射率（分辨率4公里）</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0004.R001">
+		<dataId>#J.0003.0004.R001</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#回波顶高</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0005.R001">
+		<dataId>#J.0003.0005.R001</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#速度方位显示风廓线</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0006.R001">
+		<dataId>#J.0003.0006.R001</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#弱回波区</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0007.R001">
+		<dataId>#J.0003.0007.R001</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#垂直累积液态水含量</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0008.R001">
+		<dataId>#J.0003.0008.R001</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#风暴追踪信息</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0009.R001">
+		<dataId>#J.0003.0009.R001</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#中尺度气旋</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0010.R001">
+		<dataId>#J.0003.0010.R001</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#1小时累计降水</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0011.R001">
+	<dataId>#J.0003.0011.R001</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#3小时累计降水</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0012.R001">
+		<dataId>#J.0003.0012.R001</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#风暴总降水</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0013.R001">
+		<dataId>#J.0003.0013.R001</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#等高面反射率</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0014.R001">
+		<dataId>#J.0003.0014.R001</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#龙卷涡旋特征</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0015.R001">
+		<dataId>#J.0003.0015.R001</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#风暴相对径向速度</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0016.R001">
+		<dataId>#J.0003.0016.R001</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#风暴结构</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0017.R001">
+		<dataId>#J.0003.0017.R001</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#冰雹指数</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0018.R001">
+		<dataId>#J.0003.0018.R001</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#用户报警信息</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0019.R001">
+		<dataId>#J.0003.0019.R001</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#混合扫描反射率</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0020.R001">
+		<dataId>#J.0003.0020.R001</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#强天气发生概率</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.0021.R001">
+		<dataId>#J.0003.0021.R001</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#组合切变</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0003.9999.R001">
+		<dataId>#J.0003.9999.R001</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#标准格式雷达PUP产品</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="J.0010.0001.R001">
+		<dataId>#J.0010.0001.R001</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#原始格式多普勒雷达基数据</productDescription>
+		<productMethod>#zip</productMethod>
+	</dataType>
+	
+	<dataType name="J.0001.0003.R001">
+		<dataId>#J.0001.0003.R001</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#新一代天气雷达逐仰角标准格式基数据</productDescription>
+		<productMethod>#zip</productMethod>
+	</dataType>
+	
+	<dataType name="J.0001.0002.R001">
+		<dataId>#J.0001.0002.R001</dataId>
+		<prodCode>[8]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#新一代天气雷达标准格式基数据</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="B.0007.0001.R001">
+		<dataId>#B.0007.0001.R001</dataId>
+		<prodCode>[6]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#中国风廓线雷达功率谱数据文件</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="B.0007.0002.R001">
+		<dataId>#B.0007.0002.R001</dataId>
+		<prodCode>[6]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#中国风廓线雷达径向谱数据文件</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="B.0007.0003.R001">
+		<dataId>#B.0007.0003.R001</dataId>
+		<prodCode>[6]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#中国风廓线雷达实时产品文件</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="B.0007.0004.R001">
+		<dataId>#B.0007.0004.R001</dataId>
+		<prodCode>[6]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#中国风廓线雷达半小时平均产品文件</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="B.0007.0005.R001">
+		<dataId>#B.0007.0005.R001</dataId>
+		<prodCode>[6]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#中国风廓线雷达小时平均产品文件</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+	
+	<dataType name="B.0007.0006.R001">
+		<dataId>#B.0007.0006.R001</dataId>
+		<prodCode>[6]</prodCode>
+		<dataTime>[4]</dataTime>
+		<station>[3]</station>
+		<productCenter>#cma</productCenter>
+		<productDescription>#中国风廓线雷达观测系统状态信息文件</productDescription>
+		<productMethod>#bz2</productMethod>
+	</dataType>
+</tables>

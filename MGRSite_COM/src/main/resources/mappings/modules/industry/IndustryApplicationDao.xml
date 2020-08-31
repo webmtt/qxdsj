@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.mybatis.modules.industry.dao.IndustryApplicationDao">
+    
+	<sql id="industryApplicationColumns">
+		a.id AS "id",
+		a.imageurl AS "imageurl",
+		a.title AS "title",
+		a.entitle AS "entitle",
+		a.content AS "content",
+		a.example AS "example",
+		a.creattime AS "createTime"
+	</sql>
+	
+	<sql id="industryApplicationJoins">
+	</sql>
+    
+	<select id="get" resultType="com.thinkgem.jeesite.mybatis.modules.industry.entity.IndustryApplication">
+		SELECT * FROM industry_application a
+		<include refid="industryApplicationJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="com.thinkgem.jeesite.mybatis.modules.industry.entity.IndustryApplication">
+		SELECT * FROM industry_application a
+		<include refid="industryApplicationJoins"/>
+		<where>
+			
+			<if test="title != null and title != ''">
+				AND a.title LIKE 
+					<if test="dbName == 'oracle'">'%'||#{title}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{title}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{title},'%')</if>
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				order by creattime desc
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="com.thinkgem.jeesite.mybatis.modules.industry.entity.IndustryApplication">
+		SELECT * FROM industry_application a
+		<include refid="industryApplicationJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO industry_application(
+			id,
+			imageurl,
+			title,
+			entitle,
+			content,
+			example,
+			creattime
+		) VALUES (
+			#{id},
+			#{imageurl},
+			#{title},
+			#{entitle},
+			#{content},
+			#{example},
+			#{creatTime}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE industry_application SET 	
+			imageurl = #{imageurl},
+			title = #{title},
+			entitle = #{entitle},
+			content = #{content},
+			example=#{example},
+			creatTime = #{creatTime}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM industry_application
+		WHERE id = #{id}
+	</update>
+
+	<select id="getAllUploadIndustry" resultType="com.thinkgem.jeesite.mybatis.modules.industry.entity.IndustryApplication">
+		select * from industry_application
+	</select>
+	
+</mapper>

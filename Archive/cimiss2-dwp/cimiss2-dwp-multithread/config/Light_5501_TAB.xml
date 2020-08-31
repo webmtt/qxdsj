@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root IsCheck="true" length="6">
+	<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+	<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+	<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+	<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+	<element dataType="String" content="" value="{D_DATETIME}{V_CCCC}{V05001}{V06001}{V04006}{V04007}">D_RECORD_ID</element>
+	<element dataType="datetime" content="report" index="FileName{0}" format="yyyyMMddHHmm">D_DATETIME</element>
+	
+	<element dataType="String" content='default' value='C_CCCC'>V_CCCC</element>
+	<element dataType="double" content="report" index="0">V05001</element>
+	<element dataType="double" content="report" index="1">V06001</element>
+	
+	<element dataType="int" content="report" index="FileName{0}" Expression="[0:4]">V04001</element>
+	<element dataType="int" content="report" index="FileName{0}" Expression="[4:6]">V04002</element>
+	<element dataType="int" content="report" index="FileName{0}" Expression="[6:8]">V04003</element>
+	<element dataType="int" content="report" index="FileName{0}" Expression="[8:10]">V04004</element>
+	<element dataType="int" content="report" index="FileName{0}" Expression="[10:12]">V04005</element>
+	<element dataType="int" content="undefined" value="0" >V04006</element>
+	<element dataType="int" content="undefined" value="0" >V04007</element>
+	
+	<element dataType="double" content="report" index="2" >V08301</element>
+	<element dataType="double" content="report" index="3" >V73019</element>
+	<element dataType="double" content="report" index="4" >V08302</element>
+	<element dataType="double" content="report" index="5" >V73020</element>
+
+	<element dataType="string" content="default" value="999998">V_RETAIN1_C</element>
+	<element dataType="string" content="default" value="999998">V_RETAIN2_C</element>
+	<element dataType="double" content="default" value="999998">V_RETAIN1_N</element>
+	<element dataType="double" content="default" value="999998">V_RETAIN2_N</element>
+
+	<element dataType="string" content="default" value="B.0006.0006.R001">D_SOURCE_ID</element>
+</root>

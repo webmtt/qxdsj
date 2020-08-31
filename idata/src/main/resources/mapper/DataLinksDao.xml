@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nmpiesat.idata.data.dao.DataLinksDao">
+    <select id="findDataLinksByDataCode" resultType="com.nmpiesat.idata.data.entity.DataLinks">
+        select * from BMD_DATALINKS where invalid = '0' and datacode =#{dataCode} order by linktype,orderno
+    </select>
+</mapper>

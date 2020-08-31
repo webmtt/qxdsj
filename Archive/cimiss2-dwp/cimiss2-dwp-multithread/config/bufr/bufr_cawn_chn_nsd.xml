@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	
+	<!-- fxy:前三个值bufr文件数据段识别码,第4个值为整个数据段中第几次出现的识别码 -->
+	<!-- name:对应的字段名称 -->
+	<!-- dec:字段说明 -->
+	<!-- datatype:字段类型 -->
+	<!-- defaultValue:如果从bufr文件中取出的数据为空设置默认值 -->
+	<!-- qc:true或false,此行是否为质控码 -->
+	<!-- expression:配置此行字段值的表达式
+			表达式说明:
+				${col:arg} -> 当前配置文件中对应的字段值，arg：配置文件中配置的字段
+				${dateFormat(arg1,arg2,arg3)} -> 日期格式化,arg1:日期字符串20170809001211，arg2:arg1的格式yyyyMMddHHmmss，arg3:转换后的日期格式(如：yyyy-MM-dd HH:mm:ss) 
+				${dateTime} -> 获取系统当前时间,默认格式为yyyyMMddHHmmss
+				${ascii:arg} -> arg代表的值转换为ascii码
+				${stationInfo(arg1,arg2,arg3)} -> 根据站号从stationinfo_conf.lua配置文件中取值，第一个参数arg1：字符站号；第二个参数arg2：站号对应的序列号
+				${seqDayFormat(arg1,arg2,arg3)} -> 序日的格式化，第一个参数arg1：4位年；第二个参数arg2：序日(1-3位数字)；第三个参数arg3：格式(遵循java中的日期格式化pattern)
+				#########################################################
+				${col:arg} ${seqDayFormat(arg1,arg2,arg3)} ${stationInfo(arg1,arg2)} ${dateFormat(arg1,arg2,arg3)} 这几个表达式后都可以根据需要添加.split('')[]和.substring()表达式
+				.split('')[]按单引号中的符号分隔前面表达式的值，中括号中是分隔后取第n-1个
+				.substring(snum,enum) 在紧前面的表达式的值中截取snum到enum字符串,包前不包后
+	 -->
+	<colunm fxy="D_RECORD_ID" name="id" dec="主键" datatype="string" expression="${col:V01301}_${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} ${col:V04004}:${col:V04005}:00,yyyy-MM-dd HH:mm:ss,yyyyMMddHHmmss)}">D_RECORD_ID</colunm>
+	
+	<colunm fxy="D_DATA_ID" name="data_id" dec="资料标识" datatype="string" default="G.0006.0005.S001">D_DATA_ID</colunm>
+	<colunm fxy="?" name="" dec="" datatype="string" default="">D_SOURCE_ID</colunm>
+	<colunm fxy="D_IYMDHM" name="insert datetime" dec="入库时间" datatype="date" expression="${dateFormat(${dateTime},yyyyMMddHHmmss,yyyy-MM-dd HH:mm:ss)}">D_IYMDHM</colunm>
+	<colunm fxy="D_RYMDHM" name="recive_datetime" dec="收到时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_RYMDHM</colunm>
+	
+	<colunm fxy="D_UPDATE_TIME" name="update datetime" dec="更新时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_UPDATE_TIME</colunm>
+	
+	<colunm fxy="D_DATETIME" name="data datetime" dec="资料时间" datatype="date" expression="${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} ${col:V04004}:${col:V04005}:00,yyyy-MM-dd HH:mm:ss,yyyy-MM-dd HH:mm:ss)}">D_DATETIME</colunm>
+	
+	<!-- <colunm fxy="D_DATETIME" name="D_RETRIEVAL_ TIME" dec="小时资料检索时间" datatype="date" expression="${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} 00:00:00,yyyy-MM-dd HH:mm:ss,yyyy-MM-dd HH:mm:ss)}">D_RETRIEVAL_TIME</colunm> -->
+	<colunm fxy="V_BBB" name="V_BBB" dec="更正报标识" datatype="string"  default="000">V_BBB</colunm> 
+	<colunm fxy="0-1-1-0" name="WMO_block_number" dec="区站号" datatype="string">V01301</colunm>
+	<!--   <colunm fxy="V01300" name="stationId_N" dec="区站号(数字)" datatype="string" expression="${ascii:${col:V01301}}">V01300</colunm> -->
+	<colunm fxy="0-1-101-0" name="National and local identifiers" dec="国家和地标识符" datatype="string" default="999999">V01101</colunm>
+	<colunm fxy="0-1-192-0" name="Local station logo" dec="本地测站标识" datatype="string" default="999999">V01192</colunm>
+	<colunm fxy="0-5-1-0" name="Latitude" dec="纬度" datatype="double" >V05001</colunm>
+	<colunm fxy="0-6-1-0" name="Longitude" dec="经度" datatype="double" >V06001</colunm>
+	<colunm fxy="0-4-1-0" name="year" dec="资料年" datatype="int" >V04001</colunm>
+	<colunm fxy="0-4-2-0" name="Month" dec="资料月" datatype="int" >V04002</colunm>
+	<colunm fxy="0-4-3-0" name="day" dec="资料日" datatype="int" >V04003</colunm>
+	<colunm fxy="0-4-4-0" name="hour" dec="资料时" datatype="int" >V04004</colunm>
+	<colunm fxy="0-4-5-0" name="minute" dec="资料分" datatype="int" >V04005</colunm>
+	<colunm fxy="0-7-30-0" name="Ground height above average sea level" dec="平均海平面以上测站地面高度" datatype="double" default="999999">V07030</colunm>
+	<colunm fxy="0-7-31-0" name="Air pressure gauge height above mean sea level" dec="平均海平面以上气压表高度" datatype="double" default="999999">V07031</colunm>
+	<colunm fxy="1-21-0-0" name="Instrument Model" dec="仪器型号" datatype="string" expression="{0}"  default="999999">V02241</colunm>
+	<colunm fxy="1-21-0-0" name="Serial number" dec="序列号" datatype="string" expression="{1}"  default="999999">V02208</colunm>
+	<colunm fxy="0-4-5-0" name="Sampling time, minutes(world time)" dec="采样时间，分（世界时）" datatype="int" default="999999">V04005_S</colunm>
+	<colunm fxy="0-4-6-0" name="Sampling time, seconds(world time)" dec="采样时间，秒（世界时）" datatype="int" default="999999">V04006_S</colunm>
+	<!--   <group fxy="1-1-32-0" name="" dec="" delay="32"> -->
+	<colunm fxy="1-1-32-0" name="C1 channel number concentration" dec="C1通道数浓度" datatype="double" expression="{0}" default="999999">V15023_C01</colunm>
+	<colunm fxy="1-1-32-0" name="C2 channel number concentration" dec="C2通道数浓度" datatype="double" expression="{1}" default="999999">V15023_C02</colunm>
+	<colunm fxy="1-1-32-0" name="C3 channel number concentration" dec="C3通道数浓度" datatype="double" expression="{2}" default="999999">V15023_C03</colunm>
+	<colunm fxy="1-1-32-0" name="C4 channel number concentration" dec="C4通道数浓度" datatype="double" expression="{3}" default="999999">V15023_C04</colunm>
+	<colunm fxy="1-1-32-0" name="C5 channel number concentration" dec="C5通道数浓度" datatype="double" expression="{4}" default="999999">V15023_C05</colunm>
+	<colunm fxy="1-1-32-0" name="C6 channel number concentration" dec="C6通道数浓度" datatype="double" expression="{5}" default="999999">V15023_C06</colunm>
+	<colunm fxy="1-1-32-0" name="C7 channel number concentration" dec="C7通道数浓度" datatype="double" expression="{6}" default="999999">V15023_C07</colunm>
+	<colunm fxy="1-1-32-0" name="C8 channel number concentration" dec="C8通道数浓度" datatype="double" expression="{7}" default="999999">V15023_C08</colunm>
+	<colunm fxy="1-1-32-0" name="C9 channel number concentration" dec="C9通道数浓度" datatype="double" expression="{8}" default="999999">V15023_C09</colunm>
+	<colunm fxy="1-1-32-0" name="C10 channel number concentration" dec="C10通道数浓度" datatype="double" expression="{9}" default="999999">V15023_C10</colunm>
+	<colunm fxy="1-1-32-0" name="C11 channel number concentration" dec="C11通道数浓度" datatype="double" expression="{10}" default="999999">V15023_C11</colunm>
+	<colunm fxy="1-1-32-0" name="C12 channel number concentration" dec="C12通道数浓度" datatype="double" expression="{11}" default="999999">V15023_C12</colunm>
+	<colunm fxy="1-1-32-0" name="C13 channel number concentration" dec="C13通道数浓度" datatype="double" expression="{12}" default="999999">V15023_C13</colunm>
+	<colunm fxy="1-1-32-0" name="C14 channel number concentration" dec="C14通道数浓度" datatype="double" expression="{13}" default="999999">V15023_C14</colunm>
+	<colunm fxy="1-1-32-0" name="C15 channel number concentration" dec="C15通道数浓度" datatype="double" expression="{14}" default="999999">V15023_C15</colunm>
+	<colunm fxy="1-1-32-0" name="C16 channel number concentration" dec="C16通道数浓度" datatype="double" expression="{15}" default="999999">V15023_C16</colunm>
+	<colunm fxy="1-1-32-0" name="C17 channel number concentration" dec="C17通道数浓度" datatype="double" expression="{16}" default="999999">V15023_C17</colunm>
+	<colunm fxy="1-1-32-0" name="C18 channel number concentration" dec="C18通道数浓度" datatype="double" expression="{17}" default="999999">V15023_C18</colunm>
+	<colunm fxy="1-1-32-0" name="C19 channel number concentration" dec="C19通道数浓度" datatype="double" expression="{18}" default="999999">V15023_C19</colunm>
+	<colunm fxy="1-1-32-0" name="C20 channel number concentration" dec="C20通道数浓度" datatype="double" expression="{19}" default="999999">V15023_C20</colunm>
+	<colunm fxy="1-1-32-0" name="C21 channel number concentration" dec="C21通道数浓度" datatype="double" expression="{20}" default="999999">V15023_C21</colunm>
+	<colunm fxy="1-1-32-0" name="C22 channel number concentration" dec="C22通道数浓度" datatype="double" expression="{21}" default="999999">V15023_C22</colunm>
+	<colunm fxy="1-1-32-0" name="C23 channel number concentration" dec="C23通道数浓度" datatype="double" expression="{22}" default="999999">V15023_C23</colunm>
+	<colunm fxy="1-1-32-0" name="C24 channel number concentration" dec="C24通道数浓度" datatype="double" expression="{23}" default="999999">V15023_C24</colunm>
+	<colunm fxy="1-1-32-0" name="C25 channel number concentration" dec="C25通道数浓度" datatype="double" expression="{24}" default="999999">V15023_C25</colunm>
+	<colunm fxy="1-1-32-0" name="C26 channel number concentration" dec="C26通道数浓度" datatype="double" expression="{25}" default="999999">V15023_C26</colunm>
+	<colunm fxy="1-1-32-0" name="C27 channel number concentration" dec="C27通道数浓度" datatype="double" expression="{26}" default="999999">V15023_C27</colunm>
+	<colunm fxy="1-1-32-0" name="C28 channel number concentration" dec="C28通道数浓度" datatype="double" expression="{27}" default="999999">V15023_C28</colunm>
+	<colunm fxy="1-1-32-0" name="C29 channel number concentration" dec="C29通道数浓度" datatype="double" expression="{28}" default="999999">V15023_C29</colunm>
+	<colunm fxy="1-1-32-0" name="C30 channel number concentration" dec="C30通道数浓度" datatype="double" expression="{29}" default="999999">V15023_C30</colunm>
+	<colunm fxy="1-1-32-0" name="C31 channel number concentration" dec="C31通道数浓度" datatype="double" expression="{30}" default="999999">V15023_C31</colunm>
+	<colunm fxy="1-1-32-0" name="C32 channel number concentration" dec="C32通道数浓度" datatype="double" expression="{31}" default="999999">V15023_C32</colunm>
+	<!--   </group>
+	<group fxy="1-1-0-0" name="" dec="" delay="29"> -->
+	<colunm fxy="3-22-199-0" name="Storage Location" dec="存储位置" expression="{0}" datatype="int" default="999999">V_STORAGE_PLACE</colunm>
+	<colunm fxy="3-22-199-0" name="Weight factor" dec="重量因数" expression="{1}" datatype="int" default="999999">V_WEIGHT_FACTOR</colunm>
+	<colunm fxy="3-22-199-0" name="GRIMM180 error code" dec="GRIMM180错误代码" expression="{2}" datatype="int" default="999999">V_ERROR_CODE</colunm>
+	<colunm fxy="3-22-199-0" name="Battery voltage code" dec="电池电压代码" expression="{3}" datatype="int" default="999999">V15752</colunm>
+	<colunm fxy="3-22-199-0" name="Valve current" dec="阀电流" expression="{4}" datatype="double" default="999999">V15765</colunm>
+	<colunm fxy="3-22-199-0" name="Integrated revised count Uele" dec="综合订正计数UeL" expression="{5}" datatype="int" default="999999">V_CORRECT_COUNT</colunm>
+	<colunm fxy="3-22-199-0" name="Air pressure count, Ue4." dec="气压计数Ue4" expression="{6}" datatype="double" default="999999">V10004_040</colunm>
+	<colunm fxy="3-22-199-0" name="Humidity Count Ue2" dec="湿度计数Ue2" expression="{8}" datatype="double" default="999999">V13003_040</colunm>
+	<colunm fxy="3-22-199-0" name="Temperature Count Ue1" dec="温度计数Ue1" expression="{9}" datatype="double" default="999999">V12001_040</colunm>
+	<colunm fxy="3-22-199-0" name="time interval" dec="时间间隔" expression="{10}" datatype="int" default="999999">V_TIME_SPACING</colunm>
+	<colunm fxy="3-22-199-0" name="Wind speed measurement factor S1" dec="风速计量因子S1" expression="{11}" datatype="double" default="999999">V11002_071</colunm>
+	<colunm fxy="3-22-199-0" name="Wind direction factor S2" dec="风向计量因子S2" expression="{12}" datatype="double" default="999999">V11001_071</colunm>
+	<colunm fxy="3-22-199-0" name="Precipitation factor S3" dec="降水计量因子S3" expression="{13}" datatype="double" default="999999">V13011_071</colunm>
+	<colunm fxy="3-22-199-0" name="Temperature slope revision T_K" dec="温度斜率订正T_K" expression="{14}" datatype="double" default="999999">V12200</colunm>
+	<colunm fxy="3-22-199-0" name="Humidity slope revision H_K" dec="湿度斜率订正H_K" expression="{15}" datatype="double" default="999999">V13198</colunm>
+	<colunm fxy="3-22-199-0" name="Pressure slope revision P_K" dec="气压斜率订正P_K" expression="{16}" datatype="double" default="999999">V10196</colunm>
+	<colunm fxy="3-22-199-0" name="Temperature offset revision T_b" dec="温度偏移订正T_b" expression="{17}" datatype="double" default="999999">V12204</colunm>
+	<colunm fxy="3-22-199-0" name="Moisture offset revision H_b" dec="湿度偏移订正H_b" expression="{18}" datatype="double" default="999999">V13199</colunm>
+	<colunm fxy="3-22-199-0" name="Pressure offset revision H_b" dec="气压偏移订正P_b" expression="{19}" datatype="double" default="999999">V10197</colunm>
+	<colunm fxy="3-22-199-0" name="Wind speed sensitivity WS" dec="风速灵敏度WS" expression="{20}" datatype="double" default="999999">V11194</colunm>
+	<colunm fxy="3-22-199-0" name="Wind inclination WD" dec="风向倾角WD" expression="{21}" datatype="double" default="999999">V11195</colunm>
+	<colunm fxy="3-22-199-0" name="Precipitation sensor revision factor Rain" dec="降水传感器订正因子Rain" expression="{22}" datatype="double" default="999999">V02440</colunm>
+	<colunm fxy="3-22-199-0" name="Air temperature" dec="气压" expression="{{23}*0.01}" datatype="double" default="999999">V10004</colunm>
+	<colunm fxy="3-22-199-0" name="Relative humidity" dec="相对湿度" expression="{24}" datatype="double" default="999999">V13003</colunm>
+	<colunm fxy="3-22-199-0" name="Air temperature" dec="空气温度" expression="{{25}-273.15}" datatype="double" default="999999">V12001</colunm>
+	<colunm fxy="3-22-199-0" name="wind direction" dec="风向" expression="{26}" datatype="double" default="999999">V11001</colunm>
+	<colunm fxy="3-22-199-0" name="wind speed" dec="风速" expression="{27}" datatype="double" default="999999">V11002</colunm>
+	<colunm fxy="3-22-199-0" name="Precipitation" dec="降水" expression="{28}" datatype="double" default="999999">V13011</colunm>
+	<!--  </group> -->
+</root>

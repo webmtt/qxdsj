@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	
+	<!-- fxy:前三个值bufr文件数据段识别码,第4个值为整个数据段中第几次出现的识别码 -->
+	<!-- name:对应的字段名称 -->
+	<!-- dec:字段说明 -->
+	<!-- datatype:字段类型 -->
+	<!-- defaultValue:如果从bufr文件中取出的数据为空设置默认值 -->
+	<!-- qc:true或false,此行是否为质控码 -->
+	<!-- expression:配置此行字段值的表达式
+			表达式说明:
+				${col:arg} -> 当前配置文件中对应的字段值，arg：配置文件中配置的字段
+				${dateFormat(arg1,arg2,arg3)} -> 日期格式化,arg1:日期字符串20170809001211，arg2:arg1的格式yyyyMMddHHmmss，arg3:转换后的日期格式(如：yyyy-MM-dd HH:mm:ss) 
+				${dateTime} -> 获取系统当前时间,默认格式为yyyyMMddHHmmss
+				${ascii:arg} -> arg代表的值转换为ascii码
+				${stationInfo(arg1,arg2,arg3)} -> 根据站号从stationinfo_conf.lua配置文件中取值，第一个参数arg1：字符站号；第二个参数arg2：站号对应的序列号
+				${seqDayFormat(arg1,arg2,arg3)} -> 序日的格式化，第一个参数arg1：4位年；第二个参数arg2：序日(1-3位数字)；第三个参数arg3：格式(遵循java中的日期格式化pattern)
+				#########################################################
+				${col:arg} ${seqDayFormat(arg1,arg2,arg3)} ${stationInfo(arg1,arg2)} ${dateFormat(arg1,arg2,arg3)} 这几个表达式后都可以根据需要添加.split('')[]和.substring()表达式
+				.split('')[]按单引号中的符号分隔前面表达式的值，中括号中是分隔后取第n-1个
+				.substring(snum,enum) 在紧前面的表达式的值中截取snum到enum字符串,包前不包后
+	 -->
+    <colunm fxy="D_RECORD_ID" name="id" dec="记录标识" datatype="string" expression="${col:V01301}_${col:V04307}_${col:V04308}_${col:V05001}_${col:V06001}_${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} 00:00:00,yyyy-MM-dd HH:mm:ss,yyyyMMddHHmmss)}">D_RECORD_ID</colunm>
+	<colunm fxy="D_DATA_ID" name="data_id" dec="资料标识" datatype="string" default="G.0009.0001.S001">D_DATA_ID</colunm>
+	<colunm fxy="D_IYMDHM" name="insert datetime" dec="入库时间" datatype="date" expression="${dateFormat(${dateTime},yyyyMMddHHmmss,yyyy-MM-dd HH:mm:ss)}">D_IYMDHM</colunm>
+	<colunm fxy="D_RYMDHM" name="recive_datetime" dec="收到时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_RYMDHM</colunm>
+	
+	<colunm fxy="D_UPDATE_TIME" name="update datetime" dec="更新时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_UPDATE_TIME</colunm>
+	
+	<colunm fxy="D_DATETIME" name="data datetime" dec="资料时间" datatype="date" expression="${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} 00:00:00,yyyy-MM-dd HH:mm:ss,yyyy-MM-dd HH:mm:ss)}">D_DATETIME</colunm>
+	<colunm fxy="1-5-2-0" name="Rain start time" dec="降水开始时间" datatype="string" expression="{0_0-4-3},{0_0-4-4},{0_0-4-5}">V04307</colunm>
+	<colunm fxy="1-5-2-0" name="Rain end time" dec="降水结束时间" datatype="string" expression="{1_0-4-3},{1_0-4-4},{1_0-4-5}">V04308</colunm>
+	<colunm fxy="V_BBB" name="V_BBB" dec="更正标识" datatype="string" default="000">V_BBB</colunm>
+	<colunm fxy="V01300" name="stationId_N" dec="区站号(数字)" datatype="string" expression="${ascii:${col:V01301}}">V01300</colunm>
+	<colunm fxy="0-1-2-0" name="WMO_block_number" dec="区站号" datatype="string">V01301</colunm>
+	<colunm fxy="0-4-1-0" name="year" dec="资料年" datatype="int" >V04001</colunm>
+	<colunm fxy="0-4-2-0" name="Month" dec="资料月" datatype="int" >V04002</colunm>
+	<colunm fxy="0-4-3-0" name="Day" dec="资料日" datatype="int" >V04003</colunm>
+	<colunm fxy="0-4-4-0" name="Hour" dec="资料时" datatype="int" default="0">V04004</colunm>
+	<colunm fxy="0-5-1-0" name="Latitude" dec="纬度" datatype="double" >V05001</colunm>
+	<colunm fxy="0-6-1-0" name="Longitude" dec="经度" datatype="double" >V06001</colunm>
+	<colunm fxy="0-7-30-0" name="Height_of_station_ground_above_mean_sea_level" dec="测站高度" datatype="double" >V07001</colunm>
+	
+	<!--  降水开始、结束时间、降水量、降水天气现象-->
+	<colunm fxy="1-38-0-0" name="Precipitation" dec="酸雨观测降水量" datatype="double" expression="{0_0-13-11}" default="999998">V13011</colunm>   
+	<colunm fxy="1-1-0-0" name="Weather phenomenon 1" dec="降水期间天气现象1" datatype="int" expression="{0_0-20-192}" default="999998">V20003_01</colunm>
+    <colunm fxy="1-1-0-0" name="Weather phenomenon 2" dec="降水期间天气现象2" datatype="int" expression="{1_0-20-192}" default="999998">V20003_02</colunm>
+	<colunm fxy="1-1-0-0" name="Weather phenomenon 3" dec="降水期间天气现象3" datatype="int" expression="{2_0-20-192}" default="999998">V20003_03</colunm>
+	<colunm fxy="1-1-0-0" name="Weather phenomenon 4" dec="降水期间天气现象4" datatype="int" expression="{3_0-20-192}" default="999998">V20003_04</colunm>
+	<colunm fxy="1-2-4-0" name="14h Wind direction" dec="14时风向" datatype="double" expression="{0_0-11-1}" default="999998">V11001_14</colunm>
+	<colunm fxy="1-2-4-0" name="14h Wind speed" dec="14时风速" datatype="double" expression="{0_0-11-2}" default="999998">V11002_14</colunm>
+	<colunm fxy="1-2-4-0" name="20h Wind direction" dec="20时风向" datatype="double" expression="{1_0-11-1}" default="999998">V11001_20</colunm>
+	<colunm fxy="1-2-4-0" name="20h Wind speed" dec="20时风速" datatype="double" expression="{1_0-11-2}" default="999998">V11002_20</colunm>
+	<colunm fxy="1-2-4-0" name="02h Wind direction" dec="02时风向" datatype="double" expression="{2_0-11-1}" default="999998">V11001_02</colunm>
+	<colunm fxy="1-2-4-0" name="02h Wind speed" dec="02时风速" datatype="double" expression="{2_0-11-2}" default="999998">V11002_02</colunm>
+	<colunm fxy="1-2-4-0" name="08h Wind direction" dec="08时风向" datatype="double" expression="{3_0-11-1}" default="999998">V11001_08</colunm>
+	<colunm fxy="1-2-4-0" name="08h Wind speed" dec="08时风速" datatype="double" expression="{3_0-11-2}" default="999998">V11002_08</colunm>
+	
+	<colunm fxy="1-18-0-0" name="Initial Sample temperature" dec="初测时样品温度" datatype="double" expression="{0_0-12-1}" default="999998">V12501_01</colunm>     
+    <!--  <colunm fxy="1-16-0-0" name="Initial Sample temperature_QC" dec="初测时样品温度质量标志" datatype="int" expression="{1}" qc="true" default="9" >QV12501_01</colunm>	-->
+	<colunm fxy="1-1-3-0" name="Initial PH value 1" dec="初测pH值第1次读数" datatype="double" expression="{0_0-13-80}" default="999998">V15532_01_1</colunm> 
+	<colunm fxy="1-1-3-0" name="Initial PH value 2" dec="初测pH值第2次读数" datatype="double" expression="{1_0-13-80}" default="999998">V15532_01_2</colunm> 
+	<colunm fxy="1-1-3-0" name="Initial PH value 3" dec="初测pH值第3次读数" datatype="double" expression="{2_0-13-80}" default="999998">V15532_01_3</colunm> 
+	<colunm fxy="1-18-0-0" name="Initial Average PH value" dec="初测平均pH值" datatype="double" expression="{0_0-13-80}" default="999998">V15532_01_701</colunm> 
+	<colunm fxy="1-1-3-1" name="Initial K value 1" dec="初测K值第1次读数" datatype="double" expression="{0_0-13-81}" default="999998">V13371_01_1</colunm> 
+	<colunm fxy="1-1-3-1" name="Initial K value 2" dec="初测K值第2次读数" datatype="double" expression="{1_0-13-81}" default="999998">V13371_01_2</colunm> 
+	<colunm fxy="1-1-3-1" name="Initial K value 3" dec="初测K值第3次读数" datatype="double" expression="{2_0-13-81}" default="999998">V13371_01_3</colunm> 
+	<colunm fxy="1-18-0-0" name="Initial Average K value" dec="初测平均K值" datatype="double" expression="{0_0-13-81}" default="999998">V13371_01_701</colunm> 
+	
+	<colunm fxy="1-18-0-0" name="Retest Sample temperature" dec="复测时样品温度" datatype="double" expression="{1_0-12-1}" default="999998">V12501_02</colunm>      
+	<colunm fxy="1-1-3-2" name="Retest PH value 1" dec="复测pH值第1次读数" datatype="double" expression="{0_0-13-80}" default="999998">V15532_02_1</colunm> 
+	<colunm fxy="1-1-3-2" name="Retest PH value 2" dec="复测pH值第2次读数" datatype="double" expression="{1_0-13-80}" default="999998">V15532_02_2</colunm> 
+	<colunm fxy="1-1-3-2" name="Retest PH value 3" dec="复测pH值第3次读数" datatype="double" expression="{2_0-13-80}" default="999998">V15532_02_3</colunm> 
+	<colunm fxy="1-18-0-0" name="Retest Average PH value" dec="复测平均pH值" datatype="double" expression="{1_0-13-80}" default="999998">V15532_02_701</colunm> 
+	<colunm fxy="1-1-3-3" name="Retest K value 1" dec="复测K值第1次读数" datatype="double" expression="{0_0-13-81}" default="999998">V13371_02_1</colunm> 
+	<colunm fxy="1-1-3-3" name="Retest K value 2" dec="复测K值第2次读数" datatype="double" expression="{1_0-13-81}" default="999998">V13371_02_2</colunm> 
+	<colunm fxy="1-1-3-3" name="Retest K value 3" dec="复测K值第3次读数" datatype="double" expression="{2_0-13-81}" default="999998">V13371_02_3</colunm> 
+	<colunm fxy="1-18-0-0" name="Retest Average K value" dec="复测平均K值" datatype="double" expression="{1_0-13-81}" default="999998">V13371_02_701</colunm> 
+	
+    <colunm fxy="1-38-0-0" name="Retest Indicator Code" dec="复测指示码" datatype="int" expression="{0_0-2-203}" default="999998">V02452</colunm> 
+	<colunm fxy="1-38-0-0" name="K value measurement use temperature compensation Indicator Code" dec="K值测量是否使用温度补偿功能指示码" datatype="int" expression="{0_0-2-204}" default="999998">V02450</colunm> 
+	<colunm fxy="1-38-0-0" name="Acid rain sample delay Indicator Code" dec="酸雨样品延迟测量指示码" datatype="int" expression="{0_0-2-205}" default="999998">V02451</colunm> 
+	<colunm fxy="1-1-2-1" name="Abnormal condition of Acid rain sample" dec="降水样品异常状况" datatype="int" expression="{1_0-2-206}" default="999998">V13372</colunm> 
+	<colunm fxy="?" name="d_source_id" dec="资料四级编码" datatype="string" default="G.0003.0004.R001">D_SOURCE_ID</colunm>
+</root>

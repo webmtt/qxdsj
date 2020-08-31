@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.interdata.dao.InterfaceDataDao">
+    
+	<sql id="interfaceDataColumns">
+		a.DATA_CLASS_ID AS "dataClassId",
+		a.DATA_CLASS_NAME AS "dataClassName",
+		a.SERIAL_NO AS "serialNo",
+		a.DESCRIPTION AS "description",
+		a.SHORT_NAME AS "shortName",
+	</sql>
+    
+	<!--<select id="get" resultType="InterfaceData">
+		SELECT 
+			<include refid="interfaceDataColumns"/>
+		FROM sys_interface a
+		<include refid="interfaceDataJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="InterfaceData">
+		SELECT 
+			<include refid="interfaceDataColumns"/>
+		FROM sys_interface a
+		<if test="userId != 1 and userId != ''">
+		left join sys_datarole_interface u on u.interface_id = a.id
+		</if>
+		<where>
+			1=1
+			<if test="userId != 1 and userId != ''">
+				and u.user_id=#{userId}
+			</if>
+			and a.del_flag = #{DEL_FLAG_NORMAL}
+			<if test="name != null and name != ''">
+				AND a.name LIKE 
+					<if test="dbName == 'oracle'">'%'||#{name}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{name}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{name},'%')</if>
+			</if>
+			<if test="beginCreateDate != null and endCreateDate != null and beginCreateDate != '' and endCreateDate != ''">
+				AND a.create_date BETWEEN #{beginCreateDate} AND #{endCreateDate}
+			</if>
+			<if test="inerfaceId != null and inerfaceId != ''">
+				AND a.inerface_id LIKE 
+					<if test="dbName == 'oracle'">'%'||#{inerfaceId}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{inerfaceId}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{inerfaceId},'%')</if>
+			</if>
+			<if test="dataEncoding != null and dataEncoding != ''">
+				AND a.data_encoding LIKE 
+					<if test="dbName == 'oracle'">'%'||#{dataEncoding}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{dataEncoding}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{dataEncoding},'%')</if>
+			</if>
+			<if test="dataType != null and dataType != ''">
+				AND a.data_type LIKE
+				<if test="dbName == 'oracle'">'%'||#{dataType}||'%'</if>
+				<if test="dbName == 'mssql'">'%'+#{dataType}+'%'</if>
+				<if test="dbName == 'mysql'">concat('%',#{dataType},'%')</if>
+			</if>
+			and a.sort=2
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.create_date ASC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="InterfaceData">
+		SELECT
+		<include refid="interfaceDataColumns"/>
+		FROM sys_interface a
+		<where>
+		  	1=1
+			<if test="name != null and name != ''">
+				AND a.name LIKE
+				<if test="dbName == 'oracle'">'%'||#{name}||'%'</if>
+				<if test="dbName == 'mssql'">'%'+#{name}+'%'</if>
+				<if test="dbName == 'mysql'">concat('%',#{name},'%')</if>
+			</if>
+			<if test="beginCreateDate != null and endCreateDate != null and beginCreateDate != '' and endCreateDate != ''">
+				AND a.create_date BETWEEN #{beginCreateDate} AND #{endCreateDate}
+			</if>
+			<if test="inerfaceId != null and inerfaceId != ''">
+				AND a.inerface_id LIKE
+				<if test="dbName == 'oracle'">'%'||#{inerfaceId}||'%'</if>
+				<if test="dbName == 'mssql'">'%'+#{inerfaceId}+'%'</if>
+				<if test="dbName == 'mysql'">concat('%',#{inerfaceId},'%')</if>
+			</if>
+			<if test="dataEncoding != null and dataEncoding != ''">
+				AND a.data_encoding LIKE
+				<if test="dbName == 'oracle'">'%'||#{dataEncoding}||'%'</if>
+				<if test="dbName == 'mssql'">'%'+#{dataEncoding}+'%'</if>
+				<if test="dbName == 'mysql'">concat('%',#{dataEncoding},'%')</if>
+			</if>
+			<if test="dataType != null and dataType != ''">
+				AND a.data_type LIKE
+				<if test="dbName == 'oracle'">'%'||#{dataType}||'%'</if>
+				<if test="dbName == 'mssql'">'%'+#{dataType}+'%'</if>
+				<if test="dbName == 'mysql'">concat('%',#{dataType},'%')</if>
+			</if>
+			and a.sort=2
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.create_date ASC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO sys_interface(
+			id,
+			parent_id,
+			parent_ids,
+			name,
+			sort,
+			is_show,
+			permission,
+			create_by,
+			create_date,
+			update_by,
+			update_date,
+			remarks,
+			del_flag,
+			inerface_id,
+			data_encoding
+		) VALUES (
+			#{id},
+			#{parent.id},
+			#{parentIds},
+			#{name},
+			#{sort},
+			#{isShow},
+			#{permission},
+			#{createBy.id},
+			#{createDate},
+			#{updateBy.id},
+			#{updateDate},
+			#{remarks},
+			#{delFlag},
+			#{inerfaceId},
+			#{dataEncoding}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sys_interface SET 	
+			parent_id = #{parent.id},
+			parent_ids = #{parentIds},
+			name = #{name},
+			sort = #{sort},
+			is_show = #{isShow},
+			permission = #{permission},
+			update_by = #{updateBy.id},
+			update_date = #{updateDate},
+			remarks = #{remarks},
+			inerface_id = #{inerfaceId},
+			data_encoding = #{dataEncoding}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE sys_interface SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>-->
+
+	<select id="getAllInter" resultType="InterfaceData">
+		select * from api_data_class_define ORDER BY CONVERT(DATA_CLASS_NAME USING gbk) COLLATE gbk_chinese_ci ASC;
+	</select>
+
+	<select id="getInterface" parameterType="java.lang.String" resultType="InterfaceDefine">
+		select * from api_data_define where DATA_CLASS_ID=#{id} order by length(DATA_NAME) ASC
+	</select>
+
+	<select id="projectcdinter" parameterType="java.lang.String" resultType="java.util.Map">
+		select * from api_customapi_data_define where DATA_CODE=#{id}
+	</select>
+
+    <select id="projectcdinterall" parameterType="java.lang.String" resultType="java.util.Map">
+		select * from api_customapi_data_define
+	</select>
+
+	<select id="projectcdinterName" parameterType="java.lang.String" resultType="java.lang.String">
+		select CUSTOM_API_NAME from api_customapi_define where CUSTOM_API_ID=#{custom_api_id}
+	</select>
+
+	<select id="interElement" parameterType="java.lang.String" resultType="java.util.Map">
+		select * from api_customapi_param where CUSTOM_API_ID=#{id}
+	</select>
+
+	<select id="interElementName" parameterType="java.lang.String" resultType="java.util.Map">
+		select * from api_param_define where PARAM_ID=#{id}
+	</select>
+
+	<select id="getFcstLevel" resultType="java.util.Map">
+		select * from sys_data_dictionary where `type`="fcstLevel"
+	</select>
+
+	<select id="getNetCodes" resultType="java.util.Map">
+		select * from sys_data_dictionary where `type`="netCodes"
+	</select>
+
+	<select id="getSoilDepths" resultType="java.util.Map">
+		select * from sys_data_dictionary where `type`="soilDepths"
+	</select>
+
+	<select id="getAdminCodes" resultType="java.util.Map">
+		select * from sys_area where citycode in("0470","0471","0472","0473","0474","0475","0476","0477","0478","0479") ORDER BY citycode ASC
+	</select>
+
+	<select id="getFcstEle" parameterType="java.lang.String" resultType="java.util.Map">
+		select * from api_fcst_data_ele where DATA_CODE=#{id}
+	</select>
+
+	<select id="getElements" parameterType="java.lang.String" resultType="java.util.Map">
+		select * from v_api_data_ele
+		where db_ele_code in (select t.db_ele_code from dmin_data_table_field t
+		where t.db_table_name = (select d.db_table_name from dmin_data_id_table d where
+		 d.d_data_id=#{id}))
+	</select>
+
+	<select id="getInterElement" parameterType="java.util.List" resultType="java.util.Map">
+		select * from api_param_define d where d.PARAM_ID in(
+		SELECT a.PARAM_ID FROM `api_customapi_param` a where a.CUSTOM_API_ID in
+		<foreach collection="inters" item="product" index="indexp"
+				 open="(" close=")" separator=",">
+			#{product}
+		</foreach>
+		GROUP BY a.PARAM_ID)
+	</select>
+
+	<insert id="addInterValue" parameterType="com.thinkgem.jeesite.modules.interdata.entity.InterDeploy">
+		insert into sys_deploy(id,DATACLASSID,OTHERID,`DATA`,APILIST,DATAROLEID,times) values (#{id},#{dataClassId},#{otherID},#{data},#{apiList},#{dataRoleId},#{times})
+	</insert>
+
+	<update id="updateInterValue" parameterType="com.thinkgem.jeesite.modules.interdata.entity.InterDeploy">
+		update sys_deploy set DATACLASSID=#{dataClassId},OTHERID=#{otherID},`DATA`=#{data},APILIST=#{apiList},DATAROLEID=#{dataRoleId},times=#{times} where id=#{id}
+	</update>
+
+	<select id="getAllInterValue" resultType="com.thinkgem.jeesite.modules.interdata.entity.InterDeploy">
+		select * from sys_deploy
+	</select>
+</mapper>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.mybatis.modules.sys.dao.DeskLogDao">
+    
+	<select id="findList" resultType="DeskLog">
+		SELECT 
+			a.*,
+			a.create_by AS "createBy.name"
+		FROM sys_desk_log a
+		WHERE a.create_date BETWEEN #{beginDate} AND #{endDate}
+		<if test="title != null and title != ''">
+			AND a.title LIKE 
+					<if test="dbName == 'oracle'">'%'||#{title}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{title}+'%'</if>
+					<if test="dbName == 'mysql'">CONCAT('%', #{title}, '%')</if>
+		</if>
+		<if test="createBy != null and createBy.id != null and createBy.id != ''">
+			AND a.create_by LIKE
+					<if test="dbName == 'oracle'">'%'|| #{createBy.id}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+ #{createBy.id}+'%'</if>
+					<if test="dbName == 'mysql'">CONCAT('%',  #{createBy.id}, '%')</if>
+		</if>
+		<if test="requestUri != null and requestUri != ''">
+			AND a.request_uri LIKE 
+					<if test="dbName == 'oracle'">'%'||#{requestUri}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{requestUri}+'%'</if>
+					<if test="dbName == 'mysql'">CONCAT('%', #{requestUri}, '%')</if>
+		</if>
+		<if test="exception != null and exception != ''">
+			AND a.type = #{TYPE_EXCEPTION}
+		</if>
+		ORDER BY a.create_date DESC
+	</select>
+	
+</mapper>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<path_NAS_file>/CMADAAS/DATA/NAFP/</path_NAS_file>	
+	<log_file_path>log/</log_file_path>
+	<rest_di>1</rest_di> <!-- 是否发送restful的di，1为发送，其它为不发送 -->
+	<rest_ei>1</rest_ei> <!-- 是否发送restful的ei，1为发送，其它为不发送 -->
+	<dataBaseType>0</dataBaseType> <!-- 数据库类型 =1阿里云DRDS数据库， =0万里开源数据库 -->
+	<SEND>FIDB</SEND> <!-- DI发送：资料去向，目标数据库的业务标识名称 -->
+	<SEND_PHYS>FIDB_XUGU</SEND_PHYS> <!-- DI发送： 物理数据库名称-->
+	<SEND2>RADB</SEND2> <!-- DI发送：资料去向，实时数据库的业务标识名称 -->
+	<SEND_PHYS2>RADB_Cassandra</SEND_PHYS2> <!-- DI发送： 实时数据物理库名称-->
+	<DATA_FLOW>BDMAIN</DATA_FLOW> <!-- DI发送： BDMAIN:大数据平台主流程； BDBAK ：大数据平台备份流程； -->
+	<targetURL>http://127.0.0.1:29999/transfer</targetURL> <!-- DI批量发送接口 -->
+	<targetURL_single>http://127.0.0.1:29999/transfer</targetURL_single> <!-- DI单条发送接口 -->
+	<data>		
+		<data_id>F.0003.0001.R001</data_id>
+		<description>T639</description>	
+		<data_dir>T639/HIGH</data_dir>
+		<precision>HIGH</precision>
+		<grib_version>2</grib_version>
+		<!-- 多场文件的组织方式-->
+		<!--common表示一般的GRIB...7777...GRIB...7777组织方式 -->
+		<!--other表示循环嵌套的组织方式  -->
+		<field_organize>common</field_organize>
+		<!-- 云岗备份的模式表 -->
+		<!-- 时间字段在原始文件名的第几段，如：Z_NAFP_C_BABJ_20180725060000_P_CNPC-T639-GMFS-HNEHE-02100.grib2-->
+		<time_index_of_filename>5</time_index_of_filename>
+		<index_type>0</index_type> <!-- 索引解析类型，0为走拆分入库，1为解析文件名+入Cassandra(智能网格GRIB、nc产品)，2为解析文件名(jpg文件等) -->
+		<isEnsemble>false</isEnsemble><!--是否为集合预报，true为集合预报；false不是集合预报-->
+	</data>
+	<data>		
+		<data_id>F.0004.0001.R001</data_id>
+		<description>T639</description>	
+		<data_dir>T639/LOW</data_dir>
+		<precision>LOW</precision>
+		<grib_version>1</grib_version>
+		<field_organize>common</field_organize>
+		<time_index_of_filename>5</time_index_of_filename>
+		<index_type>0</index_type> <!-- 索引解析类型，0为走拆分入库，1为解析文件名+入Cassandra(智能网格GRIB、nc产品)，2为解析文件名(jpg文件等) -->
+		<isEnsemble>false</isEnsemble><!--是否为集合预报，true为集合预报；false不是集合预报-->
+	</data>
+	<data>		
+		<data_id>F.0006.0001.R001</data_id>
+		<description>GRAPESGFS</description>
+		<data_dir>GRAPESGFS</data_dir>	
+		<precision>HIGH</precision>	
+		<grib_version>2</grib_version>
+		<field_organize>common</field_organize>
+		<time_index_of_filename>5</time_index_of_filename>
+		<index_type>0</index_type> <!-- 索引解析类型，0为走拆分入库，1为解析文件名+入Cassandra(智能网格GRIB、nc产品)，2为解析文件名(jpg文件等) -->
+		<isEnsemble>false</isEnsemble><!--是否为集合预报，true为集合预报；false不是集合预报-->
+	</data>
+	<data>		
+		<data_id>F.0009.0001.R001</data_id>
+		<description>GRAPES</description>	
+		<data_dir>GRAPESMESO</data_dir>
+		<precision>LOW</precision>
+		<grib_version>2</grib_version>
+		<field_organize>common</field_organize>
+		<time_index_of_filename>5</time_index_of_filename>
+		<index_type>0</index_type> <!-- 索引解析类型，0为走拆分入库，1为解析文件名+入Cassandra(智能网格GRIB、nc产品)，2为解析文件名(jpg文件等) -->
+		<isEnsemble>false</isEnsemble><!--是否为集合预报，true为集合预报；false不是集合预报-->
+	</data>
+	<data>		
+		<data_id>F.0010.0001.R001</data_id>
+		<description>ECMF</description>	
+		<data_dir>ECMF</data_dir>
+		<precision>LOW</precision>	
+		<grib_version>12</grib_version>
+		<field_organize>common</field_organize>
+		<time_index_of_filename>5</time_index_of_filename>
+		<index_type>0</index_type> <!-- 索引解析类型，0为走拆分入库，1为解析文件名+入Cassandra(智能网格GRIB、nc产品)，2为解析文件名(jpg文件等) -->
+		<isEnsemble>false</isEnsemble><!--是否为集合预报，true为集合预报；false不是集合预报-->
+	</data>
+	<data>		
+		<data_id>F.0010.0002.R001</data_id>
+		<description>ECMF</description>	
+		<data_dir>ECMF</data_dir>
+		<precision>HIGH</precision>	
+		<grib_version>12</grib_version>	
+		<field_organize>common</field_organize>
+		<time_index_of_filename>5</time_index_of_filename>
+		<index_type>0</index_type> <!-- 索引解析类型，0为走拆分入库，1为解析文件名+入Cassandra(智能网格GRIB、nc产品)，2为解析文件名(jpg文件等) -->
+		<isEnsemble>false</isEnsemble><!--是否为集合预报，true为集合预报；false不是集合预报-->
+	</data>
+	<data>		
+		<data_id>F.0010.0003.R001</data_id>
+		<description>ECMF</description>	
+		<data_dir>ECMF</data_dir>
+		<precision>HIGH</precision>	
+		<grib_version>12</grib_version>	
+		<field_organize>common</field_organize>
+		<time_index_of_filename>5</time_index_of_filename>
+		<index_type>0</index_type> <!-- 索引解析类型，0为走拆分入库，1为解析文件名+入Cassandra(智能网格GRIB、nc产品)，2为解析文件名(jpg文件等) -->
+		<isEnsemble>false</isEnsemble><!--是否为集合预报，true为集合预报；false不是集合预报-->
+	</data>
+	<data>		
+		<data_id>F.0010.0004.R001</data_id>
+		<description>ECMFENS</description>	
+		<data_dir>ECMF</data_dir>
+		<precision>HIGH</precision>	
+		<grib_version>12</grib_version>	
+		<field_organize>common</field_organize>
+		<time_index_of_filename>5</time_index_of_filename>
+		<index_type>0</index_type> <!-- 索引解析类型，0为走拆分入库，1为解析文件名+入Cassandra(智能网格GRIB、nc产品)，2为解析文件名(jpg文件等) -->
+		<isEnsemble>true</isEnsemble><!--是否为集合预报，true为集合预报；false不是集合预报-->
+	</data>
+	<data>		
+		<data_id>F.0011.0001.R001</data_id>
+		<description>RJTD</description>	
+		<data_dir>RJTD</data_dir>
+		<precision>LOW</precision>	
+		<grib_version>1</grib_version>
+		<field_organize>common</field_organize>
+		<time_index_of_filename>5</time_index_of_filename>
+		<index_type>0</index_type> <!-- 索引解析类型，0为走拆分入库，1为解析文件名+入Cassandra(智能网格GRIB、nc产品)，2为解析文件名(jpg文件等) -->
+		<isEnsemble>false</isEnsemble><!--是否为集合预报，true为集合预报；false不是集合预报-->
+	</data>
+	<data>		
+		<data_id>F.0011.0002.R001</data_id>
+		<description>RJTD</description>	
+		<data_dir>RJTD</data_dir>
+		<precision>HIGH</precision>	
+		<grib_version>2</grib_version>
+		<field_organize>other</field_organize>
+		<time_index_of_filename>5</time_index_of_filename>
+		<index_type>0</index_type> <!-- 索引解析类型，0为走拆分入库，1为解析文件名+入Cassandra(智能网格GRIB、nc产品)，2为解析文件名(jpg文件等) -->
+		<isEnsemble>false</isEnsemble><!--是否为集合预报，true为集合预报；false不是集合预报-->
+	</data>
+	<data>		
+		<data_id>F.0012.0001.R001</data_id>
+		<description>KWBC</description>	
+		<data_dir>KWBC</data_dir>	
+		<precision>LOW</precision>
+		<grib_version>1</grib_version>
+		<field_organize>common</field_organize>
+		<time_index_of_filename>5</time_index_of_filename>
+		<index_type>0</index_type> <!-- 索引解析类型，0为走拆分入库，1为解析文件名+入Cassandra(智能网格GRIB、nc产品)，2为解析文件名(jpg文件等) -->
+		<isEnsemble>false</isEnsemble><!--是否为集合预报，true为集合预报；false不是集合预报-->
+	</data>
+	<data>		
+		<data_id>F.0013.0001.R001</data_id>
+		<description>EDZW</description>
+		<data_dir>EDZW</data_dir>
+		<precision>HIGH</precision>	
+		<grib_version>2</grib_version>	
+		<field_organize>common</field_organize>
+		<time_index_of_filename>5</time_index_of_filename>
+		<index_type>0</index_type> <!-- 索引解析类型，0为走拆分入库，1为解析文件名+入Cassandra(智能网格GRIB、nc产品)，2为解析文件名(jpg文件等) -->
+		<isEnsemble>false</isEnsemble><!--是否为集合预报，true为集合预报；false不是集合预报-->
+	</data>
+	<data>		
+		<data_id>F.0041.0001.R001</data_id>
+		<description>T799</description>	
+		<data_dir>T799</data_dir>	
+		<precision>HIGH</precision>
+		<grib_version>1</grib_version>
+		<field_organize>common</field_organize>
+		<time_index_of_filename>2</time_index_of_filename>	
+		<index_type>0</index_type> <!-- 索引解析类型，0为走拆分入库，1为解析文件名+入Cassandra(智能网格GRIB、nc产品)，2为解析文件名(jpg文件等) -->
+		<isEnsemble>false</isEnsemble><!--是否为集合预报，true为集合预报；false不是集合预报-->
+	</data>	
+	<data>		
+		<data_id>F.0044.0001.R001</data_id>
+		<description>SCMOC</description>
+		<data_dir>NWFD/SCMOC</data_dir>			
+		<precision>HIGH</precision>
+		<grib_version>2</grib_version>
+		<field_organize>common</field_organize>
+		<time_index_of_filename>10</time_index_of_filename>			
+		<isEnsemble>false</isEnsemble><!--是否为集合预报，true为集合预报；false不是集合预报-->
+		<index_type>1</index_type> <!-- 索引解析类型，0为走拆分入库，1为解析文件名+入Cassandra(智能网格GRIB、nc产品)，2为解析文件名(jpg文件等) -->
+		<filename_match>Z_NWGD_C_[cccc]_[maketime]_P_[area]_[prodSort]_[prodContent]_[datetime]_[3-v04320,2-internal].GRB2</filename_match> <!-- Z_NWGD_C_BABJ_20190219043416_P_RFFC_SCMOC-FOG_201902190800_07203.GRB2 -->
+	</data>	
+	<data>		
+		<data_id>F.0035.0001.R001</data_id>
+		<description>CLDAS</description>
+		<data_dir>NWFD/CLDAS/NC</data_dir>			
+		<precision>HIGH</precision>
+		<grib_version>0</grib_version>
+		<field_organize>nc</field_organize>
+		<time_index_of_filename>13</time_index_of_filename>	
+		<isEnsemble>false</isEnsemble><!--是否为集合预报，true为集合预报；false不是集合预报-->
+		<index_type>1</index_type> <!-- 索引解析类型，0为走拆分入库，1为解析文件名+入Cassandra(智能网格GRIB、nc产品)，2为解析文件名(jpg文件等) -->
+		<filename_match>Z_NAFP_C_[cccc]_[maketime]_P_[prodSort]_[retain2]_[area]_[density]_[v04320]_[prodContent]_[datetime].nc</filename_match><!-- Z_NAFP_C_BABJ_20190219062025_P_CLDAS_RT_ASI_0P0625_HOR-PRS-2019021906.nc -->
+	</data>	
+	<data>		
+		<data_id>F.0035.0003.R001</data_id>
+		<description>CLDAS</description>	
+		<data_dir>NWFD/CLDAS</data_dir>		
+		<precision>0P05</precision>
+		<grib_version>2</grib_version>
+		<field_organize>common</field_organize>
+		<yungang_back_table>NAFP_PRODUCT_FILE_TAB</yungang_back_table>	
+		<time_index_of_filename>13</time_index_of_filename>			
+		<isEnsemble>false</isEnsemble><!--是否为集合预报，true为集合预报；false不是集合预报-->
+		<index_type>3</index_type> <!-- 索引解析类型，0为走拆分入库，1为解析文件名+入Cassandra(智能网格GRIB、nc产品)，2为解析文件名(jpg文件等)，3为只入Cassandra -->
+		<filename_match>Z_NAFP_C_[cccc]_[maketime]_P_[prodSort]_[retain2]_[area]_[density]_[v04320]_[prodContent]_[datetime].GRB2</filename_match> <!-- Z_NAFP_C_BABJ_20190219140933_P_CLDAS_RT_CHN_0P05_HOR-WIN-2019021914.GRB2 -->
+	</data>	
+	<data>		
+		<data_id>F.0035.0004.R001</data_id>
+		<description>CLDAS</description>	
+		<data_dir>NWFD/CLDAS</data_dir>		
+		<precision>0P05</precision>
+		<grib_version>2</grib_version>
+		<field_organize>common</field_organize>
+		<yungang_back_table>NAFP_PRODUCT_FILE_TAB</yungang_back_table>	
+		<time_index_of_filename>13</time_index_of_filename>			
+		<isEnsemble>false</isEnsemble><!--是否为集合预报，true为集合预报；false不是集合预报-->
+		<index_type>3</index_type> <!-- 索引解析类型，0为走拆分入库，1为解析文件名+入Cassandra(智能网格GRIB、nc产品)，2为解析文件名(jpg文件等)，3为只入Cassandra -->
+		<filename_match>Z_NAFP_C_[cccc]_[maketime]_P_[prodSort]_[retain2]_[area]_[density]_[v04320]_[prodContent]_[datetime].GRB2</filename_match> <!-- Z_NAFP_C_BABJ_20190219140933_P_CLDAS_RT_CHN_0P05_HOR-WIN-2019021914.GRB2 -->
+	</data>		
+</root>

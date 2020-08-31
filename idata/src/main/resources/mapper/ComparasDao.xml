@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nmpiesat.idata.compara.dao.ComparasDao">
+    <resultMap id="BaseResultMap" type="com.nmpiesat.idata.data.entity.Comparas">
+        <id column="keyID" jdbcType="VARCHAR" property="keyID" />
+        <result column="description" jdbcType="VARCHAR" property="description" />
+        <result column="type" jdbcType="VARCHAR" property="type" />
+        <result column="boolEanValue" jdbcType="VARCHAR" property="boolEanValue" />
+        <result column="intValue" jdbcType="VARCHAR" property="intValue" />
+        <result column="stringValue" jdbcType="VARCHAR" property="stringValue" />
+        <result column="invalid" jdbcType="VARCHAR" property="invalid" />
+    </resultMap>
+    <sql id="Base_Column_List">
+         keyID,description, type, boolEanValue, intValue,stringValue
+    </sql>
+    <select id="getComparasByKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from DMD_ComParas
+        where keyid=#{key} and invalid=0
+    </select>
+
+
+</mapper>

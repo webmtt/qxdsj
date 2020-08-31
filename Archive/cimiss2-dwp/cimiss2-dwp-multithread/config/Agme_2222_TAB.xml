@@ -1,0 +1,1000 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root IsCheck="true" length="10">
+	<CROP01 attribute="/AgrMetObservationData/CropElement/CROP01">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71001}{V71002}">D_RECORD_ID</element>
+		<element dataType="int" dec="资料观测年" content="report" index="D04300" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="资料观测月" content="report" index="D04300" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="资料观测日" content="report" index="D04300" Expression="[6:8]">V04003</element>
+        <element dataType="datetime" content="report" index="D04300" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="int" dec="作物名称" content="report" index="C71000" >V71001</element>
+		<element dataType="int" dec="发育期" content="report" index="C71001" >V71002</element>
+		<element dataType="int" dec="作物发育年" content="report" index="D04300" Expression="[0:4]">V04001_03</element>
+		<element dataType="int" dec="作物发育月" content="report" index="D04300" Expression="[4:6]">V04002_03</element>
+		<element dataType="int" dec="作物发育日" content="report" index="D04300" Expression="[6:8]">V04003_03</element>
+		<element dataType="double" dec="发育期距平" content="report" index="V71004" >V71005</element>
+		<element dataType="double" dec="发育期百分率" content="report" index="V71009">V71010</element>
+		<element dataType="int" dec="生长状况" content="report" index="C71006">V71007</element>
+		<element dataType="double" dec="植株高度" content="report" index="V71005" >V71006</element>
+		<element dataType="double" dec="植株密度" content="report" index="V71007">V71008</element>
+	</CROP01>
+	
+	<CROP02 attribute="/AgrMetObservationData/CropElement/CROP02">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71001}{V71002}">D_RECORD_ID</element>
+		<element dataType="int" dec="测定时间年" content="report" index="D04300" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="测定时间月" content="report" index="D04300" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="测定时间日" content="report" index="D04300" Expression="[6:8]">V04003</element>
+		<element dataType="datetime" content="report" index="D04300" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="int" dec="作物名称" content="report" index="C71000" >V71001</element>
+		<element dataType="int" dec="发育期" content="report" index="C71001" >V71002</element>
+		<element dataType="double" dec="生长率" content="report" index="V71013" >V71656</element>
+		<element dataType="double" dec="含水率" content="report" index="V71012">V71655</element>
+		<element dataType="double" dec="叶面积指数" content="report" index="V71010">V71604</element>
+	</CROP02>
+
+	<CROP03 attribute="/AgrMetObservationData/CropElement/CROP03">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71001}">D_RECORD_ID</element> 
+		<element dataType="int" dec="测定时间年" content="report" index="D04300" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="测定时间月" content="report" index="D04300" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="测定时间日" content="report" index="D04300" Expression="[6:8]">V04003</element>
+		<element dataType="datetime" content="report" index="D04300" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="int" dec="作物名称" content="report" index="C71000" >V71001</element>
+		<element dataType="double" dec="籽粒含水率" content="report" index="V71011">V71655</element>
+		<element dataType="double" dec="千粒重" content="report" index="V71014">V71089</element>
+		<element dataType="double" dec="灌浆速度" content="report" index="V71015">V71900</element>
+	</CROP03>
+	
+	<CROP04 attribute="/AgrMetObservationData/CropElement/CROP04">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71001}{V71002}{V71616_01}">D_RECORD_ID</element>
+		<element dataType="int" dec="测定时间年" content="report" index="D04300" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="测定时间月" content="report" index="D04300" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="测定时间日" content="report" index="D04300" Expression="[6:8]">V04003</element>
+		<element dataType="datetime" content="report" index="D04300" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="int" dec="作物名称" content="report" index="C71000" >V71001</element>
+		<element dataType="int" dec="发育期" content="report" index="C71001" >V71002</element>
+		<element dataType="int" dec="产量因素名称" content="report" index="C71016">V71616_01</element>
+		<element dataType="double" dec="产量因素测定值" content="report" index="V71016">V71632</element>
+	</CROP04>
+	<CROP05 attribute="/AgrMetObservationData/CropElement/CROP05">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71001}{V71002}{V71616_01}">D_RECORD_ID</element>
+		<element dataType="int" dec="测定时间年" content="report" index="D04300" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="测定时间月" content="report" index="D04300" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="测定时间日" content="report" index="D04300" Expression="[6:8]">V04003</element>
+		<element dataType="datetime" content="report" index="D04300" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="int" dec="作物名称" content="report" index="C71000" >V71001</element>
+		<element dataType="int" dec="发育期" content="report" index="C71001" >V71002</element>
+		<element dataType="int" dec="产量结构项目名称" content="report" index="C71017">V71616_01</element>
+		<element dataType="double" dec="产量结构测定值" content="report" index="V71017">V71632</element>
+	</CROP05>
+	<CROP06 attribute="/AgrMetObservationData/CropElement/CROP06">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71001}{V71616_02}">D_RECORD_ID</element>
+		<element dataType="int" dec="测定时间年" content="report" index="D04334" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="测定时间月" content="report" index="D04334" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="测定时间日" content="report" index="D04334" Expression="[6:8]">V04003</element>
+		<element dataType="datetime" content="report" index="D04334" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="int" dec="作物名称" content="report" index="C71000">V71001</element>
+		<element dataType="int" dec="起始时间" content="report" index="D04334">V04300_017</element>
+		<element dataType="int" dec="结束时间" content="report" index="D04335">V04300_018</element>
+		<element dataType="int" dec="农事活动名称" content="report" index="C71018">V71616_02</element>
+		<element dataType="int" dec="田间作业质量" content="report" index="C71019">V71901</element>
+		<element dataType="String" dec="农事活动方法和工具" content="report" index="C71020">V71902</element>
+	</CROP06>
+	
+	<CROP07 attribute="/AgrMetObservationData/CropElement/CROP07">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71001}">D_RECORD_ID</element>
+		<element dataType="datetime" content="report" index="V04001" format="yyyy">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="int" dec="年度" content="report" index="V04001">V04001</element>
+		<element dataType="int" dec="作物名称" content="report" index="C71000">V71001</element>
+		<element dataType="double" dec="测站单产" content="report" index="V71023">V71601</element>
+		<element dataType="double" dec="县单产" content="report" index="V71024">V71091</element>
+		<element dataType="double" dec="增产百分率" content="report" index="V71025">V71083</element>
+	</CROP07>
+	
+	<CROP08 attribute="/AgrMetObservationData/CropElement/CROP08">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71001}{V71002}{V71650}">D_RECORD_ID</element>
+		<element dataType="int" dec="测定时间年" content="report" index="D04300" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="测定时间月" content="report" index="D04300" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="测定时间日" content="report" index="D04300" Expression="[6:8]">V04003</element>
+		<element dataType="int" dec="测定时间时" content="undefined" value="0">V04004</element>
+		<element dataType="int" dec="测定时间分" content="undefined" value="0">V04005</element>
+		<element dataType="int" dec="测定时间秒" content="undefined" value="0">V04006</element>
+		<element dataType="datetime" content="report" index="D04300" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="int" dec="作物名称" content="report" index="C71000">V71001</element>
+		<element dataType="int" dec="发育期" content="report" index="C71001" >V71002</element>
+		<element dataType="int" dec="器官名称" content="report" index="C71026">V71650</element>
+		<element dataType="double" dec="株茎鲜重" content="report" index="V71027">V71651</element>
+		<element dataType="double" dec="株茎干重" content="report" index="V71028">V71652</element>
+		<element dataType="double" dec="平方米株茎鲜重" content="report" index="V71029">V71653</element>
+		<element dataType="double" dec="平方米株茎干重" content="report" index="V71030">V71654</element>
+		<element dataType="double" dec="含水率" content="report" index="V71012">V71655</element>
+		<element dataType="double" dec="生长率" content="report" index="V71013">V71656</element>
+	</CROP08>
+	
+	<CROP09 attribute="/AgrMetObservationData/CropElement/CROP09">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71001}{V71903}">D_RECORD_ID</element>
+		<element dataType="int" dec="测定时间年" content="report" index="D04332" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="测定时间月" content="report" index="D04332" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="测定时间日" content="report" index="D04332" Expression="[6:8]">V04003</element>
+		<element dataType="datetime" content="report" index="D04332" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="int" dec="作物名称" content="report" index="C71000">V71001</element>
+		<element dataType="int" dec="大田水平" content="report" index="C71021">V71903</element>
+		<element dataType="int" dec="播种时间" content="report" index="D04332">V04300_017</element>
+		<element dataType="int" dec="收获时间" content="report" index="D04333">V04300_018</element>
+		<element dataType="double" dec="调查大田单产" content="report" index="V71022">V71091</element>
+	</CROP09>
+	
+	<CROP10 attribute="/AgrMetObservationData/CropElement/CROP10">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71903}{V71001}{V71002}">D_RECORD_ID</element>
+		<element dataType="int" dec="测定时间年" content="report" index="D04300" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="测定时间月" content="report" index="D04300" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="测定时间日" content="report" index="D04300" Expression="[6:8]">V04003</element>
+		<element dataType="int" dec="测定时间时" content="undefined" value="0">V04004</element>
+		<element dataType="int" dec="测定时间分" content="undefined" value="0">V04005</element>
+		<element dataType="int" dec="测定时间秒" content="undefined" value="0">V04006</element>
+		<element dataType="datetime" content="report" index="D04332" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="int" dec="作物名称" content="report" index="C71000">V71001</element>
+		<element dataType="int" dec="发育期" content="report" index="C71001" >V71002</element>
+		<element dataType="int" dec="大田水平" content="report" index="C71021">V71903</element>
+		<element dataType="double" dec="植株高度" content="report" index="V71005">V71006</element>
+		<element dataType="double" dec="植株密度" content="report" index="V71007">V71008</element>
+		<element dataType="int" dec="生长状况" content="report" index="C71006">V71007</element>
+		<element dataType="int" dec="产量因素名称1" content="report" index="C71016_001">V71630_1</element>
+		<element dataType="double" dec="产量因素测量值1" content="report" index="V71016_001">V71632_1</element>
+		<element dataType="int" dec="产量因素名称2" content="report" index="C71016_002">V71630_2</element>
+		<element dataType="double" dec="产量因素测量值3" content="report" index="V71016_002">V71632_2</element>
+		<element dataType="int" dec="产量因素名称3" content="report" index="C71016_003">V71630_3</element>
+		<element dataType="double" dec="产量因素测量值3" content="report" index="V71016_003">V71632_3</element>
+		<element dataType="int" dec="产量因素名称4" content="undefined" value="999999">V71630_4</element>
+		<element dataType="double" dec="产量因素测量值4" content="undefined" value="999999">V71632_4</element>
+	</CROP10>
+
+	<SOIL01 attribute="/AgrMetObservationData/SoilElement/SOIL01">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71115}{V07061}">D_RECORD_ID</element>
+		<element dataType="int" dec="测定时间年" content="report" index="D04300" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="测定时间月" content="report" index="D04300" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="测定时间日" content="report" index="D04300" Expression="[6:8]">V04003</element>
+		<element dataType="datetime" content="report" index="D04300" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="int" dec="地段类型" content="report" index="C71100">V71115</element>
+		<element dataType="double" dec="土层深度" content="report" index="V71101">V07061</element>
+		<element dataType="double" dec="田间持水量" content="report" index="V71109">V71110</element>
+		<element dataType="double" dec="土壤容重" content="report" index="V71107">V71109</element>
+		<element dataType="double" dec="凋萎湿度" content="report" index="V71108">V71108</element>
+	</SOIL01>
+	<SOIL02  attribute="/AgrMetObservationData/SoilElement/SOIL02">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71115}{V71001}{V71002}">D_RECORD_ID</element> 
+		<element dataType="int" dec="测定时间年" content="report" index="D04300" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="测定时间月" content="report" index="D04300" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="测定时间日" content="report" index="D04300" Expression="[6:8]">V04003</element>
+		<element dataType="datetime" content="report" index="D04300" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="int" dec="地段类型" content="report" index="C71100">V71115</element>
+		<element dataType="int" dec="作物名称" content="report" index="C71000">V71001</element>
+		<element dataType="int" dec="发育期" content="report" index="C71001">V71002</element>
+		<element dataType="double" dec="干土层厚度" content="undefined" value="999999">V71101</element>
+		<element dataType="double" dec="灌溉或降水" content="undefined" value="999999">V71100</element>
+		<element dataType="double" dec="地下水位" content="undefined" value="999999">V71111</element>
+		<element dataType="double" dec="10cm土壤相对湿度" content="report" index="RelativeMoisture/V71110">V71102_010</element>
+		<element dataType="double" dec="20cm土壤相对湿度" content="report" index="RelativeMoisture/V71110">V71102_020</element>
+		<element dataType="double" dec="30cm土壤相对湿度" content="report" index="RelativeMoisture/V71110">V71102_030</element>
+		<element dataType="double" dec="40cm土壤相对湿度" content="report" index="RelativeMoisture/V71110">V71102_040</element>
+		<element dataType="double" dec="50cm土壤相对湿度" content="report" index="RelativeMoisture/V71110">V71102_050</element>
+		<element dataType="double" dec="60cm土壤相对湿度" content="report" index="RelativeMoisture/V71110">V71102_060</element>
+		<element dataType="double" dec="70cm土壤相对湿度" content="report" index="RelativeMoisture/V71110">V71102_070</element>
+		<element dataType="double" dec="80cm土壤相对湿度" content="report" index="RelativeMoisture/V71110">V71102_080</element>
+		<element dataType="double" dec="90cm土壤相对湿度" content="report" index="RelativeMoisture/V71110">V71102_090</element>
+		<element dataType="double" dec="100cm土壤相对湿度" content="report" index="RelativeMoisture/V71110">V71102_100</element>
+		<element dataType="double" dec="10cm土壤相对湿度质控码" content="undefined" value="9">Q71102_010</element>
+		<element dataType="double" dec="20cm土壤相对湿度质控码" content="undefined" value="9">Q71102_020</element>
+		<element dataType="double" dec="30cm土壤相对湿度质控码" content="undefined" value="9">Q71102_030</element>
+		<element dataType="double" dec="40cm土壤相对湿度质控码" content="undefined" value="9">Q71102_040</element>
+		<element dataType="double" dec="50cm土壤相对湿度质控码" content="undefined" value="9">Q71102_050</element>
+		<element dataType="double" dec="60cm土壤相对湿度质控码" content="undefined" value="9">Q71102_060</element>
+		<element dataType="double" dec="70cm土壤相对湿度质控码" content="undefined" value="9">Q71102_070</element>
+		<element dataType="double" dec="80cm土壤相对湿度质控码" content="undefined" value="9">Q71102_080</element>
+		<element dataType="double" dec="90cm土壤相对湿度质控码" content="undefined" value="9">Q71102_090</element>
+		<element dataType="double" dec="100cm土壤相对湿度质控码" content="undefined" value="9">Q71102_100</element>
+	
+	</SOIL02>
+	<SOIL03  attribute="/AgrMetObservationData/SoilElement/SOIL03">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71115}{V71001}{V71002}">D_RECORD_ID</element> 
+		<element dataType="int" dec="测定时间年" content="report" index="D04300" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="测定时间月" content="report" index="D04300" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="测定时间日" content="report" index="D04300" Expression="[6:8]">V04003</element>
+		<element dataType="datetime" content="report" index="D04300" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="int" dec="地段类型" content="report" index="C71100">V71115</element>
+		<element dataType="int" dec="作物名称" content="report" index="C71000">V71001</element>
+		<element dataType="int" dec="发育期" content="report" index="C71001">V71002</element>
+		<element dataType="double" dec="水分总储存量(分层)" content="report" index="TotalMoistureStorage/V71113">V71106_010</element>
+		<element dataType="double" dec="水分总储存量(分层)" content="report" index="TotalMoistureStorage/V71113">V71106_020</element>
+		<element dataType="double" dec="水分总储存量(分层)" content="report" index="TotalMoistureStorage/V71113">V71106_030</element>
+		<element dataType="double" dec="水分总储存量(分层)" content="report" index="TotalMoistureStorage/V71113">V71106_040</element>
+		<element dataType="double" dec="水分总储存量(分层)" content="report" index="TotalMoistureStorage/V71113">V71106_050</element>
+		<element dataType="double" dec="水分总储存量(分层)" content="report" index="TotalMoistureStorage/V71113">V71106_060</element>
+		<element dataType="double" dec="水分总储存量(分层)" content="report" index="TotalMoistureStorage/V71113">V71106_070</element>
+		<element dataType="double" dec="水分总储存量(分层)" content="report" index="TotalMoistureStorage/V71113">V71106_080</element>
+		<element dataType="double" dec="水分总储存量(分层)" content="report" index="TotalMoistureStorage/V71113">V71106_090</element>
+		<element dataType="double" dec="水分总储存量(分层)" content="report" index="TotalMoistureStorage/V71113">V71106_100</element>
+	</SOIL03>
+	<SOIL04  attribute="/AgrMetObservationData/SoilElement/SOIL04">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71115}{V71001}{V71002}">D_RECORD_ID</element> 
+		<element dataType="int" dec="测定时间年" content="report" index="D04300" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="测定时间月" content="report" index="D04300" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="测定时间日" content="report" index="D04300" Expression="[6:8]">V04003</element>
+		<element dataType="datetime" content="report" index="D04300" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="int" dec="地段类型" content="report" index="C71100">V71115</element>
+		<element dataType="int" dec="作物名称" content="report" index="C71000">V71001</element>
+		<element dataType="int" dec="发育期" content="report" index="C71001">V71002</element>
+		<element dataType="double" dec="有效水分储存量(分层)" content="report" index="AvailableMoistureStorage/V71114">V71107_010</element>
+		<element dataType="double" dec="有效水分储存量(分层)" content="report" index="AvailableMoistureStorage/V71114">V71107_020</element>
+		<element dataType="double" dec="有效水分储存量(分层)" content="report" index="AvailableMoistureStorage/V71114">V71107_030</element>
+		<element dataType="double" dec="有效水分储存量(分层)" content="report" index="AvailableMoistureStorage/V71114">V71107_040</element>
+		<element dataType="double" dec="有效水分储存量(分层)" content="report" index="AvailableMoistureStorage/V71114">V71107_050</element>
+		<element dataType="double" dec="有效水分储存量(分层)" content="report" index="AvailableMoistureStorage/V71114">V71107_060</element>
+		<element dataType="double" dec="有效水分储存量(分层)" content="report" index="AvailableMoistureStorage/V71114">V71107_070</element>
+		<element dataType="double" dec="有效水分储存量(分层)" content="report" index="AvailableMoistureStorage/V71114">V71107_080</element>
+		<element dataType="double" dec="有效水分储存量(分层)" content="report" index="AvailableMoistureStorage/V71114">V71107_090</element>
+		<element dataType="double" dec="有效水分储存量(分层)" content="report" index="AvailableMoistureStorage/V71114">V71107_100</element>
+	</SOIL04>
+	<SOIL05  attribute="/AgrMetObservationData/SoilElement/SOIL05">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71115}{V71001}{V07061}">D_RECORD_ID</element> 
+		<element dataType="int" dec="测定时间年" content="report" index="D04300" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="测定时间月" content="report" index="D04300" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="测定时间日" content="report" index="D04300" Expression="[6:8]">V04003</element>
+		<element dataType="int" dec="测定时间时" content="undefined" value="0">V04004</element>
+		<element dataType="datetime" content="report" index="D04300" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="int" dec="地段类型" content="report" index="C71100">V71115</element>
+		<element dataType="int" dec="作物名称" content="report" index="C71000">V71001</element>
+		<element dataType="int" dec="土层深度" content="report" index="V71101" Expression="*10">V07061</element>
+		<element dataType="int" dec="土层状态" content="report" index="C71102">V71200</element>
+	</SOIL05>
+	<SOIL06  attribute="/AgrMetObservationData/SoilElement/SOIL06">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71115}{V71001}{V71002}">D_RECORD_ID</element> 
+		<element dataType="int" dec="测定时间年" content="report" index="D04300" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="测定时间月" content="report" index="D04300" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="测定时间日" content="report" index="D04300" Expression="[6:8]">V04003</element>
+		<element dataType="int" dec="测定时间时" content="undefined" value="0">V04004</element>
+		<element dataType="datetime" content="report" index="D04300" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="int" dec="地段类型" content="report" index="C71100">V71115</element>
+		<element dataType="int" dec="作物名称" content="report" index="C71000">V71001</element>
+		<element dataType="int" dec="发育期" content="report" index="C71001">V71002</element>
+		<element dataType="double" dec="土壤重量含水率(分层)" content="report" index="MoistureContent/V71111">V71104_010</element>
+		<element dataType="double" dec="土壤重量含水率(分层)" content="report" index="MoistureContent/V71111">V71104_020</element>
+		<element dataType="double" dec="土壤重量含水率(分层)" content="report" index="MoistureContent/V71111">V71104_030</element>
+		<element dataType="double" dec="土壤重量含水率(分层)" content="report" index="MoistureContent/V71111">V71104_040</element>
+		<element dataType="double" dec="土壤重量含水率(分层)" content="report" index="MoistureContent/V71111">V71104_050</element>
+		<element dataType="double" dec="土壤重量含水率(分层)" content="report" index="MoistureContent/V71111">V71104_060</element>
+		<element dataType="double" dec="土壤重量含水率(分层)" content="report" index="MoistureContent/V71111">V71104_070</element>
+		<element dataType="double" dec="土壤重量含水率(分层)" content="report" index="MoistureContent/V71111">V71104_080</element>
+		<element dataType="double" dec="土壤重量含水率(分层)" content="report" index="MoistureContent/V71111">V71104_090</element>
+		<element dataType="double" dec="土壤重量含水率(分层)" content="report" index="MoistureContent/V71111">V71104_100</element>
+	</SOIL06>
+	<SOIL07  attribute="/AgrMetObservationData/SoilElement/SOIL07" >
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71115}{V71001}">D_RECORD_ID</element> 
+		<element dataType="int" dec="测定时间年" content="report" index="D04300" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="测定时间月" content="report" index="D04300" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="测定时间日" content="report" index="D04300" Expression="[6:8]">V04003</element>
+		<element dataType="int" dec="测定时间时" content="undefined" value="0">V04004</element>
+		<element dataType="datetime" content="report" index="D04300" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="int" dec="地段类型" content="report" index="C71100">V71115</element>
+		<element dataType="int" dec="作物名称" content="report" index="C71000">V71001</element>
+		<element dataType="double" dec="干土层厚度" content="report" index="V71103">V71101</element>
+		<element dataType="double" dec="地下水位深度" content="report" index="V71104">V71111</element>
+	</SOIL07>
+	<SOIL08  attribute="/AgrMetObservationData/SoilElement/SOIL08">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71115}{V71001}">D_RECORD_ID</element> 
+		<element dataType="int" dec="测定时间年" content="report" index="D04300" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="测定时间月" content="report" index="D04300" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="测定时间日" content="report" index="D04300" Expression="[6:8]">V04003</element>
+		<element dataType="int" dec="测定时间时" content="undefined" value="0">V04004</element>
+		<element dataType="datetime" content="report" index="D04300" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="int" dec="地段类型" content="report" index="C71100">V71115</element>
+		<element dataType="int" dec="作物名称" content="report" index="C71000">V71001</element>
+		<element dataType="int" dec="降水灌溉与渗透" content="report" index="C71105">V71100</element>
+		<element dataType="double" dec="降水灌溉量或渗透深度" content="report" index="V71105">V71100_01</element>
+		<element dataType="String" dec="降水灌溉量或渗透深度出现时段" content="report" index="C71106">V_APPEAR_TIME</element>
+	</SOIL08>
+	
+	<DISA01 attribute="/AgrMetObservationData/DisasterElement/DISA01">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71040}{V71001}{V71042}">D_RECORD_ID</element> 
+		<element dataType="int" dec="测定时间年" content="report" index="D04300" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="测定时间月" content="report" index="D04300" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="测定时间日" content="report" index="D04300" Expression="[6:8]">V04003</element>
+		<element dataType="datetime" content="report" index="D04300" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="int" dec="灾害名称" content="report" index="C71400">V71040</element>
+		<element dataType="int" dec="受灾作物" content="report" index="C71401">V71001</element>
+		<element dataType="double" dec="器官受害程度" content="report" index="V71402">V71042</element>
+		<element dataType="int" dec="预计对产量的影响" content="report" index="C71404">V71082</element>
+		<element dataType="int" dec="减产成数" content="report" index="V71406">V71923</element>
+		<element dataType="String" dec="受害征状" content="report" index="C71407">V71614</element>
+	</DISA01>
+	<DISA02 attribute="/AgrMetObservationData/DisasterElement/DISA02">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71040}{V71001}{V71042}{V71043}{V71044}{V71083}">D_RECORD_ID</element> 
+		<element dataType="int" dec="测定时间年" content="report" index="D04300" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="测定时间月" content="report" index="D04300" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="测定时间日" content="report" index="D04300" Expression="[6:8]">V04003</element>
+		<element dataType="datetime" content="report" index="D04300" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="int" dec="灾害名称" content="report" index="C71400">V71040</element>
+		<element dataType="int" dec="受灾作物" content="report" index="C71401">V71001</element>
+		<element dataType="double" dec="器官受害程度" content="report" index="V71402">V71042</element>
+		<element dataType="double" dec="成灾面积" content="report" index="V71409">V71043</element>
+		<element dataType="double" dec="成灾比例" content="report" index="V71410">V71044</element>
+		<element dataType="int" dec="减产成数" content="report" index="V71405">V71083</element>
+		<element dataType="String" dec="受害征状" content="report" index="C71407">V71614</element>
+	</DISA02>
+	<DISA03 attribute="/AgrMetObservationData/DisasterElement/DISA03">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71040}">D_RECORD_ID</element> 
+		<element dataType="int" dec="测定时间年" content="report" index="D04300" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="测定时间月" content="report" index="D04300" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="测定时间日" content="report" index="D04300" Expression="[6:8]">V04003</element>
+		<element dataType="datetime" content="report" index="D04300" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="int" dec="起始时间" content="report" index="D04332">V04300_017</element>
+		<element dataType="int" dec="终止时间" content="report" index="D04333">V04300_018</element>
+		<element dataType="int" dec="灾害名称" content="report" index="C71400">V71040</element>
+		<element dataType="int" dec="受害等级" content="report" index="C71403">V71048</element>
+		<element dataType="String" dec="受害征状" content="report" index="C71407">V71614</element>
+	</DISA03>
+	<DISA04 attribute="/AgrMetObservationData/DisasterElement/DISA04">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71040}">D_RECORD_ID</element> 
+		<element dataType="int" dec="测定时间年" content="report" index="D04300" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="测定时间月" content="report" index="D04300" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="测定时间日" content="report" index="D04300" Expression="[6:8]">V04003</element>
+		<element dataType="datetime" content="report" index="D04300" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="int" dec="起始时间" content="report" index="D04332">V04300_017</element>
+		<element dataType="int" dec="终止时间" content="report" index="D04333">V04300_018</element>
+		<element dataType="int" dec="灾害名称" content="report" index="C71400">V71040</element>
+		<element dataType="int" dec="受害等级" content="report" index="C71403">V71048</element>
+		<element dataType="String" dec="受害征状" content="report" index="C71407">V71614</element>
+	</DISA04>
+	<DISA05 attribute="/AgrMetObservationData/DisasterElement/DISA05">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71501}{V71040}">D_RECORD_ID</element> 
+		<element dataType="int" dec="测定时间年" content="report" index="D04300" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="测定时间月" content="report" index="D04300" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="测定时间日" content="report" index="D04300" Expression="[6:8]">V04003</element>
+		<element dataType="int" dec="测定时间时" content="undefined" value="0">V04004</element>
+		<element dataType="datetime" content="report" index="D04300" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="int" dec="受灾起始时间" content="report" index="D04332">V04300_017</element>
+		<element dataType="int" dec="受灾终止时间" content="report" index="D04333">V04300_018</element>
+		<element dataType="int" dec="受灾植物名称" content="report" index="C71401">V71501</element>
+		<element dataType="int" dec="灾害名称" content="report" index="C71400">V71040</element>
+		<element dataType="int" dec="受害程度" content="report" index="V71402">V71042</element>
+		<element dataType="String" dec="受害征状" content="report" index="C71407">V71614</element>
+	</DISA05>
+	
+	<SEAS01 attribute="/AgrMetObservationData/NaturalPhenologyElement/SEAS01">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71501}{V71618}">D_RECORD_ID</element> 
+		<element dataType="int" dec="测定时间年" content="report" index="D04300" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="测定时间月" content="report" index="D04300" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="测定时间日" content="report" index="D04300" Expression="[6:8]">V04003</element>
+		<element dataType="datetime" content="report" index="D04300" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="int" dec="木本植物名称" content="report" index="C71202">V71501</element>
+		<element dataType="int" dec="物候期名称" content="report" index="C71205">V71618</element>
+	</SEAS01>
+	<SEAS02 attribute="/AgrMetObservationData/NaturalPhenologyElement/SEAS02">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71501}{V71618}">D_RECORD_ID</element> 
+		<element dataType="int" dec="测定时间年" content="report" index="D04300" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="测定时间月" content="report" index="D04300" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="测定时间日" content="report" index="D04300" Expression="[6:8]">V04003</element>
+		<element dataType="datetime" content="report" index="D04300" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="int" dec="草本植物名称" content="report" index="C71201">V71501</element>
+		<element dataType="int" dec="物候期名称" content="report" index="C71205">V71618</element>
+	</SEAS02>
+	<SEAS03  attribute="/AgrMetObservationData/NaturalPhenologyElement/SEAS03">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71300}">D_RECORD_ID</element> 
+		<element dataType="int" dec="测定时间年" content="report" index="D04300" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="测定时间月" content="report" index="D04300" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="测定时间日" content="report" index="D04300" Expression="[6:8]">V04003</element>
+		<element dataType="datetime" content="report" index="D04300" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="int" dec="水文现象名称" content="report" index="C71206">V71300</element>
+	</SEAS03>
+	<SEAS04 attribute="/AgrMetObservationData/NaturalPhenologyElement/SEAS04">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71501}{V71618}">D_RECORD_ID</element> 
+		<element dataType="int" dec="测定时间年" content="report" index="D04300" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="测定时间月" content="report" index="D04300" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="测定时间日" content="report" index="D04300" Expression="[6:8]">V04003</element>
+		<element dataType="datetime" content="report" index="D04300" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="int" dec="候鸟（昆虫）或动物名称" content="report" index="C71200">V71501</element>
+		<element dataType="int" dec="物候期名称" content="report" index="C71205">V71618</element>
+	</SEAS04>
+	
+	<PAST01 attribute="/AgrMetObservationData/AnimalHusbandryElement/PAST01">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71501}{V71002}">D_RECORD_ID</element> 
+		<element dataType="int" dec="测定时间年" content="report" index="D04300" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="测定时间月" content="report" index="D04300" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="测定时间日" content="report" index="D04300" Expression="[6:8]">V04003</element>
+		<element dataType="datetime" content="report" index="D04300" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="int" dec="牧草名称" content="report" index="C71300">V71501</element>
+		<element dataType="int" dec="发育期" content="report" index="C71301">V71002</element>
+		<element dataType="double" dec="发育期百分率" content="report" index="V71302">V71010</element>
+	</PAST01>
+	<PAST02 attribute="/AgrMetObservationData/AnimalHusbandryElement/PAST02">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71501}">D_RECORD_ID</element>
+		<element dataType="int" dec="测定时间年" content="report" index="D04300" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="测定时间月" content="report" index="D04300" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="测定时间日" content="report" index="D04300" Expression="[6:8]">V04003</element>
+		<element dataType="datetime" content="report" index="D04300" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="int" dec="牧草名称" content="report" index="C71300">V71501</element>
+		<element dataType="double" dec="生长高度" content="report" index="V71303">V71006</element>
+	</PAST02>
+	<PAST03  attribute="/AgrMetObservationData/AnimalHusbandryElement/PAST03">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71501}{V71906}">D_RECORD_ID</element> 
+		<element dataType="int" dec="测定时间年" content="report" index="D04300" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="测定时间月" content="report" index="D04300" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="测定时间日" content="report" index="D04300" Expression="[6:8]">V04003</element>
+		<element dataType="datetime" content="report" index="D04300" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="int" dec="牧草名称" content="report" index="C71300">V71501</element>
+		<element dataType="double" dec="牧草干重" content="report" index="V71306">V71652</element>
+		<element dataType="double" dec="牧草鲜重" content="report" index="V71307">V71651</element>
+		<element dataType="double" dec="牧草干鲜比" content="report" index="V71308">V71906</element>
+	</PAST03>
+	<PAST04 attribute="/AgrMetObservationData/AnimalHusbandryElement/PAST04">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71009}">D_RECORD_ID</element>
+		<element dataType="int" dec="测定时间年" content="report" index="D04300" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="测定时间月" content="report" index="D04300" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="测定时间日" content="report" index="D04300" Expression="[6:8]">V04003</element>
+		<element dataType="datetime" content="report" index="D04300" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="double" dec="牧草覆盖度" content="report" index="V71309">V71009</element>
+		<element dataType="int" dec="草层状况评价" content="report" index="C71310">V71907</element>
+		<element dataType="int" dec="采食度" content="report" index="C71311">V71908</element>
+		<element dataType="double" dec="采食率" content="report" index="V71312">V71909</element>
+	</PAST04>
+	<PAST05  attribute="/AgrMetObservationData/AnimalHusbandryElement/PAST05">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71501}">D_RECORD_ID</element> 
+		<element dataType="int" dec="测定时间年" content="report" index="D04300" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="测定时间月" content="report" index="D04300" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="测定时间日" content="report" index="D04300" Expression="[6:8]">V04003</element>
+		<element dataType="datetime" content="report" index="D04300" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="int" dec="牧草名称" content="report" index="C71300">V71501</element>
+		<element dataType="int" dec="每公顷株丛数" content="report" index="V71313">V71910</element>
+		<element dataType="int" dec="每公顷总株丛数" content="report" index="V71314">V71911</element>
+	</PAST05>
+	<PAST06 attribute="/AgrMetObservationData/AnimalHusbandryElement/PAST06">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71920}">D_RECORD_ID</element>
+		<element dataType="int" dec="测定时间年" content="report" index="D04300" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="测定时间月" content="report" index="D04300" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="测定时间日" content="report" index="D04300" Expression="[6:8]">V04003</element>
+		<element dataType="datetime" content="report" index="D04300" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="int" dec="膘情等级" content="report" index="C71315">V71920</element>
+		<element dataType="int" dec="成畜头数" content="report" index="V71316">V71921</element>
+		<element dataType="int" dec="幼畜头数" content="report" index="V71317">V71922</element>
+	</PAST06>
+	<PAST07 attribute="/AgrMetObservationData/AnimalHusbandryElement/PAST07">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{WEIGHT_01}{WEIGHT_02}{WEIGHT_03}{WEIGHT_04}{WEIGHT_05}">D_RECORD_ID</element> 
+		<element dataType="int" dec="测定时间年" content="report" index="D04300" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="测定时间月" content="report" index="D04300" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="测定时间日" content="report" index="D04300" Expression="[6:8]">V04003</element>
+		<element dataType="int" dec="测定时间时" content="undefined" value="0">V04004</element>
+		<element dataType="datetime" content="report" index="D04300" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="double" dec="羯羊_1体重" content="report" index="V71318_001">V_ WEIGHT_01</element>
+		<element dataType="double" dec="羯羊_2体重" content="report" index="V71318_002">V_ WEIGHT_02</element>
+		<element dataType="double" dec="羯羊_3体重" content="report" index="V71318_003">V_ WEIGHT_03</element>
+		<element dataType="double" dec="羯羊_4体重" content="report" index="V71318_004">V_ WEIGHT_04</element>
+		<element dataType="double" dec="羯羊_5体重" content="report" index="V71318_005">V_ WEIGHT_05</element>
+		<element dataType="double" dec="羯羊平均体重" content="report" index="V71319">V_ WEIGHT_AVG</element>
+	</PAST07>
+	<PAST08 attribute="/AgrMetObservationData/AnimalHusbandryElement/PAST08">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71501}{V71601}">D_RECORD_ID</element>
+		<element dataType="int" dec="测定时间年" content="report" index="D04300" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="测定时间月" content="report" index="D04300" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="测定时间日" content="report" index="D04300" Expression="[6:8]">V04003</element>
+		<element dataType="int" dec="测定时间时" content="undefined" value="0">V04004</element>
+		<element dataType="datetime" content="report" index="D04300" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="int" dec="春季日平均放牧时数" content="report" index="V71324_001">V_AVG_GRAZE_01</element>
+		<element dataType="int" dec="夏季日平均放牧时数" content="report" index="V71324_002">V_AVG_GRAZE_02</element>
+		<element dataType="int" dec="秋季日平均放牧时数" content="report" index="V71324_003">V_AVG_GRAZE_03</element>
+		<element dataType="int" dec="冬季日平均放牧时数" content="report" index="V71324_004">V_AVG_GRAZE_04</element>
+		<element dataType="int" dec="有无棚舍" content="report" index="C71325">V_HOVEL</element>
+		<element dataType="int" dec="棚舍数量" content="report" index="V71326">V_HOVEL_COUNT</element>
+		<element dataType="double" dec="棚舍长" content="report" index="V71327">V_HOVEL_LEN</element>
+		<element dataType="double" dec="棚舍宽" content="report" index="V71328">V_HOVEL_W</element>
+		<element dataType="double" dec="棚舍高" content="report" index="V71329">V_HOVEL_H</element>
+		<element dataType="String" dec="棚舍结构" content="report" index="C71330">V_HOVEL_ST</element>
+		<element dataType="String" dec="棚舍型式" content="report" index="C71331">V_HOVEL_TYPE</element>
+		<element dataType="String" dec="棚舍门窗开向" content="report" index="C71331">V_HOVEL_WD</element>
+		<element dataType="String" dec="畜群家畜名称" content="report" index="C71322">V71501</element>
+		<element dataType="String" dec="家畜品种" content="report" index="C71323">V71601</element>
+		<element dataType="String" dec="畜群所属说明" content="report" index="C71333">V_ORGAN</element>
+	</PAST08>
+	<PAST09 attribute="/AgrMetObservationData/AnimalHusbandryElement/PAST09">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71616_02}">D_RECORD_ID</element> 
+		<element dataType="int" dec="测定时间年" content="report" index="D04334" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="测定时间月" content="report" index="D04334" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="测定时间日" content="report" index="D04334" Expression="[6:8]">V04003</element>
+		<element dataType="int" dec="测定时间时" content="undefined" value="0">V04004</element>
+		<element dataType="datetime" content="report" index="D04334" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="int" dec="调查起始时间" content="report" index="D04334">V04300_017</element>
+		<element dataType="int" dec="调查终止时间" content="report" index="D04335">V04300_018</element>
+		<element dataType="int" dec="牧事活动名称" content="report" index="C71320">V71616_02</element>
+		<element dataType="int" dec="牧事活动生产性能" content="report" index="C71321">V_PROD_FUNC</element>
+	</PAST09>
+	<PAST10 attribute="/AgrMetObservationData/AnimalHusbandryElement/PAST10">
+		<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+		<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+		<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+		<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V71912}{V71116}">D_RECORD_ID</element> 
+		<element dataType="int" dec="测定时间年" content="report" index="D04300" Expression="[0:4]">V04001</element>
+		<element dataType="int" dec="测定时间月" content="report" index="D04300" Expression="[4:6]">V04002</element>
+		<element dataType="int" dec="测定时间日" content="report" index="D04300" Expression="[6:8]">V04003</element>
+		<element dataType="int" dec="测定时间时" content="undefined" value="0">V04004</element>
+		<element dataType="datetime" content="report" index="D04300" format="yyyyMMdd">D_DATETIME</element>
+		
+		<element dataType="String" dec="更正标识" content="report" index="/AgrMetObservationData/BasicInformation/C_Correct" defaultValue="000">V_BBB</element>
+		<element dataType="String" content="report" index="/AgrMetObservationData/BasicInformation/V01300">V01301</element>
+		<element dataType="int" content="report" index="/AgrMetObservationData/BasicInformation/V01300" defaultValue="999998">V01300</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V05001">V05001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V06001">V06001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07030">V07001</element>
+		<element dataType="double" content="report" index="/AgrMetObservationData/BasicInformation/V07031">V07031</element>
+		<element dataType="String" content="undefined" value="999999">V_ACODE</element>
+		<element dataType="int" dec="草层类型" content="report" index="C71305">V71912</element>
+		<element dataType="int" dec="测量场地" content="report" index="C71304">V71116</element>
+		<element dataType="int" dec="草层高度" content="report" index="V71303">V71913</element>
+	</PAST10>
+	
+</root>

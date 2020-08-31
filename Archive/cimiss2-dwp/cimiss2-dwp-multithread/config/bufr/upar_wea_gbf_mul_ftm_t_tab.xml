@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	
+	<!-- fxy:前三个值bufr文件数据段识别码,第4个值为整个数据段中第几次出现的识别码 -->
+	<!-- name:对应的字段名称 -->
+	<!-- dec:字段说明 -->
+	<!-- datatype:字段类型 -->
+	<!-- defaultValue:如果从bufr文件中取出的数据为空设置默认值 -->
+	<!-- qc:true或false,此行是否为质控码 -->
+	<!-- expression:配置此行字段值的表达式
+			表达式说明:
+				${col:arg} -> 当前配置文件中对应的字段值，arg：配置文件中配置的字段
+				${dateFormat(arg1,arg2,arg3)} -> 日期格式化,arg1:日期字符串20170809001211，arg2:arg1的格式yyyyMMddHHmmss，arg3:转换后的日期格式(如：yyyy-MM-dd HH:mm:ss) 
+				${dateTime} -> 获取系统当前时间,默认格式为yyyyMMddHHmmss
+				${ascii:arg} -> arg代表的值转换为ascii码
+				${stationInfo(arg1,arg2,arg3)} -> 根据站号从stationinfo_conf.lua配置文件中取值，第一个参数arg1：字符站号；第二个参数arg2：站号对应的序列号
+				${seqDayFormat(arg1,arg2,arg3)} -> 序日的格式化，第一个参数arg1：4位年；第二个参数arg2：序日(1-3位数字)；第三个参数arg3：格式(遵循java中的日期格式化pattern)
+				#########################################################
+				${col:arg} ${seqDayFormat(arg1,arg2,arg3)} ${stationInfo(arg1,arg2)} ${dateFormat(arg1,arg2,arg3)} 这几个表达式后都可以根据需要添加.split('')[]和.substring()表达式
+				.split('')[]按单引号中的符号分隔前面表达式的值，中括号中是分隔后取第n-1个
+				.substring(snum,enum) 在紧前面的表达式的值中截取snum到enum字符串,包前不包后
+	 -->
+	
+	<colunm fxy="D_RECORD_ID" name="id" dec="主键" datatype="string" expression="${dateFormat(${col:V04001_02}.substring(0,4)-${col:V04002_02}-${col:V04003_02} ${col:V04004_02}:00:00,yyyy-MM-dd HH:mm:ss,yyyyMMddHHmmss)}_${col:V01301}">D_RECORD_ID</colunm>
+	<colunm fxy="D_DATETIME" name="data_datetime" dec="资料时间" datatype="date" expression="${dateFormat(${col:V04001_02}.substring(0,4)-${col:V04002_02}-${col:V04003_02} ${col:V04004_02}:00:00,yyyy-MM-dd HH:mm:ss,yyyy-MM-dd HH:mm:ss)}">D_DATETIME</colunm>
+	<colunm fxy="D_UPDATE_TIME" name="update datetime" dec="更新时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_UPDATE_TIME</colunm>
+	<colunm fxy="0-1-2-0" name="WMO marine observing platform extended identifier" datatype="string" expression="{0}">V01301</colunm>
+	<colunm fxy="V01300" name="stationId_N" dec="区站号(数字)" datatype="string" expression="${ascii:${col:V01301}}">V01300</colunm>
+	<colunm fxy="D_SOURCE_ID" name="" dec="" datatype="string" default="" >D_SOURCE_ID</colunm>
+	<colunm fxy="V_PART" name="资料所属部别" dec="分别用TA、TB、TC、TD、PA、PB、PC、PD表示探空和测风的4个部别" datatype="string" default="">V_PART</colunm>
+	<!--
+	<colunm fxy="?" name="" dec="要素表备用字段1" datatype="double" default="999998">V_RESER_E1</colunm>
+	<colunm fxy="?" name="" dec="要素表备用字段1" datatype="double" default="999998">V_RESER_E2</colunm>
+	<colunm fxy="?" name="" dec="要素表备用字段1" datatype="double" default="999998">V_RESER_E3</colunm>
+	<colunm fxy="?" name="" dec="要素表备用字段1" datatype="double" default="999998">V_RESER_E4</colunm>
+	-->
+	<help>
+		<colunm fxy="0-5-1-0" name="Latitude" dec="纬度" datatype="double" >V05001</colunm>
+		<colunm fxy="0-6-1-0" name="Longitude" dec="经度" datatype="double" >V06001</colunm>
+		<colunm fxy="0-4-1-0" name="year" dec="气球施放时间（年）" datatype="int" >V04001</colunm>
+		<colunm fxy="0-4-2-0" name="Month" dec="气球施放时间（月）" datatype="int" >V04002</colunm>
+		<colunm fxy="0-4-3-0" name="Day" dec="气球施放时间（日）" datatype="int" >V04003</colunm>
+		<colunm fxy="0-4-4-0" name="Hour" dec="气球施放时间（时）" datatype="int" >V04004</colunm>
+		<colunm fxy="0-4-5-0" name="Minute" dec="气球施放时间（分）" datatype="int" default="0">V04005</colunm>
+		<colunm fxy="0-4-6-0" name="Second" dec="气球施放时间（秒）" datatype="int" default="0">V04006</colunm>
+		
+		<colunm fxy="0-4-1-0" name="year" dec="资料时间（年）" datatype="int" >V04001_02</colunm>
+		<colunm fxy="0-4-2-0" name="Month" dec="资料时间（月）" datatype="int" >V04002_02</colunm>
+		<colunm fxy="0-4-3-0" name="Day" dec="资料时间（日）" datatype="int" >V04003_02</colunm>
+		<colunm fxy="0-4-4-0" name="Hour" dec="资料时间（时）" datatype="int" >V04004_02</colunm>
+	</help>
+	<group fxy="1-1-0-0" name="" dec="全球高空定时值数据要素表" delay="8">
+		<colunm fxy="D_ELE_ID" name="id" dec="记录标识" datatype="string" expression="0-7-4,0-7-7,0-10-9,0-8-42">D_ELE_ID</colunm>
+		<colunm fxy="0-8-42" name="" dec="垂直探测意义" datatype="int" expression="" >V08042</colunm>
+		<colunm fxy="0-4-86" name="" dec="时间差(该层资料时间与气球施放时间之差)" datatype="double" expression="">V04086</colunm>
+		<colunm fxy="0-5-15" name="" dec="纬度偏差" datatype="double" expression="" >V05015</colunm>
+		<colunm fxy="0-5-15" name="" dec="纬度偏差质量标志" datatype="int" expression="" qc="true" default="9">Q05015</colunm>
+		
+		<colunm fxy="0-6-15" name="" dec="经度偏差" datatype="double" expression="" >V06015</colunm>
+		<colunm fxy="0-6-15" name="" dec="经度偏差质量标志" datatype="int" expression="" qc="true" default="9">Q06015</colunm>
+		
+		<colunm fxy="0-7-4" name="" dec="气压" datatype="double" expression="*0.01">V07004</colunm>
+		<colunm fxy="0-7-4" name="" dec="气压质量标志" datatype="int" expression="" qc="true" default="9">Q07004</colunm>
+		
+		<colunm fxy="0-10-9" name="" dec="位势高度" datatype="double" expression="">V10009</colunm>
+		<colunm fxy="0-10-9" name="" dec="位势高度质量标志" datatype="int" expression="" qc="true" default="9">Q10009</colunm>
+		
+		<colunm fxy="0-7-7" name="" dec="高度" datatype="double" expression="">V07002</colunm>
+		<colunm fxy="0-7-7" name="" dec="高度质量标志" datatype="int" expression="" qc="true" default="9">Q07002</colunm>
+		
+		<colunm fxy="0-12-101" name="" dec="温度" datatype="double" expression="-273.15">V12001</colunm>
+		<colunm fxy="0-12-101" name="" dec="温度质量标志" datatype="int" expression="" qc="true" default="9">Q12001</colunm>
+
+		<colunm fxy="0-12-103" name="" dec="露点温度" datatype="double" expression="-273.15">V12003</colunm>
+		<colunm fxy="0-12-103" name="" dec="露点温度质量标志" datatype="int" expression="" qc="true" default="9">Q12003</colunm>
+		
+		<colunm fxy="?" name="" dec="温度露点差" datatype="double" default="999998">V12301</colunm>
+		<colunm fxy="?" name="" dec="温度露点差质量标志" datatype="int" qc="true" default="9">Q12301</colunm>
+		
+		<colunm fxy="0-11-1" name="" dec="风向" datatype="double" expression="">V11001</colunm>
+		<colunm fxy="0-11-1" name="" dec="风向质量标志" datatype="int" expression="" qc="true" default="9">Q11001</colunm>
+		
+		<colunm fxy="0-11-2" name="" dec="风速" datatype="double" expression="">V11002</colunm>
+		<colunm fxy="0-11-2" name="" dec="风速质量标志" datatype="int" expression="" qc="true" default="9">Q11002</colunm>
+		
+		<colunm fxy="?" name="" dec="一公里以下风切变" datatype="double" default="999998">V11061</colunm>
+		<colunm fxy="?" name="" dec="一公里以下风切变质量标志" datatype="int" qc="true" default="9">Q11061</colunm>
+		
+		<colunm fxy="?" name="" dec="一公里以上风切变" datatype="double" default="999998">V11062</colunm>
+		<colunm fxy="?" name="" dec="一公里以上风切变质量标志" datatype="int" qc="true" default="9">Q11062</colunm>
+	</group>
+	
+	<group fxy="1-1-0-1" name="" dec="全球高空定时值数据要素表" delay="8">
+		<colunm fxy="D_ELE_ID" name="id" dec="记录标识" datatype="string" expression="0-7-4,0-7-7,0-10-9,0-8-42">D_ELE_ID</colunm>
+		<colunm fxy="0-8-42" name="" dec="垂直探测意义" datatype="int" expression="" >V08042</colunm>
+		<colunm fxy="0-4-86" name="" dec="时间差(该层资料时间与气球施放时间之差)" datatype="double" expression="">V04086</colunm>
+		<colunm fxy="0-5-15" name="" dec="纬度偏差" datatype="double" expression="" >V05015</colunm>
+		<colunm fxy="0-5-15" name="" dec="纬度偏差质量标志" datatype="int" expression="" qc="true" default="9">Q05015</colunm>
+		
+		<colunm fxy="0-6-15" name="" dec="经度偏差" datatype="double" expression="" >V06015</colunm>
+		<colunm fxy="0-6-15" name="" dec="经度偏差质量标志" datatype="int" expression="" qc="true" default="9">Q06015</colunm>
+		
+		<colunm fxy="0-7-4" name="" dec="气压" datatype="double" expression="*0.01">V07004</colunm>
+		<colunm fxy="0-7-4" name="" dec="气压质量标志" datatype="int" expression="" qc="true" default="9">Q07004</colunm>
+		
+		<colunm fxy="?" name="" dec="位势高度" datatype="double" default="999998">V10009</colunm>
+		<colunm fxy="?" name="" dec="位势高度质量标志" datatype="int" qc="true" default="9">Q10009</colunm>
+		
+		<colunm fxy="?" name="" dec="高度" datatype="double" default="999998">V07002</colunm>
+		<colunm fxy="?" name="" dec="高度质量标志" datatype="int" qc="true" default="9">Q07002</colunm>
+		
+		<colunm fxy="?" name="" dec="温度" datatype="double" default="999998">V12001</colunm>
+		<colunm fxy="?" name="" dec="温度质量标志" datatype="int" qc="true" default="9">Q12001</colunm>
+
+		<colunm fxy="?" name="" dec="露点温度" datatype="double" default="999998">V12003</colunm>
+		<colunm fxy="?" name="" dec="露点温度质量标志" datatype="int" qc="true" default="9">Q12003</colunm>
+		
+		<colunm fxy="?" name="" dec="温度露点差" datatype="double" default="999998">V12301</colunm>
+		<colunm fxy="?" name="" dec="温度露点差质量标志" datatype="int" qc="true" default="9">Q12301</colunm>
+		
+		<colunm fxy="?" name="" dec="风向" datatype="double" default="999998">V11001</colunm>
+		<colunm fxy="?" name="" dec="风向质量标志" datatype="int"   qc="true" default="9">Q11001</colunm>
+		
+		<colunm fxy="?" name="" dec="风速" datatype="double"  default="999998">V11002</colunm>
+		<colunm fxy="?" name="" dec="风速质量标志" datatype="int"   qc="true" default="9">Q11002</colunm>
+		
+		<colunm fxy="0-11-61" name="" dec="一公里以下风切变" datatype="double" expression="">V11061</colunm>
+		<colunm fxy="0-11-61" name="" dec="一公里以下风切变质量标志" datatype="int" expression="" qc="true" default="9">Q11061</colunm>
+		
+		<colunm fxy="0-11-62" name="" dec="一公里以上风切变" datatype="double" expression="">V11062</colunm>
+		<colunm fxy="0-11-62" name="" dec="一公里以上风切变质量标志" datatype="int"  expression="" qc="true" default="9">Q11062</colunm>
+	</group>
+<group fxy="1-15-0-0" name="" dec="全球高空定时值数据要素表" delay="15">
+		<colunm fxy="D_ELE_ID" name="id" dec="记录标识" datatype="string" expression="0-7-4,0-7-7,0-10-9,0-8-1">D_ELE_ID</colunm>
+		<colunm fxy="0-8-1" name="" dec="垂直探测意义" datatype="int" expression="" >V08042</colunm>
+		<colunm fxy="?" name="" dec="时间差(该层资料时间与气球施放时间之差)" datatype="double" expression="">V04086</colunm>
+		<colunm fxy="?" name="" dec="纬度偏差" datatype="double" expression="" >V05015</colunm>
+		<colunm fxy="?" name="" dec="纬度偏差质量标志" datatype="int" expression="" qc="true" default="9">Q05015</colunm>
+		
+		<colunm fxy="?" name="" dec="经度偏差" datatype="double" expression="" >V06015</colunm>
+		<colunm fxy="?" name="" dec="经度偏差质量标志" datatype="int" expression="" qc="true" default="9">Q06015</colunm>
+		
+		<colunm fxy="0-7-4" name="" dec="气压" datatype="double" expression="*0.01">V07004</colunm>
+		<colunm fxy="0-7-4" name="" dec="气压质量标志" datatype="int" expression="" qc="true" default="9">Q07004</colunm>
+		
+		<colunm fxy="0-10-9" name="" dec="位势高度" datatype="double" default="999998">V10009</colunm>
+		<colunm fxy="0-10-9" name="" dec="位势高度质量标志" datatype="int" qc="true" default="9">Q10009</colunm>
+		
+		<colunm fxy="?" name="" dec="高度" datatype="double" default="999998">V07002</colunm>
+		<colunm fxy="?" name="" dec="高度质量标志" datatype="int" qc="true" default="9">Q07002</colunm>
+		
+		<colunm fxy="0-12-101" name="" dec="温度" datatype="double" default="999998">V12001</colunm>
+		<colunm fxy="0-12-101" name="" dec="温度质量标志" datatype="int" qc="true" default="9">Q12001</colunm>
+
+		<colunm fxy="0-12-103" name="" dec="露点温度" datatype="double" default="999998">V12003</colunm>
+		<colunm fxy="0-12-103" name="" dec="露点温度质量标志" datatype="int" qc="true" default="9">Q12003</colunm>
+		
+		<colunm fxy="?" name="" dec="温度露点差" datatype="double" default="999998">V12301</colunm>
+		<colunm fxy="?" name="" dec="温度露点差质量标志" datatype="int" qc="true" default="9">Q12301</colunm>
+		
+		<colunm fxy="0-11-1" name="" dec="风向" datatype="double" default="999998">V11001</colunm>
+		<colunm fxy="0-11-1" name="" dec="风向质量标志" datatype="int"   qc="true" default="9">Q11001</colunm>
+		
+		<colunm fxy="?" name="" dec="风速" datatype="double"  default="999998">V11002</colunm>
+		<colunm fxy="?" name="" dec="风速质量标志" datatype="int"   qc="true" default="9">Q11002</colunm>
+		
+		<colunm fxy="?" name="" dec="一公里以下风切变" datatype="double" expression="">V11061</colunm>
+		<colunm fxy="?" name="" dec="一公里以下风切变质量标志" datatype="int" expression="" qc="true" default="9">Q11061</colunm>
+		
+		<colunm fxy="?" name="" dec="一公里以上风切变" datatype="double" expression="">V11062</colunm>
+		<colunm fxy="?" name="" dec="一公里以上风切变质量标志" datatype="int"  expression="" qc="true" default="9">Q11062</colunm>
+	</group>
+</root>

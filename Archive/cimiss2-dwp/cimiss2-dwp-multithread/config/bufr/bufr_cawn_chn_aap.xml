@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	
+	<!-- fxy:前三个值bufr文件数据段识别码,第4个值为整个数据段中第几次出现的识别码 -->
+	<!-- name:对应的字段名称 -->
+	<!-- dec:字段说明 -->
+	<!-- datatype:字段类型 -->
+	<!-- defaultValue:如果从bufr文件中取出的数据为空设置默认值 -->
+	<!-- qc:true或false,此行是否为质控码 -->
+	<!-- expression:配置此行字段值的表达式
+			表达式说明:
+				${col:arg} -> 当前配置文件中对应的字段值，arg：配置文件中配置的字段
+				${dateFormat(arg1,arg2,arg3)} -> 日期格式化,arg1:日期字符串20170809001211，arg2:arg1的格式yyyyMMddHHmmss，arg3:转换后的日期格式(如：yyyy-MM-dd HH:mm:ss) 
+				${dateTime} -> 获取系统当前时间,默认格式为yyyyMMddHHmmss
+				${ascii:arg} -> arg代表的值转换为ascii码
+				${stationInfo(arg1,arg2,arg3)} -> 根据站号从stationinfo_conf.lua配置文件中取值，第一个参数arg1：字符站号；第二个参数arg2：站号对应的序列号
+				${seqDayFormat(arg1,arg2,arg3)} -> 序日的格式化，第一个参数arg1：4位年；第二个参数arg2：序日(1-3位数字)；第三个参数arg3：格式(遵循java中的日期格式化pattern)
+				#########################################################
+				${col:arg} ${seqDayFormat(arg1,arg2,arg3)} ${stationInfo(arg1,arg2)} ${dateFormat(arg1,arg2,arg3)} 这几个表达式后都可以根据需要添加.split('')[]和.substring()表达式
+				.split('')[]按单引号中的符号分隔前面表达式的值，中括号中是分隔后取第n-1个
+				.substring(snum,enum) 在紧前面的表达式的值中截取snum到enum字符串,包前不包后
+	 -->
+	<colunm fxy="D_RECORD_ID" name="id" dec="主键" datatype="string" expression="${col:V01301}_${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} ${col:V04004}:${col:V04005}:00,yyyy-MM-dd HH:mm:ss,yyyyMMddHHmmss)}">D_RECORD_ID</colunm> 
+	
+	<colunm fxy="D_DATA_ID" name="data_id" dec="资料标识" datatype="string" default="G.0006.0001.S001">D_DATA_ID</colunm>
+	<colunm fxy="?" name="" dec="" datatype="string" default="G.0016.0002.S001">D_SOURCE_ID</colunm>
+	<colunm fxy="D_IYMDHM" name="insert datetime" dec="入库时间" datatype="date" expression="${dateFormat(${dateTime},yyyyMMddHHmmss,yyyy-MM-dd HH:mm:ss)}">D_IYMDHM</colunm>
+	<colunm fxy="D_RYMDHM" name="recive_datetime" dec="收到时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_RYMDHM</colunm>
+	
+	<colunm fxy="D_UPDATE_TIME" name="update datetime" dec="更新时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_UPDATE_TIME</colunm>
+	
+	<colunm fxy="D_DATETIME" name="data datetime" dec="资料时间" datatype="date" expression="${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} ${col:V04004}:${col:V04005}:00,yyyy-MM-dd HH:mm:ss,yyyy-MM-dd HH:mm:ss)}">D_DATETIME</colunm>
+	
+	<!-- <colunm fxy="D_DATETIME" name="D_RETRIEVAL_ TIME" dec="小时资料检索时间" datatype="date" expression="${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} 00:00:00,yyyy-MM-dd HH:mm:ss,yyyy-MM-dd HH:mm:ss)}">D_RETRIEVAL_TIME</colunm>  -->
+	<colunm fxy="V_BBB" name="V_BBB" dec="更正报标识" datatype="string"  default="000">V_BBB</colunm> 
+	<colunm fxy="0-1-1-0" name="WMO_block_number" dec="区站号" datatype="string">V01301</colunm>
+	<!-- <colunm fxy="V01300" name="stationId_N" dec="区站号(数字)" datatype="string" expression="${ascii:${col:V01301}}">V01300</colunm> -->
+	<colunm fxy="0-1-101-0" name="National and local identifiers" dec="国家和地标识符" datatype="string" default="999999">V01101</colunm>
+	<colunm fxy="0-1-192-0" name="Local station logo" dec="本地测站标识" datatype="string" default="999999">V01192</colunm>
+	<colunm fxy="0-5-1-0" name="Latitude" dec="纬度" datatype="double" >V05001</colunm>
+	<colunm fxy="0-6-1-0" name="Longitude" dec="经度" datatype="double" >V06001</colunm>
+	<colunm fxy="0-4-1-0" name="year" dec="资料年" datatype="int" >V04001</colunm>
+	<colunm fxy="0-4-2-0" name="Month" dec="资料月" datatype="int" >V04002</colunm>
+	<colunm fxy="0-4-3-0" name="day" dec="资料日" datatype="int" >V04003</colunm>
+	<colunm fxy="0-4-4-0" name="hour" dec="资料时" datatype="int" >V04004</colunm>
+	<colunm fxy="0-4-5-0" name="minute" dec="资料分" datatype="int" >V04005</colunm>
+	<colunm fxy="0-7-30-0" name="Ground height above average sea level" dec="平均海平面以上测站地面高度" datatype="double" default="999999">V07030</colunm>
+	<colunm fxy="0-7-31-0" name="Air pressure gauge height above mean sea level" dec="平均海平面以上气压表高度" datatype="double" default="999999">V07031</colunm>
+	<colunm fxy="1-28-0-0" name="Instrument Model" dec="仪器型号" datatype="string" expression="{0}" default="999999">V02241</colunm>
+	<colunm fxy="1-28-0-0" name="Serial number" dec="序列号" datatype="string" expression="{1}" default="999999">V02208</colunm>
+	<colunm fxy="0-4-5-0" name="Sampling time, minutes(world time)" dec="采样时间，分（世界时）" datatype="int" default="999999">V04005_S</colunm>
+	<colunm fxy="0-4-6-0" name="Sampling time, seconds(world time)" dec="采样时间，秒（世界时）" datatype="int" default="999999">V04006_S</colunm>
+	<colunm fxy="3-22-203-0" name="370 nm spectral wavelength" dec="370nm光谱波长" datatype="double" expression="{1}" default="999998">V_VAVLEN_370nm</colunm>
+	<colunm fxy="3-22-203-0" name="470 nm spectral wavelength" dec="470nm光谱波长" datatype="double" expression="{2}" default="999998">V_VAVLEN_470nm</colunm>
+	<colunm fxy="3-22-203-0" name="520 nm spectral wavelength" dec="520nm光谱波长" datatype="double" expression="{3}" default="999998">V_VAVLEN_520nm</colunm>
+	<colunm fxy="3-22-203-0" name="590 nm spectral wavelength" dec="590nm光谱波长" datatype="double" expression="{4}" default="999998">V_VAVLEN_590nm</colunm>
+	<colunm fxy="3-22-203-0" name="660 nm spectral wavelength" dec="660nm光谱波长" datatype="double" expression="{5}" default="999998">V_VAVLEN_660nm</colunm>
+	<colunm fxy="3-22-203-0" name="880 nm spectral wavelength" dec="880nm光谱波长" datatype="double" expression="{6}" default="999998">V_VAVLEN_880nm</colunm>
+	<colunm fxy="3-22-203-0" name="950 nm spectral wavelength" dec="950nm光谱波长" datatype="double" expression="{7}" default="999998">V_VAVLEN_950nm</colunm>
+	
+	<colunm fxy="3-22-203-0" name="Absorption characteristic concentration of 370 nm " dec="370nm吸收特性浓度" datatype="double" expression="{8}" default="999998">V_BC_370nm</colunm>
+	<colunm fxy="3-22-203-0" name="Absorption characteristic concentration of 470 nm" dec="470nm吸收特性浓度" datatype="double" expression="{9}" default="999998">V_BC_470nm</colunm>
+	<colunm fxy="3-22-203-0" name="Absorption characteristic concentration of 520 nm" dec="520nm吸收特性浓度" datatype="double" expression="{10}" default="999998">V_BC_520nm</colunm>
+	<colunm fxy="3-22-203-0" name="Absorption characteristic concentration of 590 nm" dec="590nm吸收特性浓度" datatype="double" expression="{11}" default="999998">V_BC_590nm</colunm>
+	<colunm fxy="3-22-203-0" name="Absorption characteristic concentration of 660 nm" dec="660nm吸收特性浓度" datatype="double" expression="{12}" default="999998">V_BC_660nm</colunm>
+	<colunm fxy="3-22-203-0" name="Absorption characteristic concentration of 880 nm" dec="880nm吸收特性浓度" datatype="double" expression="{13}" default="999998">V_BC_880nm</colunm>
+	<colunm fxy="3-22-203-0" name="Absorption characteristic concentration of 950 nm" dec="950nm吸收特性浓度" datatype="double" expression="{14}" default="999998">V_BC_950nm</colunm>
+	
+	<colunm fxy="3-22-203-0" name="Zero signal in 370 nm sampling area" dec="370nm采样区零点信号" datatype="double" expression="{15}" default="999998">V_SZ_370nm</colunm>
+	<colunm fxy="3-22-203-0" name="Zero signal in 470 nm sampling area" dec="470nm采样区零点信号" datatype="double" expression="{16}" default="999998">V_SZ_470nm</colunm>
+	<colunm fxy="3-22-203-0" name="Zero signal in 520 nm sampling area" dec="520nm采样区零点信号" datatype="double" expression="{17}" default="999998">V_SZ_520nm</colunm>
+	<colunm fxy="3-22-203-0" name="Zero signal in 590 nm sampling area" dec="590nm采样区零点信号" datatype="double" expression="{18}" default="999998">V_SZ_590nm</colunm>
+	<colunm fxy="3-22-203-0" name="Zero signal in 660 nm sampling area" dec="660nm采样区零点信号" datatype="double" expression="{19}" default="999998">V_SZ_660nm</colunm>
+	<colunm fxy="3-22-203-0" name="Zero signal in 880 nm sampling area" dec="880nm采样区零点信号" datatype="double" expression="{20}" default="999998">V_SZ_880nm</colunm>
+	<colunm fxy="3-22-203-0" name="Zero signal in 950 nm sampling area" dec="950nm采样区零点信号" datatype="double" expression="{21}" default="999998">V_SZ_950nm</colunm>
+	
+	<colunm fxy="3-22-203-0" name="370 nm sampling area measurement signal" dec="370nm采样区测量信号" datatype="double" expression="{22}" default="999998">V_SB_370nm</colunm>
+	<colunm fxy="3-22-203-0" name="470 nm sampling area measurement signal" dec="470nm采样区测量信号" datatype="double" expression="{23}" default="999998">V_SB_470nm</colunm>
+	<colunm fxy="3-22-203-0" name="520 nm sampling area measurement signal" dec="520nm采样区测量信号" datatype="double" expression="{24}" default="999998">V_SB_520nm</colunm>
+	<colunm fxy="3-22-203-0" name="590 nm sampling area measurement signal" dec="590nm采样区测量信号" datatype="double" expression="{25}" default="999998">V_SB_590nm</colunm>
+	<colunm fxy="3-22-203-0" name="660 nm sampling area measurement signal" dec="660nm采样区测量信号" datatype="double" expression="{26}" default="999998">V_SB_660nm</colunm>
+	<colunm fxy="3-22-203-0" name="880 nm sampling area measurement signal" dec="880nm采样区测量信号" datatype="double" expression="{27}" default="999998">V_SB_880nm</colunm>
+	<colunm fxy="3-22-203-0" name="950 nm sampling area measurement signal" dec="950nm采样区测量信号" datatype="double" expression="{28}" default="999998">V_SB_950nm</colunm>
+	
+	<colunm fxy="3-22-203-0" name="Zero signal in 370 nm reference zone " dec="370nm参照区零点信号" datatype="double" expression="{29}" default="999998">V_RZ_370nm</colunm>
+	<colunm fxy="3-22-203-0" name="Zero signal in 470 nm reference zone " dec="470nm参照区零点信号" datatype="double" expression="{30}" default="999998">V_RZ_470nm</colunm>
+	<colunm fxy="3-22-203-0" name="Zero signal in 520 nm reference zone " dec="520nm参照区零点信号" datatype="double" expression="{31}" default="999998">V_RZ_520nm</colunm>
+	<colunm fxy="3-22-203-0" name="Zero signal in 590 nm reference zone " dec="590nm参照区零点信号" datatype="double" expression="{32}" default="999998">V_RZ_590nm</colunm>
+	<colunm fxy="3-22-203-0" name="Zero signal in 660 nm reference zone " dec="660nm参照区零点信号" datatype="double" expression="{33}" default="999998">V_RZ_660nm</colunm>
+	<colunm fxy="3-22-203-0" name="Zero signal in 880 nm reference zone " dec="880nm参照区零点信号" datatype="double" expression="{34}" default="999998">V_RZ_880nm</colunm>
+	<colunm fxy="3-22-203-0" name="Zero signal in 950 nm reference zone " dec="950nm参照区零点信号" datatype="double" expression="{35}" default="999998">V_RZ_950nm</colunm>
+	
+	<colunm fxy="3-22-203-0" name="370 nm reference zone  measurement signal" dec="370nm参照区测量信号" datatype="double" expression="{36}" default="999998">V_RB_370nm</colunm>
+	<colunm fxy="3-22-203-0" name="470 nm reference zone  measurement signal" dec="470nm参照区测量信号" datatype="double" expression="{37}" default="999998">V_RB_470nm</colunm>
+	<colunm fxy="3-22-203-0" name="520 nm reference zone  measurement signal" dec="520nm参照区测量信号" datatype="double" expression="{38}" default="999998">V_RB_520nm</colunm>
+	<colunm fxy="3-22-203-0" name="590 nm reference zone  measurement signal" dec="590nm参照区测量信号" datatype="double" expression="{39}" default="999998">V_RB_590nm</colunm>
+	<colunm fxy="3-22-203-0" name="660 nm reference zone  measurement signal" dec="660nm参照区测量信号" datatype="double" expression="{40}" default="999998">V_RB_660nm</colunm>
+	<colunm fxy="3-22-203-0" name="880 nm reference zone  measurement signal" dec="880nm参照区测量信号" datatype="double" expression="{41}" default="999998">V_RB_880nm</colunm>
+	<colunm fxy="3-22-203-0" name="950 nm reference zone  measurement signal" dec="950nm参照区测量信号" datatype="double" expression="{42}" default="999998">V_RB_950nm</colunm>
+	
+	<colunm fxy="3-22-203-0" name="370 nm shunt ratio" dec="370nm分流比" datatype="double" expression="{43}" default="999998">V_Fri_370nm</colunm>
+	<colunm fxy="3-22-203-0" name="470 nm shunt ratio" dec="470nm分流比" datatype="double" expression="{44}" default="999998">V_Fri_470nm</colunm>
+	<colunm fxy="3-22-203-0" name="520 nm shunt ratio" dec="520nm分流比" datatype="double" expression="{45}" default="999998">V_Fri_520nm</colunm>
+	<colunm fxy="3-22-203-0" name="590 nm shunt ratio" dec="590nm分流比" datatype="double" expression="{46}" default="999998">V_Fri_590nm</colunm>
+	<colunm fxy="3-22-203-0" name="660 nm shunt ratio" dec="660nm分流比" datatype="double" expression="{47}" default="999998">V_Fri_660nm</colunm>
+	<colunm fxy="3-22-203-0" name="880 nm shunt ratio" dec="880nm分流比" datatype="double" expression="{48}" default="999998">V_Fri_880nm</colunm>
+	<colunm fxy="3-22-203-0" name="950 nm shunt ratio" dec="950nm分流比" datatype="double" expression="{49}" default="999998">V_Fri_950nm</colunm>
+	
+	<colunm fxy="3-22-203-0" name="Optical attenuation rate of  370 nm" dec="370nm光衰减率" datatype="double" expression="{50}" default="999998">V_Attn_370nm</colunm>
+	<colunm fxy="3-22-203-0" name="Optical attenuation rate of  470 nm" dec="470nm光衰减率" datatype="double" expression="{51}" default="999998">V_Attn_470nm</colunm>
+	<colunm fxy="3-22-203-0" name="Optical attenuation rate of  520 nm" dec="520nm光衰减率" datatype="double" expression="{52}" default="999998">V_Attn_520nm</colunm>
+	<colunm fxy="3-22-203-0" name="Optical attenuation rate of  590 nm" dec="590nm光衰减率" datatype="double" expression="{53}" default="999998">V_Attn_590nm</colunm>
+	<colunm fxy="3-22-203-0" name="Optical attenuation rate of  660 nm" dec="660nm光衰减率" datatype="double" expression="{54}" default="999998">V_Attn_660nm</colunm>
+	<colunm fxy="3-22-203-0" name="Optical attenuation rate of 880 nm" dec="880nm光衰减率" datatype="double" expression="{55}" default="999998">V_Attn_880nm</colunm>
+	<colunm fxy="3-22-203-0" name="Optical attenuation rate of 950 nm" dec="950nm光衰减率" datatype="double" expression="{56}" default="999998">V_Attn_950nm</colunm>
+	
+	<colunm fxy="3-22-204-0" name="Uncompensated black carbon concentration calculated at point 1 at 370 nm" dec="370nm在点1计算得到的未补偿的黑碳浓度" datatype="double" expression="{21}" default="999998">V_SBC1_370nm</colunm>
+	<colunm fxy="3-22-204-0" name="Uncompensated black carbon concentration calculated at point 1 at 470 nm" dec="470nm在点1计算得到的未补偿的黑碳浓度" datatype="double" expression="{22}" default="999998">V_SBC1_470nm</colunm>
+	<colunm fxy="3-22-204-0" name="Uncompensated black carbon concentration calculated at point 1 at 520 nm" dec="520nm在点1计算得到的未补偿的黑碳浓度" datatype="double" expression="{23}" default="999998">V_SBC1_520nm</colunm>
+	<colunm fxy="3-22-204-0" name="Uncompensated black carbon concentration calculated at point 1 at 590 nm" dec="590nm在点1计算得到的未补偿的黑碳浓度" datatype="double" expression="{24}" default="999998">V_SBC1_590nm</colunm>
+	<colunm fxy="3-22-204-0" name="Uncompensated black carbon concentration calculated at point 1 at 660 nm" dec="660nm在点1计算得到的未补偿的黑碳浓度" datatype="double" expression="{25}" default="999998">V_SBC1_660nm</colunm>
+	<colunm fxy="3-22-204-0" name="Uncompensated black carbon concentration calculated at point 1 at 880 nm" dec="880nm在点1计算得到的未补偿的黑碳浓度" datatype="double" expression="{26}" default="999998">V_SBC1_880nm</colunm>
+	<colunm fxy="3-22-204-0" name="Uncompensated black carbon concentration calculated at point 1 at 950 nm" dec="950nm在点1计算得到的未补偿的黑碳浓度" datatype="double" expression="{27}" default="999998">V_SBC1_950nm</colunm>
+	
+	<colunm fxy="3-22-204-0" name="Uncompensated black carbon concentration calculated at point 2 at 370 nm" dec="370nm在点2计算得到的未补偿的黑碳浓度" datatype="double" expression="{28}" default="999998">V_SBC2_370nm</colunm>
+	<colunm fxy="3-22-204-0" name="Uncompensated black carbon concentration calculated at point 2 at 470 nm" dec="470nm在点2计算得到的未补偿的黑碳浓度" datatype="double" expression="{29}" default="999998">V_SBC2_470nm</colunm>
+	<colunm fxy="3-22-204-0" name="Uncompensated black carbon concentration calculated at point 2 at 520 nm" dec="520nm在点2计算得到的未补偿的黑碳浓度" datatype="double" expression="{30}" default="999998">V_SBC2_520nm</colunm>
+	<colunm fxy="3-22-204-0" name="Uncompensated black carbon concentration calculated at point 2 at 590 nm" dec="590nm在点2计算得到的未补偿的黑碳浓度" datatype="double" expression="{31}" default="999998">V_SBC2_590nm</colunm>
+	<colunm fxy="3-22-204-0" name="Uncompensated black carbon concentration calculated at point 2 at 660 nm" dec="660nm在点2计算得到的未补偿的黑碳浓度" datatype="double" expression="{32}" default="999998">V_SBC2_660nm</colunm>
+	<colunm fxy="3-22-204-0" name="Uncompensated black carbon concentration calculated at point 2 at 880 nm" dec="880nm在点2计算得到的未补偿的黑碳浓度" datatype="double" expression="{33}" default="999998">V_SBC2_880nm</colunm>
+	<colunm fxy="3-22-204-0" name="Uncompensated black carbon concentration calculated at point 2 at 950 nm" dec="950nm在点2计算得到的未补偿的黑碳浓度" datatype="double" expression="{34}" default="999998">V_SBC2_950nm</colunm>
+	
+	<colunm fxy="3-22-204-0" name="Final concentration of 370nm black carbon" dec="370nm黑碳的最终浓度" datatype="double" expression="{35}" default="999998">V_SBC_370nm</colunm>
+	<colunm fxy="3-22-204-0" name="Final concentration of 470nm black carbon" dec="470nm黑碳的最终浓度" datatype="double" expression="{36}" default="999998">V_SBC_470nm</colunm>
+	<colunm fxy="3-22-204-0" name="Final concentration of 520nm black carbon" dec="520nm黑碳的最终浓度" datatype="double" expression="{37}" default="999998">V_SBC_520nm</colunm>
+	<colunm fxy="3-22-204-0" name="Final concentration of 590nm black carbon" dec="590nm黑碳的最终浓度" datatype="double" expression="{38}" default="999998">V_SBC_590nm</colunm>
+	<colunm fxy="3-22-204-0" name="Final concentration of 660nm black carbon" dec="660nm黑碳的最终浓度" datatype="double" expression="{39}" default="999998">V_SBC_660nm</colunm>
+	<colunm fxy="3-22-204-0" name="Final concentration of 880nm black carbon" dec="880nm黑碳的最终浓度" datatype="double" expression="{40}" default="999998">V_SBC_880nm</colunm>
+	<colunm fxy="3-22-204-0" name="Final concentration of 950nm black carbon" dec="950nm黑碳的最终浓度" datatype="double" expression="{41}" default="999998">V_SBC_950nm</colunm>
+	
+	<colunm fxy="3-22-204-0" name="370nm reference point raw signal" dec="370nm参考点原始信号" datatype="double" expression="{42}" default="999998">V_RC_370nm</colunm>
+	<colunm fxy="3-22-204-0" name="470nm reference point raw signal" dec="470nm参考点原始信号" datatype="double" expression="{43}" default="999998">V_RC_470nm</colunm>
+	<colunm fxy="3-22-204-0" name="520nm reference point raw signal" dec="520nm参考点原始信号" datatype="double" expression="{44}" default="999998">V_RC_520nm</colunm>
+	<colunm fxy="3-22-204-0" name="590nm reference point raw signal" dec="590nm参考点原始信号" datatype="double" expression="{45}" default="999998">V_RC_590nm</colunm>
+	<colunm fxy="3-22-204-0" name="660nm reference point raw signal" dec="660nm参考点原始信号" datatype="double" expression="{46}" default="999998">V_RC_660nm</colunm>
+	<colunm fxy="3-22-204-0" name="880nm reference point raw signal" dec="880nm参考点原始信号" datatype="double" expression="{47}" default="999998">V_RC_880nm</colunm>
+	<colunm fxy="3-22-204-0" name="950nm reference point raw signal" dec="950nm参考点原始信号" datatype="double" expression="{48}" default="999998">V_RC_950nm</colunm>
+	
+	<colunm fxy="3-22-204-0" name="370nm sample point 1 raw signal" dec="370nm采样点1原始信号" datatype="double" expression="{49}" default="999998">V_S1C_370nm</colunm>
+	<colunm fxy="3-22-204-0" name="470nm sample point 1 raw signal" dec="470nm采样点1原始信号" datatype="double" expression="{50}" default="999998">V_S1C_470nm</colunm>
+	<colunm fxy="3-22-204-0" name="520nm sample point 1 raw signal" dec="520nm采样点1原始信号" datatype="double" expression="{51}" default="999998">V_S1C_520nm</colunm>
+	<colunm fxy="3-22-204-0" name="590nm sample point 1 raw signal" dec="590nm采样点1原始信号" datatype="double" expression="{52}" default="999998">V_S1C_590nm</colunm>
+	<colunm fxy="3-22-204-0" name="660nm sample point 1 raw signal" dec="660nm采样点1原始信号" datatype="double" expression="{53}" default="999998">V_S1C_660nm</colunm>
+	<colunm fxy="3-22-204-0" name="880nm sample point 1 raw signal" dec="880nm采样点1原始信号" datatype="double" expression="{54}" default="999998">V_S1C_880nm</colunm>
+	<colunm fxy="3-22-204-0" name="950nm sample point 1 raw signal" dec="950nm采样点1原始信号" datatype="double" expression="{55}" default="999998">V_S1C_950nm</colunm>
+	
+	<colunm fxy="3-22-204-0" name="370nm sample point 2 raw signal" dec="370nm采样点2原始信号" datatype="double" expression="{56}" default="999998">V_S2C_370nm</colunm>
+	<colunm fxy="3-22-204-0" name="470nm sample point 2 raw signal" dec="470nm采样点2原始信号" datatype="double" expression="{57}" default="999998">V_S2C_470nm</colunm>
+	<colunm fxy="3-22-204-0" name="520nm sample point 2 raw signal" dec="520nm采样点2原始信号" datatype="double" expression="{58}" default="999998">V_S2C_520nm</colunm>
+	<colunm fxy="3-22-204-0" name="590nm sample point 2 raw signal" dec="590nm采样点2原始信号" datatype="double" expression="{59}" default="999998">V_S2C_590nm</colunm>
+	<colunm fxy="3-22-204-0" name="660nm sample point 2 raw signal" dec="660nm采样点2原始信号" datatype="double" expression="{60}" default="999998">V_S2C_660nm</colunm>
+	<colunm fxy="3-22-204-0" name="880nm sample point 2 raw signal" dec="880nm采样点2原始信号" datatype="double" expression="{61}" default="999998">V_S2C_880nm</colunm>
+	<colunm fxy="3-22-204-0" name="950nm sample point 2 raw signal" dec="950nm采样点2原始信号" datatype="double" expression="{62}" default="999998">V_S2C_950nm</colunm>
+	
+	<colunm fxy="3-22-204-0" name="370 nm band compensation parameter" dec="370nm波段补偿参数" datatype="double" expression="{63}" default="999998">V_K_370nm</colunm>
+	<colunm fxy="3-22-204-0" name="470 nm band compensation parameter" dec="470nm波段补偿参数" datatype="double" expression="{64}" default="999998">V_K_470nm</colunm>
+	<colunm fxy="3-22-204-0" name="520 nm band compensation parameter" dec="520nm波段补偿参数" datatype="double" expression="{65}" default="999998">V_K_520nm</colunm>
+	<colunm fxy="3-22-204-0" name="590 nm band compensation parameter" dec="590nm波段补偿参数" datatype="double" expression="{66}" default="999998">V_K_590nm</colunm>
+	<colunm fxy="3-22-204-0" name="660 nm band compensation parameter" dec="660nm波段补偿参数" datatype="double" expression="{67}" default="999998">V_K_660nm</colunm>
+	<colunm fxy="3-22-204-0" name="880 nm band compensation parameter" dec="880nm波段补偿参数" datatype="double" expression="{68}" default="999998">V_K_880nm</colunm>
+	<colunm fxy="3-22-204-0" name="950 nm band compensation parameter" dec="950nm波段补偿参数" datatype="double" expression="{69}" default="999998">V_K_950nm</colunm>
+	
+	<colunm fxy="3-22-204-0" name="Time-base" dec="时基" datatype="double" expression="{70}" default="999998">V04026</colunm>
+	<colunm fxy="3-22-204-0" name="Traffic through point 1" dec="通过点1的流量" datatype="double" expression="{71}" default="999998">Flow1</colunm>
+	<colunm fxy="3-22-204-0" name="Traffic through point 2" dec="FlowC与Flow1的流量差" datatype="double" expression="{72}" default="999998">Flow2</colunm>
+	<colunm fxy="3-22-204-0" name="Total flow through the cavity" dec="通过光腔的总流量" datatype="double" expression="{73}" default="999998">V70012</colunm>
+	<colunm fxy="3-22-204-0" name="pressure" dec="气压" datatype="double" expression="{{76}*0.01}" default="999998">V_PRESSURE</colunm>
+	<colunm fxy="3-22-204-0" name="temperature" dec="温度" datatype="double" expression="{{77}-273.15}" default="999998">V_TEMP</colunm>
+	<colunm fxy="3-22-204-0" name="Proportion of biomass burned black carbon obtained by Sandradewi model" dec="通过Sandradewi model得到的生物质燃烧黑碳比例" datatype="double"  expression="{80}" default="999998">V_BBCR</colunm>
+	<colunm fxy="3-22-204-0" name="Control board temperature" dec="控制板温度" datatype="double"  expression="{{81}-273.15}" default="999998">V_CONT_TEMP</colunm>
+	<colunm fxy="3-22-204-0" name="Electricity panel temperature" dec="供电板温度" datatype="double"  expression="{{82}-273.15}" default="999998">V_SUPPLY_TEMP</colunm>
+	<colunm fxy="3-22-204-0" name="Reed board temperature" dec="Led板温度" datatype="double"  expression="{{83}-273.15}" default="999998">V_LED_TEMP</colunm>
+	<colunm fxy="3-22-204-0" name="Instrument status" dec="仪器状态" datatype="double"  expression="{84}"  default="999998">V_STATUS</colunm>
+	<colunm fxy="3-22-204-0" name="Control panel status" dec="控制面板状态" datatype="double" expression="{85}"  default="999998">V_CONT_STATUS</colunm>
+	<colunm fxy="3-22-204-0" name="Detect panel status" dec="探测面板状态" datatype="double" expression="{86}"  default="999998">V_DETECT_STATUS</colunm>
+	<colunm fxy="3-22-204-0" name="Reed state" dec="Led状态" datatype="double" expression="{87}"  default="999998">V_LED_STATUS</colunm>
+	<colunm fxy="3-22-204-0" name="Valve status" dec="阀状态" datatype="double" expression="{88}"  default="999998">V_VALUE_STATUS</colunm>
+	<colunm fxy="3-22-204-0" name="Amount brought in" dec="带进量" datatype="double" expression="{89}"  default="999998">V_TAPE_ADV_COUNT</colunm>
+	<colunm fxy="3-22-204-0" name="Com1 port connection instruction" dec="Com1口连接指示" datatype="double" expression="{90}"  default="999998">V03208_COM1</colunm>
+	<colunm fxy="3-22-204-0" name="Com2 port connection instruction" dec="Com2口连接指示" datatype="double" expression="{91}"  default="999998">V03208_COM2</colunm>
+	<colunm fxy="3-22-204-0" name="Com3 port connection instruction" dec="Com3口连接指示" datatype="double" expression="{92}"  default="999998">V03208_COM3</colunm>
+	<colunm fxy="3-22-204-0" name="Measurement parameter value of external equipment" dec="外接设备测量参数值" datatype="double" expression="{93}"  default="999998">V03209</colunm>
+	
+</root>

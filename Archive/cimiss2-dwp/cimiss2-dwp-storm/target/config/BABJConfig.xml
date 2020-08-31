@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BABJ>
+	<Type id="base">
+		<TABLE_HOR>surf_wea_chn_hor_all_nat_tab</TABLE_HOR>
+		<TABLE_MIN>surf_wea_chn_min_all_nat_tab</TABLE_MIN>
+		<TABLE_REP>surf_wea_chn_rep_tab</TABLE_REP>
+		<BATCHSIZE>1000</BATCHSIZE>
+		<INTERVALTIME>3600000</INTERVALTIME><!-- 毫秒 -->
+		<DATASOURCE>2</DATASOURCE>
+	</Type>
+	<Type id="DIEI">
+		<DI_OPTION>false</DI_OPTION>
+		<EI_OPTION>false</EI_OPTION>
+	</Type>
+	<Type id="storm">
+		<WORKER>3</WORKER>
+		<ACKER>3</ACKER>
+	</Type>
+
+	<Type id="rabbitmq">
+		<QUEUE>SURF_PQC_A.0001.0032.R001_001</QUEUE>
+		<EXCHANGE_NAME>babj</EXCHANGE_NAME>
+		<HOST>10.40.16.27</HOST>
+		<USER>test</USER>
+		<PASSWORD>test</PASSWORD>
+		<SPOUT>6</SPOUT>
+		<BOLT>12</BOLT>
+	</Type>
+	
+</BABJ>

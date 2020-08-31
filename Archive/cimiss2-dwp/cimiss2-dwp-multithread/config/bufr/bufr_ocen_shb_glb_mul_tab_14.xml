@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	
+	<!-- fxy:前三个值bufr文件数据段识别码,第4个值为整个数据段中第几次出现的识别码 -->
+	<!-- name:对应的字段名称 -->
+	<!-- dec:字段说明 -->
+	<!-- datatype:字段类型 -->
+	<!-- default:如果从bufr文件中取出的数据为空设置默认值 -->
+	<!-- qc:true或false,此行是否为质控码 -->
+	<!-- expression:配置此行字段值的表达式
+			表达式说明:
+				${col:arg} -> 当前配置文件中对应的字段值，arg：配置文件中配置的字段
+				${dateFormat(arg1,arg2,arg3)} -> 日期格式化,arg1:日期字符串20170809001211，arg2:arg1的格式yyyyMMddHHmmss，arg3:转换后的日期格式(如：yyyy-MM-dd HH:mm:ss) 
+				${dateTime} -> 获取系统当前时间,默认格式为yyyyMMddHHmmss
+				${dateTime(yyyy-MM-dd HH:mm:ss)} -> 获取指定格式的系统当前时间
+				${ascii:arg} -> arg代表的值转换为ascii码
+				${stationInfo(arg1,arg2,arg3)} -> 根据站号从stationinfo_conf.lua配置文件中取值，第一个参数arg1：字符站号；第二个参数arg2：站号对应的序列号;arg3：缺省值，如果从配置文件中取不到值，则取arg3作为默认值
+				${seqDayFormat(arg1,arg2,arg3)} -> 序日的格式化，第一个参数arg1：4位年；第二个参数arg2：序日(1-3位数字)；第三个参数arg3：格式(遵循java中的日期格式化pattern)
+				#########################################################
+				${col:arg} ${seqDayFormat(arg1,arg2,arg3)} ${stationInfo(arg1,arg2)} ${dateFormat(arg1,arg2,arg3)} 这几个表达式后都可以根据需要添加.split('')[]和.substring()表达式
+				.split('')[]按单引号中的符号分隔前面表达式的值，中括号中是分隔后取第n-1个
+				.substring(snum,enum) 在紧前面的表达式的值中截取snum到enum字符串,包前不包后
+	 -->
+	<colunm fxy="D_RECORD_ID" name="id" dec="记录标识" datatype="string" expression="${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} ${col:V04004}:${col:V04005}:00,yyyy-MM-dd HH:mm:ss,yyyyMMddHHmmss)}_${col:V01301}_${col:V05001}_${col:V06001}">D_RECORD_ID</colunm>
+	<colunm fxy="D_DATA_ID" name="data_id" dec="资料标识" datatype="string" default="C.0003.0001.S001">D_DATA_ID</colunm>
+	<colunm fxy="D_IYMDHM" name="insert_datetime" dec="入库时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_IYMDHM</colunm>
+	<colunm fxy="D_RYMDHM" name="recive_datetime" dec="收到时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_RYMDHM</colunm>
+	<colunm fxy="D_UPDATE_TIME" name="update datetime" dec="更新时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_UPDATE_TIME</colunm>
+	<colunm fxy="D_DATETIME" name="data_datetime" dec="资料时间" datatype="date" expression="${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} ${col:V04004}:${col:V04005}:00,yyyy-MM-dd HH:mm:ss,yyyy-MM-dd HH:mm:ss)}">D_DATETIME</colunm>
+	<colunm fxy="D_DATA_DPCID" name="D_DATA_DPCID" dec="DPC产品标识,DPC的4级编码" datatype="string" expression="" default="C.0003.0001.P013">D_DATA_DPCID</colunm>
+	<colunm fxy="V_BBB" name="V_BBB" dec="更正标识" datatype="string" default="000">V_BBB</colunm>
+	<colunm fxy="0-4-1-0" name="year" dec="资料年" datatype="int" >V04001_02</colunm>
+	<colunm fxy="0-4-2-0" name="Month" dec="资料月" datatype="int" >V04002_02</colunm>
+	<colunm fxy="0-4-3-0" name="Day" dec="资料日" datatype="int" >V04003_02</colunm>
+	<colunm fxy="0-4-4-0" name="Hour" dec="资料时" datatype="int" >V04004_02</colunm>
+	<colunm fxy="0-4-5-0" name="Minute" dec="资料分" datatype="int" >V04005_02</colunm>
+	
+	<colunm fxy="0-1-103-0" name="" dec="船舶或移动陆站标识" datatype="string" expression="{0}">V01301</colunm>
+	<colunm fxy="V01300" name="stationId_N" dec="区站号(数字)" datatype="int" default="999999">V01300</colunm>
+	<colunm fxy="0-5-1-0" name="Latitude" dec="纬度" datatype="double" expression="{0}">V05001</colunm>
+	<colunm fxy="0-6-1-0" name="Longitude" dec="经度" datatype="double" expression="{0}">V06001</colunm>
+	
+	<colunm fxy="?" name="Height_of_station_ground_above_mean_sea_level" dec="测站高度" datatype="double" default="999998">V07001</colunm>
+	
+	<colunm fxy="?" name="Height_of_barometer_above_mean_sea_level" dec="气压传感器海拔高度" datatype="double" default="999998">V07031</colunm>
+	
+	<colunm fxy="0-7-33-0" name="Wind sensor height above sea" dec="风速传感器距离海面高度" datatype="double" expression="{0}">V07033_04</colunm>
+	
+	<colunm fxy="0-7-32-0" name="Wind sensor height above ground" dec="风速传感器距离地面高度" datatype="double" expression="{0}">V07032_04</colunm>
+	
+	<colunm fxy="?" name="Sea salt sensor depth below sea" dec="海盐传感器距海面深度" datatype="double" default="999998">V07302</colunm>
+	
+	<colunm fxy="0-7-33-2" name="Wave height sensor height above sea" dec="浪高传感器距海面高度" datatype="double" expression="{0}">V07303</colunm>
+	
+	<colunm fxy="0-7-32-1" name="Temperature_and_humidity_sensor_height_above_ground/deck" dec="温湿传感器距地面/甲板高度" datatype="double" expression="{0}" >V07032_01</colunm>
+	
+	<colunm fxy="0-7-33-1" name="Temperature_and_humidity_sensor_height_above_sea" dec="温湿传感器距水面高度" datatype="double" expression="{0}" >V07033_01</colunm>
+	
+	<colunm fxy="?" name="Wind sensor height above deck platform" dec="风传感器距甲板平台高度" datatype="double"  default="999998">V07310</colunm>
+	
+	<colunm fxy="0-2-2-0" name="anemometer type" dec="风速表类型" datatype="int" expression="{0}" >V02169</colunm>
+	
+	<colunm fxy="0-1-12-0" name="Direction of motion of moving observing platform" dec="观测平台移动方向" datatype="double" expression="{0}" >V01012</colunm>
+	<colunm fxy="0-1-12-0" name="Direction of motion of moving observing platform QC" dec="观测平台移动方向质控码" datatype="int" expression="{0}" qc="true" default="9">Q01012</colunm>
+	
+	<colunm fxy="0-1-13-0" name="Speed of motion of moving observing platform" dec="观测平台移动速度" datatype="double" expression="{0}" >V01013</colunm>
+	<colunm fxy="0-1-13-0" name="Speed of motion of moving observing platform QC" dec="观测平台移动速度质控码" datatype="int" expression="{0}" qc="true" default="9">Q01013</colunm>
+	
+	<colunm fxy="?" name="Wet-bulb temperature" dec="湿球温度" datatype="double" expression="${{0}-273.15}" default="999998">V12002</colunm>
+	<colunm fxy="?" name="Wet-bulb temperature QC" dec="湿球温度质控码" datatype="int" expression="{0}" qc="true" default="9">Q12002</colunm>
+		
+	<colunm fxy="?" name="collector type" dec="采集器型号" datatype="string" default="999998">V02320</colunm>
+	
+	<colunm fxy="?" name="Method of wet-bulb temperature measurement" dec="湿球温度测量方法" datatype="int" default="999998">V02039</colunm>
+	
+	<colunm fxy="?" name="Method of water temperature and/or salinity measurement" dec="海面温度测量方法" datatype="int" default="999998">V02038</colunm>
+	
+	<colunm fxy="0-2-30-0" name="Method of current measurement" dec="洋流测量方法" datatype="int" expression="{0}"  >V02030</colunm>
+		
+	<colunm fxy="0-2-33-0" name="Method of salinity/depth measurement" dec="盐度/深度测量方法" datatype="int" expression="{0}">V02033</colunm>
+		
+	<colunm fxy="?" name="Type_of_station" dec="测站类型" datatype="int" expression="{0}" default="10">V02001</colunm>
+	
+	<colunm fxy="0-4-1-0" name="year" dec="资料观测年" datatype="int" >V04001</colunm>
+	
+	<colunm fxy="0-4-2-0" name="Month" dec="资料观测月" datatype="int" >V04002</colunm>
+	
+	<colunm fxy="0-4-3-0" name="Day" dec="资料观测日" datatype="int" >V04003</colunm>
+	
+	<colunm fxy="0-4-4-0" name="Hour" dec="资料观测时" datatype="int" >V04004</colunm>
+	
+	<colunm fxy="0-4-5-0" name="Minute" dec="资料观测分" datatype="int" >V04005</colunm>
+	
+	<colunm fxy="?" name="Second" dec="资料观测秒" datatype="int" default="0">V04006</colunm>
+	
+	<colunm fxy="0-12-101-0" name="temperature" dec="气温" datatype="double" expression="${{0}-273.15}">V12001</colunm>
+	<colunm fxy="0-12-101-0" name="temperature_QC" dec="气温质量标志" datatype="double" expression="{0}" qc="true" default="9">Q12001</colunm>
+	
+	<colunm fxy="0-12-103-0" name="Dew_point_temperature" dec="露点温度" datatype="double" expression="${{0}-273.15}">V12003</colunm>
+	<colunm fxy="0-12-103-0" name="Dew_point_temperature_QC" dec="露点温度质量标志" datatype="double" expression="{0}" qc="true" default="9">Q12003</colunm>
+	
+	<colunm fxy="" name="Relative_humidity" dec="相对湿度" datatype="double" expression="{0}" default="999998">V13003</colunm>
+	<colunm fxy="" name="Relative_humidity_QC" dec="相对湿度" datatype="double" expression="{0}" qc="true" default="9">Q13003</colunm>
+	
+	<colunm fxy="0-11-1-0" name="wind direction" dec="风向" datatype="double" expression="{0}" >V11001</colunm>
+	<colunm fxy="0-11-1-0" name="wind direction QC" dec="风向质控码" datatype="double" expression="{0}" qc="true" default="9">Q11001</colunm>
+	
+	<colunm fxy="0-11-2-0" name="Wind Speed" dec="风速" datatype="double" expression="{0}" >V11002</colunm>
+	<colunm fxy="0-11-2-0" name="Wind Speed QC" dec="风速质控码" datatype="double" expression="{0}" qc="true" default="9">Q11002</colunm>
+	
+	<colunm fxy="?" name="Pressure" dec="本站气压" datatype="double" expression="${{0}*0.01}" default="999998">V10004</colunm>
+	<colunm fxy="?" name="Pressure_QC" dec="本站气压质量标志" datatype="double" expression="{0}" qc="true" default="9" >Q10004</colunm>
+	
+	<colunm fxy="?" name="Pressure_reduced_to_mean_sea_level" dec="海平面气压" datatype="double" expression="${{0}*0.01}" default="999998">V10051</colunm>
+	<colunm fxy="?" name="Pressure_reduced_to_mean_sea_level_QC" dec="海平面气压质量标志" datatype="double" expression="{0}" qc="true" default="9" >Q10051</colunm>
+	 
+	<colunm fxy="?" name="The characteristics of pressure inclination" dec="气压倾向特征" datatype="int" expression="{0}" default="999998">V10063</colunm>
+	<colunm fxy="？" name="The characteristics of pressure inclination QC" dec="气压倾向特征质量标志" datatype="double" expression="{0}" qc="true" default="9">Q10063</colunm>
+	
+	<colunm fxy="?" name="3-hour_pressure_change" dec="3小时变压" datatype="double" expression="${{0}*0.01}" default="999998">V10061</colunm>
+	<colunm fxy="?" name="3-hour_pressure_change_QC" dec="3小时变压质量标志" datatype="double" expression="{0}" qc="true" default="9">Q10061</colunm>
+	
+	<colunm fxy="?" name="Current_weather" dec="现在天气" datatype="double" expression="{0}" default="999998">V20003</colunm>
+	
+	<colunm fxy="?" name="Horizontal visibility (manual observation)" dec="水平能见度（人工观测）" datatype="double" expression="{0}" default="999998">V20001</colunm>
+	
+	<colunm fxy="?" name="Total_cloud_cover" dec="总云量" datatype="double" expression="{0}" default="999998">V20010</colunm>
+	
+	<colunm fxy="?" name="buoy position" dec="浮标方位" datatype="double" default="999998">V22400</colunm>
+	
+	<colunm fxy="?" name="Average period of sea temperature" dec="海面温度的平均周期" datatype="int" default="999998">V22320</colunm>
+	<colunm fxy="?" name="Average period of sea temperature QC" dec="海面温度的平均周期质控码" datatype="int" qc="true" default="9">Q22320</colunm>
+			
+	<colunm fxy="0-22-45-0" name="Sea/water temperature" dec="海表温度" datatype="double" expression="${{0}-273.15}" >V22049</colunm>
+	<colunm fxy="0-22-45-0" name="Sea/water temperature QC" dec="海表温度质控码" datatype="int" expression="{0}" qc="true" default="9">Q22049</colunm>
+		
+	<colunm fxy="?" name="Sea/water max temperature" dec="海表最高温度" datatype="double" default="999998">V22300</colunm>
+	
+	<colunm fxy="?" name="Occur time of sea/water max temperature" dec="海表最高温度出现时间" datatype="int" default="999998">V22300_052</colunm>
+			
+	<colunm fxy="?" name="Sea/water min temperature" dec="海表最低温度" datatype="double" default="999998">V22301</colunm>
+	
+	<colunm fxy="?" name="Occur time of sea/water min temperature" dec="海表最低温度出现时间" datatype="int" default="999998">V22301_052</colunm>
+	
+	<colunm fxy="?" name="" dec="有效波高" datatype="double" default="999998">V22380</colunm>
+	
+	<colunm fxy="?" name="" dec="有效波高的周期" datatype="double" default="999998">V22380_061</colunm>
+		
+	<colunm fxy="?" name="" dec="平均波高" datatype="double" default="999998">V22381</colunm>
+	
+	<colunm fxy="?" name="" dec="平均波周期" datatype="double" default="999998">V22381_061</colunm>
+		
+	<colunm fxy="?" name="" dec="最大波高" datatype="double" default="999998">V22073</colunm>
+		
+	<colunm fxy="?" name="" dec="最大波高出现时间" datatype="double" default="999998">V22073_052</colunm>
+		
+	<colunm fxy="?" name="" dec="最大波高的周期" datatype="double" default="999998">V22073_061</colunm>
+	
+	<colunm fxy="?" name="" dec="洋流方向和速度的平均周期" datatype="double" default="999998">V22322</colunm>
+	<colunm fxy="?" name="" dec="洋流方向和速度的平均周期质控码" datatype="int" qc="true" default="9">Q22322</colunm>
+		
+	<colunm fxy="0-22-32-0" name="" dec="表层海洋面流速" datatype="double" expression="{0}">V22032</colunm>
+	<colunm fxy="0-22-32-0" name="" dec="表层海洋面流速质控码" datatype="int" expression="{0}" qc="true" default="9">Q22032</colunm>
+		
+	<colunm fxy="0-22-5-0" name="" dec="表层海洋面流向" datatype="double" expression="{0}">V22005</colunm>
+	<colunm fxy="0-22-5-0" name="" dec="表层海洋面流向质控码" datatype="int" expression="{0}" qc="true" default="9">Q22005</colunm>
+		
+	<colunm fxy="?" name="" dec="盐度的平均周期" datatype="double" default="999998">V22321</colunm>
+	<colunm fxy="?" name="" dec="盐度的平均周期质控码" datatype="int" qc="true" default="9">Q22321</colunm>
+		
+	<colunm fxy="0-22-64-0" name="" dec="海水盐度" datatype="double" expression="{0}">V22059</colunm>
+	<colunm fxy="0-22-64-0" name="" dec="海水盐度质控码" datatype="int" expression="{0}" qc="true" default="9">Q22059</colunm>
+	
+	<colunm fxy="?" name="" dec="海水平均盐度" datatype="double" default="999998">V22062_701</colunm>
+		
+	<colunm fxy="?" name="" dec="海水电导率" datatype="double" default="999998">V22306</colunm>
+		
+	<colunm fxy="?" name="" dec="海水平均电导率" datatype="double" default="999998">V22306_701</colunm>
+		
+	<colunm fxy="?" name="" dec="海水浊度" datatype="double" default="999998">V22310</colunm>
+		
+	<colunm fxy="?" name="" dec="海水平均浊度" datatype="double" default="999998">V22310_701</colunm>
+		
+	<colunm fxy="?" name="" dec="海水叶绿素浓度" datatype="double" default="999998">V22311</colunm>
+	
+	<colunm fxy="?" name="" dec="海水平均叶绿素浓度" datatype="double" default="999998">V22311_701</colunm>
+		
+	<colunm fxy="0-22-1-0" name="Direction of waves" dec="波浪方向" datatype="double" expression="{0}">V22001</colunm>
+	<colunm fxy="0-22-1-0" name="Direction of waves QC" dec="波浪方向质控码" datatype="int" expression="{0}" qc="true" default="9">Q22001</colunm>
+		
+	<colunm fxy="0-22-11-0" name="Period of waves" dec="波浪周期" datatype="double" expression="{0}">V22011</colunm>
+	<colunm fxy="0-22-11-0" name="Period of waves QC" dec="波浪周期质控码" datatype="int" expression="{0}" qc="true" default="9">Q22011</colunm>
+		
+	<colunm fxy="0-22-21-0" name="Height of waves" dec="波浪高度" datatype="double" expression="{0}">V22021</colunm>
+	<colunm fxy="0-22-21-0" name="Height of waves QC" dec="波浪高度质控码" datatype="int" expression="{0}" qc="true" default="9">Q22021</colunm>
+		
+	<colunm fxy="?" name="Direction of wind waves" dec="风浪方向" datatype="double" expression="{0}" default="999998">V22002</colunm>
+	<colunm fxy="?" name="Direction of wind waves QC" dec="风浪方向质控码" datatype="int" expression="{0}" qc="true" default="9">Q22002</colunm>
+		
+	<colunm fxy="?" name="Period of wind waves" dec="风浪周期" datatype="double" expression="{0}" default="999998">V22012</colunm>
+	<colunm fxy="?" name="Period of wind waves QC" dec="风浪周期质控码" datatype="int" expression="{0}" qc="true" default="9">Q22012</colunm>
+		
+	<colunm fxy="?" name="Height of wind waves" dec="风浪高度" datatype="double" expression="{0}" default="999998">V22022</colunm>
+	<colunm fxy="?" name="Height of wind waves QC" dec="风浪高度质控码" datatype="int" expression="{0}" qc="true" default="9">Q22022</colunm>
+
+    <colunm fxy="?" name="Direction of first swell waves" dec="第一涌浪方向" datatype="double" expression="{0}" default="999998">V22003_01</colunm>
+    <colunm fxy="?" name="Direction of first swell waves QC" dec="第一涌浪方向质控码" datatype="int" expression="{0}" qc="true" default="9">Q22003_01</colunm>
+    
+    <colunm fxy="?" name="Period of first swell waves" dec="第一涌浪周期" datatype="double" expression="{1}" default="999998">V22013_01</colunm>
+    <colunm fxy="?" name="Period of first swell waves QC" dec="第一涌浪周期质控码" datatype="int" expression="{1}" qc="true" default="9">Q22013_01</colunm>
+    
+	<colunm fxy="?" name="Height of first swell waves" dec="第一涌浪高度" datatype="double" expression="{2}" default="999998">V22023_01</colunm>
+	<colunm fxy="?" name="Height of first swell waves QC" dec="第一涌浪高度质控码" datatype="int" expression="{2}" qc="true" default="9">Q22023_01</colunm>
+
+    <colunm fxy="?" name="Direction of second swell waves" dec="第二涌浪方向" datatype="double" expression="{3}" default="999998">V22003_02</colunm>
+    <colunm fxy="?" name="Direction of second swell waves QC" dec="第二涌浪方向质控码" datatype="int" expression="{3}" qc="true" default="9">Q22003_02</colunm>
+    
+    <colunm fxy="?" name="Period of second swell waves" dec="第二涌浪周期" datatype="double" expression="{4}" default="999998">V22013_02</colunm>
+    <colunm fxy="?" name="Period of second swell waves QC" dec="第二涌浪周期质控码" datatype="int" expression="{4}" qc="true" default="9">Q22013_02</colunm>
+    
+	<colunm fxy="?" name="Height of second swell waves" dec="第二涌浪高度" datatype="double" expression="{5}" default="999998">V22023_02</colunm>	
+	<colunm fxy="?" name="Height of second swell waves QC" dec="第二涌浪高度质控码" datatype="int" expression="{5}" qc="true" default="9">Q22023_02</colunm>	
+	
+	<colunm fxy="?" name="Cause of ice accretion" dec="船上结冰原因" datatype="int" expression="{0}" default="999998">V20033</colunm>	
+	<colunm fxy="?" name="Cause of ice accretion QC" dec="船上结冰原因质控码" datatype="int" expression="{0}" qc="true" default="9">Q20033</colunm>	
+	
+	<colunm fxy="?" name="Ice deposit (thickness)" dec="船上结冰厚度" datatype="double" expression="{0}" default="999998">V20031</colunm>	
+	<colunm fxy="?" name="Ice deposit (thickness) QC" dec="船上结冰厚度质控码" datatype="int" expression="{0}" qc="true" default="9">Q20031</colunm>		
+	
+	<colunm fxy="?" name="Rate of ice accretion (estimated)" dec="船上结冰速度" datatype="int" expression="{0}" default="999998">V20032</colunm>	
+	<colunm fxy="?" name="Rate of ice accretion (estimated) QC" dec="船上结冰速度质控码" datatype="int" expression="{0}" qc="true" default="9">Q20032</colunm>	
+	
+	<colunm fxy="?" name="Sea ice concentration" dec="海冰密集度" datatype="int" expression="{0}" default="999998">V20034</colunm>	
+	<colunm fxy="?" name="Sea ice concentration QC" dec="海冰密集度质控码" datatype="int" expression="{0}" qc="true" default="9">Q20034</colunm>	
+		
+	<colunm fxy="?" name="Ice development" dec="冰情发展" datatype="int" expression="{0}" default="999998">V20037</colunm>	
+	<colunm fxy="?" name="Ice development QC" dec="冰情发展质控码" datatype="int" expression="{0}"  qc="true" default="9">Q20037</colunm>	
+	
+	<colunm fxy="?" name="Amount and type of ice" dec="陆源冰的总量和类型" datatype="int" expression="{0}" default="999998">V20035</colunm>	
+	<colunm fxy="?" name="Amount and type of ice QC" dec="陆源冰的总量和类型质控码" datatype="int" expression="{0}" qc="true" default="9">Q20035</colunm>	
+	
+	<colunm fxy="?" name="Bearing of ice edge" dec="冰缘方位" datatype="double" expression="{0}" default="999998">V20038</colunm>	
+	<colunm fxy="?" name="Bearing of ice edge QC" dec="冰缘方位质控码" datatype="int" expression="{0}" qc="true" default="9">Q20038</colunm>	
+	
+	<colunm fxy="?" name="Ice situation" dec="冰情和3小时内变化趋势" datatype="int" expression="{0}" default="999998">V20036</colunm>	
+	<colunm fxy="?" name="Ice situation QC" dec="冰情和3小时内变化趋势质控码" datatype="int" expression="{0}" qc="true" default="9">Q20036</colunm>	
+
+	<colunm fxy="?" name="" dec="浮标位置质量控制标志" datatype="int" default="999998">V33302</colunm>	
+	<colunm fxy="?" name="" dec="浮标位置质量控制标志质控码" datatype="int" qc="true" default="9">Q33302</colunm>	
+		
+	<colunm fxy="?" name="" dec="时间质量控制标志" datatype="int" default="999998">V33301</colunm>	
+	<colunm fxy="?" name="" dec="时间质量控制标志质控码" datatype="int" qc="true" default="9">Q33301</colunm>
+	
+	<colunm fxy="?" name="" dec="浮标位置质量等级" datatype="int" default="999998">V33027</colunm>	
+	<colunm fxy="?" name="" dec="浮标位置质量等级质控码" datatype="int" qc="true" default="9">Q33027</colunm>	
+	
+	<colunm fxy="?" name="" dec="气压测量质量" datatype="int" default="999998">V33291</colunm>	
+	<colunm fxy="?" name="" dec="气压测量质量质控码" datatype="int" qc="true" default="9">Q33291</colunm>	
+	
+	<colunm fxy="?" name="" dec="内务参数质量" datatype="int" default="999998">V33300</colunm>	
+	<colunm fxy="?" name="" dec="内务参数质量质控码" datatype="int" qc="true" default="9">Q33300</colunm>	
+	
+	<colunm fxy="?" name="" dec="海面温度测量质量" datatype="int" default="999998">V33290</colunm>	
+	<colunm fxy="?" name="" dec="海面温度测量质量质控码" datatype="int" qc="true" default="9">Q33290</colunm>	
+	
+	<colunm fxy="?" name="" dec="温度测量质量" datatype="int" default="999998">V33292</colunm>	
+	<colunm fxy="?" name="" dec="温度测量质量质控码" datatype="int" qc="true" default="9">Q33292</colunm>	
+	
+	<colunm fxy="?" name="" dec="卫星传送浮标站的质量" datatype="int" default="999998">V33022</colunm>	
+	<colunm fxy="?" name="" dec="卫星传送浮标站的质量质控码" datatype="int" qc="true" default="9">Q33022</colunm>	
+	
+	<colunm fxy="?" name="" dec="浮标站位置质量" datatype="int" default="999998">V33023</colunm>	
+	<colunm fxy="?" name="" dec="浮标站位置质量质控码" datatype="int" qc="true" default="9">Q33023</colunm>	
+	
+	<colunm fxy="?" name="" dec="数据浮标站类型" datatype="int" default="999998">V02149</colunm>	
+	<colunm fxy="?" name="" dec="数据浮标站类型" datatype="int" qc="true" default="9">Q02149</colunm>	
+	
+	<colunm fxy="?" name="" dec="浮标类型" datatype="int" default="999998">V02034</colunm>	
+	<colunm fxy="?" name="" dec="浮标类型质控码" datatype="int" qc="true" default="9">Q02034</colunm>	
+
+	<colunm fxy="?" name="" dec="浮标站技术状况信息1" datatype="int" default="999998">V02442_01</colunm>	
+	<colunm fxy="?" name="" dec="浮标站技术状况信息1质控码" datatype="int" qc="true" default="9">Q02442_01</colunm>
+	
+	<colunm fxy="?" name="" dec="浮标站技术状况信息2" datatype="int" default="999998">V02442_02</colunm>	
+	<colunm fxy="?" name="" dec="浮标站技术状况信息2质控码" datatype="int" qc="true" default="9">Q02442_02</colunm>	
+	
+	<colunm fxy="?" name="" dec="浮标站技术状况信息3" datatype="int" default="999998">V02442_03</colunm>	
+	<colunm fxy="?" name="" dec="浮标站技术状况信息3质控码" datatype="int" qc="true" default="9">Q02442_03</colunm>
+	
+	<colunm fxy="?" name="" dec="风向风速质量" datatype="int" default="999998">V33323</colunm>	
+	<colunm fxy="?" name="" dec="风向风速质量质控码" datatype="int" qc="true" default="9">Q33323</colunm>	
+	
+	<colunm fxy="?" name="" dec="气温质量" datatype="int" default="999998">V33310</colunm>	
+	<colunm fxy="?" name="" dec="气温质量质控码" datatype="int" qc="true" default="9">Q33310</colunm>	
+	
+	<colunm fxy="?" name="" dec="露点温度质量" datatype="int" default="999998">V33311</colunm>	
+	<colunm fxy="?" name="" dec="露点温度质量质控码" datatype="int" qc="true" default="9">Q33311</colunm>	
+	
+	<colunm fxy="?" name="" dec="相对湿度质量" datatype="int" default="999998">V33313</colunm>	
+	<colunm fxy="?" name="" dec="相对湿度质量质控码" datatype="int" qc="true" default="9">Q33313</colunm>	
+	
+	<colunm fxy="?" name="" dec="本站气压质量" datatype="int" default="999998">V33316</colunm>	
+	<colunm fxy="?" name="" dec="本站气压质量质控码" datatype="int" qc="true" default="9">Q33316</colunm>	
+	
+	<colunm fxy="?" name="" dec="海平面气压质量" datatype="int" default="999998">V33317</colunm>	
+	<colunm fxy="?" name="" dec="海平面气压质量质控码" datatype="int" qc="true" default="9">Q33317</colunm>	
+	
+	<colunm fxy="?" name="" dec="变压质量" datatype="int" default="999998">V33318</colunm>	
+	<colunm fxy="?" name="" dec="变压质量质控码" datatype="int" qc="true" default="9">Q33318</colunm>
+	
+	<colunm fxy="?" name="" dec="海面温度质量" datatype="int" default="999998">V33312</colunm>	
+	<colunm fxy="?" name="" dec="海面温度质量质控码" datatype="int" qc="true" default="9">Q33312</colunm>
+		
+	<colunm fxy="?" name="" dec="风浪数据质量" datatype="int" default="999998">V33322</colunm>	
+	<colunm fxy="?" name="" dec="风浪数据质量质控码" datatype="int" qc="true" default="9">Q33322</colunm>	
+	
+	<colunm fxy="?" name="" dec="" datatype="int" qc="true" default="9">Q05001_01</colunm>
+	<colunm fxy="?" name="" dec="" datatype="string" default="9">I_INTG</colunm>
+	<colunm fxy="?" name="" dec="报文类型" datatype="string" default="SS">V_TT</colunm>
+	<colunm fxy="?" name="" dec="发报中心" datatype="string" default="999999">C_CCCC</colunm>
+	<colunm fxy="?" name="" dec="表层海洋面波向" datatype="double" default="999998">V22386</colunm>
+	<colunm fxy="?" name="" dec="海水盐度" datatype="double" default="999998">V22062</colunm>
+	<colunm fxy="?" name="" dec="1分钟平均水平能见度" datatype="double" default="999998">V20001_701_01</colunm>
+	<colunm fxy="?" name="" dec="资料四级编码" datatype="string" default="C.0001.0014.R001">D_SOURCE_ID</colunm>
+	
+</root> 

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.products.dao.UploadProductDao">
+    <insert id="uploadProduct" parameterType="com.thinkgem.jeesite.modules.products.entity.UploadProduct">
+        insert into sys_upload_product(id,url,creats) values (#{id},#{url},#{creats})
+    </insert>
+
+    <select id="getAllUploadProduct" resultType="com.thinkgem.jeesite.modules.products.entity.UploadProduct">
+        select * from sys_upload_product
+    </select>
+</mapper>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root IsCheck="true" length="29">
+	<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+	<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+	<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+	<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+	<element dataType="String" content="" value="{D_DATETIME}{V01301}">D_RECORD_ID</element> 
+	<element dataType="String" content="report" index="0" >V01301</element>
+	<element dataType="String" content="report" index="1" >V_ITEM_CODE</element>
+	<element dataType="datetime" content="report" index="2" Expression="D_DATETIME">D_DATETIME</element>
+	 <element dataType="String" content='default' value='000'>V_BBB</element> 
+	<element dataType="int" content="report" index="2" >V04001</element>
+	<element dataType="int" content="report" index="3" Expression="convertJulianDay2Date-1">V04002</element>
+	<element dataType="int" content="report" index="3" Expression="convertJulianDay2Date-2">V04003</element>
+	<element dataType="int" content="report" index="4" Expression="[0:2]">V04004</element>
+	<element dataType="int" content="report" index="4" Expression="[2:4]">V04005</element>
+	<element dataType="double" content="report" index="5" >V_CM21_TR_mV_701 </element>
+	<element dataType="double" content="report" index="6" >V_CM21_TR_mV_006</element>
+	<element dataType="double" content="report" index="7" >V_CM21_TR_mV_005</element>
+	<element dataType="double" content="report" index="8" >V_CM21_TR_mV_004</element>
+   <element dataType="double" content="report" index="9" >V_CH1_mV_701</element>
+	<element dataType="double" content="report" index="10" >V_CH1_mV_006</element>
+	<element dataType="double" content="report" index="11" >V_CH1_mV_005</element>
+	<element dataType="double" content="report" index="12" >V_CH1_mV_004</element>
+	<element dataType="double" content="report" index="13" >V_CM21_Dif_R_mV_701</element>
+	<element dataType="double" content="report" index="14" >V_CM21_Dif_R_mV_006</element>
+	<element dataType="double" content="report" index="15" >V_CM21_Dif_R_mV_005</element>
+	<element dataType="double" content="report" index="16" >V_CM21_Dif_R_mV_004</element>
+	<element dataType="double" content="report" index="17" >V_DLR_701</element>
+	<element dataType="double" content="report" index="18" >V_DLR_006</element>
+	<element dataType="double" content="report" index="19" >V_DLR_005</element>
+	<element dataType="double" content="report" index="20" >V_DLR_004</element>
+	<element dataType="double" content="report" index="21" >V_CG4_mV_701</element>
+	<element dataType="double" content="report" index="22" >V_CG4_mV_006</element>
+	<element dataType="double" content="report" index="23" >V_CG4_mV_005</element>
+	<element dataType="double" content="report" index="24" >V_CG4_mV_004</element>
+	<element dataType="double" content="report" index="25" >V_CG4_body_R_701</element>
+	<element dataType="double" content="report" index="26" >V_CG4_body_R_006</element>
+	<element dataType="double" content="report" index="27" >V_CG4_body_R_005</element>
+	<element dataType="double" content="report" index="28" >V_CG4_body_R_004</element>
+	<!-- <element dataType="string" content="default" value="999998">V_RETAIN1_C</element>
+	<element dataType="string" content="default" value="999998">V_RETAIN2_C</element>
+	<element dataType="double" content="default" value="999998">V_RETAIN1_N</element>
+	<element dataType="double" content="default" value="999998">V_RETAIN2_N</element> -->
+
+	<element dataType="string" content="default" value="G.0002.0011.R001">D_SOURCE_ID</element>
+</root>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nmpiesat.idata.interfacedata.dao.InterfaceDataDAO">
+  <resultMap id="BaseResultMap" type="com.nmpiesat.idata.interfacedata.entity.InterfaceData">
+    <result column="DATA_CLASS_ID" jdbcType="VARCHAR" property="dataClassId" />
+    <result column="DATA_CLASS_NAME" jdbcType="VARCHAR" property="dataClassName" />
+    <result column="SERIAL_NO" jdbcType="INTEGER" property="serialNo" />
+    <result column="DESCRIPTION" jdbcType="LONGVARCHAR" property="description" />
+    <result column="SHORT_NAME" jdbcType="VARCHAR" property="shortName" />
+  </resultMap>
+
+    <select id="newInterface" resultType="java.util.Map">
+    select * from api_customapi_define ORDER BY PUBLISH_TIME DESC LIMIT 5
+    </select>
+
+  <select id="getAllInter" parameterType="java.lang.String" resultMap="BaseResultMap">
+		SELECT * FROM api_data_class_define
+		WHERE DATA_CLASS_ID IN
+		(SELECT DATACLASSID FROM sys_deploy WHERE DATAROLEID=(select DATAROLEID from sup_userdatarole WHERE USERID=#{userid}))
+		ORDER BY CONVERT(SERIAL_NO USING gbk) COLLATE gbk_chinese_ci ASC;
+  </select>
+
+  <select id="getInterface" parameterType="java.lang.String" resultType="java.util.Map">
+   select * from api_data_define a where a.DATA_CODE in(
+   select s.OTHERID from sys_deploy s
+   where s.DATAROLEID=
+   (SELECT u.DATAROLEID FROM `sup_userdatarole` u where u.userid=#{userid})
+   and s.DATACLASSID= #{id})
+  </select>
+
+  <select id="getFactor" parameterType="java.lang.String" resultType="java.util.Map">
+     select * from sys_deploy where OTHERID=#{id}
+  </select>
+
+    <select id="getInterForId" parameterType="java.lang.String" resultType="java.util.Map">
+      select * from api_customapi_define where CUSTOM_API_ID=#{api}
+    </select>
+
+    <select id="getEleForInter" parameterType="java.lang.String" resultType="java.util.Map">
+        select * from api_param_define d INNER JOIN api_customapi_param p on
+        p.PARAM_ID=d.PARAM_ID and p.CUSTOM_API_ID=#{id} ORDER BY p.IS_OPTIONAL ASC
+    </select>
+
+    <select id="getEleMent" parameterType="java.lang.String" resultType="java.util.Map">
+        select user_ele_code as USER_ELE_CODE, ele_name as ELE_NAME,ele_unit as ELE_UNIT from v_api_data_ele where user_ele_code=#{eleCode} GROUP BY user_ele_code
+    </select>
+
+    <select id="getAdminCode" parameterType="java.lang.String" resultType="java.util.Map">
+        select * from sys_area where id=#{api}
+    </select>
+
+    <select id="getAdminCodes" resultType="java.util.Map">
+		select * from sys_area where citycode in("0470","0471","0472","0473","0474","0475","0476","0477","0478","0479") ORDER BY citycode ASC
+	</select>
+
+    <select id="getMusic" parameterType="java.lang.String" resultType="com.nmpiesat.idata.user.entity.MusicInfo">
+        SELECT * FROM music_info WHERE orgID=(SELECT ORGID FROM sup_userinfo WHERE USERNAME=#{userid})
+    </select>
+
+    <select id="getAllElements"  resultType="java.util.Map">
+        select * FROM api_param_define WHERE PARAM_ID IN(
+        select PARAM_ID from api_customapi_param GROUP BY PARAM_ID)
+    </select>
+
+</mapper>

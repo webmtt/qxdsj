@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root IsCheck="true" length="8">
+	<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+	<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+	<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+	<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+	<element dataType="String" content="default" value="{D_DATETIME}{V01301}">D_RECORD_ID</element>
+	<element dataType="String" content="report" index="3" >V01301</element>
+	<element dataType="datetime" content="report" index="0"  format="yyyy-MM-dd HH:mm:ss">D_DATETIME</element>
+	<element dataType="double" content="default" value="999999">V05001</element>
+	<element dataType="double" content="default" value="999999" >V06001</element>
+	<element dataType="String" content='default' value='999998'>V02007</element>
+	<element dataType="double" content="default" value="999998">V22042</element>
+	<element dataType="double" content="default" value="999998">V22120</element>
+	<element dataType="double" content="default" value="999998">V22121</element>
+	<element dataType="double" content="default" value="999998">V22039</element>
+	<element dataType="int" content="report" index="0" Expression="[0:4]">V04001</element>
+	<element dataType="int" content="report" index="0" Expression="[5:7]">V04002</element>
+	<element dataType="int" content="report" index="0" Expression="[8:10]">V04003</element>
+	<element dataType="int" content="report" index="0" Expression="[11:13]">V04004</element>
+	<element dataType="int" content="report" index="0" Expression="[14:16]">V04005</element>
+	<element dataType="int" content="report" index="0" Expression="[17:19]">V04006</element>
+	<element dataType="double" content="report" index="7" >V22038</element>
+<!-- 	<element dataType="String" content='default' value='D_DATA_DPCID'>D_DPC_ID</element>
+	<element dataType="string" content="default" value="D_SOURCE_ID">D_SOURCE_ID</element> -->
+</root>

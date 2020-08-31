@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.mybatis.modules.report.dao.SupSurveystationDao">
+    
+	<sql id="supSurveystationColumns">
+		a.id AS "id",
+		a.station_num AS "stationNum",
+		a.station_name AS "stationName",
+		a.provinces AS "provinces",
+		a.cities AS "cities",
+		a.county AS "county",
+		a.wd AS "wd",
+		a.jd AS "jd",
+		a.view_height AS "viewHeight",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate",
+		a.remarks AS "remarks",
+		a.del_flag AS "delFlag"
+	</sql>
+	
+	<sql id="supSurveystationJoins">
+	</sql>
+    
+	<select id="get" resultType="SupSurveystation">
+		SELECT 
+			<include refid="supSurveystationColumns"/>
+		FROM sup_surveystation a
+		<include refid="supSurveystationJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="SupSurveystation">
+		SELECT 
+			<include refid="supSurveystationColumns"/>
+		FROM sup_surveystation a
+		<include refid="supSurveystationJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+			<if test="stationNum != null and stationNum != ''">
+				AND INSTR(a.station_num,'${stationNum}')
+			</if>
+			<if test="stationName != null and stationName != ''">
+				AND INSTR(a.station_name,'${stationName}')
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	<select id="findAllList" resultType="SupSurveystation">
+		SELECT 
+			<include refid="supSurveystationColumns"/>
+		FROM sup_surveystation a
+		<include refid="supSurveystationJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO sup_surveystation(
+			id,
+			station_num,
+			station_name,
+			provinces,
+			cities,
+			county,
+			wd,
+			jd,
+			view_height,
+			create_by,
+			create_date,
+			update_by,
+			update_date,
+			remarks,
+			del_flag
+		) VALUES (
+			#{id},
+			#{stationNum},
+			#{stationName},
+			#{provinces},
+			#{cities},
+			#{county},
+			#{wd},
+			#{jd},
+			#{viewHeight},
+			#{createBy.id},
+			#{createDate},
+			#{updateBy.id},
+			#{updateDate},
+			#{remarks},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sup_surveystation SET 	
+			station_num = #{stationNum},
+			station_name = #{stationName},
+			provinces = #{provinces},
+			cities = #{cities},
+			county = #{county},
+			wd = #{wd},
+			jd = #{jd},
+			view_height = #{view_height},
+			update_by = #{updateBy.id},
+			update_date = #{updateDate},
+			remarks = #{remarks}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		delete from sup_surveystation WHERE id = #{id}
+	</update>
+
+	<insert id="insertInfoBatch" parameterType="java.util.List" >
+		insert into sup_surveystation(
+		id,
+		station_num,
+		station_name,
+		provinces,
+		cities,
+		county,
+		wd,
+		jd,
+		view_height,
+		create_by,
+		create_date,
+		update_by,
+		update_date,
+		remarks,
+		del_flag) values
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.id},
+			#{item.stationNum},
+			#{item.stationName},
+			#{item.provinces},
+			#{item.cities},
+			#{item.county},
+			#{item.wd},
+			#{item.jd},
+			#{item.viewHeight},
+			#{item.createBy.id},
+			#{item.createDate},
+			#{item.updateBy.id},
+			#{item.updateDate},
+			#{item.remarks},
+			#{item.delFlag})
+		</foreach>
+	</insert>
+
+	<select id="findListById" resultType="SupSurveystation">
+	SELECT
+	<include refid="supSurveystationColumns"/>
+	FROM sup_surveystation a where a.station_num = #{stationNum}
+	</select>
+</mapper>

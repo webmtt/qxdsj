@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.piesat.kettlescheduler.dao.KJobMonitorDao">
+  <resultMap id="BaseResultMap" type="com.piesat.kettlescheduler.model.KJobMonitor">
+    <id column="monitor_id" jdbcType="INTEGER" property="monitorId" />
+    <result column="monitor_job" jdbcType="INTEGER" property="monitorJob" />
+    <result column="monitor_success" jdbcType="INTEGER" property="monitorSuccess" />
+    <result column="monitor_fail" jdbcType="INTEGER" property="monitorFail" />
+    <result column="add_user" jdbcType="INTEGER" property="addUser" />
+    <result column="monitor_status" jdbcType="INTEGER" property="monitorStatus" />
+    <result column="last_execute_time" jdbcType="TIMESTAMP" property="lastExecuteTime" />
+    <result column="next_execute_time" jdbcType="TIMESTAMP" property="nextExecuteTime" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.piesat.kettlescheduler.model.KJobMonitor">
+    <result column="run_status" jdbcType="LONGVARCHAR" property="runStatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    monitor_id, monitor_job, monitor_success, monitor_fail, add_user, monitor_status, 
+    last_execute_time, next_execute_time
+  </sql>
+  <sql id="Blob_Column_List">
+    run_status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from k_job_monitor
+    where monitor_id = #{monitorId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from k_job_monitor
+    where monitor_id = #{monitorId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.piesat.kettlescheduler.model.KJobMonitor">
+    insert into k_job_monitor (monitor_id, monitor_job, monitor_success, 
+      monitor_fail, add_user, monitor_status, 
+      last_execute_time, next_execute_time, run_status
+      )
+    values (#{monitorId,jdbcType=INTEGER}, #{monitorJob,jdbcType=INTEGER}, #{monitorSuccess,jdbcType=INTEGER}, 
+      #{monitorFail,jdbcType=INTEGER}, #{addUser,jdbcType=INTEGER}, #{monitorStatus,jdbcType=INTEGER}, 
+      #{lastExecuteTime,jdbcType=TIMESTAMP}, #{nextExecuteTime,jdbcType=TIMESTAMP}, #{runStatus,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.piesat.kettlescheduler.model.KJobMonitor">
+    insert into k_job_monitor
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="monitorId != null">
+        monitor_id,
+      </if>
+      <if test="monitorJob != null">
+        monitor_job,
+      </if>
+      <if test="monitorSuccess != null">
+        monitor_success,
+      </if>
+      <if test="monitorFail != null">
+        monitor_fail,
+      </if>
+      <if test="addUser != null">
+        add_user,
+      </if>
+      <if test="monitorStatus != null">
+        monitor_status,
+      </if>
+      <if test="lastExecuteTime != null">
+        last_execute_time,
+      </if>
+      <if test="nextExecuteTime != null">
+        next_execute_time,
+      </if>
+      <if test="runStatus != null">
+        run_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="monitorId != null">
+        #{monitorId,jdbcType=INTEGER},
+      </if>
+      <if test="monitorJob != null">
+        #{monitorJob,jdbcType=INTEGER},
+      </if>
+      <if test="monitorSuccess != null">
+        #{monitorSuccess,jdbcType=INTEGER},
+      </if>
+      <if test="monitorFail != null">
+        #{monitorFail,jdbcType=INTEGER},
+      </if>
+      <if test="addUser != null">
+        #{addUser,jdbcType=INTEGER},
+      </if>
+      <if test="monitorStatus != null">
+        #{monitorStatus,jdbcType=INTEGER},
+      </if>
+      <if test="lastExecuteTime != null">
+        #{lastExecuteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nextExecuteTime != null">
+        #{nextExecuteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="runStatus != null">
+        #{runStatus,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.piesat.kettlescheduler.model.KJobMonitor">
+    update k_job_monitor
+    <set>
+      <if test="monitorJob != null">
+        monitor_job = #{monitorJob,jdbcType=INTEGER},
+      </if>
+      <if test="monitorSuccess != null">
+        monitor_success = #{monitorSuccess,jdbcType=INTEGER},
+      </if>
+      <if test="monitorFail != null">
+        monitor_fail = #{monitorFail,jdbcType=INTEGER},
+      </if>
+      <if test="addUser != null">
+        add_user = #{addUser,jdbcType=INTEGER},
+      </if>
+      <if test="monitorStatus != null">
+        monitor_status = #{monitorStatus,jdbcType=INTEGER},
+      </if>
+      <if test="lastExecuteTime != null">
+        last_execute_time = #{lastExecuteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nextExecuteTime != null">
+        next_execute_time = #{nextExecuteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="runStatus != null">
+        run_status = #{runStatus,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where monitor_id = #{monitorId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.piesat.kettlescheduler.model.KJobMonitor">
+    update k_job_monitor
+    set monitor_job = #{monitorJob,jdbcType=INTEGER},
+      monitor_success = #{monitorSuccess,jdbcType=INTEGER},
+      monitor_fail = #{monitorFail,jdbcType=INTEGER},
+      add_user = #{addUser,jdbcType=INTEGER},
+      monitor_status = #{monitorStatus,jdbcType=INTEGER},
+      last_execute_time = #{lastExecuteTime,jdbcType=TIMESTAMP},
+      next_execute_time = #{nextExecuteTime,jdbcType=TIMESTAMP},
+      run_status = #{runStatus,jdbcType=LONGVARCHAR}
+    where monitor_id = #{monitorId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.piesat.kettlescheduler.model.KJobMonitor">
+    update k_job_monitor
+    set monitor_job = #{monitorJob,jdbcType=INTEGER},
+      monitor_success = #{monitorSuccess,jdbcType=INTEGER},
+      monitor_fail = #{monitorFail,jdbcType=INTEGER},
+      add_user = #{addUser,jdbcType=INTEGER},
+      monitor_status = #{monitorStatus,jdbcType=INTEGER},
+      last_execute_time = #{lastExecuteTime,jdbcType=TIMESTAMP},
+      next_execute_time = #{nextExecuteTime,jdbcType=TIMESTAMP}
+    where monitor_id = #{monitorId,jdbcType=INTEGER}
+  </update>
+</mapper>

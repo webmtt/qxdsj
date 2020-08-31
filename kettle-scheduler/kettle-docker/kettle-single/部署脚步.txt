@@ -1,0 +1,8 @@
+1.进入kettle-single目录，执行如下命令：
+docker build -t tomcat-mysql-kettle:5.7.30 .
+2.启动容器，执行如下命令：
+docker run -p 43306:3306 -p 8087:8080 --name tomcatMysqlTest -d tomcat-mysql-kettle:5.7.30
+注意：43306 是对外暴露的mysql端口，8087 是对外暴露tomcat端口。
+3.在浏览器打开：
+http://ip:8087/kettle-scheduler/view/loginUI.shtml
+注意：ip是对外暴露服务器的ip地址

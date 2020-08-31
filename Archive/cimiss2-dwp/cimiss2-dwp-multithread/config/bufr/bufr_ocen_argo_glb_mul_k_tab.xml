@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	
+	<!-- fxy:前三个值bufr文件数据段识别码,第4个值为整个数据段中第几次出现的识别码 -->
+	<!-- name:对应的字段名称 -->
+	<!-- dec:字段说明 -->
+	<!-- datatype:字段类型 -->
+	<!-- default:如果从bufr文件中取出的数据为空设置默认值 -->
+	<!-- qc:true或false,此行是否为质控码 -->
+	<!-- expression:配置此行字段值的表达式
+			表达式说明:
+				${col:arg} -> 当前配置文件中对应的字段值，arg：配置文件中配置的字段
+				${dateFormat(arg1,arg2,arg3)} -> 日期格式化,arg1:日期字符串20170809001211，arg2:arg1的格式yyyyMMddHHmmss，arg3:转换后的日期格式(如：yyyy-MM-dd HH:mm:ss) 
+				${dateTime} -> 获取系统当前时间,默认格式为yyyyMMddHHmmss
+				${dateTime(yyyy-MM-dd HH:mm:ss)} -> 获取指定格式的系统当前时间
+				${ascii:arg} -> arg代表的值转换为ascii码
+				${stationInfo(arg1,arg2,arg3)} -> 根据站号从stationinfo_conf.lua配置文件中取值，第一个参数arg1：字符站号；第二个参数arg2：站号对应的序列号;arg3：缺省值，如果从配置文件中取不到值，则取arg3作为默认值
+				${seqDayFormat(arg1,arg2,arg3)} -> 序日的格式化，第一个参数arg1：4位年；第二个参数arg2：序日(1-3位数字)；第三个参数arg3：格式(遵循java中的日期格式化pattern)
+				#########################################################
+				${col:arg} ${seqDayFormat(arg1,arg2,arg3)} ${stationInfo(arg1,arg2)} ${dateFormat(arg1,arg2,arg3)} 这几个表达式后都可以根据需要添加.split('')[]和.substring()表达式
+				.split('')[]按单引号中的符号分隔前面表达式的值，中括号中是分隔后取第n-1个
+				.substring(snum,enum) 在紧前面的表达式的值中截取snum到enum字符串,包前不包后
+	 -->
+	<colunm fxy="D_RECORD_ID" name="id" dec="记录标识" datatype="string" expression="${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} ${col:V04004}:${col:V04005}:00,yyyy-MM-dd HH:mm:ss,yyyyMMddHHmmss)}_${col:V01301}_${col:V05001}_${col:V06001}">D_RECORD_ID</colunm>
+	<colunm fxy="D_DATA_ID" name="data_id" dec="资料标识" datatype="string" default="C.0004.0001.S001">D_DATA_ID</colunm>
+	<colunm fxy="D_IYMDHM" name="insert_datetime" dec="入库时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_IYMDHM</colunm>
+	<colunm fxy="D_RYMDHM" name="recive_datetime" dec="收到时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_RYMDHM</colunm>
+	<colunm fxy="D_UPDATE_TIME" name="update datetime" dec="更新时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_UPDATE_TIME</colunm>
+	<colunm fxy="D_DATETIME" name="data_datetime" dec="资料时间" datatype="date" expression="${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} ${col:V04004}:${col:V04005}:00,yyyy-MM-dd HH:mm:ss,yyyy-MM-dd HH:mm:ss)}">D_DATETIME</colunm>
+	<colunm fxy="V_BBB" name="V_BBB" dec="更正标识" datatype="string" default="000">V_BBB</colunm>
+	
+	<colunm fxy="0-4-1-0" name="year" dec="资料年" datatype="int" expression="{0}">V04001_02</colunm>
+	<colunm fxy="0-4-2-0" name="Month" dec="资料月" datatype="int" expression="{0}">V04002_02</colunm>
+	<colunm fxy="0-4-3-0" name="Day" dec="资料日" datatype="int" expression="{0}">V04003_02</colunm>
+	<colunm fxy="0-4-4-0" name="Hour" dec="资料时" datatype="int" expression="{0}">V04004_02</colunm>
+	<colunm fxy="0-4-5-0" name="Minute" dec="资料分" datatype="int" expression="{0}">V04005_02</colunm>
+	
+	<colunm fxy="0-1-87-0" name="WMO marine observing platform extended identifier" dec="" datatype="string" expression="{0}">V01301</colunm>
+	<!--<colunm fxy="V01300" name="stationId_N" dec="区站号(数字)" datatype="int" default="999999">V01300</colunm>-->
+	<colunm fxy="0-5-1-0" name="Latitude" dec="纬度" datatype="double" expression="{0}" default="999999">V05001</colunm>
+	<colunm fxy="0-6-1-0" name="Longitude" dec="经度" datatype="double" expression="{0}" default="999999">V06001</colunm>
+	<colunm fxy="V02001" name="" dec="测站类型" datatype="int" default="21">V02001</colunm>
+	
+	<colunm fxy="0-4-1-0" name="year" dec="资料观测年" datatype="int" expression="{0}">V04001</colunm>
+	<colunm fxy="0-4-2-0" name="Month" dec="资料观测月" datatype="int" expression="{0}">V04002</colunm>
+	<colunm fxy="0-4-3-0" name="Day" dec="资料观测日" datatype="int" expression="{0}">V04003</colunm>
+	<colunm fxy="0-4-4-0" name="Hour" dec="资料观测时" datatype="int" expression="{0}">V04004</colunm>
+	<colunm fxy="0-4-5-0" name="Minute" dec="资料观测分" datatype="int" expression="{0}">V04005</colunm>
+	<colunm fxy="?" name="" dec="浮标位置质量控制标志" datatype="int" expression="{0}" default="999999">V33302</colunm>
+	<colunm fxy="?" name="" dec="时间质量控制标志" datatype="int" default="999999">V33301</colunm>
+	<colunm fxy="?" name="" dec="浮标位置质量等级" datatype="int" default="999999">V33027</colunm>
+    <colunm fxy="?" name="" dec="温度和盐度质量控制标志" datatype="int" default="999999">V33304</colunm>
+	<colunm fxy="?" name="" dec="洋流质量控制标志" datatype="int" default="999999">V33305</colunm>
+	<colunm fxy="?" name="" dec="盐度/深度测量方法" datatype="int"  default="999999">V02033</colunm>
+	<colunm fxy="?" name="" dec="洋流测量的时段和时间（对应电码K3和K4）" datatype="int" default="999999">V02031</colunm>
+	<colunm fxy="?" name="" dec="洋流观测中平台移动速度的消除方法（对应电码K6）" datatype="int" default="999999">V02040</colunm>
+	<colunm fxy="?" name="" dec="内务参数的质量" datatype="int" default="999999">V33300</colunm>
+    <colunm fxy="?" name="" dec="温度观测质量" datatype="int" default="999999">V33292</colunm>
+	<colunm fxy="?" name="" dec="卫星传送浮标站的质量" datatype="int"  default="999999">V33022</colunm>
+	<colunm fxy="?" name="" dec="浮标站位置质量" datatype="int" default="999999">V33023</colunm>
+	<colunm fxy="?" name="" dec="深度订正指示码" datatype="int" default="999999">V02341</colunm>
+	<colunm fxy="?" name="" dec="电缆低端的流体静压" datatype="double" default="999999">V02168</colunm>
+	<colunm fxy="?" name="" dec="浮标电缆长度" datatype="double" default="999999">V02035</colunm>
+	<colunm fxy="0-2-149-0" name="Type of data buoy" dec="数据浮标站类型" datatype="int" expression="{0}" default="999999">V02149</colunm>
+	<colunm fxy="0-2-36-0" name="Buoy type" dec="浮标类型" datatype="int" expression="{0}" default="999999">V02034</colunm>
+	<colunm fxy="?" name="" dec="浮标移动方向" datatype="double" default="999999">V01012</colunm>
+	<colunm fxy="?" name="" dec="浮标移动速度" datatype="double"  default="999999">V01013</colunm>
+	
+	<colunm fxy="?" name="" dec="指示XBT的仪器类型和下降速度的等阶系数" datatype="int" default="999999">V02423</colunm>
+	<colunm fxy="?" name="" dec="记录器类型" datatype="int" default="999999">V22068</colunm>
+	<colunm fxy="?" name="" dec="总水深" datatype="double" default="999999">V22063</colunm>
+	<colunm fxy="?" name="" dec="浮标站技术状况信息1" datatype="int" default="999999">V02442_01</colunm>
+	<colunm fxy="?" name="" dec="浮标站技术状况信息2" datatype="int" default="999999">V02442_02</colunm>
+	<colunm fxy="?" name="" dec="浮标站技术状况信息3" datatype="int" default="999999">V02442_03</colunm>
+	<colunm fxy="?" name="" dec="浮标附加电缆长度" datatype="double" default="999999">V22350</colunm>
+
+	<colunm fxy="D_DATA_DPCID" name="D_DATA_DPCID" dec="DPC产品标识,DPC的4级编码" datatype="string" expression="" default="C.0004.0001.P004">D_DATA_DPCID</colunm>
+	<colunm fxy="?" name="" dec="" datatype="string" default="9">I_INTG</colunm>
+	<colunm fxy="?" name="" dec="报文类型" datatype="string" default="IOP">V_TT</colunm>
+	<colunm fxy="?" name="" dec="发报中心" datatype="string" default="NULL">C_CCCC</colunm>
+	<colunm fxy="?" name="" dec="资料四级编码" datatype="string" default="C.0008.0018.R001">D_SOURCE_ID</colunm>
+</root>

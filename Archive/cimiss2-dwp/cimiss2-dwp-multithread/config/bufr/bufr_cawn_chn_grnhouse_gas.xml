@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	
+	<!-- fxy:前三个值bufr文件数据段识别码,第4个值为整个数据段中第几次出现的识别码 -->
+	<!-- name:对应的字段名称 -->
+	<!-- dec:字段说明 -->
+	<!-- datatype:字段类型 -->
+	<!-- defaultValue:如果从bufr文件中取出的数据为空设置默认值 -->
+	<!-- qc:true或false,此行是否为质控码 -->
+	<!-- expression:配置此行字段值的表达式
+			表达式说明:
+				${col:arg} -> 当前配置文件中对应的字段值，arg：配置文件中配置的字段
+				${dateFormat(arg1,arg2,arg3)} -> 日期格式化,arg1:日期字符串20170809001211，arg2:arg1的格式yyyyMMddHHmmss，arg3:转换后的日期格式(如：yyyy-MM-dd HH:mm:ss) 
+				${dateTime} -> 获取系统当前时间,默认格式为yyyyMMddHHmmss
+				${ascii:arg} -> arg代表的值转换为ascii码
+				${stationInfo(arg1,arg2,arg3)} -> 根据站号从stationinfo_conf.lua配置文件中取值，第一个参数arg1：字符站号；第二个参数arg2：站号对应的序列号
+				${seqDayFormat(arg1,arg2,arg3)} -> 序日的格式化，第一个参数arg1：4位年；第二个参数arg2：序日(1-3位数字)；第三个参数arg3：格式(遵循java中的日期格式化pattern)
+				#########################################################
+				${col:arg} ${seqDayFormat(arg1,arg2,arg3)} ${stationInfo(arg1,arg2)} ${dateFormat(arg1,arg2,arg3)} 这几个表达式后都可以根据需要添加.split('')[]和.substring()表达式
+				.split('')[]按单引号中的符号分隔前面表达式的值，中括号中是分隔后取第n-1个
+				.substring(snum,enum) 在紧前面的表达式的值中截取snum到enum字符串,包前不包后
+	 -->
+	<colunm fxy="D_RECORD_ID" name="id" dec="主键" datatype="string" expression="${col:V01301}_${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}${col:V04003} ${col:V04004}:${col:V04005}:00,yyyy-MM-dd HH:mm:ss,yyyyMMddHHmmss)}">D_RECORD_ID</colunm> 
+	
+	<colunm fxy="D_DATA_ID" name="data_id" dec="资料标识" datatype="string" default="G.0016.0002.S001">D_DATA_ID</colunm>
+	<colunm fxy="?" name="" dec="" datatype="string" default="G.0016.0002.S001">D_SOURCE_ID</colunm>
+	<colunm fxy="D_IYMDHM" name="insert datetime" dec="入库时间" datatype="date" expression="${dateFormat(${dateTime},yyyyMMddHHmmss,yyyy-MM-dd HH:mm:ss)}">D_IYMDHM</colunm>
+	<colunm fxy="D_RYMDHM" name="recive_datetime" dec="收到时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_RYMDHM</colunm>
+	
+	<colunm fxy="D_UPDATE_TIME" name="update datetime" dec="更新时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_UPDATE_TIME</colunm>
+	
+	<colunm fxy="D_DATETIME" name="data datetime" dec="资料时间" datatype="date" expression="${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} ${col:V04004}:${col:V04005}:00,yyyy-MM-dd HH:mm:ss,yyyy-MM-dd HH:mm:ss)}">D_DATETIME</colunm>
+	
+	<!-- <colunm fxy="D_DATETIME" name="D_RETRIEVAL_ TIME" dec="小时资料检索时间" datatype="date" expression="${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} 00:00:00,yyyy-MM-dd HH:mm:ss,yyyy-MM-dd HH:mm:ss)}">D_RETRIEVAL_TIME</colunm>  -->
+	<colunm fxy="V_BBB" name="V_BBB" dec="更正报标识" datatype="string"  default="000">V_BBB</colunm> 
+	<colunm fxy="0-1-1-0" name="WMO_block_number" dec="区站号" datatype="string">V01301</colunm>
+	<!--  <colunm fxy="V01300" name="stationId_N" dec="区站号(数字)" datatype="string" expression="${ascii:${col:V01301}}">V01300</colunm> -->
+	<colunm fxy="0-1-101-0" name="National and local identifiers" dec="国家和地标识符" datatype="string" default="999999">V01101</colunm>
+	<colunm fxy="0-1-192-0" name="Local station logo" dec="本地测站标识" datatype="string" default="999999">V01192</colunm>
+	<colunm fxy="0-5-1-0" name="Latitude" dec="纬度" datatype="double" >V05001</colunm>
+	<colunm fxy="0-6-1-0" name="Longitude" dec="经度" datatype="double" >V06001</colunm>
+	<colunm fxy="0-4-1-0" name="year" dec="资料年" datatype="int" >V04001</colunm>
+	<colunm fxy="0-4-2-0" name="Month" dec="资料月" datatype="int" >V04002</colunm>
+	<colunm fxy="0-4-3-0" name="day" dec="资料日" datatype="int" >V04003</colunm>
+	<colunm fxy="0-4-4-0" name="hour" dec="资料时" datatype="int" >V04004</colunm>
+	<colunm fxy="0-4-5-0" name="minute" dec="资料分" datatype="int" >V04005</colunm>
+	<colunm fxy="0-7-30-0" name="Ground height above average sea level" dec="平均海平面以上测站地面高度" datatype="double" default="999999">V07030</colunm>
+	<colunm fxy="0-7-31-0" name="Air pressure gauge height above mean sea level" dec="平均海平面以上气压表高度" datatype="double" default="999999">V07031</colunm>
+	<colunm fxy="3-22-202-0" name="GC business scale CH4 concentration" dec="GC业务标气CH4浓度(W)" datatype="double" expression="{2}">V_GB_CH4_W</colunm>
+	<colunm fxy="3-22-202-0" name="GC business scale CO concentration" dec="GC业务标气CO浓度(W)" datatype="double" expression="{3}">V_GB_CO_W</colunm>
+	<colunm fxy="3-22-202-0" name="GC business scale N2O concentration" dec="GC业务标气N2O浓度(W)" datatype="double" expression="{4}">V_GB_N2O_W</colunm>
+	<colunm fxy="3-22-202-0" name="GC business scale SF0 concentration" dec="GC业务标气SF0浓度(W)" datatype="double" expression="{5}">V_GB_SF0_W</colunm>
+	<colunm fxy="3-22-202-0" name="GC business scale CO2 concentration" dec="GC业务标气CO2浓度(W)" datatype="double" expression="{6}">V_GB_CO2_W</colunm>
+	<colunm fxy="3-22-202-1" name="GC business scale CH4 concentration" dec="GC业务标气CH4浓度(T)" datatype="double" expression="{2}">V_GB_CH4_T</colunm>
+	<colunm fxy="3-22-202-1" name="GC business scale CO concentration" dec="GC业务标气CO浓度(T)" datatype="double" expression="{3}">V_GB_CO_T</colunm>
+	<colunm fxy="3-22-202-1" name="GC business scale N2O concentration" dec="GC业务标气N2O浓度(T)" datatype="double" expression="{4}">V_GB_N2O_T</colunm>
+	<colunm fxy="3-22-202-1" name="GC business scale SF0 concentration" dec="GC业务标气SF0浓度(T)" datatype="double" expression="{5}">V_GB_SF0_T</colunm>
+	<colunm fxy="3-22-202-1" name="GC business scale CO2 concentration" dec="GC业务标气CO2浓度(T)" datatype="double" expression="{6}">V_GB_CO2_T</colunm>
+	<colunm fxy="3-22-202-0" name="GC-NO2 single gauge CH4 concentration(GC1)" dec="GC-O2单一标气CH4浓度(GC1)" datatype="double" expression="{2}">V_GN_CH4_GC1</colunm>
+	<colunm fxy="3-22-202-0" name="GC-NO2 single gauge CO concentration(GC1)" dec="GC-NO2单一标气CO浓度(GC1)" datatype="double" expression="{3}">V_GN_CO_GC1</colunm>
+	<colunm fxy="3-22-202-0" name="GC-NO2 single gauge N2O concentration(GC1)" dec="GC-NO2单一标气N2O浓度(GC1)" datatype="double" expression="{4}">V_GN_N2O_GC1</colunm>
+	<colunm fxy="3-22-202-0" name="GC-NO2 single gauge SF6 concentration(GC1)" dec="GC-NO2单一标气SF6浓度(GC1)" datatype="double" expression="{5}">V_GN_SF0_GC1</colunm>
+	<colunm fxy="3-22-202-0" name="GC-NO2 single gauge CO2 concentration(GC1)" dec="GC-NO2单一标气CO2浓度(GC1)" datatype="double" expression="{6}">V_GN_CO2_GC1</colunm>
+	<colunm fxy="3-22-202-0" name="GC-NO2 single gauge CH4 concentration(GC2)" dec="GC-O2单一标气CH4浓度(GC2)" datatype="double" expression="{8}">V_GN_CH4_GC2</colunm>
+	<colunm fxy="3-22-202-0" name="GC-NO2 single gauge CO concentration(GC2)" dec="GC-NO2单一标气CO浓度(GC2)" datatype="double" expression="{9}">V_GN_CO_GC2</colunm>
+	<colunm fxy="3-22-202-0" name="GC-NO2 single gauge N2O concentration(GC2)" dec="GC-NO2单一标气N2O浓度(GC2)" datatype="double" expression="{10}">V_GN_N2O_GC2</colunm>
+	<colunm fxy="3-22-202-0" name="GC-NO2 single gauge SF6 concentration(GC2)" dec="GC-NO2单一标气SF6浓度(GC2)" datatype="double" expression="{11}">V_GN_SF0_GC2</colunm>
+	<colunm fxy="3-22-202-0" name="GC-NO2 single gauge CO2 concentration(GC2)" dec="GC-NO2单一标气CO2浓度(GC2)" datatype="double" expression="{12}">V_GN_CO2_GC2</colunm>
+	<colunm fxy="3-22-202-0" name="GC-NO2 single gauge CH4 concentration(GC3)" dec="GC-O2单一标气CH4浓度(GC3)" datatype="double" expression="{14}">V_GN_CH4_GC3</colunm>
+	<colunm fxy="3-22-202-0" name="GC-NO2 single gauge CO concentration(GC3)" dec="GC-NO2单一标气CO浓度(GC3)" datatype="double" expression="{15}">V_GN_CO_GC3</colunm>
+	<colunm fxy="3-22-202-0" name="GC-NO2 single gauge N2O concentration(GC3)" dec="GC-NO2单一标气N2O浓度(GC3)" datatype="double" expression="{16}">V_GN_N2O_GC3</colunm>
+	<colunm fxy="3-22-202-0" name="GC-NO2 single gauge SF6 concentration(GC3)" dec="GC-NO2单一标气SF6浓度(GC3)" datatype="double" expression="{17}">V_GN_SF0_GC3</colunm>
+	<colunm fxy="3-22-202-0" name="GC-NO2 single gauge CO2 concentration(GC3)" dec="GC-NO2单一标气CO2浓度(GC3)" datatype="double" expression="{18}">V_GN_CO2_GC3</colunm>
+	<colunm fxy="3-22-202-0" name="GC-NO2 single gauge CH4 concentration(GC4)" dec="GC-O2单一标气CH4浓度(GC4)" datatype="double" expression="{20}">V_GN_CH4_GC4</colunm>
+	<colunm fxy="3-22-202-0" name="GC-NO2 single gauge CO concentration(GC4)" dec="GC-NO2单一标气CO浓度(GC4)" datatype="double" expression="{21}">V_GN_CO_GC4</colunm>
+	<colunm fxy="3-22-202-0" name="GC-NO2 single gauge N2O concentration(GC4)" dec="GC-NO2单一标气N2O浓度(GC4)" datatype="double" expression="{22}">V_GN_N2O_GC4</colunm>
+	<colunm fxy="3-22-202-0" name="GC-NO2 single gauge SF6 concentration(GC4)" dec="GC-NO2单一标气SF6浓度(GC4)" datatype="double" expression="{23}">V_GN_SF0_GC4</colunm>
+	<colunm fxy="3-22-202-0" name="GC-NO2 single gauge CO2 concentration(GC4)" dec="GC-NO2单一标气CO2浓度(GC4)" datatype="double" expression="{24}">V_GN_CO2_GC4</colunm>
+	<colunm fxy="3-22-202-0" name="GC-NO2 single gauge CH4 concentration(GC5)" dec="GC-O2单一标气CH4浓度(GC5)" datatype="double" expression="{26}">V_GN_CH4_GC5</colunm>
+	<colunm fxy="3-22-202-0" name="GC-NO2 single gauge CO concentration(GC5)" dec="GC-NO2单一标气CO浓度(GC5)" datatype="double" expression="{27}">V_GN_CO_GC5</colunm>
+	<colunm fxy="3-22-202-0" name="GC-NO2 single gauge N2O concentration(GC5)" dec="GC-NO2单一标气N2O浓度(GC5)" datatype="double" expression="{28}">V_GN_N2O_GC5</colunm>
+	<colunm fxy="3-22-202-0" name="GC-NO2 single gauge SF6 concentration(GC5)" dec="GC-NO2单一标气SF6浓度(GC5)" datatype="double" expression="{29}">V_GN_SF0_GC5</colunm>
+	<colunm fxy="3-22-202-0" name="GC-NO2 single gauge CO2 concentration(GC5)" dec="GC-NO2单一标气CO2浓度(GC5)" datatype="double" expression="{30}">V_GN_CO2_GC5</colunm>
+	
+	<colunm fxy="3-22-202-2" name="Picarro business scale CH4 concentration" dec="GC业务标气CH4浓度(W)" datatype="double" expression="{2}">V_PC_CH4_W</colunm>
+	<colunm fxy="3-22-202-2" name="Picarro business scale CO concentration" dec="GC业务标气CO浓度(W)" datatype="double" expression="{3}">V_PC_CO_W</colunm>
+	<colunm fxy="3-22-202-2" name="Picarro business scale N2O concentration" dec="GC业务标气N2O浓度(W)" datatype="double" expression="{4}">V_PC_N2O_W</colunm>
+	<colunm fxy="3-22-202-2" name="Picarro business scale SF6 concentration" dec="GC业务标气SF6浓度(W)" datatype="double" expression="{5}">V_PC_SF0_W</colunm>
+	<colunm fxy="3-22-202-2" name="Picarro business scale CO2 concentration" dec="GC业务标气CO2浓度(W)" datatype="double" expression="{6}">V_PC_CO2_W</colunm>
+	<colunm fxy="3-22-202-3" name="Picarro business scale CH4 concentration" dec="GC业务标气CH4浓度(T)" datatype="double" expression="{2}">V_PC_CH4_T</colunm>
+	<colunm fxy="3-22-202-3" name="Picarro business scale CO concentration" dec="GC业务标气CO浓度(T)" datatype="double" expression="{3}">V_PC_CO_T</colunm>
+	<colunm fxy="3-22-202-3" name="Picarro business scale N2O concentration" dec="GC业务标气N2O浓度(T)" datatype="double" expression="{4}">V_PC_N2O_T</colunm>
+	<colunm fxy="3-22-202-3" name="Picarro business scale SF0 concentration" dec="GC业务标气SF6浓度(T)" datatype="double" expression="{5}">V_PC_SF0_T</colunm>
+	<colunm fxy="3-22-202-3" name="Picarro business scale CO2 concentration" dec="GC业务标气CO2浓度(T)" datatype="double" expression="{6}">V_PC_CO2_T</colunm>
+	
+	<colunm fxy="V_GAS_TYPE" name="Greenhouse gas type" dec="温室气体类型" datatype="string" default="999998">V_GAS_TYPE</colunm>
+	<colunm fxy="0-2-241-0" name="Instrument Model" dec="仪器型号" datatype="string" default="999999">V02241</colunm>
+	<colunm fxy="0-2-209-0" name="Instrument serial number" dec="仪器序列号" datatype="string" default="999999">V02209</colunm>
+	<colunm fxy="0-2-242-0" name="Method of measurement" dec="测量方法" datatype="string" default="999999">V02242</colunm>
+	<colunm fxy="0-4-5-0" name="Sampling time, minutes(world time)" dec="采样时间，分（世界时）" datatype="int" default="999999">V04005_S</colunm>
+	<colunm fxy="0-4-6-0" name="Sampling time, seconds(world time)" dec="采样时间，秒（世界时）" datatype="int" default="999999">V04006_S</colunm>
+	<colunm fxy="1-1-2-0" name="CO2 gas concentration" dec="CO2气体浓度" datatype="double" default="999999">V15195_01</colunm>
+	<colunm fxy="1-1-2-1" name="Calibration of CO2 gas concentrations by water vapor" dec="水汽校正后的CO2气体浓度" datatype="double" default="999999">V15195_02</colunm>
+	<colunm fxy="1-1-2-2" name="CO2 gas concentration after water removal" dec="CO2除水后气体浓度" datatype="double" default="999999">V15195_03</colunm>
+	<colunm fxy="1-1-2-3" name="Average CO2 gas concentration" dec="CO2平均气体浓度" datatype="double" default="999999">V15195_11</colunm>
+	<colunm fxy="1-1-2-4" name="Mean CO2 gas concentration after water vapor correction" dec="水汽校正后的CO2平均气体浓度" datatype="double" default="999999">V15195_12</colunm>
+	<colunm fxy="1-5-194-0" name="CH4 gas concentration" dec="CH4气体浓度" datatype="double" default="999999">V15194</colunm>
+	<colunm fxy="1-5-194-1" name="CO gas concentration" dec="CO气体浓度" datatype="double" default="999999">V15194_01</colunm>
+	<colunm fxy="1-1-3-0" name="CO mean concentration 1" dec="CO平均浓度1" datatype="double" default="999999">V15194_11</colunm>
+	<colunm fxy="1-1-3-1" name="CO mean concentration 2" dec="CO平均浓度2" datatype="double" default="999999">V15194_12</colunm>
+	<colunm fxy="1-1-3-2" name="CO mean concentration 3" dec="CO平均浓度3" datatype="double" default="999999">V15194_13</colunm>
+	<colunm fxy="3-22-200-0" name="Instrument chamber temperature" dec="仪器腔室温度" datatype="double" expression="${{0}-273.15}">V_TEM_INS</colunm>
+	<colunm fxy="3-22-200-0" name="Instrument chamber pressure" dec="仪器腔室压力" datatype="double" expression="${{1}*0.01}">V_PRESS_INS</colunm>
+	<colunm fxy="3-22-200-0" name="DAS temperature" dec="DAS温度" datatype="double" expression="${{2}-273.15}">V_TEM_DAS</colunm>
+	<colunm fxy="3-22-200-0" name="ETALON temperature" dec="ETALON温度" datatype="double" expression="${{3}-273.15}">V_TEM_ETALON</colunm>
+	<colunm fxy="3-22-200-0" name="Heater current" dec="加热器电流" datatype="double" expression="${4}">V02243</colunm>
+	<colunm fxy="3-22-200-0" name="Import pressure" dec="进口压力" datatype="double" expression="${{5}*0.01}">V_PRESS_IMP</colunm>
+	<colunm fxy="3-22-200-0" name="Export pressure" dec="出口压力" datatype="double" expression="${{6}*0.01}">V_PRESS_EXP</colunm>
+	<colunm fxy="3-22-200-0" name="Electromagnetic valve position(16 types)" dec="电磁阀位（16种）" datatype="double" expression="${7}">V02244</colunm>
+	<colunm fxy="3-22-200-0" name="Porous valve position(16 species)" dec="多孔阀位（16种）" datatype="double" expression="${8}">V02245</colunm>
+	<colunm fxy="3-22-200-0" name="Wavelength identification" dec="波长标识" datatype="double" expression="${9}">V02246</colunm>
+	<colunm fxy="3-22-200-0" name="Clock drift identification" dec="时钟漂移标识" datatype="double" expression="${10}">V02247</colunm>
+	<colunm fxy="3-22-200-0" name="Time delay" dec="时间延时" datatype="double" expression="${11}">V15219</colunm>
+	<colunm fxy="3-22-200-0" name="Y axis parameters" dec="Y轴参数" datatype="double" expression="${12}">V15211</colunm>
+	<colunm fxy="3-22-200-0" name="Baseline" dec="基线" datatype="double" expression="${13}">V15222</colunm>
+	<colunm fxy="3-22-200-0" name="CM Calibration _ C" dec="CM校正_C" datatype="double" expression="${14}">V15223</colunm>
+	<colunm fxy="3-22-200-0" name="Wavelength check system compensation" dec="波长检查系统补偿" datatype="double" expression="${15}">V15224</colunm>
+	<colunm fxy="3-22-200-0" name="QUAD drift" dec="QUAD漂移" datatype="double" expression="${16}">V15225</colunm>
+	<colunm fxy="3-22-200-0" name="Average current" dec="电流平均" datatype="double" expression="${17}">V15226</colunm>
+	<colunm fxy="3-22-200-0" name="Laser 1 temperature compensation" dec="激光器1温度补偿" datatype="double" expression="${18}">V15227</colunm>
+	<colunm fxy="3-22-200-0" name="Laser 2 temperature compensation" dec="激光器2温度补偿" datatype="double" expression="${19}">V15239</colunm>
+	<colunm fxy="3-22-200-0" name="PZT center value" dec="PZT中心数值" datatype="double" expression="${20}">V02248</colunm>
+	<colunm fxy="3-22-200-0" name="PZT standard deviation" dec="PZT标准偏差" datatype="double" expression="${21}">V02249</colunm>
+	<colunm fxy="3-22-200-0" name="Standard deviation residuals" dec="标准偏差残差" datatype="double" expression="${22}">V02250</colunm>
+	<colunm fxy="3-22-200-0" name="PZT filter value" dec="PZT过滤值" datatype="double" expression="${23}">V02251</colunm>
+	<colunm fxy="3-22-200-0" name="Wavelength setting filter" dec="波长设定值过滤" datatype="double" expression="${24}">V02252</colunm>
+	<colunm fxy="3-22-200-0" name="Invalid attenuation scan" dec="无效衰减扫描" datatype="double" expression="${25}">V02253</colunm>
+	<colunm fxy="3-22-200-0" name="A few filters" dec="少数过滤" datatype="double" expression="${26}">V15228</colunm>
+	<colunm fxy="3-22-200-0" name="Filter data" dec="过滤数据" datatype="double" expression="${27}">V15229</colunm>
+	<colunm fxy="3-22-200-0" name="H2O content" dec="H2O含量" datatype="double" expression="${28}">V15217</colunm>
+	<colunm fxy="3-22-200-0" name="CO2 water vapor correction" dec="CO2水汽校正量" datatype="double" expression="${29}">V15218</colunm>
+	<colunm fxy="3-22-200-0" name="CO2, H2O correlation coefficient" dec="CO2,H2O相关系数" datatype="double" expression="${30}">V15242</colunm>
+	<colunm fxy="3-22-200-0" name="CO2 signal peak" dec="CO2信号峰" datatype="double" expression="${31}">V15220</colunm>
+	<colunm fxy="3-22-200-0" name="H2O fitting content" dec="H2O拟合含量" datatype="double" expression="${32}">V15230</colunm>
+	<colunm fxy="3-22-200-0" name="CO2-CO range" dec="CO2_CO值域" datatype="double" expression="${33}">V15231</colunm>
+	<colunm fxy="3-22-200-0" name="Final gravity baseline" dec="最终重力基线" datatype="double" expression="${34}">V15232</colunm>
+	<colunm fxy="3-22-200-0" name="H2O slope" dec="H2O斜率" datatype="double" expression="${35}">V15233</colunm>
+	<colunm fxy="3-22-200-0" name="CO2 slope" dec="CO2斜率" datatype="double" expression="${36}">V15234</colunm>
+	<colunm fxy="3-22-200-0" name="P84 specification" dec="P84规格" datatype="double" expression="${37}">V15235</colunm>
+	<colunm fxy="3-22-200-0" name="P85 Original response" dec="P85原始响应" datatype="double" expression="${38}">V15236</colunm>
+	<colunm fxy="3-22-200-0" name="CO2 gas P14 response" dec="CO2气体P14响应" datatype="double" expression="${39}">V15237</colunm>
+	<colunm fxy="3-22-200-0" name="H2O state" dec="H2O状态" datatype="double" expression="${40}">V15238</colunm>
+	<colunm fxy="3-22-200-0" name="CO gas ppm content B" dec="CO气体ppm含量B" datatype="double" expression="${41}">V15240</colunm>
+	<colunm fxy="3-22-200-0" name="CO fragmentary data" dec="CO零碎数据" datatype="double" expression="${42}">V15241</colunm>
+	<colunm fxy="3-22-201-0" name="GC detector(= structure 1)" dec="GC检测器（=instrument1）" datatype="double" expression="${0}">V03192</colunm>
+	<colunm fxy="3-22-201-0" name="GC sampling hierarchy(currently H or L)" dec="GC采样层次（目前为H或L）" datatype="double" expression="${1}">V03193</colunm>
+	<colunm fxy="3-22-201-0" name="GC gas type" dec="GC样气类型" datatype="double" expression="${2}">V03194</colunm>
+	<colunm fxy="3-22-201-0" name="GC signal number(signal 1 ECD)" dec="GC信号号码(信号1 ECD)" datatype="double" expression="${3}">V03195_ECD</colunm>
+	<colunm fxy="3-22-201-0" name="GC Peak(signal 1 ECD)" dec="GC峰号(信号1 ECD)" datatype="double" expression="${4}">V03196_ECD</colunm>
+	<colunm fxy="3-22-201-0" name="GC Retain Time(signal 1 ECD)" dec="GC保留时间（RetTime）(信号1 ECD)" datatype="double" expression="${5}">V03197_ECD</colunm>
+	<colunm fxy="3-22-201-0" name="GC Peak Type(signal 1 ECD)" dec="GC峰型（Type）(信号1 ECD)" datatype="double" expression="${6}">V03198_ECD</colunm>
+	<colunm fxy="3-22-201-0" name="GC Peak Width(signal 1 ECD)" dec="GC峰宽（Width）(信号1 ECD)" datatype="double" expression="${7}">V03199_ECD</colunm>
+	<colunm fxy="3-22-201-0" name="GC Peak Area(Area)(Signal 1 ECD)" dec="GC峰面积（Area）(信号1 ECD)" datatype="double" expression="${8}">V03200_ECD</colunm>
+	<colunm fxy="3-22-201-0" name="GC Height(signal 1 ECD)" dec="GC峰高（Height）(信号1 ECD)" datatype="double" expression="${9}">V03201_ECD</colunm>
+	
+	<colunm fxy="3-22-201-0" name="GC signal number(signal 2 FID)" dec="GC信号号码(信号2 FID)" datatype="double" expression="${10}">V03195_FID</colunm>
+	<colunm fxy="3-22-201-0" name="GC Peak(signal 2 FID)" dec="GC峰号(信号2 FID)" datatype="double" expression="${11}">V03196_ECD</colunm>
+	<colunm fxy="3-22-201-0" name="GC Retain Time(signal 2 FID)" dec="GC保留时间（RetTime）(信号2 FID)" datatype="double" expression="${12}">V03197_FID</colunm>
+	<colunm fxy="3-22-201-0" name="GC Peak Type(signal 2 FID)" dec="GC峰型（Type）(信号2 FID)" datatype="double" expression="${13}">V03198_FID</colunm>
+	<colunm fxy="3-22-201-0" name="GC Peak Width(signal 2 FID)" dec="GC峰宽（Width）(信号2 FID)" datatype="double" expression="${14}">V03199_FID</colunm>
+	<colunm fxy="3-22-201-0" name="GC Peak Area(Area)(Signal 2 FID)" dec="GC峰面积（Area）(信号2 FID)" datatype="double" expression="${15}">V03200_FID</colunm>
+	<colunm fxy="3-22-201-0" name="GC Height(signal 2 FID)" dec="GC峰高（Height）(信号2 FID)" datatype="double" expression="${16}">V03201_FID</colunm>
+	
+	
+	
+	
+</root>

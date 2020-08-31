@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nmpiesat.idata.products.dao.ProDataindexDAO">
+  <resultMap id="BaseResultMap" type="com.nmpiesat.idata.products.entity.ProDataindex">
+    <result column="PRODUCTSUBCODE" jdbcType="VARCHAR" property="productsubcode" />
+    <result column="PRODUCTCODE" jdbcType="VARCHAR" property="productcode" />
+    <result column="TOKENSCODE" jdbcType="VARCHAR" property="tokenscode" />
+    <result column="UNITCODE" jdbcType="VARCHAR" property="unitcode" />
+    <result column="TYPECODE" jdbcType="VARCHAR" property="typecode" />
+    <result column="CONTENTCODE" jdbcType="VARCHAR" property="contentcode" />
+    <result column="ALTITUDECODE" jdbcType="VARCHAR" property="altitudecode" />
+    <result column="COVERAREACODE" jdbcType="VARCHAR" property="coverareacode" />
+    <result column="STARTENDTIME" jdbcType="VARCHAR" property="startendtime" />
+    <result column="D_DATETIME" jdbcType="VARCHAR" property="dDatetime" />
+    <result column="FILETYPE" jdbcType="VARCHAR" property="filetype" />
+    <result column="PRODATE" jdbcType="TIMESTAMP" property="prodate" />
+    <result column="FILENAME" jdbcType="VARCHAR" property="filename" />
+    <result column="FILEPATH" jdbcType="VARCHAR" property="filepath" />
+    <result column="URL" jdbcType="VARCHAR" property="url" />
+    <result column="FILESIZE" jdbcType="DECIMAL" property="filesize" />
+    <result column="ISPUBLISH" jdbcType="DECIMAL" property="ispublish" />
+    <result column="CREATEDBY" jdbcType="VARCHAR" property="createdby" />
+    <result column="CREATED" jdbcType="TIMESTAMP" property="created" />
+    <result column="UPDATEDBY" jdbcType="VARCHAR" property="updatedby" />
+    <result column="UPDATED" jdbcType="TIMESTAMP" property="updated" />
+    <result column="STATIONNUM" jdbcType="VARCHAR" property="stationnum" />
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="FILESHOWNAME" jdbcType="VARCHAR" property="fileshowname" />
+  </resultMap>
+  <select id="getProductsFile" resultType="com.nmpiesat.idata.products.entity.UploadProduct">
+    select * from sys_upload_product
+  </select>
+
+  <select id="getUnit" resultType="java.lang.String">
+    select UPTYPE from bmp_productenumdef where SUBTYPE='盟市单位' ORDER BY ORDERNO ASC
+  </select>
+
+  <select id="getAllUnit" resultType="java.util.Map">
+    select UNITNAME,UNITCODE,TOKENSNAME,TOKENSCODE from bmp_productinfo
+    GROUP BY UNITNAME order by length(UNITNAME) ASC
+  </select>
+
+  <select id="getAllSub" parameterType="java.lang.String" resultType="java.util.Map">
+    select * from bmp_productenumdef where UPTYPE =#{upType} ORDER BY ORDERNO ASC
+  </select>
+
+  <select id="getSubType" resultType="java.util.Map">
+    select * from bmp_productenumdef where SUBTYPE='一级制作单位及直属单位' ORDER BY ORDERNO ASC
+  </select>
+
+  <select id="getAllUnitType" resultType="java.util.Map">
+    select TYPENAME,TYPECODE,TOKENSNAME,TOKENSCODE from bmp_productinfo
+    GROUP BY TYPENAME order by length(TYPENAME) ASC
+  </select>
+
+  <select id="getAllUnitProduct" parameterType="java.lang.String" resultType="java.util.Map">
+    select PRODUCTNAME,PRODUCTCODE,TOKENSNAME,TOKENSCODE from bmp_productinfo
+    where UNITNAME=#{produc}
+    GROUP BY PRODUCTNAME order by length(PRODUCTNAME) ASC
+  </select>
+
+  <select id="getAllUnitTypes" parameterType="java.lang.String" resultType="java.util.Map">
+    select TYPENAME,TYPECODE,TOKENSNAME,TOKENSCODE from bmp_productinfo
+    where UNITNAME=#{uniittStr}
+    GROUP BY TYPENAME order by length(TYPENAME) ASC
+  </select>
+
+  <select id="getAllProduct" resultType="java.util.Map">
+    select PRODUCTNAME,PRODUCTCODE,TOKENSNAME,TOKENSCODE from bmp_productinfo
+    GROUP BY PRODUCTNAME order by length(PRODUCTNAME) ASC
+  </select>
+
+  <select id="getNewUnits" parameterType="java.lang.String" resultType="com.nmpiesat.idata.products.entity.ProDataindex">
+    select * from pro_dataindex where TOKENSCODE=#{tokenscode} ORDER BY CREATED DESC LIMIT
+  </select>
+
+  <select id="getMoreVersionUT" resultType="com.nmpiesat.idata.products.entity.ProDataindex">
+    select * from pro_dataindex
+    where 1=1
+    <if test="productList != null and productList !=''">
+      and PRODUCTCODE in
+      <foreach collection="productList" item="item" index="index"
+               open="(" close=")" separator=",">
+        #{item}
+      </foreach>
+    </if>
+    <if test="unitList != null and productList == null">
+      and UNITCODE in
+      <foreach collection="unitList" item="unit" index="indexu"
+               open="(" close=")" separator=",">
+        #{unit}
+      </foreach>
+    </if>
+    <if test="typesList != null and productList == null">
+      and TYPECODE in
+      <foreach collection="typesList" item="types" index="indext"
+               open="(" close=")" separator=",">
+        #{types}
+      </foreach>
+    </if>
+    order by CREATED DESC
+  </select>
+
+  <select id="getAlltypsFile" parameterType="java.lang.String" resultType="com.nmpiesat.idata.products.entity.ProDataindex">
+    select * from pro_dataindex where FILETYPE in("DOC","TXT","XLS","WPS","PDF") and TYPECODE=#{typscode}
+  </select>
+
+  <select id="getAllProductcodeFile" parameterType="java.lang.String" resultType="com.nmpiesat.idata.products.entity.ProDataindex">
+    select * from pro_dataindex where FILETYPE in("DOC","TXT","XLS","WPS","PDF") and PRODUCTCODE=#{productcode}
+  </select>
+
+  <update id="statisticsUnits" parameterType="java.lang.String">
+    update pro_dataindex set HITS=HITS+1 where ID = #{id}
+  </update>
+
+  <select id="getProductRepert"  resultType="java.util.Map">
+    select * from sys_product_repert where id=1
+  </select>
+
+  <insert id="insert" parameterType="com.nmpiesat.idata.products.entity.ProDataindex">
+    insert into pro_dataindex (PRODUCTSUBCODE, PRODUCTCODE, TOKENSCODE, 
+      UNITCODE, TYPECODE, CONTENTCODE, 
+      ALTITUDECODE, COVERAREACODE, STARTENDTIME, 
+      D_DATETIME, FILETYPE, PRODATE, 
+      FILENAME, FILEPATH, URL, 
+      FILESIZE, ISPUBLISH, CREATEDBY, 
+      CREATED, UPDATEDBY, UPDATED, 
+      STATIONNUM, ID, FILESHOWNAME
+      )
+    values (#{productsubcode,jdbcType=VARCHAR}, #{productcode,jdbcType=VARCHAR}, #{tokenscode,jdbcType=VARCHAR}, 
+      #{unitcode,jdbcType=VARCHAR}, #{typecode,jdbcType=VARCHAR}, #{contentcode,jdbcType=VARCHAR}, 
+      #{altitudecode,jdbcType=VARCHAR}, #{coverareacode,jdbcType=VARCHAR}, #{startendtime,jdbcType=VARCHAR}, 
+      #{dDatetime,jdbcType=VARCHAR}, #{filetype,jdbcType=VARCHAR}, #{prodate,jdbcType=TIMESTAMP}, 
+      #{filename,jdbcType=VARCHAR}, #{filepath,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
+      #{filesize,jdbcType=DECIMAL}, #{ispublish,jdbcType=DECIMAL}, #{createdby,jdbcType=VARCHAR}, 
+      #{created,jdbcType=TIMESTAMP}, #{updatedby,jdbcType=VARCHAR}, #{updated,jdbcType=TIMESTAMP}, 
+      #{stationnum,jdbcType=VARCHAR}, #{id,jdbcType=VARCHAR}, #{fileshowname,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.nmpiesat.idata.products.entity.ProDataindex">
+    insert into pro_dataindex
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productsubcode != null">
+        PRODUCTSUBCODE,
+      </if>
+      <if test="productcode != null">
+        PRODUCTCODE,
+      </if>
+      <if test="tokenscode != null">
+        TOKENSCODE,
+      </if>
+      <if test="unitcode != null">
+        UNITCODE,
+      </if>
+      <if test="typecode != null">
+        TYPECODE,
+      </if>
+      <if test="contentcode != null">
+        CONTENTCODE,
+      </if>
+      <if test="altitudecode != null">
+        ALTITUDECODE,
+      </if>
+      <if test="coverareacode != null">
+        COVERAREACODE,
+      </if>
+      <if test="startendtime != null">
+        STARTENDTIME,
+      </if>
+      <if test="dDatetime != null">
+        D_DATETIME,
+      </if>
+      <if test="filetype != null">
+        FILETYPE,
+      </if>
+      <if test="prodate != null">
+        PRODATE,
+      </if>
+      <if test="filename != null">
+        FILENAME,
+      </if>
+      <if test="filepath != null">
+        FILEPATH,
+      </if>
+      <if test="url != null">
+        URL,
+      </if>
+      <if test="filesize != null">
+        FILESIZE,
+      </if>
+      <if test="ispublish != null">
+        ISPUBLISH,
+      </if>
+      <if test="createdby != null">
+        CREATEDBY,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="updatedby != null">
+        UPDATEDBY,
+      </if>
+      <if test="updated != null">
+        UPDATED,
+      </if>
+      <if test="stationnum != null">
+        STATIONNUM,
+      </if>
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="fileshowname != null">
+        FILESHOWNAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productsubcode != null">
+        #{productsubcode,jdbcType=VARCHAR},
+      </if>
+      <if test="productcode != null">
+        #{productcode,jdbcType=VARCHAR},
+      </if>
+      <if test="tokenscode != null">
+        #{tokenscode,jdbcType=VARCHAR},
+      </if>
+      <if test="unitcode != null">
+        #{unitcode,jdbcType=VARCHAR},
+      </if>
+      <if test="typecode != null">
+        #{typecode,jdbcType=VARCHAR},
+      </if>
+      <if test="contentcode != null">
+        #{contentcode,jdbcType=VARCHAR},
+      </if>
+      <if test="altitudecode != null">
+        #{altitudecode,jdbcType=VARCHAR},
+      </if>
+      <if test="coverareacode != null">
+        #{coverareacode,jdbcType=VARCHAR},
+      </if>
+      <if test="startendtime != null">
+        #{startendtime,jdbcType=VARCHAR},
+      </if>
+      <if test="dDatetime != null">
+        #{dDatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="filetype != null">
+        #{filetype,jdbcType=VARCHAR},
+      </if>
+      <if test="prodate != null">
+        #{prodate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="filename != null">
+        #{filename,jdbcType=VARCHAR},
+      </if>
+      <if test="filepath != null">
+        #{filepath,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="filesize != null">
+        #{filesize,jdbcType=DECIMAL},
+      </if>
+      <if test="ispublish != null">
+        #{ispublish,jdbcType=DECIMAL},
+      </if>
+      <if test="createdby != null">
+        #{createdby,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedby != null">
+        #{updatedby,jdbcType=VARCHAR},
+      </if>
+      <if test="updated != null">
+        #{updated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stationnum != null">
+        #{stationnum,jdbcType=VARCHAR},
+      </if>
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="fileshowname != null">
+        #{fileshowname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

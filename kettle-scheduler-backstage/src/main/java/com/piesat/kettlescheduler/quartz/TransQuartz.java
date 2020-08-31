@@ -1,0 +1,380 @@
+package com.piesat.kettlescheduler.quartz;
+
+import com.alibaba.fastjson.JSONArray;
+import com.piesat.kettlescheduler.common.Constant;
+import com.piesat.kettlescheduler.kettle.model.TransStatisticsInfo;
+import com.piesat.kettlescheduler.kettle.repository.RepositoryUtil;
+import com.piesat.kettlescheduler.model.KRepository;
+import com.piesat.kettlescheduler.model.KTransMonitor;
+import com.piesat.kettlescheduler.model.KTransRecord;
+import com.piesat.kettlescheduler.model.KmKettleLog;
+import com.piesat.kettlescheduler.quartz.model.DBConnectionModel;
+import org.beetl.sql.core.*;
+import org.beetl.sql.core.db.DBStyle;
+import org.beetl.sql.core.db.MySqlStyle;
+import org.beetl.sql.ext.DebugInterceptor;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang.StringUtils;
+import org.pentaho.di.core.ProgressNullMonitorListener;
+import org.pentaho.di.core.RowMetaAndData;
+import org.pentaho.di.core.exception.KettleException;
+import org.pentaho.di.core.exception.KettleMissingPluginsException;
+import org.pentaho.di.core.exception.KettleXMLException;
+import org.pentaho.di.core.logging.KettleLogStore;
+import org.pentaho.di.core.logging.LogLevel;
+import org.pentaho.di.core.logging.LoggingBuffer;
+import org.pentaho.di.repository.RepositoryDirectoryInterface;
+import org.pentaho.di.repository.kdr.KettleDatabaseRepository;
+import org.pentaho.di.trans.Trans;
+import org.pentaho.di.trans.TransMeta;
+import org.pentaho.di.trans.step.StepInterface;
+import org.pentaho.di.trans.step.StepStatus;
+import org.quartz.*;
+
+import java.io.File;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+@DisallowConcurrentExecution
+public class TransQuartz implements InterruptableJob {
+    private Trans trans;
+
+    public void execute(JobExecutionContext context) throws JobExecutionException {
+        JobDataMap transDataMap = context.getJobDetail().getJobDataMap();
+        Object KRepositoryObject = transDataMap.get(Constant.REPOSITORYOBJECT);
+        Object DbConnectionObject = transDataMap.get(Constant.DBCONNECTIONOBJECT);
+        String transId = String.valueOf(transDataMap.get(Constant.TRANSID));
+        String categoryId = String.valueOf(transDataMap.get(Constant.CATEGORY_ID));
+        String transPath = String.valueOf(transDataMap.get(Constant.TRANSPATH));
+        String transName = String.valueOf(transDataMap.get(Constant.TRANSNAME));
+        String userId = String.valueOf(transDataMap.get(Constant.USERID));
+        String logLevel = String.valueOf(transDataMap.get(Constant.LOGLEVEL));
+        String logFilePath = String.valueOf(transDataMap.get(Constant.LOGFILEPATH));
+        Date lastExecuteTime = context.getFireTime();
+        Date nexExecuteTime = context.getNextFireTime();
+        if (null != DbConnectionObject && DbConnectionObject instanceof DBConnectionModel) {// 首先判断数据库连接对象是否正确
+            // 判断转换类型
+            if (null != KRepositoryObject && KRepositoryObject instanceof KRepository) {// 证明该转换是从资源库中获取到的
+                try {
+                    runRepositorytrans(KRepositoryObject, DbConnectionObject, transId, categoryId, transPath, transName, userId,
+                            logLevel, logFilePath, lastExecuteTime, nexExecuteTime);
+                } catch (KettleException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                try {
+                    runFiletrans(DbConnectionObject, transId, transPath, transName, userId, logLevel, logFilePath, lastExecuteTime, nexExecuteTime);
+                } catch (KettleXMLException | KettleMissingPluginsException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    /**
+     * @param KRepositoryObject 数据库连接对象
+     * @param KRepositoryObject 资源库对象
+     * @param transId           转换ID
+     * @param transPath         转换在资源库中的路径信息
+     * @param transName         转换名称
+     * @param userId            转换归属者ID
+     * @param logLevel          转换的日志等级
+     * @param logFilePath       转换日志保存的根路径
+     * @return void
+     * @throws KettleException
+     * @Title runRepositorytrans
+     * @Description 运行资源库中的转换
+     */
+    private void runRepositorytrans(Object KRepositoryObject, Object DbConnectionObject, String transId, String categoryId,
+                                    String transPath, String transName, String userId, String logLevel, String logFilePath, Date executeTime, Date nexExecuteTime)
+            throws KettleException {
+        KRepository kRepository = (KRepository) KRepositoryObject;
+        Integer repositoryId = kRepository.getRepositoryId();
+        KettleDatabaseRepository kettleDatabaseRepository = null;
+        if (RepositoryUtil.KettleDatabaseRepositoryCatch.containsKey(repositoryId)) {
+            kettleDatabaseRepository = RepositoryUtil.KettleDatabaseRepositoryCatch.get(repositoryId);
+        } else {
+            kettleDatabaseRepository = RepositoryUtil.connectionRepository(kRepository);
+        }
+        if (null != kettleDatabaseRepository) {
+            RepositoryDirectoryInterface directory = kettleDatabaseRepository.loadRepositoryDirectoryTree()
+                    .findDirectory(transPath);
+            TransMeta transMeta = kettleDatabaseRepository.loadTransformation(transName, directory,
+                    new ProgressNullMonitorListener(), true, null);
+            trans = new Trans(transMeta);
+            trans.setLogLevel(LogLevel.DEBUG);
+            if (StringUtils.isNotEmpty(logLevel)) {
+                trans.setLogLevel(Constant.logger(logLevel));
+            }
+            String exception = null;
+            Integer recordStatus = 1;
+//            Date transStartDate = null;
+            Date transStopDate = null;
+            String logText = null;
+            try {
+//                transStartDate = new Date();
+                trans.execute(null);
+                trans.waitUntilFinished();
+                transStopDate = new Date();
+            } catch (Exception e) {
+                exception = e.getMessage();
+                recordStatus = 2;
+            } finally {
+                if (trans.isFinished()) {
+                    // 获取步骤度量信息
+//                    JSONArray jsonArray = getFieldsInfos();
+                    if (trans.getErrors() > 0) {
+                        recordStatus = 2;
+                        if (null == trans.getResult().getLogText() || "".equals(trans.getResult().getLogText())) {
+                            logText = exception;
+                        }
+                    }
+                    // 写入转换执行结果
+                    StringBuilder allLogFilePath = new StringBuilder();
+                    allLogFilePath.append(logFilePath).append("/").append(userId).append("/")
+                            .append(StringUtils.remove(transPath, "/")).append("@").append(transName).append("-log")
+                            .append("/").append(System.currentTimeMillis()).append(".").append("txt");
+                    String logChannelId = trans.getLogChannelId();
+                    LoggingBuffer appender = KettleLogStore.getAppender();
+                    logText = appender.getBuffer(logChannelId, true).toString();
+                    try {
+                        KTransRecord kTransRecord = new KTransRecord();
+                        kTransRecord.setRecordTrans(Integer.parseInt(transId));
+                        kTransRecord.setLogFilePath(allLogFilePath.toString());
+                        kTransRecord.setAddUser(Integer.parseInt(userId));
+                        kTransRecord.setRecordStatus(recordStatus);
+                        kTransRecord.setStartTime(executeTime);
+                        kTransRecord.setStopTime(transStopDate);
+                        Integer recordId = writeToDBAndFile(DbConnectionObject, kTransRecord, logText, executeTime, nexExecuteTime);
+
+                        // 获取转换步骤信息统计
+                        List<TransStatisticsInfo> statisticsInfoList = getTransStatisticsInfoList();
+                        for (TransStatisticsInfo transStatisticsInfo : statisticsInfoList) {
+                            KmKettleLog kmKettleLog = new KmKettleLog();
+                            kmKettleLog.setJobId(Integer.parseInt(transId));
+                            kmKettleLog.setJobRecordId(recordId);
+                            kmKettleLog.setCategoryId(Integer.parseInt(categoryId));
+                            kmKettleLog.setType(2);
+//                            kmKettleLog.setCount(transStatisticsInfo.getStepOutput());
+                            kmKettleLog.setCount(transStatisticsInfo.getStepOutput() + transStatisticsInfo.getStepUpdated());
+                            kmKettleLog.setDate(executeTime);
+                            writeToDB(DbConnectionObject, kmKettleLog);
+                        }
+                    } catch (IOException | SQLException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }
+        }
+    }
+
+    /**
+     * 获取转换步骤信息统计
+     *
+     * @param
+     * @return java.util.List<com.piesat.kettlescheduler.common.kettle.TransStatisticsInfo>
+     * @author YuWenjie
+     **/
+    private List<TransStatisticsInfo> getTransStatisticsInfoList() {
+        List<RowMetaAndData> rowMetaAndDataList = trans.getResultRows();
+        List<TransStatisticsInfo> statisticsInfoList = new ArrayList<>();
+        for (RowMetaAndData rowMetaAndData : rowMetaAndDataList) {
+            Object[] data = rowMetaAndData.getData();
+            TransStatisticsInfo transStatisticsInfo = new TransStatisticsInfo();
+            // 步骤名称
+            transStatisticsInfo.setStepName((String) data[0]);
+            // StepId
+            transStatisticsInfo.setStepId((String) data[1]);
+            // 输入行数
+            transStatisticsInfo.setStepInput((Long) data[2]);
+            // 输出行数
+            transStatisticsInfo.setStepOutput((Long) data[3]);
+            // 读取行数
+            transStatisticsInfo.setStepRead((Long) data[4]);
+            // 更新行数
+            transStatisticsInfo.setStepUpdated((Long) data[5]);
+            // 写行数
+            transStatisticsInfo.setStepWrittent((Long) data[6]);
+            // 舍弃行数
+            transStatisticsInfo.setStepErrors((Long) data[7]);
+            //  持续时间
+            transStatisticsInfo.setStepSeconds((Long) data[8]);
+            statisticsInfoList.add(transStatisticsInfo);
+        }
+        return statisticsInfoList;
+    }
+
+    /**
+     * 获取步骤度量信息
+     *
+     * @param
+     * @return net.sf.json.JSONArray
+     * @author YuWenjie
+     **/
+    private JSONArray getFieldsInfos() {
+        JSONArray jsonArray = new JSONArray();
+        if (trans.isFinished()) {
+            for (int i = 0; i < trans.nrSteps(); i++) {
+                StepInterface baseStep = trans.getRunThread(i);
+                StepStatus stepStatus = new StepStatus(baseStep);
+
+                //fields即为步骤度量信息
+                String[] fields = stepStatus.getTransLogFields();
+                JSONArray childArray = new JSONArray();
+                for (int f = 1; f < fields.length; f++) {
+                    childArray.add(fields[f]);
+                    System.out.println(fields[f]);
+                }
+                jsonArray.add(childArray);
+            }
+        } else {
+            System.out.println("执行失败");
+        }
+        return jsonArray;
+    }
+
+    /**
+     * @param DbConnectionObject 数据库连接对象
+     * @param transId            装换ID
+     * @param transPath          转换文件所在的路径
+     * @param transName          转换的名称
+     * @param userId             用户ID
+     * @param logLevel           装换运行的日志等级
+     * @param logFilePath        转换的运行日志保存的位置
+     * @return void
+     * @throws KettleXMLException
+     * @throws KettleMissingPluginsException
+     * @Title runFiletrans
+     * @Description 运行文件类型的转换
+     */
+    private void runFiletrans(Object DbConnectionObject, String transId, String transPath, String transName,
+                              String userId, String logLevel, String logFilePath, Date lastExecuteTime, Date nexExecuteTime)
+            throws KettleXMLException, KettleMissingPluginsException {
+        TransMeta transMeta = new TransMeta(transPath);
+        trans = new Trans(transMeta);
+        trans.setLogLevel(LogLevel.DEBUG);
+        if (StringUtils.isNotEmpty(logLevel)) {
+            trans.setLogLevel(Constant.logger(logLevel));
+        }
+        String exception = null;
+        Integer recordStatus = 1;
+        Date transStartDate = null;
+        Date transStopDate = null;
+        String logText = null;
+        try {
+            transStartDate = new Date();
+            trans.execute(null);
+            trans.waitUntilFinished();
+            transStopDate = new Date();
+        } catch (Exception e) {
+            exception = e.getMessage();
+            recordStatus = 2;
+        } finally {
+            if (null != trans && trans.isFinished()) {
+                if (trans.getErrors() > 0
+                        && (null == trans.getResult().getLogText() || "".equals(trans.getResult().getLogText()))) {
+                    logText = exception;
+                }
+                // 写入转换执行结果
+                StringBuilder allLogFilePath = new StringBuilder();
+                allLogFilePath.append(logFilePath).append("/").append(userId).append("/")
+                        .append(StringUtils.remove(transPath, "/")).append("@").append(transName).append("-log")
+                        .append("/").append(new Date().getTime()).append(".").append("txt");
+                String logChannelId = trans.getLogChannelId();
+                LoggingBuffer appender = KettleLogStore.getAppender();
+                logText = appender.getBuffer(logChannelId, true).toString();
+                try {
+                    KTransRecord kTransRecord = new KTransRecord();
+                    kTransRecord.setRecordTrans(Integer.parseInt(transId));
+                    kTransRecord.setAddUser(Integer.parseInt(userId));
+                    kTransRecord.setLogFilePath(allLogFilePath.toString());
+                    kTransRecord.setRecordStatus(recordStatus);
+                    kTransRecord.setStartTime(transStartDate);
+                    kTransRecord.setStopTime(transStopDate);
+                    writeToDBAndFile(DbConnectionObject, kTransRecord, logText, lastExecuteTime, nexExecuteTime);
+                } catch (IOException | SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    /**
+     * @param DbConnectionObject 数据库连接对象
+     * @param kTransRecord       转换运行记录对象
+     * @param logText            日志记录
+     * @return void
+     * @throws IOException
+     * @throws SQLException
+     * @Title writeToDBAndFile
+     * @Description 保存转换运行日志信息到文件和数据库
+     */
+    private Integer writeToDBAndFile(Object DbConnectionObject, KTransRecord kTransRecord, String logText, Date lastExecuteTime, Date nextExecuteTime)
+            throws IOException, SQLException {
+        // 将日志信息写入文件
+        FileUtils.writeStringToFile(new File(kTransRecord.getLogFilePath()), logText, Constant.DEFAULT_ENCODING, false);
+        // 写入转换运行记录到数据库
+        DBConnectionModel DBConnectionModel = (DBConnectionModel) DbConnectionObject;
+
+
+
+        ConnectionSource source = ConnectionSourceHelper.getSimple(DBConnectionModel.getConnectionDriveClassName(),
+                DBConnectionModel.getConnectionUrl(), DBConnectionModel.getConnectionUser(), DBConnectionModel.getConnectionPassword());
+        DBStyle mysql = new MySqlStyle();
+        SQLLoader loader = new ClasspathLoader("/");
+        UnderlinedNameConversion nc = new UnderlinedNameConversion();
+        SQLManager sqlManager = new SQLManager(mysql, loader,
+                source, nc, new Interceptor[]{new DebugInterceptor()});
+        DSTransactionManager.start();
+        sqlManager.insertTemplate(kTransRecord, true);
+        KTransMonitor template = new KTransMonitor();
+        template.setAddUser(kTransRecord.getAddUser());
+        template.setMonitorTrans(kTransRecord.getRecordTrans());
+        KTransMonitor templateOne = sqlManager.templateOne(template);
+        templateOne.setLastExecuteTime(lastExecuteTime);
+        templateOne.setNextExecuteTime(nextExecuteTime);
+        if (kTransRecord.getRecordStatus() == 1) {// 证明成功
+            //成功次数加1
+            templateOne.setMonitorSuccess(templateOne.getMonitorSuccess() + 1);
+            sqlManager.updateById(templateOne);
+        } else if (kTransRecord.getRecordStatus() == 2) {// 证明失败
+            //失败次数加1
+            templateOne.setMonitorFail(templateOne.getMonitorFail() + 1);
+            sqlManager.updateById(templateOne);
+        }
+        DSTransactionManager.commit();
+        return kTransRecord.getRecordId();
+    }
+
+    /**
+     * 写入转换步骤信息统计记录到数据库
+     *
+     * @param DbConnectionObject
+     * @param kmKettleLog
+     * @return void
+     * @author YuWenjie
+     **/
+    private void writeToDB(Object DbConnectionObject, KmKettleLog kmKettleLog) throws SQLException {
+        DBConnectionModel DBConnectionModel = (DBConnectionModel) DbConnectionObject;
+        ConnectionSource source = ConnectionSourceHelper.getSimple(DBConnectionModel.getConnectionDriveClassName(),
+                DBConnectionModel.getConnectionUrl(), DBConnectionModel.getConnectionUser(), DBConnectionModel.getConnectionPassword());
+        DBStyle mysql = new MySqlStyle();
+        SQLLoader loader = new ClasspathLoader("/");
+        UnderlinedNameConversion nc = new UnderlinedNameConversion();
+        SQLManager sqlManager = new SQLManager(mysql, loader,
+                source, nc, new Interceptor[]{new DebugInterceptor()});
+        DSTransactionManager.start();
+        sqlManager.insert(kmKettleLog);
+        DSTransactionManager.commit();
+    }
+
+    @Override
+    public void interrupt() throws UnableToInterruptJobException {
+        //stop the running transformation
+        this.trans.stopAll();
+    }
+}

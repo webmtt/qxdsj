@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nmpiesat.idata.user.dao.UserDao">
+    <select id="getOrgByName" parameterType="java.lang.String" resultType="com.nmpiesat.idata.user.entity.OrgInfo">
+        select * from SUP_ORGINFO  where PARENTID='0' and name like concat('%',#{orgName},'%')
+    </select>
+    <insert id="insertOrg" parameterType="com.nmpiesat.idata.user.entity.OrgInfo">
+        insert into SUP_ORGINFO(
+            ID,NAME,CODE,PARENTID
+        )values(
+            #{id,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR},#{code,jdbcType=VARCHAR},#{parentId,jdbcType=VARCHAR}
+        )
+    </insert>
+    <insert id="saveUser" parameterType="com.nmpiesat.idata.user.entity.UserInfo">
+       INSERT INTO sup_userinfo(
+       ID, USERNAME,EMAILNAME,PASSWORD,DATAINFO,CHNAME,PHONE,ORGID,WECHATNUMBER,MOBILE,USERTYPE,USERRANKID,ISACTIVE,DELFLAG
+        ,CREATED, CREATEDBY, UPDATED, UPDATEDBY,ISCREATE,PHONEMODEL) VALUES (
+        #{iD,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{emailName,jdbcType=VARCHAR},
+         #{password,jdbcType=VARCHAR}, #{dataInfo,jdbcType=VARCHAR},#{chName,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR},
+        #{orgID,jdbcType=VARCHAR}, #{wechatNumber,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR},
+        '1', 2, 0, '0',#{created},#{createdBy,jdbcType=VARCHAR},#{updated},#{updatedBy,jdbcType=VARCHAR},
+        #{iscreate,jdbcType=INTEGER},0
+        )
+    </insert>
+    <delete id="deleteUserDataroleByUserId" parameterType="java.lang.String">
+        delete from SUP_UserDatarole where userid=#{userid}
+    </delete>
+    <update id="updateUserIsSpecDataroleById" parameterType="java.lang.String">
+        update sup_userinfo set isSpecDatarole=#{specDatarole} where iD=#{userid}
+    </update>
+    <insert id="insertValue" parameterType="com.nmpiesat.idata.user.entity.UserDataRole">
+        <foreach collection="list" item="item" index="index" separator=";">
+            INSERT INTO sup_userdatarole(name,age) VALUES(#{item.id}, #{item.dataroleId}, #{item.userId})
+        </foreach>
+    </insert>
+    <insert id="insertDataRoleLimits" parameterType="com.nmpiesat.idata.user.entity.DataRolelimits">
+        <foreach collection="list" item="item" index="index" separator=";">
+            insert into sup_DataroleLimits values(#{item.dataId},#{item.roledataId})
+        </foreach>
+    </insert>
+    <insert id="insertRole" parameterType="com.nmpiesat.idata.user.entity.DataRole">
+        insert into SUP_DATAROLE (
+            dataRoleId,dataRoleName,orderNo
+        )values(
+         #{dataroleId,jdbcType=VARCHAR},#{dataroleName,jdbcType=VARCHAR},#{orderNo,jdbcType=INTEGER}
+        )
+    </insert>
+    <select id="getUserInfo" parameterType="java.lang.String" resultType="com.nmpiesat.idata.user.entity.UserInfo">
+        select * from sup_userinfo where userName=#{userName} and DELFLAG='0'
+    </select>
+    <update id="setActiveCode" parameterType="com.nmpiesat.idata.user.entity.UserInfo">
+        update sup_userinfo set activeCode=#{activeCode,jdbcType=VARCHAR} where userName=#{userName,jdbcType=VARCHAR} and DELFLAG='0'
+    </update>
+    <update id="updatePassword" parameterType="java.lang.String">
+        update sup_userinfo set password=#{password} where userName=#{username} and DELFLAG='0'
+    </update>
+    <select id="getOrgInfo" parameterType="java.lang.String" resultType="com.nmpiesat.idata.user.entity.OrgInfo">
+       select d.* from (select * from SUP_ORGINFO where (parentId='001' and code not like '1%' and code not like '0%' ) or parentId='0') d where d.name like concat('%',#{keyword},'%')
+    </select>
+    <select id="getMusicInfo" parameterType="java.lang.String" resultType="com.nmpiesat.idata.user.entity.MusicInfo">
+       select * from music_info where orgid=#{orgID}
+    </select>
+    <select id="getExamInfo" parameterType="java.lang.String" resultType="com.nmpiesat.idata.user.entity.UserExamInfo">
+       select * from SUP_USEREXAMINFO where email=#{userName}
+    </select>
+</mapper>

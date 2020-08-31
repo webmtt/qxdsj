@@ -1,0 +1,63 @@
+18-Feb-2020 14:00:20.894 SEVERE [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.StandardWrapper.unload InstanceManager.destroy() for servlet [springServlet] threw exception
+ java.lang.NullPointerException
+	at org.apache.catalina.core.DefaultInstanceManager.destroyInstance(DefaultInstanceManager.java:165)
+	at org.apache.catalina.core.StandardWrapper.unload(StandardWrapper.java:1358)
+	at org.apache.catalina.core.StandardWrapper.stopInternal(StandardWrapper.java:1671)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:257)
+sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2078)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1093)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:809)
+ java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1067)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1127)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+ java.lang.Thread.run(Thread.java:745)
+2020-02-18 16:44:39,375 [http-nio-8083-exec-4] DEBUG [com.thinkgem.jeesite.mybatis.modules.report.dao.SupReportsearchconfDao.get] - ==>  Preparing: SELECT a.id AS "id", a.param_name AS "paramName", a.isearch AS "isearch", a.parent_id AS "parent.id", a.create_by AS "createBy.id", a.create_date AS "createDate", a.update_by AS "updateBy.id", a.update_date AS "updateDate", a.remarks AS "remarks", a.del_flag AS "delFlag" FROM sup_reportsearchconf a WHERE a.id = ? 
+2020-02-18 16:44:39,376 [http-nio-8083-exec-4] DEBUG [com.thinkgem.jeesite.mybatis.modules.report.dao.SupReportsearchconfDao.get] - ==> Parameters: 1(String)
+2020-02-18 16:44:39,377 [http-nio-8083-exec-4] DEBUG [com.thinkgem.jeesite.mybatis.modules.report.dao.SupReportsearchconfDao.get] - <==      Total: 1
+2020-02-18 16:44:40,637 [http-nio-8083-exec-10] DEBUG [com.thinkgem.jeesite.mybatis.modules.report.dao.SupReportsearchconfDao.findList] - ==>  Preparing: SELECT a.id AS "id", a.param_name AS "paramName", a.isearch AS "isearch", a.parent_id AS "parent.id", a.create_by AS "createBy.id", a.create_date AS "createDate", a.update_by AS "updateBy.id", a.update_date AS "updateDate", a.remarks AS "remarks", a.del_flag AS "delFlag" FROM sup_reportsearchconf a WHERE a.del_flag = ? ORDER BY a.update_date 
+2020-02-18 16:44:40,637 [http-nio-8083-exec-10] DEBUG [com.thinkgem.jeesite.mybatis.modules.report.dao.SupReportsearchconfDao.findList] - ==> Parameters: 0(String)
+2020-02-18 16:44:40,643 [http-nio-8083-exec-10] DEBUG [com.thinkgem.jeesite.mybatis.modules.report.dao.SupReportsearchconfDao.findList] - <==      Total: 193
+20-Feb-2020 04:07:08.248 INFO [http-nio-8083-exec-2] org.apache.coyote.http11.Http11Processor.service Error parsing HTTP request header
+ Note: further occurrences of HTTP header parsing errors will be logged at DEBUG level.
+ java.lang.IllegalArgumentException: Invalid character found in method name. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:408)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:377)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:767)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1354)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+22-Feb-2020 05:06:06.590 INFO [http-nio-8083-exec-31] org.apache.coyote.http11.Http11Processor.service Error parsing HTTP request header
+ Note: further occurrences of HTTP header parsing errors will be logged at DEBUG level.
+ java.lang.IllegalArgumentException: Invalid character found in method name. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:408)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:377)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:767)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1354)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+
+ java.sql.SQLException: [E50025]无法连接上服务器，可能原因：
+1.服务器地址错误
+2.监听端口错误
+3.服务器关闭
+4.网络断开 
+5. Cannot assign requested address
+	at com.xugu.cloudjdbc.Error.createSQLException(Error.java:46)
+	at com.xugu.cloudjdbc.ConnectionIO.createSocketChannel(ConnectionIO.java:267)
+	at com.xugu.cloudjdbc.ConnectionIO.<init>(ConnectionIO.java:196)
+	at com.xugu.cloudjdbc.Connection.<init>(Connection.java:387)
+	at com.xugu.cloudjdbc.Driver.connect(Driver.java:128)
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1353)
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1409)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:164
+

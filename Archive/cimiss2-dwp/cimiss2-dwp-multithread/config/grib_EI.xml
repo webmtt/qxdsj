@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<local_ip>10.40.120.105</local_ip>	
+	<EI>
+		<sequence>1</sequence>	
+		<send>1</send> <!-- 是否发送：0：不发送；1：发送 -->
+		<SYSTEM>DPC</SYSTEM><!-- 业务系统名称-->
+		<GROUP_ID>OP_DPC_A-4</GROUP_ID><!-- 告警业务分组标识-->
+		<MSG_TYPE>3</MSG_TYPE><!-- 信息类型 03：告警事件信息；99：未知。-->
+		<COL_TYPE>1</COL_TYPE><!-- 采集方式  01:Rest API   02：消息；-->
+		<DATA_FROM>BABJ</DATA_FROM><!-- 数据来源 各省4位编码。国家级：BABJ-->
+		<EVENT_TYPE>OP_DPC_A_4_35_02</EVENT_TYPE><!-- 事件类型-->
+		<EVENT_LEVEL>3</EVENT_LEVEL><!-- 事件级别  0:正常，1:提醒，2:警告，3:紧急-->
+		<EVENT_TITLE>大数据云平台DPC模式数据解码-RabbitMQ连接失败</EVENT_TITLE><!-- 事件标题-->
+		<KObject>大数据云平台DPC模式数据解码入库</KObject><!-- 故障对象-->
+		<KEvent>RabbitMQ连接失败</KEvent><!-- 故障内容-->
+		<KResult>导致无法读取消息</KResult><!-- 故障结果-->
+		<KIndex>RabbitMQ中间件连接异常，[消息服务器ip地址]，[端口]，[异常信息]</KIndex><!-- 关键信息：如发生告警的进程名称、资料编号或名称、算法名称等。 -->
+		<KComment>无</KComment><!-- 备注信息-->
+		<EVENT_SUGGEST>检查RabbitMQ服务器运行状况</EVENT_SUGGEST><!-- 事件处理建议-->
+		<EVENT_CONTROL>0</EVENT_CONTROL><!-- 事件处理导向-->
+		<EVENT_TRAG>RabbitMQ服务器异常</EVENT_TRAG><!-- 事件发生可能原因-->
+		<EVENT_EXT2>local_ip</EVENT_EXT2><!-- 事件发生节点名称，设备主机名称-->		
+	</EI>
+	<EI>
+		<sequence>2</sequence>	
+		<send>1</send> <!-- 是否发送 -->
+		<SYSTEM>DPC</SYSTEM><!-- 业务系统名称-->
+		<GROUP_ID>OP_DPC_A-4</GROUP_ID><!-- 告警业务分组标识-->
+		<MSG_TYPE>3</MSG_TYPE><!-- 信息类型 03：告警事件信息；99：未知。-->
+		<COL_TYPE>1</COL_TYPE><!-- 采集方式  01:Rest API   02：消息；-->
+		<DATA_FROM>BABJ</DATA_FROM><!-- 数据来源 各省4位编码。国家级：BABJ-->
+		<EVENT_TYPE>OP_DPC_A_4_35_04</EVENT_TYPE><!-- 事件类型-->
+		<EVENT_LEVEL>2</EVENT_LEVEL><!-- 事件级别  0:正常，1:提醒，2:警告，3:紧急-->
+		<EVENT_TITLE>大数据云平台DPC模式数据解码-消息格式异常</EVENT_TITLE><!-- 事件标题-->
+		<KObject>大数据云平台DPC模式数据解码入库</KObject><!-- 故障对象-->
+		<KEvent>消息格式异常</KEvent><!-- 故障内容-->
+		<KResult>导致消息无法处理</KResult><!-- 故障结果-->
+		<KIndex>消息[消息内容]格式异常，无法处理</KIndex><!-- 关键信息：如发生告警的进程名称、资料编号或名称、算法名称等。 -->
+		<KComment>无</KComment><!-- 备注信息-->
+		<EVENT_SUGGEST>检查队列消息</EVENT_SUGGEST><!-- 事件处理建议-->
+		<EVENT_CONTROL>0</EVENT_CONTROL><!-- 事件处理导向-->
+		<EVENT_TRAG>消息生成异常</EVENT_TRAG><!-- 事件发生可能原因-->
+		<EVENT_EXT2>local_ip</EVENT_EXT2><!-- 事件发生节点名称，设备主机名称-->		
+	</EI>
+	<EI>
+		<sequence>3</sequence>
+		<send>1</send> <!-- 是否发送 -->
+		<SYSTEM>DPC</SYSTEM><!-- 业务系统名称-->
+		<GROUP_ID>OP_DPC_A-1</GROUP_ID><!-- 告警业务分组标识-->
+		<MSG_TYPE>3</MSG_TYPE><!-- 信息类型 03：告警事件信息；99：未知。-->
+		<COL_TYPE>1</COL_TYPE><!-- 采集方式  01:Rest API   02：消息；-->
+		<DATA_FROM>BABJ</DATA_FROM><!-- 数据来源 各省4位编码。国家级：BABJ-->
+		<EVENT_TYPE>OP_DPC_A_1_41_01</EVENT_TYPE><!-- 事件类型-->
+		<EVENT_LEVEL>3</EVENT_LEVEL><!-- 事件级别  0:正常，1:提醒，2:警告，3:紧急-->
+		<EVENT_TITLE>大数据云平台DPC模式数据解码-配置文件不存在</EVENT_TITLE><!-- 事件标题-->
+		<KObject>大数据云平台DPC模式数据解码入库</KObject><!-- 故障对象-->
+		<KEvent>配置文件不存在</KEvent><!-- 故障内容-->
+		<KResult>导致模式数据无法解码入库</KResult><!-- 故障结果-->
+		<KIndex>配置文件[文件名]不存在</KIndex><!-- 关键信息：如发生告警的进程名称、资料编号或名称、算法名称等。 -->
+		<KComment>无</KComment><!-- 备注信息-->
+		<EVENT_SUGGEST>检查相关配置文件</EVENT_SUGGEST><!-- 事件处理建议-->
+		<EVENT_CONTROL>0</EVENT_CONTROL><!-- 事件处理导向-->
+		<EVENT_TRAG>配置文件不存在</EVENT_TRAG><!-- 事件发生可能原因-->
+		<EVENT_EXT2>local_ip</EVENT_EXT2><!-- 事件发生节点名称，设备主机名称-->		
+	</EI>
+	<EI>
+		<sequence>4</sequence>	
+		<send>1</send> <!-- 是否发送 -->
+		<SYSTEM>DPC</SYSTEM><!-- 业务系统名称-->
+		<GROUP_ID>OP_DPC_A-1</GROUP_ID><!-- 告警业务分组标识-->
+		<MSG_TYPE>3</MSG_TYPE><!-- 信息类型 03：告警事件信息；99：未知。-->
+		<COL_TYPE>1</COL_TYPE><!-- 采集方式  01:Rest API   02：消息；-->
+		<DATA_FROM>BABJ</DATA_FROM><!-- 数据来源 各省4位编码。国家级：BABJ-->
+		<EVENT_TYPE>OP_DPC_A_1_41_02</EVENT_TYPE><!-- 事件类型-->
+		<EVENT_LEVEL>2</EVENT_LEVEL><!-- 事件级别  0:正常，1:提醒，2:警告，3:紧急-->
+		<EVENT_TITLE>大数据云平台DPC模式数据解码-文件格式异常</EVENT_TITLE><!-- 事件标题-->
+		<KObject>大数据云平台DPC模式数据解码入库</KObject><!-- 故障对象-->
+		<KEvent>文件格式异常</KEvent><!-- 故障内容-->
+		<KResult>导致文件无法解码</KResult><!-- 故障结果-->
+		<KIndex>模式文件[文件名]无法解码</KIndex><!-- 关键信息：如发生告警的进程名称、资料编号或名称、算法名称等。 -->
+		<KComment>无</KComment><!-- 备注信息-->
+		<EVENT_SUGGEST>检查文件格式</EVENT_SUGGEST><!-- 事件处理建议-->
+		<EVENT_CONTROL>0</EVENT_CONTROL><!-- 事件处理导向-->
+		<EVENT_TRAG>文件格式异常</EVENT_TRAG><!-- 事件发生可能原因-->
+		<EVENT_EXT2>local_ip</EVENT_EXT2><!-- 事件发生节点名称，设备主机名称-->		
+	</EI>
+	<EI>
+		<sequence>5</sequence>
+		<send>1</send> <!-- 是否发送 -->
+		<SYSTEM>DPC</SYSTEM><!-- 业务系统名称-->
+		<GROUP_ID>OP_DPC_A-1</GROUP_ID><!-- 告警业务分组标识-->
+		<MSG_TYPE>3</MSG_TYPE><!-- 信息类型 03：告警事件信息；99：未知。-->
+		<COL_TYPE>1</COL_TYPE><!-- 采集方式  01:Rest API   02：消息；-->
+		<DATA_FROM>BABJ</DATA_FROM><!-- 数据来源 各省4位编码。国家级：BABJ-->
+		<EVENT_TYPE>OP_DPC_A_1_41_03</EVENT_TYPE><!-- 事件类型-->
+		<EVENT_LEVEL>2</EVENT_LEVEL><!-- 事件级别  0:正常，1:提醒，2:警告，3:紧急-->
+		<EVENT_TITLE>大数据云平台DPC模式数据解码-解码要素名不存在</EVENT_TITLE><!-- 事件标题-->
+		<KObject>大数据云平台DPC模式数据解码入库</KObject><!-- 故障对象-->
+		<KEvent>解码要素名不存在</KEvent><!-- 故障内容-->
+		<KResult>导致无法正常解码生成产品</KResult><!-- 故障结果-->
+		<KIndex>模式解码要素名[grib版本,四级编码,学科,种类,编号,层次类型]不存在</KIndex><!-- 关键信息：如发生告警的进程名称、资料编号或名称、算法名称等。 -->
+		<KComment>无</KComment><!-- 备注信息-->
+		<EVENT_SUGGEST>配置要素名</EVENT_SUGGEST><!-- 事件处理建议-->
+		<EVENT_CONTROL>0</EVENT_CONTROL><!-- 事件处理导向-->
+		<EVENT_TRAG>要素名未配置</EVENT_TRAG><!-- 事件发生可能原因-->
+		<EVENT_EXT2>local_ip</EVENT_EXT2><!-- 事件发生节点名称，设备主机名称-->		
+	</EI>
+	<EI>
+		<sequence>6</sequence>	
+		<send>1</send> <!-- 是否发送 -->
+		<SYSTEM>DPC</SYSTEM><!-- 业务系统名称-->
+		<GROUP_ID>OP_DPC_A-1</GROUP_ID><!-- 告警业务分组标识-->
+		<MSG_TYPE>3</MSG_TYPE><!-- 信息类型 03：告警事件信息；99：未知。-->
+		<COL_TYPE>1</COL_TYPE><!-- 采集方式  01:Rest API   02：消息；-->
+		<DATA_FROM>BABJ</DATA_FROM><!-- 数据来源 各省4位编码。国家级：BABJ-->
+		<EVENT_TYPE>OP_DPC_A_1_41_04</EVENT_TYPE><!-- 事件类型-->
+		<EVENT_LEVEL>2</EVENT_LEVEL><!-- 事件级别  0:正常，1:提醒，2:警告，3:紧急-->
+		<EVENT_TITLE>大数据云平台DPC模式数据解码-解码区域名不存在</EVENT_TITLE><!-- 事件标题-->
+		<KObject>大数据云平台DPC模式数据解码入库</KObject><!-- 故障对象-->
+		<KEvent>解码区域名不存在</KEvent><!-- 故障内容-->
+		<KResult>导致无法正常解码生成产品</KResult><!-- 故障结果-->
+		<KIndex>模式解码区域名[起始维度,结束维度,起始经度,结束经度]不存在</KIndex><!-- 关键信息：如发生告警的进程名称、资料编号或名称、算法名称等。 -->
+		<KComment>无</KComment><!-- 备注信息-->
+		<EVENT_SUGGEST>配置区域名</EVENT_SUGGEST><!-- 事件处理建议-->
+		<EVENT_CONTROL>0</EVENT_CONTROL><!-- 事件处理导向-->
+		<EVENT_TRAG>区域名未配置</EVENT_TRAG><!-- 事件发生可能原因-->
+		<EVENT_EXT2>local_ip</EVENT_EXT2><!-- 事件发生节点名称，设备主机名称-->		
+	</EI>
+	<EI>
+		<sequence>7</sequence>
+		<send>1</send> <!-- 是否发送 -->
+		<SYSTEM>DPC</SYSTEM><!-- 业务系统名称-->
+		<GROUP_ID>OP_DPC_A-2</GROUP_ID><!-- 告警业务分组标识-->
+		<MSG_TYPE>3</MSG_TYPE><!-- 信息类型 03：告警事件信息；99：未知。-->
+		<COL_TYPE>1</COL_TYPE><!-- 采集方式  01:Rest API   02：消息；-->
+		<DATA_FROM>BABJ</DATA_FROM><!-- 数据来源 各省4位编码。国家级：BABJ-->
+		<EVENT_TYPE>OP_DPC_A_2_33_02</EVENT_TYPE><!-- 事件类型-->
+		<EVENT_LEVEL>2</EVENT_LEVEL><!-- 事件级别  0:正常，1:提醒，2:警告，3:紧急-->
+		<EVENT_TITLE>大数据云平台DPC模式数据解码-连接Cassandra失败</EVENT_TITLE><!-- 事件标题-->
+		<KObject>大数据云平台DPC模式数据解码入库</KObject><!-- 故障对象-->
+		<KEvent>连接Cassandra库失败</KEvent><!-- 故障内容-->
+		<KResult>导致模式解码结果不能入Cassandra</KResult><!-- 故障结果-->
+		<KIndex>连接Cassandra库失败，[异常信息]</KIndex><!-- 关键信息：如发生告警的进程名称、资料编号或名称、算法名称等。 -->
+		<KComment>无</KComment><!-- 备注信息-->
+		<EVENT_SUGGEST>检查Cassandra库连接情况</EVENT_SUGGEST><!-- 事件处理建议-->
+		<EVENT_CONTROL>0</EVENT_CONTROL><!-- 事件处理导向-->
+		<EVENT_TRAG>Cassandra库连接异常</EVENT_TRAG><!-- 事件发生可能原因-->
+		<EVENT_EXT2>local_ip</EVENT_EXT2><!-- 事件发生节点名称，设备主机名称-->		
+	</EI>
+	<EI>
+		<sequence>8</sequence>
+		<send>1</send> <!-- 是否发送 -->
+		<SYSTEM>DPC</SYSTEM><!-- 业务系统名称-->
+		<GROUP_ID>OP_DPC_A-2</GROUP_ID><!-- 告警业务分组标识-->
+		<MSG_TYPE>3</MSG_TYPE><!-- 信息类型 03：告警事件信息；99：未知。-->
+		<COL_TYPE>1</COL_TYPE><!-- 采集方式  01:Rest API   02：消息；-->
+		<DATA_FROM>BABJ</DATA_FROM><!-- 数据来源 各省4位编码。国家级：BABJ-->
+		<EVENT_TYPE>OP_DPC_A_2_33_05</EVENT_TYPE><!-- 事件类型-->
+		<EVENT_LEVEL>2</EVENT_LEVEL><!-- 事件级别  0:正常，1:提醒，2:警告，3:紧急-->
+		<EVENT_TITLE>大数据云平台DPC模式数据解码-入Cassandra失败</EVENT_TITLE><!-- 事件标题-->
+		<KObject>大数据云平台DPC模式数据解码入库</KObject><!-- 故障对象-->
+		<KEvent>入Cassandra表失败</KEvent><!-- 故障内容-->
+		<KResult>导致模式解码结果不能入Cassandra</KResult><!-- 故障结果-->
+		<KIndex>入Cassandra表[表名][失败记录数]条记录失败，[异常信息]</KIndex><!-- 关键信息：如发生告警的进程名称、资料编号或名称、算法名称等。 -->
+		<KComment>无</KComment><!-- 备注信息-->
+		<EVENT_SUGGEST>检查Cassandra库和入库出错信息</EVENT_SUGGEST><!-- 事件处理建议-->
+		<EVENT_CONTROL>0</EVENT_CONTROL><!-- 事件处理导向-->
+		<EVENT_TRAG>Cassandra库访问异常</EVENT_TRAG><!-- 事件发生可能原因-->
+		<EVENT_EXT2>local_ip</EVENT_EXT2><!-- 事件发生节点名称，设备主机名称-->		
+	</EI>
+	<EI>
+		<sequence>9</sequence>
+		<send>1</send> <!-- 是否发送 -->
+		<SYSTEM>DPC</SYSTEM><!-- 业务系统名称-->
+		<GROUP_ID>OP_DPC_A-2</GROUP_ID><!-- 告警业务分组标识-->
+		<MSG_TYPE>3</MSG_TYPE><!-- 信息类型 03：告警事件信息；99：未知。-->
+		<COL_TYPE>1</COL_TYPE><!-- 采集方式  01:Rest API   02：消息；-->
+		<DATA_FROM>BABJ</DATA_FROM><!-- 数据来源 各省4位编码。国家级：BABJ-->
+		<EVENT_TYPE>OP_DPC_A_2_33_01</EVENT_TYPE><!-- 事件类型-->
+		<EVENT_LEVEL>2</EVENT_LEVEL><!-- 事件级别  0:正常，1:提醒，2:警告，3:紧急-->
+		<EVENT_TITLE>大数据云平台DPC模式数据解码-连接索引库失败</EVENT_TITLE><!-- 事件标题-->
+		<KObject>大数据云平台DPC模式数据解码入库</KObject><!-- 故障对象-->
+		<KEvent>连接索引库失败</KEvent><!-- 故障内容-->
+		<KResult>导致模式产品文件信息无法入索引表</KResult><!-- 故障结果-->
+		<KIndex>连接索引库失败，[异常信息]</KIndex><!-- 关键信息：如发生告警的进程名称、资料编号或名称、算法名称等。 -->
+		<KComment>无</KComment><!-- 备注信息-->
+		<EVENT_SUGGEST>检查索引库连接情况</EVENT_SUGGEST><!-- 事件处理建议-->
+		<EVENT_CONTROL>0</EVENT_CONTROL><!-- 事件处理导向-->
+		<EVENT_TRAG>索引库连接异常</EVENT_TRAG><!-- 事件发生可能原因-->
+		<EVENT_EXT2>local_ip</EVENT_EXT2><!-- 事件发生节点名称，设备主机名称-->		
+	</EI>
+	<EI>
+		<sequence>10</sequence>
+		<send>1</send> <!-- 是否发送 -->
+		<SYSTEM>DPC</SYSTEM><!-- 业务系统名称-->
+		<GROUP_ID>OP_DPC_A-2</GROUP_ID><!-- 告警业务分组标识-->
+		<MSG_TYPE>3</MSG_TYPE><!-- 信息类型 03：告警事件信息；99：未知。-->
+		<COL_TYPE>1</COL_TYPE><!-- 采集方式  01:Rest API   02：消息；-->
+		<DATA_FROM>BABJ</DATA_FROM><!-- 数据来源 各省4位编码。国家级：BABJ-->
+		<EVENT_TYPE>OP_DPC_A_2_33_06</EVENT_TYPE><!-- 事件类型-->
+		<EVENT_LEVEL>2</EVENT_LEVEL><!-- 事件级别  0:正常，1:提醒，2:警告，3:紧急-->
+		<EVENT_TITLE>大数据云平台DPC模式数据解码-入索引表失败</EVENT_TITLE><!-- 事件标题-->
+		<KObject>大数据云平台DPC模式数据解码入库</KObject><!-- 故障对象-->
+		<KEvent>入索引表失败</KEvent><!-- 故障内容-->
+		<KResult>导致模式产品文件信息无法入索引表</KResult><!-- 故障结果-->
+		<KIndex>入索引表[表名]失败，[异常信息]，[异常信息]</KIndex><!-- 关键信息：如发生告警的进程名称、资料编号或名称、算法名称等。 -->
+		<KComment>无</KComment><!-- 备注信息-->
+		<EVENT_SUGGEST>检查索引表和入库异常信息</EVENT_SUGGEST><!-- 事件处理建议-->
+		<EVENT_CONTROL>0</EVENT_CONTROL><!-- 事件处理导向-->
+		<EVENT_TRAG>索引表或入库sql异常</EVENT_TRAG><!-- 事件发生可能原因-->
+		<EVENT_EXT2>local_ip</EVENT_EXT2><!-- 事件发生节点名称，设备主机名称-->		
+	</EI>
+	<EI>
+		<sequence>11</sequence>	
+		<send>1</send> <!-- 是否发送 -->
+		<SYSTEM>DPC</SYSTEM><!-- 业务系统名称-->
+		<GROUP_ID>OP_DPC_A-2</GROUP_ID><!-- 告警业务分组标识-->
+		<MSG_TYPE>3</MSG_TYPE><!-- 信息类型 03：告警事件信息；99：未知。-->
+		<COL_TYPE>1</COL_TYPE><!-- 采集方式  01:Rest API   02：消息；-->
+		<DATA_FROM>BABJ</DATA_FROM><!-- 数据来源 各省4位编码。国家级：BABJ-->
+		<EVENT_TYPE>OP_DPC_A_2_33_07</EVENT_TYPE><!-- 事件类型-->
+		<EVENT_LEVEL>2</EVENT_LEVEL><!-- 事件级别  0:正常，1:提醒，2:警告，3:紧急-->
+		<EVENT_TITLE>大数据云平台DPC模式数据解码-写NAS文件失败</EVENT_TITLE><!-- 事件标题-->
+		<KObject>大数据云平台DPC模式数据解码入库</KObject><!-- 故障对象-->
+		<KEvent>写NAS文件失败</KEvent><!-- 故障内容-->
+		<KResult>导致模式产品文件无法在NAS落盘</KResult><!-- 故障结果-->
+		<KIndex>写NAS文件[文件名]失败，[异常信息]</KIndex><!-- 关键信息：如发生告警的进程名称、资料编号或名称、算法名称等。 -->
+		<KComment>无</KComment><!-- 备注信息-->
+		<EVENT_SUGGEST>检查NAS存储空间情况</EVENT_SUGGEST><!-- 事件处理建议-->
+		<EVENT_CONTROL>0</EVENT_CONTROL><!-- 事件处理导向-->
+		<EVENT_TRAG>NAS存储空间满或存在异常</EVENT_TRAG><!-- 事件发生可能原因-->
+		<EVENT_EXT2>local_ip</EVENT_EXT2><!-- 事件发生节点名称，设备主机名称-->		
+	</EI>	
+</root>

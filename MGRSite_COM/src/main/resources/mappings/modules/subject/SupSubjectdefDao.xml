@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.mybatis.modules.subject.dao.SupSubjectdefDao">
+    
+	<sql id="supSubjectdefColumns">
+		a.id AS "id",
+		a.product_name AS "productName",
+		a.description AS "description",
+		a.keyword AS "keyword",
+		a.type AS "type",
+		a.ispub AS "ispub",
+		a.bigPng AS "bigPng",
+		a.procode AS "procode",
+		a.kind AS "kind",
+		a.smallPng AS "smallPng",
+		a.parent_id AS "parent.id",
+		a.create_by AS "createBy.id",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate",
+		a.remarks AS "remarks",
+		a.del_flag AS "delFlag"
+	</sql>
+	<sql id="tableColumns">
+		column_name AS "columnName",
+		data_type AS "dataType",
+		character_maximum_length AS "characterMaximumLength",
+		column_comment AS "columnComment"
+	</sql>
+	<sql id="supSubjectdefJoins">
+	</sql>
+    
+	<select id="get" resultType="SupSubjectdef">
+		SELECT 
+			<include refid="supSubjectdefColumns"/>
+		FROM sup_subjectdef a
+		<include refid="supSubjectdefJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	<select id="tableInfoList" resultType="com.thinkgem.jeesite.mybatis.modules.subject.entity.TableInfo">
+		SELECT
+		<include refid="tableColumns"/>
+		FROM information_schema.COLUMNS where table_name =#{tableName} and table_schema=#{database_id}
+	</select>
+	<select id="findList" resultType="SupSubjectdef">
+		SELECT 
+			<include refid="supSubjectdefColumns"/>
+		FROM sup_subjectdef a
+		<include refid="supSubjectdefJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="SupSubjectdef">
+		SELECT 
+			<include refid="supSubjectdefColumns"/>
+		FROM sup_subjectdef a
+		<include refid="supSubjectdefJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO sup_subjectdef(
+			id,
+			product_name,
+			description,
+			keyword,
+			parent_id,
+			procode,
+			kind,
+			type,
+			bigPng,
+			smallPng,
+			ispub,
+			create_by,
+			create_date,
+			update_by,
+			update_date,
+			remarks,
+			del_flag
+		) VALUES (
+			#{id},
+			#{productName},
+			#{description},
+			#{keyword},
+			#{parent.id},
+			#{procode},
+			#{kind},
+			#{type},
+			#{bigPng},
+			#{smallPng},
+			#{ispub},
+			#{createBy.id},
+			#{createDate},
+			#{updateBy.id},
+			#{updateDate},
+			#{remarks},
+			#{delFlag}
+		)
+	</insert>
+
+	<update id="dropPngTable">
+        DROP TABLE IF EXISTS ${tableName}
+    </update>
+
+	<update id="update">
+		UPDATE sup_subjectdef SET 	
+			product_name = #{productName},
+			description = #{description},
+			keyword = #{keyword},
+			type = #{type},
+			bigPng = #{bigPng},
+			smallPng = #{smallPng},
+			ispub=#{ispub},
+			procode=#{procode},
+			kind=#{kind},
+			parent_id = #{parent.id},
+			update_by = #{updateBy.id},
+			update_date = #{updateDate},
+			remarks = #{remarks}
+		WHERE id = #{id}
+	</update>
+	<update id="createTable">
+       CREATE TABLE ${tableName}  (
+  			ID varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '主键',
+  			FILENAME varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '图片名称',
+  			FILEPATH varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '图片路径',
+  			FILESIZE decimal(10, 0) NOT NULL COMMENT '图片大小',
+  			FILETYPE varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '图片类型',
+  			CREATEDBY varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '创建人',
+  			CREATED datetime(0) NULL COMMENT '创建时间',
+  			UPDATEDBY varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '更新人',
+  			UPDATED datetime(0) NULL COMMENT '更新时间',
+  			PRODATE varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '图片日期',
+  			TIMES varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '图片时间-时',
+  			D_DATETIME varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '数据时间',
+  			ISPUBLISH decimal(1, 0) NOT NULL COMMENT '发布状态，0-未发布，1-发布',
+  			PRODUCTCODE varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL COMMENT '图片代号'
+		)COMMENT=#{productName}
+	</update>
+
+	<update id="delete">
+		UPDATE sup_subjectdef SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	<update id="updatepub">
+		UPDATE sup_subjectdef SET
+			ispub = #{ispub}
+		WHERE id = #{id}
+	</update>
+	<select id="getProductImgInfo" resultType="com.thinkgem.jeesite.mybatis.modules.subject.entity.ProductImgDef">
+		select * from ${tableName}
+	</select>
+	<insert id="insertIntoProductImg">
+		insert into ${tableName}(
+			id,
+			filename,
+			filepath,
+			filesize,
+			filetype,
+			createdby,
+			created,
+			updatedby,
+			updated,
+			prodate,
+			times,
+			d_datetime,
+			ispublish,
+			productcode
+		)values
+		<foreach collection="list" item="item" index="index" separator=",">
+		(
+			#{item.id},
+			#{item.filename},
+			#{item.filepath},
+			#{item.filesize},
+			#{item.filetype},
+			#{item.createdby},
+			#{item.created},
+			#{item.updatedby},
+			#{item.updated},
+			#{item.prodate},
+			#{item.times},
+			#{item.d_datetime},
+			#{item.ispublish},
+			#{item.productcode}
+		)
+		</foreach>
+	</insert>
+
+	<select id="checkProcode" parameterType="string" resultType="int">
+		select count(*) from  sup_subjectdef where procode = #{procode} or kind=#{kind}
+	</select>
+</mapper>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.mybatis.modules.stream.dao.SupArithmeticsStreamDao">
+
+	<sql id="supArithmeticsStreamColumns">
+		a.id AS "id",
+		a.stream_name AS "streamName",
+		a.purpose AS "purpose",
+		a.sap_id AS "sapId",
+		a.sequence AS "sequence",
+		a.status AS "status",
+		a.create_by AS "createBy.id",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate",
+		a.remarks AS "remarks",
+		a.del_flag AS "delFlag"
+	</sql>
+
+	<sql id="supArithmeticsStreamJoins">
+	</sql>
+
+	<select id="get" resultType="SupArithmeticsStream">
+		SELECT
+		<include refid="supArithmeticsStreamColumns"/>
+		FROM sup_arithmetics_stream a
+		<include refid="supArithmeticsStreamJoins"/>
+		WHERE a.id = #{id}
+	</select>
+
+	<select id="findList" resultType="SupArithmeticsStream">
+		SELECT
+		<include refid="supArithmeticsStreamColumns"/>
+		FROM sup_arithmetics_stream a
+		<include refid="supArithmeticsStreamJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+			<if test="streamName != null and streamName != ''">
+				AND a.stream_name LIKE '%${streamName}%'
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+
+	<select id="findAllList" resultType="SupArithmeticsStream">
+		SELECT
+		<include refid="supArithmeticsStreamColumns"/>
+		FROM sup_arithmetics_stream a
+		<include refid="supArithmeticsStreamJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	<select id="findLists" resultType="SupArithmeticsStream">
+        SELECT
+        <include refid="supArithmeticsStreamColumns"/>
+        FROM sup_arithmetics_stream a
+        <include refid="supArithmeticsStreamJoins"/>
+        <where>
+            a.del_flag = #{DEL_FLAG_NORMAL}
+            and a.status = 2
+            <if test="streamName != null and streamName != ''">
+                AND a.stream_name LIKE '%${streamName}%'
+            </if>
+        </where>
+        <choose>
+            <when test="page !=null and page.orderBy != null and page.orderBy != ''">
+                ORDER BY ${page.orderBy}
+            </when>
+            <otherwise>
+                ORDER BY a.update_date DESC
+            </otherwise>
+        </choose>
+	</select>
+	<insert id="insert">
+		INSERT INTO sup_arithmetics_stream(
+			id,
+			stream_name,
+			purpose,
+			sap_id,
+			sequence,
+			status,
+			create_by,
+			create_date,
+			update_by,
+			update_date,
+			remarks,
+			del_flag
+		) VALUES (
+			#{id},
+			#{streamName},
+			#{purpose},
+			#{sapId},
+			#{sequence},
+			#{status},
+			#{createBy.id},
+			#{createDate},
+			#{updateBy.id},
+			#{updateDate},
+			#{remarks},
+			#{delFlag}
+		)
+	</insert>
+
+	<update id="update">
+		UPDATE sup_arithmetics_stream SET
+			stream_name = #{streamName},
+			purpose = #{purpose},
+			sap_id = #{sapId},
+			sequence = #{sequence},
+			status = #{status},
+			update_by = #{updateBy.id},
+			update_date = #{updateDate},
+			remarks = #{remarks}
+		WHERE id = #{id}
+	</update>
+
+	<update id="delete">
+		UPDATE sup_arithmetics_stream SET
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	<update id="updateAriState">
+		UPDATE sup_arithmetics_stream SET
+			status = #{status}
+		WHERE id = #{id}
+	</update>
+	<update id="updateStreamStatus">
+		update sup_arithmetics_stream set status = '0' where sap_id like '%${sapId}%' and del_flag = 0
+	</update>
+	<select id="findObjectByAirName" resultType="SupArithmeticsStream">
+		SELECT * FROM sup_arithmetics_stream where del_flag = 0 and stream_name = #{streamName}
+	</select>
+	
+</mapper>

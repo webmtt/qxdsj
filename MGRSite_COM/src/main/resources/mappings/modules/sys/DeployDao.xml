@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.sys.dao.DeployDao">
+
+    <!-- 查询全部用户数目 -->
+    <select id="getById" resultType="com.thinkgem.jeesite.modules.sys.entity.Deploy" parameterType="java.lang.String">
+		SELECT
+			*
+		FROM sys_deploy
+		WHERE datarole_id = #{id}
+	</select>
+
+	<select id="getALLUrl" resultType="java.lang.String" parameterType="java.lang.String">
+		SELECT
+			url_adress
+		FROM sys_deploy
+		WHERE datarole_id = #{id}
+	</select>
+
+    <!-- 插入用户 -->
+    <insert id="insertDeploys" parameterType="com.thinkgem.jeesite.modules.sys.entity.Deploy">
+		INSERT INTO sys_deploy(
+			id,
+			url_type,
+			product_type,
+			service_type,
+			photo_type,
+			file_type,
+			datarole_id,
+			url_adress
+		) VALUES (
+			#{id},
+			#{urlType},
+			#{productType},
+			#{serviceType},
+			#{photoType},
+			#{fileType},
+			#{dataroleId},
+			#{urlAdress}
+		)
+	</insert>
+
+    <update id="updateDeploys" parameterType="com.thinkgem.jeesite.modules.sys.entity.Deploy">
+		UPDATE sys_deploy SET
+		    url_type=#{urlType},
+			product_type=#{productType},
+			service_type=#{serviceType},
+			photo_type=#{photoType},
+			file_type=#{fileType}
+		WHERE datarole_id = #{dataroleId}
+	</update>
+
+</mapper>

@@ -1,0 +1,6 @@
+#需要监控的exception
+Exception %{Exception1}|%{Exception2}|%{Exception3}
+
+Exception1 java.lang.NullPointerException
+Exception2 java.lang.IllegalArgumentException
+Exception3 java.sql.SQLException

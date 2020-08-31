@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.piesat.kettlescheduler.dao.KRepositoryTypeDao">
+  <resultMap id="BaseResultMap" type="com.piesat.kettlescheduler.model.KRepositoryType">
+    <id column="repository_type_id" jdbcType="INTEGER" property="repositoryTypeId" />
+    <result column="repository_type_code" jdbcType="VARCHAR" property="repositoryTypeCode" />
+    <result column="repository_type_des" jdbcType="VARCHAR" property="repositoryTypeDes" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    repository_type_id, repository_type_code, repository_type_des
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from k_repository_type
+    where repository_type_id = #{repositoryTypeId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from k_repository_type
+    where repository_type_id = #{repositoryTypeId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.piesat.kettlescheduler.model.KRepositoryType">
+    insert into k_repository_type (repository_type_id, repository_type_code, 
+      repository_type_des)
+    values (#{repositoryTypeId,jdbcType=INTEGER}, #{repositoryTypeCode,jdbcType=VARCHAR}, 
+      #{repositoryTypeDes,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.piesat.kettlescheduler.model.KRepositoryType">
+    insert into k_repository_type
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="repositoryTypeId != null">
+        repository_type_id,
+      </if>
+      <if test="repositoryTypeCode != null">
+        repository_type_code,
+      </if>
+      <if test="repositoryTypeDes != null">
+        repository_type_des,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="repositoryTypeId != null">
+        #{repositoryTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="repositoryTypeCode != null">
+        #{repositoryTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="repositoryTypeDes != null">
+        #{repositoryTypeDes,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.piesat.kettlescheduler.model.KRepositoryType">
+    update k_repository_type
+    <set>
+      <if test="repositoryTypeCode != null">
+        repository_type_code = #{repositoryTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="repositoryTypeDes != null">
+        repository_type_des = #{repositoryTypeDes,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where repository_type_id = #{repositoryTypeId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.piesat.kettlescheduler.model.KRepositoryType">
+    update k_repository_type
+    set repository_type_code = #{repositoryTypeCode,jdbcType=VARCHAR},
+      repository_type_des = #{repositoryTypeDes,jdbcType=VARCHAR}
+    where repository_type_id = #{repositoryTypeId,jdbcType=INTEGER}
+  </update>
+</mapper>

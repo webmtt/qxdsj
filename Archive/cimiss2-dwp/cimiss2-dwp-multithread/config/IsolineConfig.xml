@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 等值线配置 保存(物理量描述符+层次)->(等值线起始值+等值线终止值+等值线间隔) -->
+<!-- NULL表示该物理量没有层次的等值线配置 -->
+<configuration>
+	<descriptor element="APCP">
+		<level isolineStartValue="0" isolineEndValue="300" isolineSpace="5">NULL</level>
+	</descriptor>
+	<descriptor element="ASNOW">
+		<level isolineStartValue="0" isolineEndValue="300" isolineSpace="5">NULL</level>
+	</descriptor>
+	<descriptor element="CAPE">
+		<level isolineStartValue="0" isolineEndValue="1500"
+			isolineSpace="100">NULL</level>
+	</descriptor>
+	<descriptor element="CIN">
+		<level isolineStartValue="-1000" isolineEndValue="0"
+			isolineSpace="50">NULL</level>
+	</descriptor>
+	<descriptor element="DEPR">
+		<level isolineStartValue="0" isolineEndValue="440" isolineSpace="40">500</level>
+		<level isolineStartValue="0" isolineEndValue="600" isolineSpace="40">700</level>
+		<level isolineStartValue="0" isolineEndValue="440" isolineSpace="40">850</level>
+		<level isolineStartValue="0" isolineEndValue="440" isolineSpace="40">925</level>
+	</descriptor>
+	<descriptor element="EPOT">
+		<level isolineStartValue="200" isolineEndValue="400"
+			isolineSpace="5">500</level>
+		<level isolineStartValue="200" isolineEndValue="400"
+			isolineSpace="5">700</level>
+		<level isolineStartValue="200" isolineEndValue="400"
+			isolineSpace="5">850</level>
+		<level isolineStartValue="200" isolineEndValue="400"
+			isolineSpace="5">925</level>
+	</descriptor>
+	<descriptor element="KX">
+		<level isolineStartValue="-50" isolineEndValue="45"
+			isolineSpace="5">NULL</level>
+	</descriptor>
+	<descriptor element="LCDC">
+		<level isolineStartValue="40" isolineEndValue="100"
+			isolineSpace="5">NULL</level>
+	</descriptor>
+	<descriptor element="LFTX">
+		<level isolineStartValue="-50" isolineEndValue="50"
+			isolineSpace="1">NULL</level>
+	</descriptor>
+	<descriptor element="MPV_HOR">
+		<level isolineStartValue="-32" isolineEndValue="8" isolineSpace="4">200</level>
+		<level isolineStartValue="-20" isolineEndValue="8" isolineSpace="4">500</level>
+		<level isolineStartValue="-36" isolineEndValue="12"
+			isolineSpace="4">700</level>
+		<level isolineStartValue="-32" isolineEndValue="44"
+			isolineSpace="4">850</level>
+	</descriptor>
+	<descriptor element="MPV_VER">
+		<level isolineStartValue="-10" isolineEndValue="120"
+			isolineSpace="10">200</level>
+		<level isolineStartValue="-8" isolineEndValue="60" isolineSpace="4">500</level>
+		<level isolineStartValue="-28" isolineEndValue="28"
+			isolineSpace="4">700</level>
+		<level isolineStartValue="-20" isolineEndValue="44"
+			isolineSpace="4">850</level>
+		<level isolineStartValue="-60" isolineEndValue="100"
+			isolineSpace="10">1000</level>
+	</descriptor>
+	<descriptor element="MWD">
+		<level isolineStartValue="0" isolineEndValue="360" isolineSpace="5">NULL</level>
+	</descriptor>
+	<descriptor element="MWP">
+		<level isolineStartValue="0" isolineEndValue="20" isolineSpace="1">NULL</level>
+	</descriptor>
+	<descriptor element="PVORT">
+		<level isolineStartValue="-12" isolineEndValue="12"
+			isolineSpace="2">100</level>
+		<level isolineStartValue="-28" isolineEndValue="24"
+			isolineSpace="2">150</level>
+		<level isolineStartValue="-28" isolineEndValue="28"
+			isolineSpace="2">200</level>
+		<level isolineStartValue="-32" isolineEndValue="38"
+			isolineSpace="2">250</level>
+		<level isolineStartValue="-30" isolineEndValue="40"
+			isolineSpace="2">300</level>
+		<level isolineStartValue="-24" isolineEndValue="36"
+			isolineSpace="2">400</level>
+		<level isolineStartValue="-28" isolineEndValue="32"
+			isolineSpace="2">500</level>
+		<level isolineStartValue="-32" isolineEndValue="24"
+			isolineSpace="2">600</level>
+		<level isolineStartValue="-36" isolineEndValue="24"
+			isolineSpace="2">700</level>
+		<level isolineStartValue="-50" isolineEndValue="40"
+			isolineSpace="2">850</level>
+		<level isolineStartValue="-52" isolineEndValue="44"
+			isolineSpace="2">925</level>
+		<level isolineStartValue="-42" isolineEndValue="34"
+			isolineSpace="2">1000</level>
+	</descriptor>
+	<descriptor element="SFCT">
+		<level isolineStartValue="-100" isolineEndValue="88"
+			isolineSpace="4">NULL</level>
+	</descriptor>
+	<descriptor element="SHWW">
+		<level isolineStartValue="0" isolineEndValue="20" isolineSpace="1">NULL</level>
+	</descriptor>
+	<descriptor element="SNOD">
+		<level isolineStartValue="1" isolineEndValue="100" isolineSpace="1">NULL</level>
+	</descriptor>
+	<descriptor element="SST">
+		<level isolineStartValue="-40" isolineEndValue="40"
+			isolineSpace="2">NULL</level>
+	</descriptor>
+	<descriptor element="SWH">
+		<level isolineStartValue="0" isolineEndValue="20" isolineSpace="1">NULL</level>
+	</descriptor>
+	<descriptor element="TCDC">
+		<level isolineStartValue="0" isolineEndValue="100" isolineSpace="30">NULL</level>
+	</descriptor>
+	<descriptor element="TMPADV">
+		<level isolineStartValue="-3520" isolineEndValue="1760"
+			isolineSpace="80">200</level>
+		<level isolineStartValue="-1360" isolineEndValue="800"
+			isolineSpace="80">500</level>
+		<level isolineStartValue="-3160" isolineEndValue="840"
+			isolineSpace="80">700</level>
+		<level isolineStartValue="-3000" isolineEndValue="920"
+			isolineSpace="80">850</level>
+		<level isolineStartValue="-2920" isolineEndValue="920"
+			isolineSpace="80">925</level>
+		<level isolineStartValue="-180" isolineEndValue="68"
+			isolineSpace="8">1000</level>
+	</descriptor>
+	<descriptor element="VORADV">
+		<level isolineStartValue="-320" isolineEndValue="320"
+			isolineSpace="20">200</level>
+		<level isolineStartValue="-500" isolineEndValue="420"
+			isolineSpace="20">500</level>
+		<level isolineStartValue="-430" isolineEndValue="330"
+			isolineSpace="20">700</level>
+		<level isolineStartValue="-370" isolineEndValue="590"
+			isolineSpace="20">850</level>
+		<level isolineStartValue="-560" isolineEndValue="380"
+			isolineSpace="20">925</level>
+		<level isolineStartValue="-460" isolineEndValue="300"
+			isolineSpace="10">1000</level>
+	</descriptor>
+	<descriptor element="VVEL">
+		<level isolineStartValue="-30" isolineEndValue="30"
+			isolineSpace="8">100</level>
+		<level isolineStartValue="-64" isolineEndValue="64"
+			isolineSpace="8">150</level>
+		<level isolineStartValue="-100" isolineEndValue="100"
+			isolineSpace="8">200</level>
+		<level isolineStartValue="-80" isolineEndValue="80"
+			isolineSpace="8">250</level>
+		<level isolineStartValue="-200" isolineEndValue="200"
+			isolineSpace="8">300</level>
+		<level isolineStartValue="-600" isolineEndValue="160"
+			isolineSpace="8">400</level>
+		<level isolineStartValue="-600" isolineEndValue="200"
+			isolineSpace="8">500</level>
+		<level isolineStartValue="-600" isolineEndValue="240"
+			isolineSpace="8">600</level>
+		<level isolineStartValue="-600" isolineEndValue="240"
+			isolineSpace="8">700</level>
+		<level isolineStartValue="-480" isolineEndValue="240"
+			isolineSpace="8">850</level>
+		<level isolineStartValue="-240" isolineEndValue="240"
+			isolineSpace="8">925</level>
+		<level isolineStartValue="-240" isolineEndValue="240"
+			isolineSpace="8">1000</level>
+	</descriptor>
+	<descriptor element="WVFDIV">
+		<level isolineStartValue="-30" isolineEndValue="40"
+			isolineSpace="5">500</level>
+		<level isolineStartValue="-110" isolineEndValue="50"
+			isolineSpace="5">700</level>
+		<level isolineStartValue="-275" isolineEndValue="85"
+			isolineSpace="5">850</level>
+		<level isolineStartValue="-220" isolineEndValue="100"
+			isolineSpace="5">925</level>
+	</descriptor>
+	<descriptor element="WVFL">
+		<level isolineStartValue="0" isolineEndValue="180" isolineSpace="10">500</level>
+		<level isolineStartValue="0" isolineEndValue="250" isolineSpace="10">700</level>
+		<level isolineStartValue="0" isolineEndValue="300" isolineSpace="10">850</level>
+		<level isolineStartValue="0" isolineEndValue="360" isolineSpace="10">925</level>
+	</descriptor>
+</configuration>

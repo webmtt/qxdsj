@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<data>
+		<data_id>F.0010.0002.R001</data_id> <!-- 四级编码 -->
+		<area_src>GLB</area_src> <!-- 原始区域 -->
+		<area_des>ANEA</area_des> <!-- 裁剪后区域 -->
+		<Lat_Lon>60,-10,60,150</Lat_Lon> <!-- 裁剪出的经纬度范围： 起始纬度，终止纬度，起始经度，终止经度 -->
+	</data>
+</root>

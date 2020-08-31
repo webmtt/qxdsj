@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.piesat.kettlescheduler.dao.KQuartzDao">
+  <resultMap id="BaseResultMap" type="com.piesat.kettlescheduler.model.KQuartz">
+    <id column="quartz_id" jdbcType="INTEGER" property="quartzId" />
+    <result column="quartz_cron" jdbcType="VARCHAR" property="quartzCron" />
+    <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
+    <result column="add_user" jdbcType="INTEGER" property="addUser" />
+    <result column="edit_time" jdbcType="TIMESTAMP" property="editTime" />
+    <result column="edit_user" jdbcType="INTEGER" property="editUser" />
+    <result column="del_flag" jdbcType="INTEGER" property="delFlag" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.piesat.kettlescheduler.model.KQuartz">
+    <result column="quartz_description" jdbcType="LONGVARCHAR" property="quartzDescription" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    quartz_id, quartz_cron, add_time, add_user, edit_time, edit_user, del_flag
+  </sql>
+  <sql id="Blob_Column_List">
+    quartz_description
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from k_quartz
+    where quartz_id = #{quartzId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from k_quartz
+    where quartz_id = #{quartzId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.piesat.kettlescheduler.model.KQuartz">
+    insert into k_quartz (quartz_id, quartz_cron, add_time, 
+      add_user, edit_time, edit_user, 
+      del_flag, quartz_description)
+    values (#{quartzId,jdbcType=INTEGER}, #{quartzCron,jdbcType=VARCHAR}, #{addTime,jdbcType=TIMESTAMP}, 
+      #{addUser,jdbcType=INTEGER}, #{editTime,jdbcType=TIMESTAMP}, #{editUser,jdbcType=INTEGER}, 
+      #{delFlag,jdbcType=INTEGER}, #{quartzDescription,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.piesat.kettlescheduler.model.KQuartz">
+    insert into k_quartz
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="quartzId != null">
+        quartz_id,
+      </if>
+      <if test="quartzCron != null">
+        quartz_cron,
+      </if>
+      <if test="addTime != null">
+        add_time,
+      </if>
+      <if test="addUser != null">
+        add_user,
+      </if>
+      <if test="editTime != null">
+        edit_time,
+      </if>
+      <if test="editUser != null">
+        edit_user,
+      </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
+      <if test="quartzDescription != null">
+        quartz_description,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="quartzId != null">
+        #{quartzId,jdbcType=INTEGER},
+      </if>
+      <if test="quartzCron != null">
+        #{quartzCron,jdbcType=VARCHAR},
+      </if>
+      <if test="addTime != null">
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addUser != null">
+        #{addUser,jdbcType=INTEGER},
+      </if>
+      <if test="editTime != null">
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="editUser != null">
+        #{editUser,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=INTEGER},
+      </if>
+      <if test="quartzDescription != null">
+        #{quartzDescription,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.piesat.kettlescheduler.model.KQuartz">
+    update k_quartz
+    <set>
+      <if test="quartzCron != null">
+        quartz_cron = #{quartzCron,jdbcType=VARCHAR},
+      </if>
+      <if test="addTime != null">
+        add_time = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addUser != null">
+        add_user = #{addUser,jdbcType=INTEGER},
+      </if>
+      <if test="editTime != null">
+        edit_time = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="editUser != null">
+        edit_user = #{editUser,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=INTEGER},
+      </if>
+      <if test="quartzDescription != null">
+        quartz_description = #{quartzDescription,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where quartz_id = #{quartzId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.piesat.kettlescheduler.model.KQuartz">
+    update k_quartz
+    set quartz_cron = #{quartzCron,jdbcType=VARCHAR},
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      add_user = #{addUser,jdbcType=INTEGER},
+      edit_time = #{editTime,jdbcType=TIMESTAMP},
+      edit_user = #{editUser,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=INTEGER},
+      quartz_description = #{quartzDescription,jdbcType=LONGVARCHAR}
+    where quartz_id = #{quartzId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.piesat.kettlescheduler.model.KQuartz">
+    update k_quartz
+    set quartz_cron = #{quartzCron,jdbcType=VARCHAR},
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      add_user = #{addUser,jdbcType=INTEGER},
+      edit_time = #{editTime,jdbcType=TIMESTAMP},
+      edit_user = #{editUser,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=INTEGER}
+    where quartz_id = #{quartzId,jdbcType=INTEGER}
+  </update>
+</mapper>

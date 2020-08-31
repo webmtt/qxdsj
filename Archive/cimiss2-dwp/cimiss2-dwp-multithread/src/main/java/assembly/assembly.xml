@@ -1,0 +1,32 @@
+<assembly>
+	<id>assembly</id>
+	<formats>
+		<format>zip</format>
+	</formats>
+	<includeBaseDirectory>true</includeBaseDirectory>
+	<fileSets>
+		<!--<fileSet>
+			<directory>src/main/java</directory>
+			<outputDirectory>jar</outputDirectory>
+			<fileMode>0755</fileMode>
+		</fileSet>-->
+		<fileSet>
+			<directory>src/main/java/config</directory>
+			<outputDirectory>config</outputDirectory>
+			<fileMode>0644</fileMode>
+		</fileSet>
+		<fileSet>
+			<directory>src/main/java/bin</directory>
+			<outputDirectory>bin</outputDirectory>
+			<includes>
+				<include>*.sh</include>
+			</includes>
+			<fileMode>0755</fileMode>
+		</fileSet>
+	</fileSets>
+	<!--<dependencySets>
+		<dependencySet>
+			<outputDirectory>lib</outputDirectory>
+		</dependencySet>
+	</dependencySets>-->
+</assembly>

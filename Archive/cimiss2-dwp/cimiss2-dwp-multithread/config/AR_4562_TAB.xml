@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root IsCheck="true" length="20">
+	<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+	<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+	<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+	<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+	<element dataType="String" content="default" value="{D_DATETIME}{V01301}{V_starttime}{V_endtime}">D_RECORD_ID</element>
+	<element dataType="datetime" content="report" index="17" format="yyyy-MM-dd HH:mm:ss">D_DATETIME</element>
+	<element dataType="String" content="report" value="0">V01301</element>
+	<element dataType="String" content="report" index="1">V01015</element>
+	<element dataType="String" content="undefined" value="GK">V_ENV</element>
+	<element dataType="double" content="undefined" value="999998">V05001</element>
+	<element dataType="double" content="undefined" value="999998">V06001</element>
+	<element dataType="String" content="report" index="3">V_PROV</element>
+	<element dataType="String" content="report" index="4">V_CITY</element>
+	<element dataType="int" content="report" index="17" Expression="[0:4]">V04001</element>
+	<element dataType="int" content="report" index="17" Expression="[5:7]">V04002</element>
+	<element dataType="int" content="report" index="17" Expression="[8:10]">V04003</element>
+	<element dataType="int" content="report" index="17" Expression="[11:13]">V04004</element>
+	<element dataType="int" content="report" index="17" Expression="[14:16]">V04005</element>
+	<element dataType="int" content="report" index="17" Expression="[17:19]">V04006</element>
+	<element dataType="datetime" content="report" index="18" format="yyyy-MM-dd HH:mm">V_starttime</element>
+	<element dataType="datetime" content="report" index="19" format="yyyy-MM-dd HH:mm">V_endtime</element>
+	<element dataType="double" content="report" index="5" >V13011</element>
+	<element dataType="double" content="report" index="6" >V15532</element>
+	<element dataType="double" content="report" index="11" >V13371</element>
+	<element dataType="double" content="report" index="7" >V06006</element>
+	<element dataType="double" content="report" index="8" >V06008</element>
+	<element dataType="double" content="report" index="9" >V06010</element>
+	<element dataType="double" content="report" index="10" >V06013</element>
+	<element dataType="double" content="report" index="12" >V06007</element>
+	<element dataType="double" content="report" index="13" >V06009</element>
+	<element dataType="double" content="report" index="14" >V06011</element>
+	<element dataType="double" content="report" index="15" >V06005</element>
+	<element dataType="double" content="report" index="16" >V06012</element>
+	<element dataType="String" content="default" value="D_SOURCE_ID">D_SOURCE_ID</element>
+</root>

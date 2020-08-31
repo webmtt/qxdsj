@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	
+	<!-- fxy:前三个值bufr文件数据段识别码,第4个值为整个数据段中第几次出现的识别码 -->
+	<!-- name:对应的字段名称 -->
+	<!-- dec:字段说明 -->
+	<!-- datatype:字段类型 -->
+	<!-- defaultValue:如果从bufr文件中取出的数据为空设置默认值 -->
+	<!-- qc:true或false,此行是否为质控码 -->
+	<!-- expression:配置此行字段值的表达式
+			表达式说明:
+				${col:arg} -> 当前配置文件中对应的字段值，arg：配置文件中配置的字段
+				${dateFormat(arg1,arg2,arg3)} -> 日期格式化,arg1:日期字符串20170809001211，arg2:arg1的格式yyyyMMddHHmmss，arg3:转换后的日期格式(如：yyyy-MM-dd HH:mm:ss) 
+				${dateTime} -> 获取系统当前时间,默认格式为yyyyMMddHHmmss
+				${ascii:arg} -> arg代表的值转换为ascii码
+				${stationInfo(arg1,arg2,arg3)} -> 根据站号从stationinfo_conf.lua配置文件中取值，第一个参数arg1：字符站号；第二个参数arg2：站号对应的序列号
+				${seqDayFormat(arg1,arg2,arg3)} -> 序日的格式化，第一个参数arg1：4位年；第二个参数arg2：序日(1-3位数字)；第三个参数arg3：格式(遵循java中的日期格式化pattern)
+				#########################################################
+				${col:arg} ${seqDayFormat(arg1,arg2,arg3)} ${stationInfo(arg1,arg2)} ${dateFormat(arg1,arg2,arg3)} 这几个表达式后都可以根据需要添加.split('')[]和.substring()表达式
+				.split('')[]按单引号中的符号分隔前面表达式的值，中括号中是分隔后取第n-1个
+				.substring(snum,enum) 在紧前面的表达式的值中截取snum到enum字符串,包前不包后
+	 -->
+	<colunm fxy="D_RECORD_ID" name="id" dec="主键" datatype="string" expression="${col:V01301}_${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} ${col:V04004}:${col:V04005}:00,yyyy-MM-dd HH:mm:ss,yyyyMMddHHmmss)}">D_RECORD_ID</colunm>
+	<colunm fxy="D_DATA_ID" name="data_id" dec="资料标识" datatype="string" default="A.0010.0001">D_DATA_ID</colunm>
+	<colunm fxy="D_IYMDHM" name="insert datetime" dec="入库时间" datatype="date" expression="${dateFormat(${dateTime},yyyyMMddHHmmss,yyyy-MM-dd HH:mm:ss)}">D_IYMDHM</colunm>
+	<colunm fxy="D_RYMDHM" name="recive_datetime" dec="收到时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_RYMDHM</colunm>
+	
+	<colunm fxy="D_UPDATE_TIME" name="update datetime" dec="更新时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_UPDATE_TIME</colunm>
+	
+	<colunm fxy="D_DATETIME" name="data datetime" dec="资料时间" datatype="date" expression="${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} ${col:V04004}:${col:V04005}:00,yyyy-MM-dd HH:mm:ss,yyyy-MM-dd HH:mm:ss)}">D_DATETIME</colunm>
+	<colunm fxy="V_BBB" name="V_BBB" dec="更正报标识" datatype="string"  default="000">V_BBB</colunm>
+
+	<colunm fxy="0-1-2-0" name="WMO_block_number" dec="区站号" datatype="string">V01301</colunm>
+	<!-- <colunm fxy="0-1-15-0" name="Station_or_site_name" dec="站名或场地名" datatype="string" >V01015</colunm> -->
+	<colunm fxy="V01300" name="stationId_N" dec="区站号(数字)" datatype="string" expression="${ascii:${col:V01301}}">V01300</colunm>
+	
+	<colunm fxy="0-5-1-0" name="Latitude" dec="纬度" datatype="double" >V05001</colunm>
+	<colunm fxy="0-6-1-0" name="Longitude" dec="经度" datatype="double" >V06001</colunm>
+	<colunm fxy="0-7-30-0" name="Height_of_station_ground_above_mean_sea_level" dec="测站高度" datatype="double" >V07001</colunm>
+	<!-- <colunm fxy="0-7-31-0" name="Height_of_barometer_above_mean_sea_level" dec="气压传感器海拔高度" datatype="double" >V07031</colunm>-->
+	<colunm fxy="0-2-1-0" name="Type_of_station" dec="测站类型" datatype="int" >V02001</colunm>
+	<colunm fxy="V02301" name="stationLevel" dec="台站级别" datatype="string" expression="${stationInfo(${col:V01301},01,999999)}.split(',')[6]">V02301</colunm>
+	<colunm fxy="V_ACODE" name="adminCode" dec="行政区划代码" datatype="string" expression="${stationInfo(${col:V01301},01,999999)}.split(',')[5]" default="999999">V_ACODE</colunm>
+	<colunm fxy="0-8-10-0" name="Ground_qualifier_temperature_data)" dec="地面限定符（温度数据）" datatype="double" expression="{0}">V08010</colunm>
+	<colunm fxy="0-7-32-3" name="Precipitation_sensor_height_above_local_ground_(or offshore platform deck)" dec="降水传感器离本地地面（或海上平台甲板）的高度" datatype="double" expression="{0}">V07032_03</colunm>
+	<colunm fxy="0-2-175-0" name="Precipitation_measurement_method" dec="降水测量方法" datatype="double" expression="{0}">V02175</colunm>
+	<colunm fxy="0-4-1-0" name="year" dec="资料年" datatype="int" >V04001</colunm>
+	<colunm fxy="0-4-2-0" name="Month" dec="资料月" datatype="int" >V04002</colunm>
+	<colunm fxy="0-4-3-0" name="Day" dec="资料日" datatype="int" >V04003</colunm>
+	<colunm fxy="0-4-4-0" name="Hour" dec="资料时" datatype="int" >V04004</colunm>
+	<colunm fxy="0-4-5-0" name="Minute" dec="资料分" datatype="int" >V04005</colunm>
+	<!-- <colunm fxy="0-4-6-0" name="Second" dec="" datatype="int" >V04006</colunm> -->
+	
+	<colunm fxy="V13011_01" name="1minute_of_rain_in_the_hour" dec="小时内第1分钟雨量" datatype="double" default="999999" >V13011_01</colunm>
+	<colunm fxy="Q13011_01" name="1minute_of_rain_in_the_hour_QC" dec="小时内第1分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_01</colunm>
+	<colunm fxy="V13011_02" name="2minute_of_rain_in_the_hour" dec="小时内第2分钟雨量" datatype="double" default="999999" >V13011_02</colunm>
+	<colunm fxy="Q13011_02" name="2minute_of_rain_in_the_hour_QC" dec="小时内第2分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_02</colunm>
+	<colunm fxy="V13011_03" name="3minute_of_rain_in_the_hour" dec="小时内第3分钟雨量" datatype="double" default="999999" >V13011_03</colunm>
+	<colunm fxy="Q13011_03" name="3minute_of_rain_in_the_hour_QC" dec="小时内第3分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_03</colunm>
+	<colunm fxy="V13011_04" name="4minute_of_rain_in_the_hour" dec="小时内第4分钟雨量" datatype="double" default="999999" >V13011_04</colunm>
+	<colunm fxy="Q13011_04" name="4minute_of_rain_in_the_hour_QC" dec="小时内第4分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_04</colunm>
+	<colunm fxy="V13011_05" name="5minute_of_rain_in_the_hour" dec="小时内第5分钟雨量" datatype="double" default="999999" >V13011_05</colunm>
+	<colunm fxy="Q13011_05" name="5minute_of_rain_in_the_hour_QC" dec="小时内第5分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_05</colunm>
+	<colunm fxy="V13011_06" name="6minute_of_rain_in_the_hour" dec="小时内6分钟雨量" datatype="double" default="999999" >V13011_06</colunm>
+	<colunm fxy="Q13011_06" name="6minute_of_rain_in_the_hour_QC" dec="小时内第6分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_06</colunm>
+	<colunm fxy="V13011_07" name="7minute_of_rain_in_the_hour" dec="小时内第7分钟雨量" datatype="double" default="999999" >V13011_07</colunm>
+	<colunm fxy="Q13011_07" name="7minute_of_rain_in_the_hour_QC" dec="小时内第7分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_07</colunm>
+	<colunm fxy="V13011_08" name="8minute_of_rain_in_the_hour" dec="小时内第8分钟雨量" datatype="double" default="999999" >V13011_08</colunm>
+	<colunm fxy="Q13011_08" name="8minute_of_rain_in_the_hour_QC" dec="小时内第8分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_08</colunm>
+	<colunm fxy="V13011_09" name="9minute_of_rain_in_the_hour" dec="小时内第9分钟雨量" datatype="double" default="999999" >V13011_09</colunm>
+	<colunm fxy="Q13011_09" name="9minute_of_rain_in_the_hour_QC" dec="小时内第9分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_09</colunm>
+	<colunm fxy="V13011_10" name="10minute_of_rain_in_the_hour" dec="小时内第10分钟雨量" datatype="double" default="999999" >V13011_10</colunm>
+	<colunm fxy="Q13011_10" name="10minute_of_rain_in_the_hour_QC" dec="小时内第10分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_10</colunm>
+	<colunm fxy="V13011_11" name="11minute_of_rain_in_the_hour" dec="小时内第11分钟雨量" datatype="double" default="999999" >V13011_11</colunm>
+	<colunm fxy="Q13011_11" name="11minute_of_rain_in_the_hour_QC" dec="小时内第11分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_11</colunm>
+	<colunm fxy="V13011_12" name="12minute_of_rain_in_the_hour" dec="小时内第12分钟雨量" datatype="double" default="999999" >V13011_12</colunm>
+	<colunm fxy="Q13011_12" name="12minute_of_rain_in_the_hour_QC" dec="小时内第12分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_12</colunm>
+	<colunm fxy="V13011_13" name="13minute_of_rain_in_the_hour" dec="小时内第13分钟雨量" datatype="double" default="999999" >V13011_13</colunm>
+	<colunm fxy="Q13011_13" name="13minute_of_rain_in_the_hour_QC" dec="小时内第13分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_13</colunm>
+	<colunm fxy="V13011_14" name="14minute_of_rain_in_the_hour" dec="小时内第14分钟雨量" datatype="double" default="999999" >V13011_14</colunm>
+	<colunm fxy="Q13011_14" name="14minute_of_rain_in_the_hour_QC" dec="小时内第14分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_14</colunm>
+	<colunm fxy="V13011_15" name="15minute_of_rain_in_the_hour" dec="小时内第15分钟雨量" datatype="double" default="999999" >V13011_15</colunm>
+	<colunm fxy="Q13011_15" name="15minute_of_rain_in_the_hour_QC" dec="小时内第15分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_15</colunm>
+	<colunm fxy="V13011_16" name="16minute_of_rain_in_the_hour" dec="小时内第16分钟雨量" datatype="double" default="999999" >V13011_16</colunm>
+	<colunm fxy="Q13011_16" name="16minute_of_rain_in_the_hour_QC" dec="小时内第16分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_16</colunm>
+	<colunm fxy="V13011_17" name="17minute_of_rain_in_the_hour" dec="小时内第17分钟雨量" datatype="double" default="999999" >V13011_17</colunm>
+	<colunm fxy="Q13011_17" name="17minute_of_rain_in_the_hour_QC" dec="小时内第17分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_17</colunm>
+	<colunm fxy="V13011_18" name="18minute_of_rain_in_the_hour" dec="小时内第18分钟雨量" datatype="double" default="999999" >V13011_18</colunm>
+	<colunm fxy="Q13011_18" name="18minute_of_rain_in_the_hour_QC" dec="小时内第18分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_18</colunm>
+	<colunm fxy="V13011_19" name="19minute_of_rain_in_the_hour" dec="小时内第19分钟雨量" datatype="double" default="999999" >V13011_19</colunm>
+	<colunm fxy="Q13011_19" name="19minute_of_rain_in_the_hour_QC" dec="小时内第19分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_19</colunm>
+	<colunm fxy="V13011_20" name="20minute_of_rain_in_the_hour" dec="小时内第20分钟雨量" datatype="double" default="999999" >V13011_20</colunm>
+	<colunm fxy="Q13011_20" name="20minute_of_rain_in_the_hour_QC" dec="小时内第20分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_20</colunm>
+	<colunm fxy="V13011_21" name="21minute_of_rain_in_the_hour" dec="小时内第21分钟雨量" datatype="double" default="999999" >V13011_21</colunm>
+	<colunm fxy="Q13011_21" name="21minute_of_rain_in_the_hour_QC" dec="小时内第21分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_21</colunm>
+	<colunm fxy="V13011_22" name="22minute_of_rain_in_the_hour" dec="小时内第22分钟雨量" datatype="double" default="999999" >V13011_22</colunm>
+	<colunm fxy="Q13011_22" name="22minute_of_rain_in_the_hour_QC" dec="小时内第22分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_22</colunm>
+	<colunm fxy="V13011_23" name="23minute_of_rain_in_the_hour" dec="小时内第23分钟雨量" datatype="double" default="999999" >V13011_23</colunm>
+	<colunm fxy="Q13011_23" name="23minute_of_rain_in_the_hour_QC" dec="小时内第23分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_23</colunm>
+	<colunm fxy="V13011_24" name="24minute_of_rain_in_the_hour" dec="小时内第24分钟雨量" datatype="double" default="999999" >V13011_24</colunm>
+	<colunm fxy="Q13011_24" name="24minute_of_rain_in_the_hour_QC" dec="小时内第24分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_24</colunm>
+	<colunm fxy="V13011_25" name="25minute_of_rain_in_the_hour" dec="小时内第25分钟雨量" datatype="double" default="999999" >V13011_25</colunm>
+	<colunm fxy="Q13011_25" name="25minute_of_rain_in_the_hour_QC" dec="小时内第25分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_25</colunm>
+	<colunm fxy="V13011_26" name="26minute_of_rain_in_the_hour" dec="小时内第26分钟雨量" datatype="double" default="999999" >V13011_26</colunm>
+	<colunm fxy="Q13011_26" name="26minute_of_rain_in_the_hour_QC" dec="小时内第26分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_26</colunm>
+	<colunm fxy="V13011_27" name="27minute_of_rain_in_the_hour" dec="小时内第27分钟雨量" datatype="double" default="999999" >V13011_27</colunm>
+	<colunm fxy="Q13011_27" name="27minute_of_rain_in_the_hour_QC" dec="小时内第27分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_27</colunm>
+	<colunm fxy="V13011_28" name="28minute_of_rain_in_the_hour" dec="小时内第28分钟雨量" datatype="double" default="999999" >V13011_28</colunm>
+	<colunm fxy="Q13011_28" name="28minute_of_rain_in_the_hour_QC" dec="小时内第28分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_28</colunm>
+	<colunm fxy="V13011_29" name="29minute_of_rain_in_the_hour" dec="小时内第29分钟雨量" datatype="double" default="999999" >V13011_29</colunm>
+	<colunm fxy="Q13011_29" name="29minute_of_rain_in_the_hour_QC" dec="小时内第29分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_29</colunm>
+	<colunm fxy="V13011_30" name="30minute_of_rain_in_the_hour" dec="小时内第30分钟雨量" datatype="double" default="999999" >V13011_30</colunm>
+	<colunm fxy="Q13011_30" name="30minute_of_rain_in_the_hour_QC" dec="小时内第30分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_30</colunm>
+	<colunm fxy="V13011_31" name="31minute_of_rain_in_the_hour" dec="小时内第31分钟雨量" datatype="double" default="999999" >V13011_31</colunm>
+	<colunm fxy="Q13011_31" name="31minute_of_rain_in_the_hour_QC" dec="小时内第31分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_31</colunm>
+	<colunm fxy="V13011_32" name="32minute_of_rain_in_the_hour" dec="小时内第32分钟雨量" datatype="double" default="999999" >V13011_32</colunm>
+	<colunm fxy="Q13011_32" name="32minute_of_rain_in_the_hour_QC" dec="小时内第32分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_32</colunm>
+	<colunm fxy="V13011_33" name="33minute_of_rain_in_the_hour" dec="小时内第33分钟雨量" datatype="double" default="999999" >V13011_33</colunm>
+	<colunm fxy="Q13011_33" name="33minute_of_rain_in_the_hour_QC" dec="小时内第33分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_33</colunm>
+	<colunm fxy="V13011_34" name="34minute_of_rain_in_the_hour" dec="小时内第34分钟雨量" datatype="double" default="999999" >V13011_34</colunm>
+	<colunm fxy="Q13011_34" name="34minute_of_rain_in_the_hour_QC" dec="小时内第34分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_34</colunm>
+	<colunm fxy="V13011_35" name="35minute_of_rain_in_the_hour" dec="小时内第35分钟雨量" datatype="double" default="999999" >V13011_35</colunm>
+	<colunm fxy="Q13011_35" name="35minute_of_rain_in_the_hour_QC" dec="小时内第35分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_35</colunm>
+	<colunm fxy="V13011_36" name="36minute_of_rain_in_the_hour" dec="小时内第36分钟雨量" datatype="double" default="999999" >V13011_36</colunm>
+	<colunm fxy="Q13011_36" name="36minute_of_rain_in_the_hour_QC" dec="小时内第36分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_36</colunm>
+	<colunm fxy="V13011_37" name="37minute_of_rain_in_the_hour" dec="小时内第37分钟雨量" datatype="double" default="999999" >V13011_37</colunm>
+	<colunm fxy="Q13011_37" name="37minute_of_rain_in_the_hour_QC" dec="小时内第37分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_37</colunm>
+	<colunm fxy="V13011_38" name="38minute_of_rain_in_the_hour" dec="小时内第38分钟雨量" datatype="double" default="999999" >V13011_38</colunm>
+	<colunm fxy="Q13011_38" name="38minute_of_rain_in_the_hour_QC" dec="小时内第38分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_38</colunm>
+	<colunm fxy="V13011_39" name="39minute_of_rain_in_the_hour" dec="小时内第39分钟雨量" datatype="double" default="999999" >V13011_39</colunm>
+	<colunm fxy="Q13011_39" name="39minute_of_rain_in_the_hour_QC" dec="小时内第39分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_39</colunm>
+	<colunm fxy="V13011_40" name="40minute_of_rain_in_the_hour" dec="小时内第40分钟雨量" datatype="double" default="999999" >V13011_40</colunm>
+	<colunm fxy="Q13011_40" name="40minute_of_rain_in_the_hour_QC" dec="小时内第40分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_40</colunm>
+	<colunm fxy="V13011_41" name="41minute_of_rain_in_the_hour" dec="小时内第41分钟雨量" datatype="double" default="999999" >V13011_41</colunm>
+	<colunm fxy="Q13011_41" name="41minute_of_rain_in_the_hour_QC" dec="小时内第41分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_41</colunm>
+	<colunm fxy="V13011_42" name="42minute_of_rain_in_the_hour" dec="小时内第42分钟雨量" datatype="double" default="999999" >V13011_42</colunm>
+	<colunm fxy="Q13011_42" name="42minute_of_rain_in_the_hour_QC" dec="小时内第42分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_42</colunm>
+	<colunm fxy="V13011_43" name="43minute_of_rain_in_the_hour" dec="小时内第43分钟雨量" datatype="double" default="999999" >V13011_43</colunm>
+	<colunm fxy="Q13011_43" name="43minute_of_rain_in_the_hour_QC" dec="小时内第43分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_43</colunm>
+	<colunm fxy="V13011_44" name="44minute_of_rain_in_the_hour" dec="小时内第44分钟雨量" datatype="double" default="999999" >V13011_44</colunm>
+	<colunm fxy="Q13011_44" name="44minute_of_rain_in_the_hour_QC" dec="小时内第44分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_44</colunm>
+	<colunm fxy="V13011_45" name="45minute_of_rain_in_the_hour" dec="小时内第45分钟雨量" datatype="double" default="999999" >V13011_45</colunm>
+	<colunm fxy="Q13011_45" name="45minute_of_rain_in_the_hour_QC" dec="小时内第45分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_45</colunm>
+	<colunm fxy="V13011_46" name="46minute_of_rain_in_the_hour" dec="小时内第46分钟雨量" datatype="double" default="999999" >V13011_46</colunm>
+	<colunm fxy="Q13011_46" name="46minute_of_rain_in_the_hour_QC" dec="小时内第46分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_46</colunm>
+	<colunm fxy="V13011_47" name="47minute_of_rain_in_the_hour" dec="小时内第47分钟雨量" datatype="double" default="999999" >V13011_47</colunm>
+	<colunm fxy="Q13011_47" name="47minute_of_rain_in_the_hour_QC" dec="小时内第47分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_47</colunm>
+	<colunm fxy="V13011_48" name="48minute_of_rain_in_the_hour" dec="小时内第48分钟雨量" datatype="double" default="999999" >V13011_48</colunm>
+	<colunm fxy="Q13011_48" name="48minute_of_rain_in_the_hour_QC" dec="小时内第48分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_48</colunm>
+	<colunm fxy="V13011_49" name="49minute_of_rain_in_the_hour" dec="小时内第49分钟雨量" datatype="double" default="999999" >V13011_49</colunm>
+	<colunm fxy="Q13011_49" name="49minute_of_rain_in_the_hour_QC" dec="小时内第49分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_49</colunm>
+	<colunm fxy="V13011_50" name="50minute_of_rain_in_the_hour" dec="小时内第50分钟雨量" datatype="double" default="999999" >V13011_50</colunm>
+	<colunm fxy="Q13011_50" name="50minute_of_rain_in_the_hour_QC" dec="小时内第50分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_50</colunm>
+	<colunm fxy="V13011_51" name="51minute_of_rain_in_the_hour" dec="小时内第51分钟雨量" datatype="double" default="999999" >V13011_51</colunm>
+	<colunm fxy="Q13011_51" name="51minute_of_rain_in_the_hour_QC" dec="小时内第51分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_51</colunm>
+	<colunm fxy="V13011_52" name="52minute_of_rain_in_the_hour" dec="小时内第52分钟雨量" datatype="double" default="999999" >V13011_52</colunm>
+	<colunm fxy="Q13011_52" name="52minute_of_rain_in_the_hour_QC" dec="小时内第52分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_52</colunm>
+	<colunm fxy="V13011_53" name="53minute_of_rain_in_the_hour" dec="小时内第53分钟雨量" datatype="double" default="999999" >V13011_53</colunm>
+	<colunm fxy="Q13011_53" name="53minute_of_rain_in_the_hour_QC" dec="小时内第53分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_53</colunm>
+	<colunm fxy="V13011_54" name="54minute_of_rain_in_the_hour" dec="小时内第54分钟雨量" datatype="double" default="999999" >V13011_54</colunm>
+	<colunm fxy="Q13011_54" name="54minute_of_rain_in_the_hour_QC" dec="小时内第54分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_54</colunm>
+	<colunm fxy="V13011_55" name="55minute_of_rain_in_the_hour" dec="小时内第55分钟雨量" datatype="double" default="999999" >V13011_55</colunm>
+	<colunm fxy="Q13011_55" name="55minute_of_rain_in_the_hour_QC" dec="小时内第55分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_55</colunm>
+	<colunm fxy="V13011_56" name="56minute_of_rain_in_the_hour" dec="小时内第56分钟雨量" datatype="double" default="999999" >V13011_56</colunm>
+	<colunm fxy="Q13011_56" name="56minute_of_rain_in_the_hour_QC" dec="小时内第56分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_56</colunm>
+	<colunm fxy="V13011_57" name="57minute_of_rain_in_the_hour" dec="小时内第57分钟雨量" datatype="double" default="999999" >V13011_57</colunm>
+	<colunm fxy="Q13011_57" name="57minute_of_rain_in_the_hour_QC" dec="小时内第57分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_57</colunm>
+	<colunm fxy="V13011_58" name="58minute_of_rain_in_the_hour" dec="小时内第58分钟雨量" datatype="double" default="999999" >V13011_58</colunm>
+	<colunm fxy="Q13011_58" name="58minute_of_rain_in_the_hour_QC" dec="小时内第58分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_58</colunm>
+	<colunm fxy="V13011_59" name="59minute_of_rain_in_the_hour" dec="小时内第59分钟雨量" datatype="double" default="999999" >V13011_59</colunm>
+	<colunm fxy="Q13011_59" name="59minute_of_rain_in_the_hour_QC" dec="小时内第59分钟雨量省级质控码" datatype="double"  qc="true" default="9" >Q13011_59</colunm>
+	<colunm fxy="V13011_60" name="60minute_of_rain_in_the_hour" dec="小时内第60分钟雨量" datatype="double" default="999999" >V13011_60</colunm>
+	<colunm fxy="Q13011_60" name="60minute_of_rain_in_the_hour_QC" dec="小时内第60分钟雨量省级质控码" datatype="double" qc="true" default="9">Q13011_60</colunm>
+</root>

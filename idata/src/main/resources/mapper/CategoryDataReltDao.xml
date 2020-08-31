@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nmpiesat.idata.data.dao.CategoryDataReltDao">
+    <resultMap id="BaseResultMap" type="com.nmpiesat.idata.data.entity.CategoryDataRelt">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="categoryid" jdbcType="INTEGER" property="categoryid" />
+        <result column="datacode" jdbcType="VARCHAR" property="datacode" />
+        <result column="orderno" jdbcType="INTEGER" property="orderno" />
+    </resultMap>
+    <sql id="Base_Column_List">
+    id,categoryid, datacode, orderno
+  </sql>
+    <select id="findCategoryDataReltById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from BMD_CATEGORYDATARELT
+        where categoryid =#{id} order by orderno
+    </select>
+    <select id="findCategoryDataReltByUserId" resultType="com.nmpiesat.idata.data.entity.CategoryDataRelt">
+        select cd.* from BMD_CATEGORYDATARELT cd,sup_DataRolelimits drl,sup_UserDatarole dr
+        where cd.DATACODE=drl.DATAID and dr.dataroleid= drl.roledataid and dr.USERID=#{userid,jdbcType=VARCHAR} and cd.categoryid =#{id,jdbcType=INTEGER}
+        order by cd.orderno
+    </select>
+
+</mapper>

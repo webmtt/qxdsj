@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	
+	<!-- fxy:前三个值bufr文件数据段识别码,第4个值为整个数据段中第几次出现的识别码 -->
+	<!-- name:对应的字段名称 -->
+	<!-- dec:字段说明 -->
+	<!-- datatype:字段类型 -->
+	<!-- defaultValue:如果从bufr文件中取出的数据为空设置默认值 -->
+	<!-- qc:true或false,此行是否为质控码 -->
+	<!-- expression:配置此行字段值的表达式
+			表达式说明:
+				${col:arg} -> 当前配置文件中对应的字段值，arg：配置文件中配置的字段
+				${dateFormat(arg1,arg2,arg3)} -> 日期格式化,arg1:日期字符串20170809001211，arg2:arg1的格式yyyyMMddHHmmss，arg3:转换后的日期格式(如：yyyy-MM-dd HH:mm:ss) 
+				${dateTime} -> 获取系统当前时间,默认格式为yyyyMMddHHmmss
+				${ascii:arg} -> arg代表的值转换为ascii码
+				${stationInfo(arg1,arg2,arg3)} -> 根据站号从stationinfo_conf.lua配置文件中取值，第一个参数arg1：字符站号；第二个参数arg2：站号对应的序列号
+				${seqDayFormat(arg1,arg2,arg3)} -> 序日的格式化，第一个参数arg1：4位年；第二个参数arg2：序日(1-3位数字)；第三个参数arg3：格式(遵循java中的日期格式化pattern)
+				#########################################################
+				${col:arg} ${seqDayFormat(arg1,arg2,arg3)} ${stationInfo(arg1,arg2)} ${dateFormat(arg1,arg2,arg3)} 这几个表达式后都可以根据需要添加.split('')[]和.substring()表达式
+				.split('')[]按单引号中的符号分隔前面表达式的值，中括号中是分隔后取第n-1个
+				.substring(snum,enum) 在紧前面的表达式的值中截取snum到enum字符串,包前不包后
+	 -->
+	<colunm fxy="D_RECORD_ID" name="id" dec="主键" datatype="string" expression="${col:V01301}_${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} ${col:V04004}:${col:V04005}:00,yyyy-MM-dd HH:mm:ss,yyyyMMddHHmmss)}">D_RECORD_ID</colunm> 
+	
+	<colunm fxy="D_DATA_ID" name="data_id" dec="资料标识" datatype="string" default="G.0016.0002.S001">D_DATA_ID</colunm>
+	<colunm fxy="?" name="" dec="" datatype="string" default="G.0016.0002.S001">D_SOURCE_ID</colunm>
+	<colunm fxy="D_IYMDHM" name="insert datetime" dec="入库时间" datatype="date" expression="${dateFormat(${dateTime},yyyyMMddHHmmss,yyyy-MM-dd HH:mm:ss)}">D_IYMDHM</colunm>
+	<colunm fxy="D_RYMDHM" name="recive_datetime" dec="收到时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_RYMDHM</colunm>
+	
+	<colunm fxy="D_UPDATE_TIME" name="update datetime" dec="更新时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_UPDATE_TIME</colunm>
+	
+	<colunm fxy="D_DATETIME" name="data datetime" dec="资料时间" datatype="date" expression="${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} ${col:V04004}:${col:V04005}:00,yyyy-MM-dd HH:mm:ss,yyyy-MM-dd HH:mm:ss)}">D_DATETIME</colunm>
+	
+	<!-- <colunm fxy="D_DATETIME" name="D_RETRIEVAL_ TIME" dec="小时资料检索时间" datatype="date" expression="${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} 00:00:00,yyyy-MM-dd HH:mm:ss,yyyy-MM-dd HH:mm:ss)}">D_RETRIEVAL_TIME</colunm> --> 
+	<colunm fxy="V_BBB" name="V_BBB" dec="更正报标识" datatype="string"  default="000">V_BBB</colunm> 
+	<colunm fxy="0-1-1-0" name="WMO_block_number" dec="区站号" datatype="string">V01301</colunm>
+	<!--   <colunm fxy="V01300" name="stationId_N" dec="区站号(数字)" datatype="string" expression="${ascii:${col:V01301}}">V01300</colunm> -->
+	<colunm fxy="0-1-101-0" name="National and local identifiers" dec="国家和地标识符" datatype="string" default="999999">V01101</colunm>
+	<colunm fxy="0-1-192-0" name="Local station logo" dec="本地测站标识" datatype="string" default="999999">V01192</colunm>
+	<colunm fxy="0-5-1-0" name="Latitude" dec="纬度" datatype="double" >V05001</colunm>
+	<colunm fxy="0-6-1-0" name="Longitude" dec="经度" datatype="double" >V06001</colunm>
+	<colunm fxy="0-4-1-0" name="year" dec="资料年" datatype="int" >V04001</colunm>
+	<colunm fxy="0-4-2-0" name="Month" dec="资料月" datatype="int" >V04002</colunm>
+	<colunm fxy="0-4-3-0" name="day" dec="资料日" datatype="int" >V04003</colunm>
+	<colunm fxy="0-4-4-0" name="hour" dec="资料时" datatype="int" >V04004</colunm>
+	<colunm fxy="0-4-5-0" name="minute" dec="资料分" datatype="int" >V04005</colunm>
+	<colunm fxy="0-7-30-0" name="Ground height above average sea level" dec="平均海平面以上测站地面高度" datatype="double" default="999999">V07030</colunm>
+	<colunm fxy="0-7-31-0" name="Air pressure gauge height above mean sea level" dec="平均海平面以上气压表高度" datatype="double" default="999999">V07031</colunm>
+	<!--   <colunm fxy="1-21-0-0" name="Instrument Model" dec="仪器型号" datatype="string" expression="{0}" default="999999">V02241</colunm>
+	<colunm fxy="1-21-0-0" name="Serial number" dec="序列号" datatype="string" expression="{1}" default="999999">V02208</colunm> 
+	<colunm fxy="0-4-5-0" name="Sampling time, minutes(world time)" dec="采样时间，分（世界时）" datatype="int" default="999999">V04005_S</colunm>
+	<colunm fxy="0-4-6-0" name="Sampling time, seconds(world time)" dec="采样时间，秒（世界时）" datatype="int" default="999999">V04006_S</colunm> -->
+	<colunm fxy="0-25-197-0" name="Sampling membrane number" dec="采样膜号" datatype="int" default="999998">V25179</colunm>
+	<colunm fxy="0-1-95-0" name="Observers" dec="观测人员" datatype="string" default="999998">V01095</colunm>
+	<colunm fxy="3-1-13-0" name="Sampling start time, time" dec="采样开始时间，时" datatype="int" default="999998">V04004_010</colunm>
+	<colunm fxy="3-1-13-1" name="Sampling start time, minute" dec="采样开始时间，分" datatype="int" default="999998">V04005_010</colunm>
+	<colunm fxy="3-1-13-2" name="Sampling start time, seconds" dec="采样开始时间，秒" datatype="int" default="999998">V04006_010</colunm>
+	<colunm fxy="3-1-13-3" name="Sampling end time, time" dec="采样结束时间，时" datatype="int" default="999998">V04004_020</colunm>
+	<colunm fxy="3-1-13-4" name="Sampling end time, minute" dec="采样结束时间，分" datatype="int" default="999998">V04005_020</colunm>
+	<colunm fxy="3-1-13-5" name="Sampling end time, seconds" dec="采样结束时间，秒" datatype="int" default="999998">V04006_020</colunm>
+	<colunm fxy="0-26-197-0" name="Initial cumulative time" dec="初始累计时间" datatype="int" default="999998">V26197_010</colunm>
+	<colunm fxy="0-26-197-1" name="End cumulative time" dec="结束累计时间" datatype="int" default="999998">V26197_020</colunm>
+	<colunm fxy="0-15-251-0" name="volume" dec="体积" datatype="double" default="999998">V15251</colunm>
+	<colunm fxy="0-15-211-0" name="flow" dec="流量" datatype="double" default="999998">V15211</colunm>
+	<colunm fxy="0-10-4-0" name="pressure" dec="气压" datatype="double" expression="{{0}*0.01}" default="999998">V10004</colunm>
+	<colunm fxy="0-12-1-0" name="temperature" dec="温度" datatype="double" expression="{{0}-273.15}" default="999998">V12001</colunm>
+	<colunm fxy="0-20-1-0" name="visibility" dec="能见度" datatype="double"  default="999998">V20001</colunm>
+	
+	
+</root>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	
+	<!-- fxy:前三个值bufr文件数据段识别码,第4个值为整个数据段中第几次出现的识别码 -->
+	<!-- name:对应的字段名称 -->
+	<!-- dec:字段说明 -->
+	<!-- datatype:字段类型 -->
+	<!-- defaultValue:如果从bufr文件中取出的数据为空设置默认值 -->
+	<!-- qc:true或false,此行是否为质控码 -->
+	<!-- expression:配置此行字段值的表达式
+			表达式说明:
+				${col:arg} -> 当前配置文件中对应的字段值，arg：配置文件中配置的字段
+				${dateFormat(arg1,arg2,arg3)} -> 日期格式化,arg1:日期字符串20170809001211，arg2:arg1的格式yyyyMMddHHmmss，arg3:转换后的日期格式(如：yyyy-MM-dd HH:mm:ss) 
+				${dateTime} -> 获取系统当前时间,默认格式为yyyyMMddHHmmss
+				${ascii:arg} -> arg代表的值转换为ascii码
+				${stationInfo(arg1,arg2,arg3)} -> 根据站号从stationinfo_conf.lua配置文件中取值，第一个参数arg1：字符站号；第二个参数arg2：站号对应的序列号
+				${seqDayFormat(arg1,arg2,arg3)} -> 序日的格式化，第一个参数arg1：4位年；第二个参数arg2：序日(1-3位数字)；第三个参数arg3：格式(遵循java中的日期格式化pattern)
+				#########################################################
+				${col:arg} ${seqDayFormat(arg1,arg2,arg3)} ${stationInfo(arg1,arg2)} ${dateFormat(arg1,arg2,arg3)} 这几个表达式后都可以根据需要添加.split('')[]和.substring()表达式
+				.split('')[]按单引号中的符号分隔前面表达式的值，中括号中是分隔后取第n-1个
+				.substring(snum,enum) 在紧前面的表达式的值中截取snum到enum字符串,包前不包后
+	 -->
+    <!--处理3-9-51:0_21_0_110-->
+
+	<colunm fxy="D_RECORD_ID" name="id" dec="主键" datatype="string" expression="${col:V01301}_${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} ${col:V04004}:${col:V04005}:00,yyyy-MM-dd HH:mm:ss,yyyyMMddHHmmss)}_${col:V01398}_${col:V07007}">D_RECORD_ID</colunm>
+	<colunm fxy="D_IYMDHM" name="insert_datetime" dec="入库时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_IYMDHM</colunm>
+	<colunm fxy="D_RYMDHM" name="recive_datetime" dec="收到时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_RYMDHM</colunm>
+	<colunm fxy="D_UPDATE_TIME" name="update datetime" dec="更新时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_UPDATE_TIME</colunm>
+	<colunm fxy="D_DATETIME" name="data_datetime" dec="资料时间" datatype="date" expression="${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} ${col:V04004}:${col:V04005}:00,yyyy-MM-dd HH:mm:ss,yyyy-MM-dd HH:mm:ss)}">D_DATETIME</colunm>
+	<colunm fxy="D_DATA_ID" name="data_id" dec="资料标识" datatype="string" default="B.0015.0001.S001">D_DATA_ID</colunm>
+	<colunm fxy="D_SOURCE_ID" name="" dec="" datatype="string" default="B.0001.0015.R001" >D_SOURCE_ID</colunm>
+	<colunm fxy="0-1-1-0" name="WMO_block_number" dec="区站号" datatype="string">V01301</colunm>
+	
+	<colunm fxy="0-2-1-0" name="" dec="测站类型" datatype="int" default="999998">V02001</colunm>
+	<colunm fxy="V_CCCC" name="" dec="编报(加工)中心" datatype="String" default="999999">V_CCCC</colunm>
+	<colunm fxy="V_TT" name="" dec="报告类别" datatype="String" default="999999">V_TT</colunm>
+	
+	<colunm fxy="?" name="" dec="风廓线雷达型号" datatype="string" >V_RADAR_MODEL</colunm>
+	<colunm fxy="?" name="" dec="产品类型" datatype="string" default="999998">V01398</colunm>
+	<colunm fxy="0-4-1-0" name="year" dec="资料年" datatype="int" expression="{0}">V04001</colunm>
+	<colunm fxy="0-4-2-0" name="Month" dec="资料月" datatype="int" expression="{0}">V04002</colunm>
+	<colunm fxy="0-4-3-0" name="Day" dec="资料日" datatype="int" expression="{0}">V04003</colunm>
+	<colunm fxy="0-4-4-0" name="Hour" dec="资料时" datatype="int" expression="{0}">V04004</colunm>
+	<colunm fxy="0-4-5-0" name="Hour" dec="资料分" datatype="int" expression="{0}">V04005</colunm>
+	<colunm fxy="0-4-6-0" name="Hour" dec="资料秒" datatype="int" default="0">V04006</colunm>
+	<colunm fxy="0-5-1-0" name="Latitude" dec="纬度" datatype="double" >V05001</colunm>
+	<colunm fxy="0-6-1-0" name="Longitude" dec="经度" datatype="double" >V06001</colunm>
+	<colunm fxy="0-7-30-0" name="Height_of_station_ground_above_mean_sea_level" dec="测站高度" datatype="double" >V07001</colunm>
+	
+	<colunm fxy="0-2-3-0" name="Type of measuring equipment used" dec="探测设备类型" datatype="int" default="999998">V02003</colunm>
+	<colunm fxy="0-2-101-0" name="Type of antenna " dec="天线类型" datatype="int" default="999998">V02101</colunm>
+	<colunm fxy="0-2-106-0" name="3-dB beamwidth" dec="波束宽度" datatype="double" default="999998">V02106</colunm>
+	<colunm fxy="0-2-121-0" name="Mean frequency" dec="设备频率" datatype="double" expression="${{0}*0.000001}" default="999998">V02121</colunm>
+	<colunm fxy="0-25-1-0" name="Range-gate length" dec="库长" datatype="double" default="999998">V25001</colunm>
+	<colunm fxy="0-25-20-0" name="Mean speed estimation" dec="平均速度估计" datatype="int" default="999998">V25020</colunm>
+	<colunm fxy="0-25-21-0" name="Wind computation enhancement" dec="风计算增强" datatype="int" default="999998">V25021</colunm>
+	<colunm fxy="0-2-125-0" name="Pulse repetition frequency" dec="脉冲重复频率" datatype="double" default="999998">V02125</colunm>
+	<colunm fxy="0-25-3-0" name="Number of integrated pulses" dec="脉冲个数" datatype="int" default="999998">V25003</colunm>
+	<colunm fxy="?" name="RASS RASS computation correction" dec="配套设备" datatype="int" default="999998">V25093</colunm>
+	<colunm fxy="?" name="Virtual_temperature" dec="虚温" datatype="double" default="999998">V12007</colunm>
+	<colunm fxy="?" name="" dec="模式类别" datatype="int" default="999998">V25257</colunm>
+	
+	<!--<colunm fxy="0-7-31-0" name="Height_of_barometer_above_mean_sea_level" dec="气压传感器高度" datatype="double"  >V07031</colunm>-->
+	
+	<!--3-9-51:0_21_0_110-->
+	<group fxy="1-1-0-0" name="" dec="" delay="7">
+		<colunm fxy="0-7-9-0" name="Height" dec="采样高度" datatype="double" default="999999">V07007</colunm>
+		<colunm fxy="0-11-1-0" name="Wind_direction" dec="水平风向" datatype="double" >V11001</colunm>
+		<colunm fxy="0-11-2-0" name="Wind_speed" dec="水平风速" datatype="double" >V11002</colunm>
+		<colunm fxy="?" name="w-component" dec="垂直风速" datatype="double"  default="999998" >V11006</colunm>
+		<colunm fxy="?" name="" dec="水平方向可信度" datatype="int" default="999998" >V73107</colunm>
+		<colunm fxy="?" name="" dec="垂直方向可信度" datatype="int" default="999998" >V73108</colunm>
+		<colunm fxy="?" name="" dec="折射率结构常数Cn2" datatype="string" default="999998" >V25091</colunm>
+		<colunm fxy="?" name="" dec="水平风向质控码" datatype="int" qc="true" default="9" >Q11001</colunm>
+		<colunm fxy="?" name="" dec="水平风速质控码" datatype="int" qc="true" default="9" >Q11002</colunm>
+		<colunm fxy="?" name="" dec="垂直风速质控码" datatype="int" qc="true" default="9" >Q11006</colunm>
+		<colunm fxy="0-8-42-0" name="Extended vertical sounding significance" dec="垂直探测意义" datatype="int" default="999998">V08042</colunm>
+		<!--V07002=测站高度+采样高度  -->
+		<colunm fxy="?" name="Virtual_temperature" dec="采样海拔高度" datatype="double" default="999999">V07002</colunm>
+		<!-- 表结构单位：0.1m/s 是否需换算-->
+		<colunm fxy="?" name="" dec="谱宽" datatype="double" default="999998">V21017</colunm>
+		<colunm fxy="0-21-30-0" name="Signal to noise ratio" dec="信噪比" datatype="double" default="999998">V21030</colunm>
+		<!-- 表结构单位：0.1m/s 是否需换算-->
+		<colunm fxy="?" name="" dec="径向速度" datatype="double" default="999998">V21014</colunm>
+		<colunm fxy="0-21-1-0" name="Horizontal reflectivity" dec="水平反射率" datatype="int" default="999998">V21001</colunm>
+		<colunm fxy="?" name="Horizontal reflectivity" dec="水平反射率质控码" datatype="int" qc="true"  default="9" >Q21001</colunm>
+	</group>
+	
+</root>

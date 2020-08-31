@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nmpiesat.idata.products.dao.BmpProductinfoDAO">
+  <resultMap id="BaseResultMap" type="com.nmpiesat.idata.products.entity.BmpProductinfo">
+    <result column="PRODUCTSUBCODE" jdbcType="VARCHAR" property="productsubcode" />
+    <result column="PRODUCTCODE" jdbcType="VARCHAR" property="productcode" />
+    <result column="PRODUCTNAME" jdbcType="VARCHAR" property="productname" />
+    <result column="SHORTNAME" jdbcType="VARCHAR" property="shortname" />
+    <result column="PRODUCTLEVEL" jdbcType="VARCHAR" property="productlevel" />
+    <result column="PRODUCTDESC" jdbcType="VARCHAR" property="productdesc" />
+    <result column="TOKENSNAME" jdbcType="VARCHAR" property="tokensname" />
+    <result column="TOKENSCODE" jdbcType="VARCHAR" property="tokenscode" />
+    <result column="UNITNAME" jdbcType="VARCHAR" property="unitname" />
+    <result column="UNITCODE" jdbcType="VARCHAR" property="unitcode" />
+    <result column="TYPENAME" jdbcType="VARCHAR" property="typename" />
+    <result column="TYPECODE" jdbcType="VARCHAR" property="typecode" />
+    <result column="CONTENTNAME" jdbcType="VARCHAR" property="contentname" />
+    <result column="CONTENTCODE" jdbcType="VARCHAR" property="contentcode" />
+    <result column="ALTITUDENAME" jdbcType="VARCHAR" property="altitudename" />
+    <result column="ALTITUDECODE" jdbcType="VARCHAR" property="altitudecode" />
+    <result column="COVERAREANAME" jdbcType="VARCHAR" property="coverareaname" />
+    <result column="COVERAREACODE" jdbcType="VARCHAR" property="coverareacode" />
+    <result column="STARTENDTIME" jdbcType="VARCHAR" property="startendtime" />
+    <result column="PUBLISHATTRNAME" jdbcType="VARCHAR" property="publishattrname" />
+    <result column="PUBLISHATTRCODE" jdbcType="VARCHAR" property="publishattrcode" />
+    <result column="PUBLISHFREQ" jdbcType="VARCHAR" property="publishfreq" />
+    <result column="PUBLISHSTATE" jdbcType="VARCHAR" property="publishstate" />
+    <result column="PUBLISHMODE" jdbcType="VARCHAR" property="publishmode" />
+    <result column="CREATED" jdbcType="TIMESTAMP" property="created" />
+    <result column="CREATEDBY" jdbcType="VARCHAR" property="createdby" />
+    <result column="UPDATED" jdbcType="TIMESTAMP" property="updated" />
+    <result column="UPDATEDBY" jdbcType="VARCHAR" property="updatedby" />
+    <result column="INVALID" jdbcType="DECIMAL" property="invalid" />
+    <result column="FORMATNAME" jdbcType="VARCHAR" property="formatname" />
+    <result column="FORMATCODE" jdbcType="VARCHAR" property="formatcode" />
+    <result column="NAMERULE" jdbcType="VARCHAR" property="namerule" />
+    <result column="COLUMNCLASSID" jdbcType="VARCHAR" property="columnclassid" />
+    <result column="VERIFYER_ID" jdbcType="VARCHAR" property="verifyerId" />
+    <result column="VERIFYSTATUS" jdbcType="DECIMAL" property="verifystatus" />
+    <result column="VERIFYDATE" jdbcType="TIMESTAMP" property="verifydate" />
+    <result column="QUITDATE" jdbcType="TIMESTAMP" property="quitdate" />
+    <result column="ENCLOSURE" jdbcType="VARCHAR" property="enclosure" />
+    <result column="ENCLOSUREURL" jdbcType="VARCHAR" property="enclosureurl" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.nmpiesat.idata.products.entity.BmpProductinfoWithBLOBs">
+    <result column="MGRUSER" jdbcType="LONGVARCHAR" property="mgruser" />
+    <result column="VERIFYFAILREASON" jdbcType="LONGVARCHAR" property="verifyfailreason" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    MGRUSER, VERIFYFAILREASON
+  </sql>
+  <select id="getAllUnit" resultType="java.util.Map">
+    select UNITNAME,UNITCODE from bmp_productinfo GROUP BY UNITNAME
+  </select>
+
+  <select id="getMorePhotoUT" resultType="com.nmpiesat.idata.products.entity.ProDataindex">
+    select * from pro_dataindex
+    where 1=1
+    <if test="productList != null and productList !=''">
+      and PRODUCTCODE in
+      <foreach collection="productList" item="item" index="index"
+               open="(" close=")" separator=",">
+        #{item}
+      </foreach>
+    </if>
+    <if test="unitList != null and productList == null">
+      and UNITCODE in
+      <foreach collection="unitList" item="unit" index="indexu"
+               open="(" close=")" separator=",">
+        #{unit}
+      </foreach>
+    </if>
+    <if test="typesList != null and productList == null">
+      and TYPECODE in
+      <foreach collection="typesList" item="types" index="indext"
+               open="(" close=")" separator=",">
+        #{types}
+      </foreach>
+    </if>
+    <if test="photoTypeList != null and photoTypeList !=''">
+      and FILETYPE in
+      <foreach collection="photoTypeList" item="phototypes" index="indexp"
+               open="(" close=")" separator=",">
+        #{phototypes}
+      </foreach>
+    </if>
+    order by CREATED DESC limit #{num}
+  </select>
+
+  <select id="getMenuPhotoUT" resultType="com.nmpiesat.idata.products.entity.ProDataindex">
+    select * from pro_dataindex
+    where 1=1
+    <if test="productList != null and productList !=''">
+      and PRODUCTCODE in
+      <foreach collection="productList" item="item" index="index"
+               open="(" close=")" separator=",">
+        #{item}
+      </foreach>
+    </if>
+    <if test="unitList != null and productList == null">
+      and UNITCODE in
+      <foreach collection="unitList" item="unit" index="indexu"
+               open="(" close=")" separator=",">
+        #{unit}
+      </foreach>
+    </if>
+    <if test="typesList != null and productList == null">
+      and TYPECODE in
+      <foreach collection="typesList" item="types" index="indext"
+               open="(" close=")" separator=",">
+        #{types}
+      </foreach>
+    </if>
+    <if test="photoTypeList != null and photoTypeList !=''">
+      and FILETYPE in
+      <foreach collection="photoTypeList" item="phototypes" index="indexp"
+               open="(" close=")" separator=",">
+        #{phototypes}
+      </foreach>
+    </if>
+    order by CREATED DESC
+  </select>
+
+  <select id="getMorePhotoP" resultType="com.nmpiesat.idata.products.entity.ProDataindex">
+    select * from pro_dataindex p
+    where p.PRODUCTSUBCODE in
+    ((SELECT b.PRODUCTSUBCODE FROM bmp_productinfo b
+    where 1=1
+    <if test="productList != null and productList !=''">
+    and b.PRODUCTNAME in
+    <foreach collection="productList" item="item" index="index"
+             open="(" close=")" separator=",">
+      #{item}
+    </foreach>
+    </if>
+    ))
+    <if test="photoTypeList != null and photoTypeList !=''">
+    and p.FILETYPE in
+    <foreach collection="photoTypeList" item="phototypes" index="indexp"
+             open="(" close=")" separator=",">
+      #{phototypes}
+    </foreach>
+    </if>
+    order by p.CREATED DESC limit #{num}
+  </select>
+
+
+  <select id="getUnitSum" parameterType="java.lang.String" resultType="java.util.Map">
+    select sum(p.HITS) num,
+    (SELECT b.PRODUCTNAME from bmp_productinfo b where b.PRODUCTSUBCODE=p.PRODUCTSUBCODE limit 1) unitname
+    from pro_dataindex p
+    where p.UNITCODE=#{unit}
+    <if test="dataType == 1">
+      and TO_DAYS(p.PRODATE) = TO_DAYS(now())
+    </if>
+    <if test="dataType == 2">
+      and TO_DAYS(NOW()) - TO_DAYS(p.PRODATE) &lt;= 1
+    </if>
+    <if test="dataType == 3">
+      and YEARWEEK(date_format(p.PRODATE,'%Y-%m-%d')) = YEARWEEK(now())-1
+    </if>
+    <if test="dataType == 4">
+      and PERIOD_DIFF( date_format( now( ) , '%Y%m' ) , date_format( p.PRODATE, '%Y%m' ) ) =1
+    </if>
+    <if test="dataType == 5">
+      and year(p.PRODATE)=year(date_sub(now(),interval 1 year))
+    </if>
+    GROUP BY p.PRODUCTSUBCODE ORDER BY num DESC LIMIT 10
+  </select>
+
+  <select id="getUnitSumForTimes" parameterType="java.lang.String" resultType="java.util.Map">
+    select sum(p.HITS) num,
+    (SELECT b.PRODUCTNAME from bmp_productinfo b where b.PRODUCTSUBCODE=p.PRODUCTSUBCODE) unitname
+    from pro_dataindex p
+    where p.UNITCODE=#{unit}
+    <if test="startTime != null and endTime!=null">
+      and p.PRODATE BETWEEN #{startTime} AND #{endTime}
+    </if>
+    GROUP BY p.PRODUCTSUBCODE ORDER BY num DESC LIMIT 10
+  </select>
+
+  <select id="getUnitCount" parameterType="java.lang.String" resultType="java.util.Map">
+    select p.TOKENSCODE,
+    p.PRODATE as created,
+    (SELECT b.UNITNAME from bmp_productinfo b where b.PRODUCTSUBCODE=p.PRODUCTSUBCODE) unit
+    from pro_dataindex p where p.PRODUCTSUBCODE=
+    (select b.PRODUCTSUBCODE from bmp_productinfo b where b.PRODUCTNAME=#{productname} and b.UNITCODE=#{unit})
+  </select>
+
+  <select id="getCounts" parameterType="java.lang.String" resultType="java.lang.String">
+    select count(p.PRODUCTSUBCODE) as counts
+    from pro_dataindex p where p.PRODUCTSUBCODE=
+    (select b.PRODUCTSUBCODE from bmp_productinfo b where b.PRODUCTNAME=#{productname} and b.UNITCODE=#{unit})
+  </select>
+
+  <select id="getToken" resultType="java.util.Map">
+    select TOKENSCODE,TOKENSNAME from bmp_productinfo GROUP BY TOKENSCODE
+  </select>
+
+  <select id="getNewProduct" resultType="java.lang.String">
+    select PRODUCTNAME from bmp_productinfo where TOKENSCODE=#{tokenscode} ORDER BY RAND() LIMIT 8
+  </select>
+  <insert id="insert" parameterType="com.nmpiesat.idata.products.entity.BmpProductinfoWithBLOBs">
+    insert into bmp_productinfo (PRODUCTSUBCODE, PRODUCTCODE, PRODUCTNAME, 
+      SHORTNAME, PRODUCTLEVEL, PRODUCTDESC, 
+      TOKENSNAME, TOKENSCODE, UNITNAME, 
+      UNITCODE, TYPENAME, TYPECODE, 
+      CONTENTNAME, CONTENTCODE, ALTITUDENAME, 
+      ALTITUDECODE, COVERAREANAME, COVERAREACODE, 
+      STARTENDTIME, PUBLISHATTRNAME, PUBLISHATTRCODE, 
+      PUBLISHFREQ, PUBLISHSTATE, PUBLISHMODE, 
+      CREATED, CREATEDBY, UPDATED, 
+      UPDATEDBY, INVALID, FORMATNAME, 
+      FORMATCODE, NAMERULE, COLUMNCLASSID, 
+      VERIFYER_ID, VERIFYSTATUS, VERIFYDATE, 
+      QUITDATE, ENCLOSURE, ENCLOSUREURL, 
+      MGRUSER, VERIFYFAILREASON)
+    values (#{productsubcode,jdbcType=VARCHAR}, #{productcode,jdbcType=VARCHAR}, #{productname,jdbcType=VARCHAR}, 
+      #{shortname,jdbcType=VARCHAR}, #{productlevel,jdbcType=VARCHAR}, #{productdesc,jdbcType=VARCHAR}, 
+      #{tokensname,jdbcType=VARCHAR}, #{tokenscode,jdbcType=VARCHAR}, #{unitname,jdbcType=VARCHAR}, 
+      #{unitcode,jdbcType=VARCHAR}, #{typename,jdbcType=VARCHAR}, #{typecode,jdbcType=VARCHAR}, 
+      #{contentname,jdbcType=VARCHAR}, #{contentcode,jdbcType=VARCHAR}, #{altitudename,jdbcType=VARCHAR}, 
+      #{altitudecode,jdbcType=VARCHAR}, #{coverareaname,jdbcType=VARCHAR}, #{coverareacode,jdbcType=VARCHAR}, 
+      #{startendtime,jdbcType=VARCHAR}, #{publishattrname,jdbcType=VARCHAR}, #{publishattrcode,jdbcType=VARCHAR}, 
+      #{publishfreq,jdbcType=VARCHAR}, #{publishstate,jdbcType=VARCHAR}, #{publishmode,jdbcType=VARCHAR}, 
+      #{created,jdbcType=TIMESTAMP}, #{createdby,jdbcType=VARCHAR}, #{updated,jdbcType=TIMESTAMP}, 
+      #{updatedby,jdbcType=VARCHAR}, #{invalid,jdbcType=DECIMAL}, #{formatname,jdbcType=VARCHAR}, 
+      #{formatcode,jdbcType=VARCHAR}, #{namerule,jdbcType=VARCHAR}, #{columnclassid,jdbcType=VARCHAR}, 
+      #{verifyerId,jdbcType=VARCHAR}, #{verifystatus,jdbcType=DECIMAL}, #{verifydate,jdbcType=TIMESTAMP}, 
+      #{quitdate,jdbcType=TIMESTAMP}, #{enclosure,jdbcType=VARCHAR}, #{enclosureurl,jdbcType=VARCHAR}, 
+      #{mgruser,jdbcType=LONGVARCHAR}, #{verifyfailreason,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.nmpiesat.idata.products.entity.BmpProductinfoWithBLOBs">
+    insert into bmp_productinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productsubcode != null">
+        PRODUCTSUBCODE,
+      </if>
+      <if test="productcode != null">
+        PRODUCTCODE,
+      </if>
+      <if test="productname != null">
+        PRODUCTNAME,
+      </if>
+      <if test="shortname != null">
+        SHORTNAME,
+      </if>
+      <if test="productlevel != null">
+        PRODUCTLEVEL,
+      </if>
+      <if test="productdesc != null">
+        PRODUCTDESC,
+      </if>
+      <if test="tokensname != null">
+        TOKENSNAME,
+      </if>
+      <if test="tokenscode != null">
+        TOKENSCODE,
+      </if>
+      <if test="unitname != null">
+        UNITNAME,
+      </if>
+      <if test="unitcode != null">
+        UNITCODE,
+      </if>
+      <if test="typename != null">
+        TYPENAME,
+      </if>
+      <if test="typecode != null">
+        TYPECODE,
+      </if>
+      <if test="contentname != null">
+        CONTENTNAME,
+      </if>
+      <if test="contentcode != null">
+        CONTENTCODE,
+      </if>
+      <if test="altitudename != null">
+        ALTITUDENAME,
+      </if>
+      <if test="altitudecode != null">
+        ALTITUDECODE,
+      </if>
+      <if test="coverareaname != null">
+        COVERAREANAME,
+      </if>
+      <if test="coverareacode != null">
+        COVERAREACODE,
+      </if>
+      <if test="startendtime != null">
+        STARTENDTIME,
+      </if>
+      <if test="publishattrname != null">
+        PUBLISHATTRNAME,
+      </if>
+      <if test="publishattrcode != null">
+        PUBLISHATTRCODE,
+      </if>
+      <if test="publishfreq != null">
+        PUBLISHFREQ,
+      </if>
+      <if test="publishstate != null">
+        PUBLISHSTATE,
+      </if>
+      <if test="publishmode != null">
+        PUBLISHMODE,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="createdby != null">
+        CREATEDBY,
+      </if>
+      <if test="updated != null">
+        UPDATED,
+      </if>
+      <if test="updatedby != null">
+        UPDATEDBY,
+      </if>
+      <if test="invalid != null">
+        INVALID,
+      </if>
+      <if test="formatname != null">
+        FORMATNAME,
+      </if>
+      <if test="formatcode != null">
+        FORMATCODE,
+      </if>
+      <if test="namerule != null">
+        NAMERULE,
+      </if>
+      <if test="columnclassid != null">
+        COLUMNCLASSID,
+      </if>
+      <if test="verifyerId != null">
+        VERIFYER_ID,
+      </if>
+      <if test="verifystatus != null">
+        VERIFYSTATUS,
+      </if>
+      <if test="verifydate != null">
+        VERIFYDATE,
+      </if>
+      <if test="quitdate != null">
+        QUITDATE,
+      </if>
+      <if test="enclosure != null">
+        ENCLOSURE,
+      </if>
+      <if test="enclosureurl != null">
+        ENCLOSUREURL,
+      </if>
+      <if test="mgruser != null">
+        MGRUSER,
+      </if>
+      <if test="verifyfailreason != null">
+        VERIFYFAILREASON,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productsubcode != null">
+        #{productsubcode,jdbcType=VARCHAR},
+      </if>
+      <if test="productcode != null">
+        #{productcode,jdbcType=VARCHAR},
+      </if>
+      <if test="productname != null">
+        #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="shortname != null">
+        #{shortname,jdbcType=VARCHAR},
+      </if>
+      <if test="productlevel != null">
+        #{productlevel,jdbcType=VARCHAR},
+      </if>
+      <if test="productdesc != null">
+        #{productdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="tokensname != null">
+        #{tokensname,jdbcType=VARCHAR},
+      </if>
+      <if test="tokenscode != null">
+        #{tokenscode,jdbcType=VARCHAR},
+      </if>
+      <if test="unitname != null">
+        #{unitname,jdbcType=VARCHAR},
+      </if>
+      <if test="unitcode != null">
+        #{unitcode,jdbcType=VARCHAR},
+      </if>
+      <if test="typename != null">
+        #{typename,jdbcType=VARCHAR},
+      </if>
+      <if test="typecode != null">
+        #{typecode,jdbcType=VARCHAR},
+      </if>
+      <if test="contentname != null">
+        #{contentname,jdbcType=VARCHAR},
+      </if>
+      <if test="contentcode != null">
+        #{contentcode,jdbcType=VARCHAR},
+      </if>
+      <if test="altitudename != null">
+        #{altitudename,jdbcType=VARCHAR},
+      </if>
+      <if test="altitudecode != null">
+        #{altitudecode,jdbcType=VARCHAR},
+      </if>
+      <if test="coverareaname != null">
+        #{coverareaname,jdbcType=VARCHAR},
+      </if>
+      <if test="coverareacode != null">
+        #{coverareacode,jdbcType=VARCHAR},
+      </if>
+      <if test="startendtime != null">
+        #{startendtime,jdbcType=VARCHAR},
+      </if>
+      <if test="publishattrname != null">
+        #{publishattrname,jdbcType=VARCHAR},
+      </if>
+      <if test="publishattrcode != null">
+        #{publishattrcode,jdbcType=VARCHAR},
+      </if>
+      <if test="publishfreq != null">
+        #{publishfreq,jdbcType=VARCHAR},
+      </if>
+      <if test="publishstate != null">
+        #{publishstate,jdbcType=VARCHAR},
+      </if>
+      <if test="publishmode != null">
+        #{publishmode,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdby != null">
+        #{createdby,jdbcType=VARCHAR},
+      </if>
+      <if test="updated != null">
+        #{updated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedby != null">
+        #{updatedby,jdbcType=VARCHAR},
+      </if>
+      <if test="invalid != null">
+        #{invalid,jdbcType=DECIMAL},
+      </if>
+      <if test="formatname != null">
+        #{formatname,jdbcType=VARCHAR},
+      </if>
+      <if test="formatcode != null">
+        #{formatcode,jdbcType=VARCHAR},
+      </if>
+      <if test="namerule != null">
+        #{namerule,jdbcType=VARCHAR},
+      </if>
+      <if test="columnclassid != null">
+        #{columnclassid,jdbcType=VARCHAR},
+      </if>
+      <if test="verifyerId != null">
+        #{verifyerId,jdbcType=VARCHAR},
+      </if>
+      <if test="verifystatus != null">
+        #{verifystatus,jdbcType=DECIMAL},
+      </if>
+      <if test="verifydate != null">
+        #{verifydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="quitdate != null">
+        #{quitdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enclosure != null">
+        #{enclosure,jdbcType=VARCHAR},
+      </if>
+      <if test="enclosureurl != null">
+        #{enclosureurl,jdbcType=VARCHAR},
+      </if>
+      <if test="mgruser != null">
+        #{mgruser,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="verifyfailreason != null">
+        #{verifyfailreason,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

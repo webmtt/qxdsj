@@ -1,0 +1,4587 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tables>
+
+	<table>
+		<!-- 再分析40年逐6小时产品-->
+		<dataType>F.0049.0003.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>NAFP_CRA40_FOR_FTM_FILE_K_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>F.0049.0003.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/NAFP/NMIC/CRA/HOUR/[2(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>/CMADAAS/EXCHANGE/DPC/dataset_fromyjs/CRA40/HOUR</retweetDir>
+	</table>
+	
+	
+	<table>
+		<!-- 再分析40年逐日产品-->
+		<dataType>F.0049.0004.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>NAFP_CRA40_FOR_FTM_FILE_K_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>F.0049.0004.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/NAFP/NMIC/CRA/DAY/[2(0,6)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>/CMADAAS/EXCHANGE/DPC/dataset_fromyjs/CRA40/DAY</retweetDir>
+	</table>
+	
+	<table>
+		<!-- 再分析40年逐月产品-->
+		<dataType>F.0049.0005.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>NAFP_CRA40_FOR_FTM_FILE_K_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>F.0049.0005.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/NAFP/NMIC/CRA/MONTH/[2(0,4)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>/CMADAAS/EXCHANGE/DPC/dataset_fromyjs/CRA40/MONTH</retweetDir>
+	</table>
+	
+	<table>
+		<!-- 再分析逐6小时-实时产品-->
+		<dataType>F.0049.0007.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>NAFP_CRA_FOR_FTM_FILE_K_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>F.0049.0007.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/NAFP/NMIC/CRA/HOUR/[2(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!-- 再分析逐6小时近实时产品-->
+		<dataType>F.0049.0008.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>NAFP_CRA_FOR_FTM_FILE_K_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>F.0049.0008.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/NAFP/NMIC/CRA/HOUR/[2(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!-- 再分析逐日近实时产品-->
+		<dataType>F.0049.0009.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>NAFP_CRA_FOR_FTM_FILE_K_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>F.0049.0009.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/NAFP/NMIC/CRA/DAY/[2(0,6)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!-- 再分析逐月近实时产品-->
+		<dataType>F.0049.0010.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>NAFP_CRA_FOR_FTM_FILE_K_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>F.0049.0010.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/NAFP/NMIC/CRA/MONTH/[2(0,4)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!-- METEOSAT-2/3/4/5/6/7大气运动矢量（AMV）产品-重处理 -->
+		<dataType>K.0447.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0447.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/METEOSAT/L2/AMV_REPR/OPENMTP/[5(0,4)]/[5(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!--扩展的低分辨率METEOSAT-3大气运动矢量（AMV）产品-重处理 -->
+		<dataType>K.0447.0001.R002</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0447.0001.S002</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/METEOSAT/L2/AMV_REPR/EXPANDED/[5(0,4)]/[5(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!--METEOSAT-8/9大气运动矢量（AMV）产品-重处理-->
+		<dataType>K.0447.0001.R003</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0447.0001.S003</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _ + ,</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/METEOSAT/L2/AMV_REPR/MSG/[11(0,4)]/[11(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!--高分辨率可见光METEOSAT-2/3/4/5/6/7大气运动矢量（AMV）产品-重处理-->
+		<dataType>K.0447.0001.R004</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0447.0001.S004</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/METEOSAT/L2/AMV_REPR/HIGHVIS/[5(0,4)]/[5(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!--GOES大气运动矢量（AMV）产品-重处理-->
+		<dataType>K.0448.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0448.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/GOES/L2/AMV_REPR/[1]/[2(0,4)]/[2(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!--METOP-A/AVHRR极地风产品-重处理-->
+		<dataType>K.0592.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0592.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _ + ,</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/METOP-A/L2/[14]_REPR/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!--QUIKSCAT/SEAWINDS洋面风产品-重处理-->
+		<dataType>K.0604.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0604.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/QUIKSCAT/L2/OVW_REPR/[2(0,4)]/[2(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!--OCEANSAT-2/OSCAT洋面风产品-重处理-->
+		<dataType>K.0463.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0463.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/OCEANSAT-2/L2/OVW_REPR/[6]/[1(0,4)]/[1(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!--METOP-A/ASCAT洋面风产品-重处理-->
+		<dataType>K.0605.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0605.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/METOP-A/L2/OVW_REPR/[1(0,4)]/[1(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!--ERS-1 & 2/AMI 25公里洋面风产品-重处理-->
+		<dataType>K.0582.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0582.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/ERS/L2/OVW_REPR/[1(0,4)]/[1(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!--CODAS全球海表温度融合产品资料 数据资料四级编码 -->
+		<dataType>C.0011.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>OCEN_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>OCEN_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>C.0011.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/OCEN/OCEN_CODAS_GLB_0P25/NC/[4(0,4)]/[4(0,6)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!--机场自动观测资料 数据资料四级编码 -->
+		<dataType>A.0044.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SEVP_CAA_REP_F_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>A.0044.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>_ .</splitRegex>
+		<storyPath>/CMADAAS/DATA/SEVP/CAA/REP/AW/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	
+
+	<table>
+		<!--机场特殊观测报告SPECI 数据资料四级编码 -->
+		<dataType>A.0044.0002.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SEVP_CAA_REP_F_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>A.0044.0002.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>_ .</splitRegex>
+		<storyPath>/CMADAAS/DATA/SEVP/CAA/REP/SP/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!--G.0002.0010.S001 大气成分温室气体原始文件 -->
+		<dataType>G.0002.0031.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>CAWN_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<!-- 数据存储的sod编码 -->
+		<sodDataType>G.0002.0031.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<!-- 文件名拆分表达式 -->
+		<splitRegex>- . _</splitRegex>
+		<!-- 数据存储目录结构定义 -->
+		<storyPath>/CMADAAS/DATA/CAWN/RAD_MUL/[4(0,4)]/[4(0,8)]</storyPath>
+		<!-- 是否发送DI标识， 0不发送 1发送 -->
+		<diSendFlag>1</diSendFlag>
+		<!-- 如果需要重命名，配置新的文件名，如果不需要重新命名，则不用配置 -->
+		<newFileName></newFileName>
+		<!-- 目录轮询的处理的文件夹配置 -->
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!--资料四级编码 -->
+		<dataType>G.0002.0010.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>CAWN_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<!-- 数据存储的sod编码 -->
+		<sodDataType>G.0002.0010.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<!-- 文件名拆分表达式 -->
+		<splitRegex>- . _</splitRegex>
+		<!-- 数据存储目录结构定义 -->
+		<storyPath>/CMADAAS/DATA/CAWN/RAD_MUL/[4(0,4)]/[4(0,8)]</storyPath>
+		<!-- 是否发送DI标识， 0不发送 1发送 -->
+		<diSendFlag>1</diSendFlag>
+		<!-- 如果需要重命名，配置新的文件名，如果不需要重新命名，则不用配置 -->
+		<newFileName></newFileName>
+		<!-- 目录轮询的处理的文件夹配置 -->
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!--基本反射率雷达组网经纬网格产品文件资料四级编码 -->
+		<dataType>G.0002.0011.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>CAWN_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<!-- 数据存储的sod编码 -->
+		<sodDataType>G.0002.0011.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<!-- 文件名拆分表达式 -->
+		<splitRegex>- . _</splitRegex>
+		<!-- 数据存储目录结构定义 -->
+		<storyPath>/CMADAAS/DATA/CAWN/GHG/[4(0,4)]/[4(0,8)]</storyPath>
+		<!-- 是否发送DI标识， 0不发送 1发送 -->
+		<diSendFlag>1</diSendFlag>
+		<!-- 如果需要重命名，配置新的文件名，如果不需要重新命名，则不用配置 -->
+		<newFileName></newFileName>
+		<!-- 目录轮询的处理的文件夹配置 -->
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!--全国雨量（天气）落区预报产品 数据资料四级编码 -->
+		<dataType>M.0015.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SEVP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>M.0015.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- _ .</splitRegex>
+		<storyPath>/CMADAAS/DATA/SEVP/NMC/WEFC/RDFC/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!--灾害性天气落区预报产品 数据资料四级编码 -->
+		<dataType>M.0016.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SEVP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>M.0016.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- _ .</splitRegex>
+		<storyPath>/CMADAAS/DATA/SEVP/NMC/WEFC/WTFC/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- 功率谱数据文件资料四级编码 -->
+		<dataType>M.0034.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SEVP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<!-- 数据存储的sod编码 -->
+		<sodDataType>M.0034.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<!-- 文件名拆分表达式 -->
+		<splitRegex>- . _</splitRegex>
+		<!-- 数据存储目录结构定义 -->
+		<storyPath>/CMADAAS/SEVP/NMC/[2]/[8(0,4)]/[8(0,8)]</storyPath>
+		<!-- 是否发送DI标识， 0不发送 1发送 -->
+		<diSendFlag>1</diSendFlag>
+		<!-- 如果需要重命名，配置新的文件名，如果不需要重新命名，则不用配置 -->
+		<newFileName></newFileName>
+		<!-- 目录轮询的处理的文件夹配置 -->
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!--民航局重要气情报 数据资料四级编码 -->
+		<dataType>M.0054.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SEVP_CAA_REP_F_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>M.0054.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>_ .</splitRegex>
+		<storyPath>/CMADAAS/DATA/SEVP/CAA/REP/SG/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+
+	<table>
+		<!--民航局重要气情报 数据资料四级编码 -->
+		<dataType>M.0054.0002.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SEVP_CAA_REP_F_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>M.0054.0002.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>_ .</splitRegex>
+		<storyPath>/CMADAAS/DATA/SEVP/CAA/REP/TT/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+
+	<table>
+		<!--民航局重要气情报 数据资料四级编码 -->
+		<dataType>M.0054.0004.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SEVP_CAA_REP_F_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>M.0054.0004.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>_ .</splitRegex>
+		<storyPath>/CMADAAS/DATA/SEVP/CAA/REP/AL/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- 农业气象灾害监测产品数据资料四级编码 -->
+		<dataType>M.0058.0004.R002</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SEVP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>M.0058.0004.S002</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- _ .</splitRegex>
+		<storyPath>/CMADAAS/DATA/SEVP/NMC/IGRD/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>D:\\cmadass\\testdata\\2019042512</retweetDir>
+	</table>
+	<table>
+		<!-- 智慧农业格点资料:土壤水分监测产品资料四级编码 -->
+		<dataType>M.0058.0003.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SEVP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>M.0058.0003.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<!-- .img和hdr文本头文件 -->
+		<storyPath>/CMADAAS/DATA/SEVP/NMC/IGRD/[4(0,4)]/[4(0,8)]</storyPath>
+		<!-- <storyPath>/Users/xinyugu/testFile1/[4(0,4)]/[4(0,8)]</storyPath> -->
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<!-- 以下需要本地轮讯数据则需要在<retweetDir>中加上本地路径，如 -->
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- 作物长势预报/监测产品数据资料四级编码 -->
+		<dataType>M.0058.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SEVP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>M.0058.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SEVP/NMC/IGRD/[4(0,4)]/[4(0,8)]</storyPath>
+		<!-- <storyPath>/Users/xinyugu/testFile1/[4(0,4)]/[4(0,8)]</storyPath> -->
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- 智慧农业格点资料:农业气象条件评价产品资料四级编码 -->
+		<dataType>M.0058.0002.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SEVP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>M.0058.0002.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<!-- Z_AGME_C_BEJN_20181022110000_P_S99_WCRM_WIWH-MSI001D_SD_L88_PD_000_00.img和hdr文本头文件 -->
+		<storyPath>/CMADAAS/DATA/SEVP/NMC/IGRD/[4(0,4)]/[4(0,8)]</storyPath>
+		<!-- <storyPath>/Users/xinyugu/testFile1/[4(0,4)]/[4(0,8)]</storyPath> -->
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<!-- 以下需要本地轮讯数据则需要在<retweetDir>中加上本地路径，如 -->
+		<retweetDir></retweetDir>
+	</table>
+
+	<table>
+		<!-- 智慧农业格点资料:土壤水分监测产品资料四级编码 -->
+		<dataType>M.0058.0004.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SEVP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>M.0058.0004.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<!-- .img和hdr文本头文件 -->
+		<storyPath>/CMADAAS/DATA/SEVP/NMC/IGRD/[4(0,4)]/[4(0,8)]</storyPath>
+		<!-- <storyPath>/Users/xinyugu/testFile1/[4(0,4)]/[4(0,8)]</storyPath> -->
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<!-- 以下需要本地轮讯数据则需要在<retweetDir>中加上本地路径，如 -->
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- 智慧农业格点资料:土壤水分监测产品资料四级编码 -->
+		<dataType>M.0058.0005.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SEVP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>M.0058.0005.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<!-- .img和hdr文本头文件 -->
+		<storyPath>/CMADAAS/DATA/SEVP/NMC/IGRD/[4(0,4)]/[4(0,8)]</storyPath>
+		<!-- <storyPath>/Users/xinyugu/testFile1/[4(0,4)]/[4(0,8)]</storyPath> -->
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<!-- 以下需要本地轮讯数据则需要在<retweetDir>中加上本地路径，如 -->
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- 智慧农业格点资料:陕西苹果气象服务产品资料四级编码 -->
+		<dataType>M.0058.0006.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SEVP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>M.0058.0006.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<!-- Z_AGME_C_BEYC_20181020110000_P_CAGMSS_CAMS_POTA-HAR-MSI_NX_L88_PD_024_24.img和hdr文本头文件 -->
+		<storyPath>/CMADAAS/DATA/SEVP/NMC/IGRD/[4(0,4)]/[4(0,8)]</storyPath>
+		<!-- <storyPath>/Users/xinyugu/testFile1/[4(0,4)]/[4(0,8)]</storyPath> -->
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<!-- 以下需要本地轮讯数据则需要在<retweetDir>中加上本地路径，如 -->
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- 智慧农业格点资料:M.0058.0007.R001资料四级编码【去掉-分隔符，将几乎把所有的智慧农业文件都能处理完毕，都是14项分类】 -->
+		<dataType>M.0058.0007.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SEVP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>M.0058.0007.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>. _</splitRegex>
+		<!-- Z_AGME_C_BEJN_20180906110000_P_S99_WCRM_WIWH-MSI001D_SD_L88_PD_000_00.img和hdr文本头文件 -->
+		<storyPath>/CMADAAS/DATA/SEVP/NMC/IGRD/[4(0,4)]/[4(0,8)]</storyPath>
+		<!-- <storyPath>/Users/xinyugu/testFile1/[4(0,4)]/[4(0,8)]</storyPath> -->
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<!-- 以下需要本地轮讯数据则需要在<retweetDir>中加上本地路径，如 -->
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- 智慧农业格点资料资料四级编码【去掉-分隔符，将几乎把所有的智慧农业文件都能处理完毕，都是14项分类】 -->
+		<dataType>M.0058.0001.R002</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SEVP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>M.0058.0001.S002</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>. _</splitRegex>
+		<!-- Z_AGME_C_BEJN_20180906110000_P_S99_WCRM_WIWH-MSI001D_SD_L88_PD_000_00.img和hdr文本头文件 -->
+		<storyPath>/CMADAAS/DATA/SEVP/NMC/IGRD/[4(0,4)]/[4(0,8)]</storyPath>
+		<!-- <storyPath>/Users/xinyugu/testFile1/[4(0,4)]/[4(0,8)]</storyPath> -->
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<!-- 以下需要本地轮讯数据则需要在<retweetDir>中加上本地路径，如 -->
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!-- CLDAS实时产品资料四级编码 -->
+		<dataType>F.0035.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>NAFP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>F.0035.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/NAFP/NMIC/CLDAS/V2/[9]/[12(0,4)]/[12(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- CLDAS近实时产品资料四级编码 -->
+		<dataType>F.0035.0002.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>NAFP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>F.0035.0002.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/NAFP/NMIC/CLDAS/V2/[9]/[12(0,4)]/[12(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- 智能网格实况分析小时产品资料四级编码 -->
+		<dataType>F.0035.0003.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>NAFP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>F.0035.0003.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/NAFP/NMIC/CLDAS/V2/[9]/[12(0,4)]/[12(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+
+	<table>
+		<!-- 智能网格实况分析日产品资料四级编码 -->
+		<dataType>F.0035.0004.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>NAFP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>F.0035.0004.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/NAFP/NMIC/CLDAS/V2/[9]/[12(0,4)]/[12(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- 格点化实况分析产品资料四级编码 -->
+		<dataType>F.0036.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>NAFP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>F.0036.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<!-- GDAS_NMC_AMEL_FOAS_R1_ACHN_LNO_P9_20181016060000000.JPG -->
+		<storyPath>/CMADAAS/DATA/NAFP/NMC/GDAS/FOAS/[8(0,4)]/[8(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<!-- 以下需要本地轮讯数据则需要在<retweetDir>中加上本地路径，如/E:/F.0036.0001.R001 -->
+		<retweetDir></retweetDir>
+	</table>
+
+	<table>
+		<!-- 气象服务高分辨率格点实况产品资料四级编码 -->
+		<dataType>F.0037.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>NAFP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>F.0037.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<!-- GDAS_NMC_AMEL_FOAS_R1_ACHN_LNO_P9_20181016060000000.JPG -->
+		<storyPath>/CMADAAS/DATA/NAFP/NMC/GDAS/FOAS/[8(0,4)]/[8(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<!-- 以下需要本地轮讯数据则需要在<retweetDir>中加上本地路径，如 -->
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- HRCLDAS实时产品资料四级编码 -->
+		<dataType>F.0042.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>NAFP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>F.0042.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/NAFP/NMIC/HRCLDAS/V1/[12(0,4)]/[12(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>D:\\cmadass\\testdata\\22</retweetDir>
+	</table>
+	<table>
+		<dataType>F.0040.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>NAFP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>F.0040.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/NAFP/NMIC/GDAS/CLDAS/[8(0,4)]/[8(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!--三维大气与云融合系统产品(3DCloudA V0.1) -->
+		<dataType>F.0043.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>NAFP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>F.0043.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>_ .</splitRegex>
+		<storyPath>/CMADAAS/DATA/NAFP/NMIC/3DCloudA/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!--三维大气与云融合系统产品(3DCloudA V0.1) -->
+		<dataType>F.0043.0002.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>NAFP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>F.0043.0002.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>_ - .</splitRegex>
+		<storyPath>/CMADAAS/DATA/NAFP/NMIC/3DCloudA/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!-- 英国数值预报产品 -->
+		<dataType>F.0045.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SEVP_CAA_REP_F_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>F.0045.0001.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SEVP/CAA/REP/EGRR/[4(0,4)]/[4(0,10)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- 美国数值预报产品 -->
+		<dataType>F.0045.0002.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SEVP_CAA_REP_F_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>F.0045.0002.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SEVP/CAA/REP/KWBC/[4(0,4)]/[4(0,10)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- CIPAS平台显示的二进制数据产品资料四级编码 -->
+		<dataType>F.0046.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>NAFP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>F.0046.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<!-- Z_NAFP_C_BABJ_2018093012_P_CAMS-CPEFS-WNWC_42.dat.bz2 -->
+		<storyPath>/CMADAAS/DATA/NAFP/CAMS/CPEFS/BINARY/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- CIPAS平台显示数据产品控制文件资料四级编码 -->
+		<dataType>F.0046.0001.R002</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>NAFP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>F.0046.0001.S002</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<!-- Z_NAFP_C_BABJ_2018090100_P_CAMS-CPEFS-ACCN.ctl -->
+		<storyPath>/CMADAAS/DATA/NAFP/CAMS/CPEFS/BINARY/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- 国家级雾-霾数值预报业务系统产品 -->
+		<dataType>F.0021.0008.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>NAFP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>F.0021.0008.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/NAFP/NMC/CUACE/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- 欧洲中心环境预报模式产品 -->
+		<dataType>F.0021.0007.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>NAFP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>F.0021.0007.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/NAFP/ECMWF/macc/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- 香港交换欧洲中心湍流指数模式产品 -->
+		<dataType>F.0010.1001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>NAFP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>F.0010.1001.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/NAFP/HK/TI/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+
+	<table>
+		<!-- 作物实景观测资料四级编码 -->
+		<dataType>E.0023.0002.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>AGME_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>E.0023.0002.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/AGME/NMC/CROP/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!-- GPS/MET水汽数据产品 -->
+		<dataType>B.0005.0005.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>UPAR_FILE_DATA_F_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>B.0005.0005.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/UPAR/GPS_MAT/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- GPS/MET压缩文件包 -->
+		<dataType>B.0005.0004.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>UPAR_FILE_DATA_F_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>B.0005.0004.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/UPAR/GPS_MAT/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- 气科院1小时全国三维闪电定位分布图资料四级编码 -->
+		<dataType>B.0030.0002.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>UPAR_FILE_DATA_F_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>B.0030.0002.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/UPAR/UPAR_CAMS_ADTD/[3(0,4)]/[3(0,8)</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>/CMADAAS/DATA/INPUT/B/B.0030.0002.R001</retweetDir>
+	</table>
+
+	<table>
+		<!-- 气科院全天24小时全国三维闪电落点分布图资料四级编码 -->
+		<dataType>B.0030.0003.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>UPAR_FILE_DATA_F_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>B.0030.0003.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/UPAR/UPAR_CAMS_ADTD/[3(0,4)]/[3(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>/CMADAAS/DATA/INPUT/B/B.0030.0003.R001</retweetDir>
+	</table>
+
+	<table>
+		<!-- 气科院全天全国三维闪电密度产品图资料四级编码 -->
+		<dataType>B.0030.0004.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>UPAR_FILE_DATA_F_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>B.0030.0004.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/UPAR/UPAR_CAMS_ADTD/[3(0,4)]/[3(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>/CMADAAS/DATA/INPUT/B/B.0030.0004.R001</retweetDir>
+	</table>
+
+	<table>
+		<!-- 功率谱数据文件资料四级编码 -->
+		<dataType>B.0007.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_WPRD_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_WPRD_FILE_TAB</AtsTable>
+		<!-- 数据存储的sod编码 -->
+		<sodDataType>B.0007.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<!-- 文件名拆分表达式 -->
+		<splitRegex>- . _</splitRegex>
+		<!-- 数据存储目录结构定义 -->
+		<storyPath>/CMADAAS/DATA/RADA/WPRD/L2/[8]/[4(0,4)]/[4(0,8)]/[3]</storyPath>
+		<!-- 是否发送DI标识， 0不发送 1发送 -->
+		<diSendFlag>1</diSendFlag>
+		<!-- 如果需要重命名，配置新的文件名，如果不需要重新命名，则不用配置 -->
+		<newFileName></newFileName>
+		<!-- 目录轮询的处理的文件夹配置 -->
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- 径向谱数据文件资料四级编码 -->
+		<dataType>B.0007.0002.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_WPRD_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_WPRD_FILE_TAB</AtsTable>
+		<sodDataType>B.0007.0002.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/WPRD/L2/[8]/[4(0,4)]/[4(0,8)]/[3]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!-- 实时产品文件资料四级编码 -->
+		<dataType>B.0007.0003.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_WPRD_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_WPRD_FILE_TAB</AtsTable>
+		<sodDataType>B.0007.0003.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/WPRD/L2/[8]/[4(0,4)]/[4(0,8)]/[3]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- 半小时平均产品文件资料四级编码 -->
+		<dataType>B.0007.0004.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_WPRD_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_WPRD_FILE_TAB</AtsTable>
+		<sodDataType>B.0007.0004.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/WPRD/L2/[8]/[4(0,4)]/[4(0,8)]/[3]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!-- 小时平均产品文件资料四级编码 -->
+		<dataType>B.0007.0005.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_WPRD_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_WPRD_FILE_TAB</AtsTable>
+		<sodDataType>B.0007.0005.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/WPRD/L2/[8]/[4(0,4)]/[4(0,8)]/[3]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!-- 风廓线雷达观测系统状态信息文件资料四级编码 -->
+		<dataType>B.0007.0006.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_WPRD_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_WPRD_FILE_TAB</AtsTable>
+		<sodDataType>B.0007.0006.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/WPRD/L2/[8]/[4(0,4)]/[4(0,8)]/[3]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+
+    <!-- 雷达数据配置  -->
+	<table>
+		<!-- J.0001.0002.R001	天气雷达全体扫标准格式基数据	J.0001.0002.P001	天气雷达全体扫标准格式基数据	J.0001.0002.S001	天气雷达全体扫标准格式基数据 -->
+		<dataType>J.0001.0002.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L2_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L2_FILE_TAB</AtsTable>
+		<sodDataType>J.0001.0002.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L2/OBS_TEMP/[4(0,4)]/[4(0,8)]/[3]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0001.0003.R001	天气雷达逐仰角标准格式基数据	J.0001.0003.P001	天气雷达逐仰角标准格式基数据	J.0001.0003.S001	天气雷达逐仰角标准格式基数据  -->
+		<dataType>J.0001.0003.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_CUT_F_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_CUT_F_TAB</AtsTable>
+		<sodDataType>J.0001.0003.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L2/CUT/[4(0,4)]/[4(0,8)]/[3]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0003.0001.R001	基本反射率（230公里，0.5度） 	J.0003.0001.P001	基本反射率（230公里，0.5度）   J.0003.0001.S001-->
+		<dataType>J.0003.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0001.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0003.0001.R002	基本反射率（230公里，1.5度） 	J.0003.0001.P002	基本反射率（230公里，1.5度）   J.0003.0001.S001-->
+		<dataType>J.0003.0001.R002</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程  4表示雷达pup产品入库流程  5表示风廓线雷达入库流程  9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0001.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0003.0001.R003	基本反射率（230公里，2.4度） 	J.0003.0001.P003	基本反射率（230公里，2.4度）  J.0003.0001.S001 -->
+		<dataType>J.0003.0001.R003</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0001.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0003.0001.R004	基本反射率（460公里，0.5度） 	J.0003.0001.P004	基本反射率（460公里，0.5度）  J.0003.0001.S001-->
+		<dataType>J.0003.0001.R004</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0001.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0003.0001.R005	基本反射率（460公里，1.5度）	J.0003.0001.P005	基本反射率（460公里，1.5度）  J.0003.0001.S001-->
+		<dataType>J.0003.0001.R005</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0001.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0003.0001.R006	基本反射率（460公里，2.4度） 	J.0003.0001.P006	基本反射率（460公里，2.4度） J.0003.0001.S001  -->
+		<dataType>J.0003.0001.R006</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0001.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0003.0001.R007	基本反射率（230公里，3.4度）   J.0003.0001.S001-->
+		<dataType>J.0003.0001.R007</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0001.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0003.0001.R008	基本反射率（230公里，4.3度） J.0003.0001.S001 -->
+		<dataType>J.0003.0001.R008</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0001.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0003.0001.R009	基本反射率（230公里，6.0度）   J.0003.0001.S001-->
+		<dataType>J.0003.0001.R009</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0001.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0003.0002.R001	基本速度（115公里，0.5度）	J.0003.0002.P001	基本速度（115公里，0.5度）  J.0003.0002.S001-->
+		<dataType>J.0003.0002.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0002.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0003.0002.R002	基本速度（115公里，1.5度	J.0003.0002.P002	基本速度（115公里，1.5度  J.0003.0002.S001 -->
+		<dataType>J.0003.0002.R002</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0002.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0003.0002.R003	基本速度（115公里，2.4度）	J.0003.0002.P003	基本速度（115公里，2.4度） J.0003.0002.S001 -->
+		<dataType>J.0003.0002.R003</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0002.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0003.0002.R004	基本速度（230公里，0.5度）	J.0003.0002.P004	基本速度（230公里，0.5度）J.0003.0002.S001 -->
+		<dataType>J.0003.0002.R004</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0002.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0003.0002.R005	基本速度（230公里，1.5度）	J.0003.0002.P005	基本速度（230公里，1.5度） J.0003.0002.S001-->
+		<dataType>J.0003.0002.R005</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0002.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0003.0002.R006	基本速度（230公里，2.4度） 	J.0003.0002.P006	基本速度（230公里，2.4度）  J.0003.0002.S001 -->
+		<dataType>J.0003.0002.R006</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0002.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0003.0002.R007	基本速度（230公里，3.4度）  J.0003.0002.S001 -->
+		<dataType>J.0003.0002.R007</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0002.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+
+	<table>
+		<!-- J.0003.0002.R008	基本速度（230公里，4.3度）   J.0003.0002.S001-->
+		<dataType>J.0003.0002.R008</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0002.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+
+	<table>
+		<!-- J.0003.0002.R009	基本速度（230公里，6.0度） J.0003.0002.S001 -->
+		<dataType>J.0003.0002.R009</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<stationCode>3</stationCode>
+		<sodDataType>J.0003.0002.S001</sodDataType>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0003.0003.R001	组合反射率（分辨率1公里）	J.0003.0003.P001	组合反射率（分辨率1公里）	J.0003.0003.S001	组合反射率		-->
+		<dataType>J.0003.0003.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0003.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0003.0003.R002	组合反射率（分辨率4公里）	J.0003.0003.P002	组合反射率（分辨率4公里） J.0003.0003.S001	组合反射率-->
+		<dataType>J.0003.0003.R002</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0003.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0003.0004.R001	回波顶高	J.0003.0004.P001	回波顶高	J.0003.0004.S001	回波顶高 -->
+		<dataType>J.0003.0004.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0004.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0003.0005.R001	速度方位显示风廓线	J.0003.0005.P001	速度方位显示风廓线	J.0003.0005.S001	速度方位显示风廓线-->
+		<dataType>J.0003.0005.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0005.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0003.0006.R001	弱回波区	J.0003.0006.P001	弱回波区	J.0003.0006.S001	弱回波区  -->
+		<dataType>J.0003.0006.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0006.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!--J.0003.0007.R001	垂直累积液态水含量	J.0003.0007.P001	垂直累积液态水含量	J.0003.0007.S001	垂直累积液态水含量  -->
+		<dataType>J.0003.0007.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0007.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0003.0008.R001	风暴追踪信息	J.0003.0008.P001	风暴追踪信息	J.0003.0008.S001	风暴追踪信息  -->
+		<dataType>J.0003.0008.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0008.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0003.0009.R001	中尺度气旋	J.0003.0009.P001	中尺度气旋	J.0003.0009.S001	中尺度气旋  -->
+		<dataType>J.0003.0009.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0009.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0003.0010.R001	1小时累计降水	J.0003.0010.P001	1小时累计降水	J.0003.0010.S001	1小时累计降水 -->
+		<dataType>J.0003.0010.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0010.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0003.0011.R001	3小时累计降水	J.0003.0011.P001	3小时累计降水	J.0003.0011.S001	3小时累计降水 -->
+		<dataType>J.0003.0011.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0011.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0003.0012.R001	风暴总降水	J.0003.0012.P001	风暴总降水	J.0003.0012.S001	风暴总降水 -->
+		<dataType>J.0003.0012.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0012.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0003.0013.R001	等高面反射率	J.0003.0013.P001	等高面反射率	J.0003.0013.S001	等高面反射率 -->
+		<dataType>J.0003.0013.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0013.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0003.0014.R001	龙卷涡旋特征	J.0003.0014.P001	龙卷涡旋特征	J.0003.0014.S001	龙卷涡旋特征-->
+		<dataType>J.0003.0014.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0014.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0003.0015.R001	风暴相对径向速度	J.0003.0015.P001	风暴相对径向速度	J.0003.0015.S001	风暴相对径向速度 -->
+		<dataType>J.0003.0015.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0015.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0003.0016.R001	风暴结构	J.0003.0016.P001	风暴结构	J.0003.0016.S001	风暴结构-->
+		<dataType>J.0003.0016.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0016.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0003.0017.R001	冰雹指数	J.0003.0017.P001	冰雹指数	J.0003.0017.S001	冰雹指数  -->
+		<dataType>J.0003.0017.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0017.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0003.0018.R001	用户报警信息	J.0003.0018.P001	用户报警信息	J.0003.0018.S001	用户报警信息 -->
+		<dataType>J.0003.0018.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0018.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0003.0019.R001	混合扫描反射率	J.0003.0019.P001	混合扫描反射率	J.0003.0019.S001	混合扫描反射率 -->
+		<dataType>J.0003.0019.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0019.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0003.0020.R001	强天气发生概率	J.0003.0020.P001	强天气发生概率	J.0003.0020.S001	强天气发生概率 -->
+		<dataType>J.0003.0020.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0020.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0003.0021.R001	组合切变			J.0003.0021.S001	组合切变-->
+		<dataType>J.0003.0021.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0003.0021.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/PUP/[4(0,4)]/[4(0,8)]/[3]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>	
+	<table>
+		<!-- J.0003.9999.R001	标准格式雷达PUP产品	J.0003.9999.P001	标准格式雷达PUP产品	J.0003.9999.S001	标准格式雷达PUP产品 -->
+		<dataType>J.0003.9999.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>4</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_TEMP_F_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_TEMP_F_TAB</AtsTable>
+		<sodDataType>J.0003.9999.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/PRODUCT/PUP_TEMP/[8]/[3]/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- J.0010.0001.R001 J.0010.0001.P001	质控前原始格式单站多普勒雷达基数据	J.0010.0001.S001	质控前原始格式单站多普勒雷达基数据 -->
+		<dataType>J.0010.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L2_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L2_FILE_TAB</AtsTable>
+		<sodDataType>J.0010.0001.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L2/OBS/[4(0,4)]/[4(0,8)]/[3]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- 民航局雷达探测资料	J.0015.0001.R001	天气雷达PPI产品	J.0015.0001.P001	天气雷达PPI产品	J.0015.0001.S001	天气雷达PPI产品-->
+		<dataType>J.0015.0001.R001</dataType>
+		<!-- 存储方式 0 表示只文位移，1 表示入索引库 2表示入ATS 3表示两个都入 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SEVP_CAA_REP_F_TAB</indexTable>
+		<!-- 入索引库的表名 -->
+		<AtsTable>SEVP_CAA_REP_F_TAB</AtsTable>
+		<sodDataType>J.0015.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SEVP/CAA/REP/RD/[4(0,4)]/[4(0,10)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!-- 韩国雷达资料	J.0016.0002.R001	韩国雷达基本反射率单站格点数据产品	J.0016.0002.P001	韩国雷达基本反射率单站格点数据产品	J.0016.0002.S001	韩国雷达基本反射率单站格点数据产品 -->
+		<dataType>J.0016.0002.R001</dataType>
+		<!-- 存储方式 0 表示只文位移，1 表示入索引库 2表示入ATS 3表示两个都入 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</indexTable>
+		<!-- 入索引库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_PUP_FILE_TAB</AtsTable>
+		<sodDataType>J.0016.0002.S001</sodDataType>
+		<stationCode>7</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/RCAP/[4(0,4)]/[4(0,8)]/[7]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!--J.0008.0001.R001	多普勒天气雷达状态信息	J.0008.0001.P001	多普勒天气雷达状态信息数据	
+		J.0008.0001.S001	多普勒天气雷达状态信息数据-单文件    J.0008.0001.S002	多普勒天气雷达状态信息数据-包文件 -->
+		<dataType>J.0008.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_SMS_F_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_SMS_F_TAB</AtsTable>
+		<sodDataType>J.0008.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/[6(0,4)]/[6(0,8)]/CHN/STA</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!--J.0011.0001.R001	多普勒天气雷达告警信息	J.0011.0001.P001	多普勒天气雷达告警信息数据	
+		J.0011.0001.S001	多普勒天气雷达告警信息数据-单文件   J.0011.0001.S002	多普勒天气雷达告警信息数据-包文件 -->
+		<dataType>J.0011.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_SMS_F_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_SMS_F_TAB</AtsTable>
+		<sodDataType>J.0011.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/DOR/[6(0,4)]/[6(0,8)]/CHN/ALM</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!--J.0012.0001.R001	基本反射率GIF图	J.0012.0001.P001	基本反射率GIF图	
+		J.0012.0001.S001	基本反射率GIF图-单文件 J.0012.0001.S002	基本反射率GIF图-包文件 -->
+		<dataType>J.0012.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_FILE_TAB</AtsTable>
+		<!-- 数据存储的sod编码 -->
+		<sodDataType>J.0012.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<!-- 文件名拆分表达式 -->
+		<splitRegex>- . _</splitRegex>
+		<!-- 数据存储目录结构定义 -->
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/NOC/[4(0,4)]/[4(0,10)]/CHN/[8]</storyPath>
+		<!-- 是否发送DI标识， 0不发送 1发送 -->
+		<diSendFlag>1</diSendFlag>
+		<!-- 如果需要重命名，配置新的文件名，如果不需要重新命名，则不用配置 -->
+		<newFileName></newFileName>
+		<!-- 目录轮询的处理的文件夹配置 -->
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!--J.0012.0002.R001	垂直累积液态水含量单站GIF图	J.0012.0002.P001	垂直累积液态水含量单站GIF图	
+		J.0012.0002.S001	垂直累积液态水含量单站GIF图-单文件J.0012.0002.S002	垂直累积液态水含量单站GIF图-包文 -->
+		<dataType>J.0012.0002.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_FILE_TAB</AtsTable>
+		<!-- 数据存储的sod编码 -->
+		<sodDataType>J.0012.0002.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<!-- 文件名拆分表达式 -->
+		<splitRegex>- . _</splitRegex>
+		<!-- 数据存储目录结构定义 -->
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/NOC/[4(0,4)]/[4(0,10)]/CHN/[8]</storyPath>
+		<!-- 是否发送DI标识， 0不发送 1发送 -->
+		<diSendFlag>1</diSendFlag>
+		<!-- 如果需要重命名，配置新的文件名，如果不需要重新命名，则不用配置 -->
+		<newFileName></newFileName>
+		<!-- 目录轮询的处理的文件夹配置 -->
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!--J.0012.0003.R001	组合反射率单站GIF图	J.0012.0003.P001	组合反射率单站GIF图	
+		J.0012.0003.S001	组合反射率单站GIF图-单文件 J.0012.0003.S002	组合反射率单站GIF图-包文件-->
+		<dataType>J.0012.0003.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_FILE_TAB</AtsTable>
+		<!-- 数据存储的sod编码 -->
+		<sodDataType>J.0012.0003.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<!-- 文件名拆分表达式 -->
+		<splitRegex>- . _</splitRegex>
+		<!-- 数据存储目录结构定义 -->
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/NOC/[4(0,4)]/[4(0,10)]/CHN/[8]</storyPath>
+		<!-- 是否发送DI标识， 0不发送 1发送 -->
+		<diSendFlag>1</diSendFlag>
+		<!-- 如果需要重命名，配置新的文件名，如果不需要重新命名，则不用配置 -->
+		<newFileName></newFileName>
+		<!-- 目录轮询的处理的文件夹配置 -->
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!--J.0012.0004.R001	1小时累积降水单站GIF图	J.0012.0004.P001	1小时累积降水单站GIF图	
+		J.0012.0004.S001	1小时累积降水单站GIF图-单文件 J.0012.0004.S002	1小时累积降水单站GIF图-包文-->
+		<dataType>J.0012.0004.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_FILE_TAB</AtsTable>
+		<!-- 数据存储的sod编码 -->
+		<sodDataType>J.0012.0004.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<!-- 文件名拆分表达式 -->
+		<splitRegex>- . _</splitRegex>
+		<!-- 数据存储目录结构定义 -->
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/NOC/[4(0,4)]/[4(0,10)]/CHN/[8]</storyPath>
+		<!-- 是否发送DI标识， 0不发送 1发送 -->
+		<diSendFlag>1</diSendFlag>
+		<!-- 如果需要重命名，配置新的文件名，如果不需要重新命名，则不用配置 -->
+		<newFileName></newFileName>
+		<!-- 目录轮询的处理的文件夹配置 -->
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!--J.0012.0005.R001	基本反射率组网拼图图形产品	J.0012.0005.P001	基本反射率组网拼图图形产品	
+		J.0012.0005.S001	基本反射率组网拼图图形产品-单文件 J.0012.0005.S002	基本反射率组网拼图图形产品-包文件 -->
+		<dataType>J.0012.0005.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_FILE_TAB</AtsTable>
+		<!-- 数据存储的sod编码 -->
+		<sodDataType>J.0012.0005.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<!-- 文件名拆分表达式 -->
+		<splitRegex>- . _</splitRegex>
+		<!-- 数据存储目录结构定义 -->
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/NOC/[4(0,4)]/[4(0,8)]/CHN/[8]</storyPath>
+		<!-- 是否发送DI标识， 0不发送 1发送 -->
+		<diSendFlag>1</diSendFlag>
+		<!-- 如果需要重命名，配置新的文件名，如果不需要重新命名，则不用配置 -->
+		<newFileName></newFileName>
+		<!-- 目录轮询的处理的文件夹配置 -->
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!--J.0012.0006.R001	垂直累积液态水含量组网拼图图形产品	J.0012.0006.P001	垂直累积液态水含量组网拼图图形产品	
+		J.0012.0006.S001	垂直累积液态水含量组网拼图图形产品-单文件 J.0012.0006.S002	垂直累积液态水含量组网拼图图形产品-包文件  -->
+		<dataType>J.0012.0006.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_FILE_TAB</AtsTable>
+		<!-- 数据存储的sod编码 -->
+		<sodDataType>J.0012.0006.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<!-- 文件名拆分表达式 -->
+		<splitRegex>- . _</splitRegex>
+		<!-- 数据存储目录结构定义 -->
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/NOC/[4(0,4)]/[4(0,8)]/CHN/[8]</storyPath>
+		<!-- 是否发送DI标识， 0不发送 1发送 -->
+		<diSendFlag>1</diSendFlag>
+		<!-- 如果需要重命名，配置新的文件名，如果不需要重新命名，则不用配置 -->
+		<newFileName></newFileName>
+		<!-- 目录轮询的处理的文件夹配置 -->
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!--J.0012.0007.R001	组合反射率组网拼图图形产品	J.0012.0007.P001	组合反射率组网拼图图形产品	
+		J.0012.0007.S001	组合反射率组网拼图图形产品-单文件 J.0012.0007.S002	组合反射率组网拼图图形产品-包文件 -->
+		<dataType>J.0012.0007.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_FILE_TAB</AtsTable>
+		<!-- 数据存储的sod编码 -->
+		<sodDataType>J.0012.0007.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<!-- 文件名拆分表达式 -->
+		<splitRegex>- . _</splitRegex>
+		<!-- 数据存储目录结构定义 -->
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/NOC/[4(0,4)]/[4(0,8)]/CHN/[8]</storyPath>
+		<!-- 是否发送DI标识， 0不发送 1发送 -->
+		<diSendFlag>1</diSendFlag>
+		<!-- 如果需要重命名，配置新的文件名，如果不需要重新命名，则不用配置 -->
+		<newFileName></newFileName>
+		<!-- 目录轮询的处理的文件夹配置 -->
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!--J.0012.0008.R001	1小时累计降水的组网拼图图形产品	J.0012.0008.P001	1小时累计降水的组网拼图图形产品	
+		J.0012.0008.S001	1小时累计降水的组网拼图图形产品-单文件 J.0012.0008.S002	1小时累计降水的组网拼图图形产品-包文件 -->
+		<dataType>J.0012.0008.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_FILE_TAB</AtsTable>
+		<!-- 数据存储的sod编码 -->
+		<sodDataType>J.0012.0008.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<!-- 文件名拆分表达式 -->
+		<splitRegex>- . _</splitRegex>
+		<!-- 数据存储目录结构定义 -->
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/NOC/[4(0,4)]/[4(0,8)]/CHN/[8]</storyPath>
+		<!-- 是否发送DI标识， 0不发送 1发送 -->
+		<diSendFlag>1</diSendFlag>
+		<!-- 如果需要重命名，配置新的文件名，如果不需要重新命名，则不用配置 -->
+		<newFileName></newFileName>
+		<!-- 目录轮询的处理的文件夹配置 -->
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!--J.0012.0017.R001	1小时累计降水雷达组网经纬网格产品	J.0012.0017.P001	1小时累计降水雷达组网经纬网格产品	J.0012.0017.S001	1小时累计降水雷达组网经纬网格产品 -->
+		<dataType>J.0012.0017.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_FILE_TAB</AtsTable>
+		<!-- 数据存储的sod编码 -->
+		<sodDataType>J.0012.0017.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<!-- 文件名拆分表达式 -->
+		<splitRegex>- . _</splitRegex>
+		<!-- 数据存储目录结构定义 -->
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/NOC/[4(0,4)]/[4(0,8)]/CHN/[7]</storyPath>
+		<!-- 是否发送DI标识， 0不发送 1发送 -->
+		<diSendFlag>1</diSendFlag>
+		<!-- 如果需要重命名，配置新的文件名，如果不需要重新命名，则不用配置 -->
+		<newFileName></newFileName>
+		<!-- 目录轮询的处理的文件夹配置 -->
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!--J.0012.0016.R001	组合反射率雷达组网经纬网格产品	J.0012.0016.P001	组合反射率雷达组网经纬网格产品	J.0012.0016.S001	组合反射率雷达组网经纬网格产品-->
+		<dataType>J.0012.0016.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_FILE_TAB</AtsTable>
+		<!-- 数据存储的sod编码 -->
+		<sodDataType>J.0012.0016.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<!-- 文件名拆分表达式 -->
+		<splitRegex>- . _</splitRegex>
+		<!-- 数据存储目录结构定义 -->
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/NOC/[4(0,4)]/[4(0,8)]/CHN/[7]</storyPath>
+		<!-- 是否发送DI标识， 0不发送 1发送 -->
+		<diSendFlag>1</diSendFlag>
+		<!-- 如果需要重命名，配置新的文件名，如果不需要重新命名，则不用配置 -->
+		<newFileName></newFileName>
+		<!-- 目录轮询的处理的文件夹配置 -->
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!--J.0012.0015.R001	基本反射率雷达组网经纬网格产品	J.0012.0015.P001	基本反射率雷达组网经纬网格产品	J.0012.0015.S001	基本反射率雷达组网经纬网格产品-->
+		<dataType>J.0012.0015.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_FILE_TAB</AtsTable>
+		<!-- 数据存储的sod编码 -->
+		<sodDataType>J.0012.0015.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<!-- 文件名拆分表达式 -->
+		<splitRegex>- . _</splitRegex>
+		<!-- 数据存储目录结构定义 -->
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/NOC/[4(0,4)]/[4(0,8)]/CHN/[7]</storyPath>
+		<!-- 是否发送DI标识， 0不发送 1发送 -->
+		<diSendFlag>1</diSendFlag>
+		<!-- 如果需要重命名，配置新的文件名，如果不需要重新命名，则不用配置 -->
+		<newFileName></newFileName>
+		<!-- 目录轮询的处理的文件夹配置 -->
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!--J.0012.0013.R001	组合风场显示产品	J.0012.0013.P001	组合风场显示产品	J.0012.0013.S001	组合风场显示产品  -->
+		<dataType>J.0012.0013.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_FILE_TAB</AtsTable>
+		<!-- 数据存储的sod编码 -->
+		<sodDataType>J.0012.0013.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<!-- 文件名拆分表达式 -->
+		<splitRegex>- . _</splitRegex>
+		<!-- 数据存储目录结构定义 -->
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/NOC/[4(0,4)]/[4(0,8)]/CHN/[7]</storyPath>
+		<!-- 是否发送DI标识， 0不发送 1发送 -->
+		<diSendFlag>1</diSendFlag>
+		<!-- 如果需要重命名，配置新的文件名，如果不需要重新命名，则不用配置 -->
+		<newFileName></newFileName>
+		<!-- 目录轮询的处理的文件夹配置 -->
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!--J.0012.0018.R001	垂直累积液态水含量雷达组网经纬网格产品	J.0012.0018.P001	垂直累积液态水含量雷达组网经纬网格产品	J.0012.0018.S001	垂直累积液态水含量雷达组网经纬网格产品 -->
+		<dataType>J.0012.0018.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L3_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>RADA_CHN_DOR_L3_FILE_TAB</AtsTable>
+		<!-- 数据存储的sod编码 -->
+		<sodDataType>J.0012.0018.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<!-- 文件名拆分表达式 -->
+		<splitRegex>- . _</splitRegex>
+		<!-- 数据存储目录结构定义 -->
+		<storyPath>/CMADAAS/DATA/RADA/DOR/L3/NOC/[4(0,4)]/[4(0,8)]/CHN/[7]</storyPath>
+		<!-- 是否发送DI标识， 0不发送 1发送 -->
+		<diSendFlag>1</diSendFlag>
+		<!-- 如果需要重命名，配置新的文件名，如果不需要重新命名，则不用配置 -->
+		<newFileName></newFileName>
+		<!-- 目录轮询的处理的文件夹配置 -->
+		<retweetDir></retweetDir>
+	</table>
+	
+	
+	<table>
+		<!-- FY-3C卫星1级数据资料四级编码 -->
+		<dataType>K.0539.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0539.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/FY3-C/L1/[7]/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+
+	<table>
+		<!-- FY-3C卫星2级数据资料四级编码 -->
+		<dataType>K.0540.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0540.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/FY3-C/L2L3/[7]/[13(0,4)]/[13(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- FY-2G全圆盘精标称数据资料四级编码 -->
+		<dataType>K.0469.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0469.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/[6]/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- FY-2G全圆盘标称红外1通道图像产品数据资料四级编码 -->
+		<dataType>K.0471.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0471.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/[6]/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- FY-2双星动画图像产品数据资料四级编码 -->
+		<dataType>K.0281.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0281.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/[6]/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- FY-2G降水估计（PRE）1小时、3小时、6小时产品数据资料四级编码 -->
+		<dataType>K.0480.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0480.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/[6]/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- FY-2G大气运动矢量（AMV）产品数据资料四级编码 -->
+		<dataType>K.0481.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0481.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/[6]/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- FY-2G射出长波辐射（OLR）3小时产品数据资料四级编码 -->
+		<dataType>K.0482.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0482.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/[6]/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- FY-2G射出长波辐射（OLR）日候旬产品数据资料四级编码 -->
+		<dataType>K.0482.0001.R003</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0482.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/[6]/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- FY-2G射出长波辐射（OLR）月产品数据资料四级编码 -->
+		<dataType>K.0482.0001.R005</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0482.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/[6]/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- FY-2G黑体亮度温度（TBB）1小时产品数据资料四级编码 -->
+		<dataType>K.0483.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0483.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/[6]/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- FY-2G黑体亮度温度（TBB）日候旬产品数据资料四级编码 -->
+		<dataType>K.0483.0001.R003</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0483.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/[6]/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- FY-2G黑体亮度温度（TBB）月产品数据资料四级编码 -->
+		<dataType>K.0483.0001.R005</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0483.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/[6]/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- FY-2E全圆盘精标称数据资料四级编码 -->
+		<dataType>K.0047.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0047.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/[6]/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- FY-2E全圆盘精标称数据资料四级编码 -->
+		<dataType>K.0047.0001.R002</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0047.0001.S002</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/[6]/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- FY-2E全圆盘标称红外1通道图像产品数据资料四级编码 -->
+		<dataType>K.0049.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_GEO_IMAGE_F_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0049.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/[0]/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- FY-2E降水估计（PRE）1小时、3小时、6小时产品数据资料四级编码 -->
+		<dataType>K.0058.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0058.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/[6]/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- FY-2E大气运动矢量（AMV）产品数据资料四级编码 -->
+		<dataType>K.0059.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0059.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/[6]/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- FY-2E射出长波辐射（OLR）3小时产品数据资料四级编码 -->
+		<dataType>K.0061.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0061.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/[6]/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- FY-2E射出长波辐射（OLR）日候旬产品数据资料四级编码 -->
+		<dataType>K.0061.0001.R003</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0061.0001.S003</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/[6]/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- FY-2E射出长波辐射（OLR）月产品数据资料四级编码 -->
+		<dataType>K.0061.0001.R005</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0061.0001.S005</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/[6]/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- FY-2E黑体亮度温度（TBB）1小时产品数据资料四级编码 -->
+		<dataType>K.0062.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0062.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/[6]/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- FY-2E黑体亮度温度（TBB）日候旬产品数据资料四级编码 -->
+		<dataType>K.0062.0001.R003</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0062.0001.S003</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/[6]/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- FY-2E黑体亮度温度（TBB）月产品数据资料四级编码 -->
+		<dataType>K.0062.0001.R005</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0062.0001.S005</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/[6]/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- METOP-A卫星IASI臭氧产品资料四级编码 -->
+		<dataType>K.0155.0001.R001</dataType>
+		<!-- 存储方式 0 表示只文位移，1 表示入索引库 2表示入ATS 3表示两个都入 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- 入索引库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0155.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _ + ,</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/METOP/IASI/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>/CMADAAS/DATA/INPUT/K/K.0155.0001.R001</retweetDir>
+	</table>
+
+
+	<table>
+		<!-- METOP-A卫星IASI痕量气体产品资料四级编码 -->
+		<dataType>K.0156.0001.R001</dataType>
+		<!-- 存储方式 0 表示只文位移，1 表示入索引库 2表示入ATS 3表示两个都入 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- 入索引库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0156.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _ + ,</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/METOP/IASI/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>/CMADAAS/DATA/INPUT/K/K.0156.0001.R001</retweetDir>
+	</table>
+
+	<table>
+		<!-- GOES-15大气运动矢量（AMV）产品资料四级编码 -->
+		<dataType>K.0340.0001.R002</dataType>
+		<!-- 存储方式 0 表示只文位移，1 表示入索引库 2表示入ATS 3表示两个都入 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- 入索引库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0340.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/COES-15/SATE_L2_G15_IMAGER_MWB_AMV/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>/CMADAAS/DATA/INPUT/K/K.0340.0001.R002</retweetDir>
+	</table>
+
+
+	<table>
+		<!-- METOP-B/IASI简化的光谱样例通道辐射率（RED）数据（解码并处理后）资料四级编码 -->
+		<dataType>K.0350.0001.R002</dataType>
+		<!-- 存储方式 0 表示只文位移，1 表示入索引库 2表示入ATS 3表示两个都入 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- 入索引库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0350.0001.S002</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/METOP-B/SATE_L1_MTB_IASI_MWB_RED_GLB/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+
+
+	<table>
+		<!-- AQUA/AIRS1级辐射率数据资料四级编码 -->
+		<dataType>K.0372.0001.R001</dataType>
+		<!-- 存储方式 0 表示只文位移，1 表示入索引库 2表示入ATS 3表示两个都入 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- 入索引库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0372.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/AQUA/SATE_L2_EOA_AIRS_MWB_AIRIBRAD_GLB/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>/CMADAAS/DATA/INPUT/K/K.0372.0001.R001</retweetDir>
+	</table>
+	<table>
+		<!--NOAA极地风（AMV）产品 -->
+		<dataType>K.0362.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0362.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/AUQA/L2/AMV/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+
+	<table>
+		<!--METOP-B/AVHRR极地风（AMV）产品（南北极） -->
+		<!--METOP-B/AVHRR极地风（AMV）产品（南北极） -->
+		<dataType>K.0364.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0364.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _ + ,</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/METOP/L2/AMV/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+
+	<table>
+		<!--METOP-B/AVHRR极地风（AMV）产品（全球） -->
+		<dataType>K.0364.0001.R002</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0364.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _ + ,</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/METOP/L2/AMV/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+
+	<table>
+		<!--METOP-B/AVHRR极地风（AMV）产品（南北极-3张连续云图导风法） -->
+		<dataType>K.0364.0001.R003</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0364.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _ + ,</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/METOP/L2/AMV/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+
+
+	<table>
+		<!--METOP/AVHRR极地风（AMV）产品 -->
+		<dataType>K.0466.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0466.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/METOP/L2/AMV/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+
+
+	<table>
+		<!--HIMAWARI-8/9大气运动矢量（AMV）产品 -->
+		<dataType>K.0505.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0505.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/H08/L2/AMV/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+
+	<table>
+		<!--葵花8全圆盘数据 -->
+		<dataType>K.0506.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0506.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/H08/HSD/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+
+	<table>
+		<!--INSAT-3D和KALPANA-1大气运动矢量（AMV）产品 -->
+		<dataType>K.0536.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0536.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/INSAT/L2/AMV/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+
+	<table>
+		<!--COMS-1大气运动矢量（AMV）产品 -->
+		<dataType>K.0537.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0537.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/COMS/L2/AMV/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+
+	<table>
+		<!--AVHRR 1B数据（NOAA-19） -->
+		<dataType>K.0663.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0663.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/NOAA19/AVHR1B/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+
+	<table>
+		<!--METEOSAT-8大气运动矢量（AMV）产品 -->
+		<dataType>K.0684.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0684.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/METEOSAT8/L2/AMV/[6(0,4)]/[6(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+
+	<table>
+		<!--METEOSAT-11大气运动矢量（AMV）产品 -->
+		<dataType>K.0734.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0734.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/METEOSAT11/L2/AMV/[6(0,4)]/[6(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>D:\\cmadass\\testdata\\22</retweetDir>
+	</table>
+	<table>
+		<!--FY-2大气运动矢量（AMV）产品 -->
+		<dataType>K.0060.0001.R002</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0060.0001.S002</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/FY-2/L2/AMV/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!--TERRA/MODIS极地风（AMV）产品 -->
+		<dataType>K.0341.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0341.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/TERRA/L2/AMV/AMV/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+
+	<table>
+		<!--AQUA/MODIS极地风（AMV）产品 -->
+		<dataType>K.0342.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0342.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/AUQA/L2/AMV/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- 全球GNSS掩星产品（解码后）资料四级编码 -->
+		<dataType>K.0338.0001.R002</dataType>
+		<!-- 存储方式 0 表示只文位移，1 表示入索引库 2表示入ATS 3表示两个都入 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- 入索引库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0338.0001.S002</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/MULTI/SATE_L2_MUS_MUTDS_NUL_GNSS_GLB/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>/CMADAAS/DATA/INPUT/K/K.0338.0001.R002</retweetDir>
+	</table>
+
+	<table>
+		<!-- 炭卫星ACGS（L1） 资料四级编码 -->
+		<dataType>K.0745.0001.R001</dataType>
+		<!-- 存储方式 0 表示只文位移，1 表示入索引库 2表示入ATS 3表示两个都入 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- 入索引库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0745.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/TANSAT/L1/[8(0,4)]/[8(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>/CMADAAS/DATA/INPUT/K/K.0745.0001.R001</retweetDir>
+	</table>
+	<table>
+		<!-- 炭卫星CAPI（L1） 资料四级编码 -->
+		<dataType>K.0745.0002.R001</dataType>
+		<!-- 存储方式 0 表示只文位移，1 表示入索引库 2表示入ATS 3表示两个都入 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- 入索引库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0745.0002.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/TANSAT/L1/[8(0,4)]/[8(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>/CMADAAS/DATA/INPUT/K/K.0745.0002.R001</retweetDir>
+	</table>
+	<table>
+		<!--GOES-15大气运动矢量（AMV）产品 数据资料四级编码 -->
+		<dataType>K.0340.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0340.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/COES-15/SATE_L2_G15_IMAGER_MWB_AM/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- METOP-A/IASI 366个光谱通道的辐射率（RED）数据（解码后）资料四级编码 -->
+		<dataType>K.0327.0001.R002</dataType>
+		<!-- 存储方式 0 表示只文位移，1 表示入索引库 2表示入ATS 3表示两个都入 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- 入索引库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0327.0001.S002</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/METOP-A/SATE_L1_MTA_IASI_MWB_RED_GLB/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>/CMADAAS/DATA/INPUT/K/K.0327.0001.R002</retweetDir>
+	</table>
+
+
+	<table>
+		<!-- 卫星NPP/CrIS辐射率产品资料四级编码 -->
+		<dataType>K.0445.0001.R003</dataType>
+		<!-- 存储方式 0 表示只文位移，1 表示入索引库 2表示入ATS 3表示两个都入 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- 入索引库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0445.0001.S003</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/Suomi_NPP/SATE_L1_NPP_CRIS_MWB_SDR_GLB/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>/CMADAAS/DATA/INPUT/K/K.0445.0001.R003</retweetDir>
+	</table>
+
+	<table>
+		<!-- 国外卫星NPP/ATMS辐射率产品1级数据（GTS）（质控后）资料四级编码 -->
+		<dataType>K.0446.0001.R004</dataType>
+		<!-- 存储方式 0 表示只文位移，1 表示入索引库 2表示入ATS 3表示两个都入 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- 入索引库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0446.0001.S004</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/Suomi_NPP/SATE_L1_NPP_ATMS_MWB_SDR_GLB_QC/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>/CMADAAS/DATA/INPUT/K/K.0446.0001.R004</retweetDir>
+	</table>
+
+
+	<table>
+		<!-- GOES-16高级基线成像仪（ABI 1b）数据资料四级编码 -->
+		<dataType>K.0735.0001.R001</dataType>
+		<!-- 存储方式 0 表示只文位移，1 表示入索引库 2表示入ATS 3表示两个都入 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- 入索引库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>K.0735.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/GOES-16/SATE_GOES-16_ABI1b/[6(1,4)]/${YYYYDDD|[6(1,5)]|[6(5,8)]}</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>D:\\cmadass\\testdata\\22</retweetDir>
+	</table>
+
+	<table>
+		<!-- FY4A一级数据 数据资料四级编码 -->
+		<dataType>K.0715.0001.R001</dataType>
+		<!-- 存储方式 0 表示只文位移，1 表示入索引库 2表示入ATS 3表示两个都入 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- 入索引库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0715.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/FY4A/L1/[7]/[15(0,4)]/[15(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>/CMADAAS/DATA/INPUT/K/K.0715.0001.R001</retweetDir>
+	</table>
+
+	<table>
+		<!-- FY4A二级数据 数据资料四级编码 -->
+		<dataType>K.0716.0001.R001</dataType>
+		<!-- 存储方式 0 表示只文位移，1 表示入索引库 2表示入ATS 3表示两个都入 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- 入索引库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0716.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/FY4A/L2/[7]/[15(0,4)]/[15(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>/CMADAAS/DATA/INPUT/K/K.0716.0001.R001</retweetDir>
+	</table>
+
+	
+
+	
+
+
+
+	<table>
+		<!-- METEOSAT-11圆盘图产品数据资料四级编码 -->
+		<dataType>K.0703.0001.R001</dataType>
+		<!-- 存储方式 0 表示只文位移，1 表示入索引库 2表示入ATS 3表示两个都入 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- 入索引库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0703.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>-</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/METEOSAT11/[6(0,4)]/[6(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>/CMADAAS/DATA/INPUT/K/K.0703.0001.R001</retweetDir>
+	</table>
+
+	
+
+	
+	<table>
+		<!-- FY-2G中国陆地区域云图 数据资料四级编码 -->
+		<dataType>K.0472.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0472.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/FY-2G/SATE_L2_F2G_VISSR_MWB_LBT_SEC_LCN/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- FY-2G中国海区区域云图（大范围） 数据资料四级编码 -->
+		<dataType>K.0473.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0473.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/FY-2G/SATE_L2_F2G_VISSR_MWB_MCT_SEC_MLS/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- FY-2G兰勃托投影图像产品 数据资料四级编码 -->
+		<dataType>K.0474.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0474.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/FY-2G/SATE_L2_F2G_VISSR_MWB_LBT_SEC/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- FY-2G麦卡托投影图像产品 数据资料四级编码 -->
+		<dataType>K.0475.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0475.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/FY-2G/SATE_L2_F2G_VISSR_MWB_MCT_SEC/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- FY-2G可见光高分辨率兰勃托投影图像产品 数据资料四级编码 -->
+		<dataType>K.0476.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0476.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/FY-2G/SATE_L2_F2G_VISSR_VIS_LBT_SEC/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- FY-2G等经纬度图像产品 数据资料四级编码 -->
+		<dataType>K.0477.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0477.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/FY-2G/SATE_L2_F2G_VISSR_MWB_OTG_SEC/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- FY-2G沙尘指数图像产品 数据资料四级编码 -->
+		<dataType>K.0479.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0479.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/FY-2G/SATE_L3_F2G_VISSR_MWB_OTG_DST/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- FY-2G总云量（CTA）产品 数据资料四级编码 -->
+		<dataType>K.0484.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0484.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/FY-2G/SATE_L3_F2G_VISSR_MWB_OTG_CTA/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- FY-2G地面入射太阳辐射（SSI）产品 数据资料四级编码 -->
+		<dataType>K.0485.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0485.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/FY-2G/SATE_L3_F2G_VISSR_VIS_OTG_SSI/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- FY-2G对流层上部相对湿度（UTH）产品 数据资料四级编码 -->
+		<dataType>K.0487.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0487.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/FY-2G/SATE_L3_F2G_VISSR_MWB_OTG_UTH/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>D:\\cmadass\\testdata\\22</retweetDir>
+	</table>
+	<table>
+		<!-- FY-2G云区相对湿度（HPF）产品 数据资料四级编码 -->
+		<dataType>K.0488.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0488.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/FY-2G/SATE_L3_F2G_VISSR_MWB_OTG_HPF/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- FY-2G晴空大气可降水量（TPW）产品 数据资料四级编码 -->
+		<dataType>K.0489.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0489.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/FY-2G/SATE_L3_F2G_VISSR_MWB_OTG_TPW/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!--FY-2G积雪覆盖（SNW）产品 数据资料四级编码 -->
+		<dataType>K.0490.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0490.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/FY-2G/SATE_L3_F2G_VISSR_MWB_OTG_SNW/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- FY-2G云分类（CLC）产品 数据资料四级编码 -->
+		<dataType>K.0491.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0491.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/FY-2G/SATE_L3_F2G_VISSR_MWB_OTG_CLC/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- FY-2G云覆盖率（CFR）产品 数据资料四级编码 -->
+		<dataType>K.0492.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0492.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/FY-2G/SATE_L3_F2G_VISSR_MWB_NOM_CFR/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- FY-2G陆表温度（LST）产品 数据资料四级编码 -->
+		<dataType>K.0493.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0493.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/FY-2G/SATE_L3_F2G_VISSR_MWB_OTG_LST/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!--FY-2G云顶温度（CTT）产品 数据资料四级编码 -->
+		<dataType>K.0494.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0494.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/FY-2G/SATE_L3_F2G_VISSR_MWB_OTG_CTT/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- 卫星NPP/ATMS辐射率产品资料四级编码 -->
+		<dataType>K.0446.0001.R003</dataType>
+		<!-- 存储方式 0 表示只文位移，1 表示入索引库 2表示入ATS 3表示两个都入 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- 入索引库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0446.0001.S003</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/Suomi_NPP/SATE_L1_NPP_ATMS_MWB_SDR_GLB/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>/CMADAAS/DATA/INPUT/K/K.0446.0001.R003</retweetDir>
+	</table>
+
+	<table>
+		<!-- METOP-A/ASCAT洋面风和陆面土壤湿度产品 资料四级编码 -->
+		<dataType>K.0455.0001.R001</dataType>
+		<!-- 存储方式 0 表示只文位移，1 表示入索引库 2表示入ATS 3表示两个都入 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- 入索引库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0455.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/METOP-A/SATE_L2_MTA_ASCAT_MWB_OWLS_GLB/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>D:\\cmadass\\testdata\\22</retweetDir>
+	</table>
+
+	<table>
+		<!-- METOP-B/ASCAT洋面风和陆面土壤湿度产品资料四级编码 -->
+		<dataType>K.0456.0001.R001</dataType>
+		<!-- 存储方式 0 表示只文位移，1 表示入索引库 2表示入ATS 3表示两个都入 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- 入索引库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0456.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/METOP-B/SATE_L2_MTB_ASCAT_MWB_OWLS_GLB/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>D:\\cmadass\\testdata\\22</retweetDir>
+	</table>
+
+	<table>
+		<!-- GOES-16同步闪电映射器（GLM L2）产品资料四级编码 -->
+		<dataType>K.0736.0001.R001</dataType>
+		<!-- 存储方式 0 表示只文位移，1 表示入索引库 2表示入ATS 3表示两个都入 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- 入索引库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>K.0736.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/GOES-16/SATE_GOES-16_GLML2/[5(1,4)]/${YYYYDDD|[5(1,5)]|[5(5,8)]}</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>D:\\cmadass\\testdata\\22</retweetDir>
+	</table>
+
+	<table>
+		<!-- NOAA-16 ATOVS反演离散场产品资料四级编码 -->
+		<dataType>K.0131.0001.R001</dataType>
+		<!-- 存储方式 0 表示只文位移，1 表示入索引库 2表示入ATS 3表示两个都入 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- 入索引库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0131.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/NOAA/SATE_L1_N16_ATOVS_MWB_NUL_L1D/[8(0,4)]/[8]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<!--SATE_L2_N16_ATOVS_MWB_NUL_TG_CNB-${YYYY}${M|[0(3,1)]}[0(4,2)]-${H|[0(6,1)]}${f|[0(7,1)]}.AWX -->
+		<newFileName></newFileName>
+		<retweetDir>/CMADAAS/DATA/INPUT/K/K.0131.0001.R001</retweetDir>
+	</table>
+
+	<table>
+		<!-- ATOVS 1C 资料四级编码 -->
+		<dataType>K.0145.0001.R011</dataType>
+		<!-- 存储方式 0 表示只文位移，1 表示入索引库 2表示入ATS 3表示两个都入 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- 入索引库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0145.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/MULTI/SATE_L1_MUS_ATOVS_MWB_S1C_GLB/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>/CMADAAS/DATA/INPUT/K/K.0145.0001.R011</retweetDir>
+	</table>
+
+	<table>
+		<!-- 由NOAA/ATOVS全球1B数据转成的ATOVS 1C数据（处理后）资料四级编码 -->
+		<dataType>K.0145.0001.R012</dataType>
+		<!-- 存储方式 0 表示只文位移，1 表示入索引库 2表示入ATS 3表示两个都入 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- 入索引库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>K.0145.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/MULTI/SATE_L1_MUS_ATOVS_MWB_S1C_GLB/[14(0,4)]/[14]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<!--SATE_L1_MUS_ATOVS_MWB_[9]_GLB-[6]-[7]-0[10]-[3]-[3]-[13]-PROC-[4(0,8)]-[4(8,6)].BIN -->
+		<newFileName></newFileName>
+		<retweetDir>/CMADAAS/DATA/INPUT/K/K.0145.0001.R012</retweetDir>
+	</table>
+
+	<table>
+		<!-- NOAA-19卫星ATOVS 2级数据资料四级编码 -->
+		<dataType>K.0146.0001.R001</dataType>
+		<!-- 存储方式 0 表示只文位移，1 表示入索引库 2表示入ATS 3表示两个都入 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- 入索引库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0146.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _ + ,</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/METOP/ATOVS/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<!--SATE_[10]_N19_ATOVS_MWB_ORB_GLB-[5]-[7]-[6(0,8)]-[6(8,6)].BUF -->
+		<newFileName></newFileName>
+		<retweetDir>/CMADAAS/DATA/INPUT/K/K.0146.0001.R001</retweetDir>
+	</table>
+
+	<table>
+		<!-- METOP-A卫星AVHRR大气运动矢量产品资料四级编码 -->
+		<dataType>K.0150.0001.R001</dataType>
+		<!-- 存储方式 0 表示只文位移，1 表示入索引库 2表示入ATS 3表示两个都入 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- 入索引库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0150.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _ + ,</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/METOP/AVHRR/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<!--SATE_L2_MTA_AVHRR_MWB_AMV_GLB-[5]-[7]-[6].BUF -->
+		<newFileName></newFileName>
+		<retweetDir>/CMADAAS/DATA/INPUT/K/K.0150.0001.R001</retweetDir>
+	</table>
+
+	<table>
+		<!-- METOP-A卫星IASI云属性产品资料四级编码 -->
+		<dataType>K.0154.0001.R001</dataType>
+		<!-- 存储方式 0 表示只文位移，1 表示入索引库 2表示入ATS 3表示两个都入 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- 入索引库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0154.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _ + ,</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/METOP/IASI/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<!--SATE_L2_MTA_IASI_MWB_CLP_GLB-[5]-[7]-[6(0,8)]-[6(8,6)].BUF -->
+		<newFileName></newFileName>
+		<retweetDir>/CMADAAS/DATA/INPUT/K/K.0154.0001.R001</retweetDir>
+	</table>
+
+
+	<table>
+		<!-- JASON-2卫星OGDR数据资料四级编码 -->
+		<dataType>K.0174.0001.R001</dataType>
+		<!-- 存储方式 0 表示只文位移，1 表示入索引库 2表示入ATS 3表示两个都入 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- 入索引库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0174.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _ , +</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/JASON/SATE_L2_JA2_MUTDS_MWB_OGDR_GLB/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<!--SATE_L2_JA2_MUTDS_MWB_OGDR_GLB-[5]-[8]-[9]-[10(0,8)]-[10(8,6)].BUF -->
+		<newFileName></newFileName>
+		<retweetDir>/CMADAAS/DATA/INPUT/K/K.0174.0001.R001</retweetDir>
+	</table>
+
+	<table>
+		<!-- METOP-A/IASI 366个光谱通道的辐射率（RED）数据资料四级编码 -->
+		<dataType>K.0327.0001.R001</dataType>
+		<!-- 存储方式 0 表示只文位移，1 表示入索引库 2表示入ATS 3表示两个都入 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- 入索引库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0327.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _ + ,</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/METOP-A/SATE_L1_MTA_IASI_MWB_RED_GLB/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<!--SATE_L1_MTA_IASI_MWB_RED_GLB-EUMP-[7]-[6(0,8)]-[6(8,6)].BUF -->
+		<newFileName></newFileName>
+		<retweetDir>/CMADAAS/DATA/INPUT/K/K.0327.0001.R001</retweetDir>
+	</table>
+	
+	<table>
+		<!--香港交换潮汐观测数据 -->
+		<dataType>C.0012.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>OCEN_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>OCEN_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>C.0012.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/OCEN/VHHH/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!--RMESS全球海表温度9公里融合数据 -->
+		<dataType>C.0013.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>OCEN_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>OCEN_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>C.0013.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/OCEN/MWIR/[5(0,4)]/${YYYYDDD|[5(0,4)]|[6]}</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>D:\\cmadass\\testdata\\22</retweetDir>
+	</table>
+	
+	<table>
+		<!--全球海平面异常和绝对动态高度0.25度产品-->
+		<dataType>C.0013.0002.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>OCEN_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>OCEN_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>C.0013.0002.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/OCEN/MDAT/[7(0,4)]/[7(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>D:\\cmadass\\testdata\\22</retweetDir>
+	</table>
+	
+	<table>
+		<!--全球Argo中心各海域剖面数据-->
+		<dataType>C.0013.0003.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>OCEN_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>OCEN_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>C.0013.0003.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/OCEN/ARGO/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>D:\\cmadass\\testdata\\22</retweetDir>
+	</table>
+	
+	<table>
+		<!--AMSR-2北半球极坐标立体投影海冰浓度10km格点图-->
+		<dataType>C.0013.0004.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>OCEN_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>OCEN_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>C.0013.0004.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/OCEN/ICE/[9(0,4)]/[9(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>D:\\cmadass\\testdata\\22</retweetDir>
+	</table>
+	
+	<table>
+        <!-- 香港交换MESO-NHM东亚及其周边区域模式产品 -->
+		<dataType>F.0048.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>NAFP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>F.0048.0001.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/NAFP/HK/MESO/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!--太阳光度计 -->
+		<dataType>G.0002.0002.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>CAWN_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<!-- 数据存储的sod编码 -->
+		<sodDataType>G.0002.0002.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<!-- 文件名拆分表达式 -->
+		<splitRegex>- . _</splitRegex>
+		<!-- 数据存储目录结构定义 -->
+		<storyPath>/CMADAAS/DATA/CAWN/AOD/[4(0,4)]/[4(0,8)]</storyPath>
+		<!-- 是否发送DI标识， 0不发送 1发送 -->
+		<diSendFlag>1</diSendFlag>
+		<!-- 如果需要重命名，配置新的文件名，如果不需要重新命名，则不用配置 -->
+		<newFileName></newFileName>
+		<!-- 目录轮询的处理的文件夹配置 -->
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!--香港交换天气雷达基数据（大老山、大帽山）-->
+		<dataType>J.0007.0004.R001</dataType>
+		<!-- 存储方式 0 表示只文位移，1 表示入索引库 2表示入ATS 3表示两个都入 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L2_TEMP_F_TAB</indexTable>
+		<!-- 入索引库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>J.0007.0004.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/VHHH/L2/[4(0,4)]/[4(0,10)]/[3]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!--香港交换天气雷达基数据（香港机场）-->
+		<dataType>J.0007.0005.R001</dataType>
+		<!-- 存储方式 0 表示只文位移，1 表示入索引库 2表示入ATS 3表示两个都入 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L2_TEMP_F_TAB</indexTable>
+		<!-- 入索引库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>J.0007.0005.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/VHHH/USC/[4(0,4)]/[4(0,10)]/[3]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!--香港交换天气雷达数据产品（香港机场风切变及微下击暴流影响范围）-->
+		<dataType>J.0007.0006.R001</dataType>
+		<!-- 存储方式 0 表示只文位移，1 表示入索引库 2表示入ATS 3表示两个都入 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L2_TEMP_F_TAB</indexTable>
+		<!-- 入索引库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>J.0007.0006.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/VHHH/RSCMB/[4(0,4)]/[4(0,10)]/[3]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!--香港交换天气雷达数据产品（香港机场跑道预警信息）-->
+		<dataType>J.0007.0007.R001</dataType>
+		<!-- 存储方式 0 表示只文位移，1 表示入索引库 2表示入ATS 3表示两个都入 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_L2_TEMP_F_TAB</indexTable>
+		<!-- 入索引库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>J.0007.0007.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/RADA/VHHH/RSCALPHRALP/[4(0,4)]/[4(0,10)]/[3]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!--METOP-A/AVHRR极地风（AMV）产品（全球） -->
+		<dataType>K.0150.0001.R002</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0150.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _ + ,</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/METOP/L2/AMV/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!--METOP-A/AVHRR极地风（AMV）产品（南北极-3张连续云图导风法） -->
+		<dataType>K.0150.0001.R003</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0150.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _ + ,</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/METOP/L2/AMV/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!--香港交换COMS静止气象卫星ICI产品-->
+		<dataType>K.0717.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0717.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/COMS/ICI/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!--NOAA-20 ATMS数据（BUFR格式）-->
+		<dataType>K.0739.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0739.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/NOAA20/ATMS/[6(0,4)]/[6(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>D:/HUAXIN/DataProcess/K.0739.0001.R001</retweetDir>
+	</table>
+	
+	<table>
+		<!--NOAA-20 CrIS数据（BUFR格式）-->
+		<dataType>K.0739.0001.R002</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0739.0001.S002</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/NOAA20/CRIS/[6(0,4)]/[6(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>D:/property/K.0739.0001.R002</retweetDir>
+	</table>
+	
+	<table>
+		<!--Sentinel-3A（哨兵3A）卫星资料-->
+		<dataType>K.0740.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0740.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/SENTINEL3/[7(0,4)]/[7(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>D:\\cmadass\\testdata\\22</retweetDir>
+	</table>
+	
+	<table>
+		<!--FY-2H压缩全圆盘展宽图像数据-->
+		<dataType>K.0749.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0749.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/FY-2H/L1/CSV/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!--FY-2H全圆盘精标称图像数据-->
+		<dataType>K.0749.0001.R002</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0749.0001.S002</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/FY-2H/L1/FD/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!--FY-2H卫星定量产品-->
+		<dataType>K.0750.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0750.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/FY-2H/L2L3/PDC/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!--FY-2H全圆盘标称快视图像-->
+		<dataType>K.0751.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0751.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/FY-2H/L2L3/FDI/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!--FY-2H等经纬度投影图像-->
+		<dataType>K.0751.0001.R002</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0751.0001.S002</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/FY-2H/L2L3/SEC/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!--FY-2H等经纬度彩色合成云图-->
+		<dataType>K.0751.0001.R003</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0751.0001.S003</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/FY-2H/L2L3/SECLCN/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!--FY-2H全圆盘彩色合成云图-->
+		<dataType>K.0751.0001.R004</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0751.0001.S004</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/FY-2H/L2L3/FDILCN/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!--FY-2H区域云图-->
+		<dataType>K.0751.0001.R005</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0751.0001.S005</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/FY-2H/L2L3/LCN/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!--FY-2H沙尘图像产品-->
+		<dataType>K.0751.0001.R006</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0751.0001.S006</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/FY-2H/L2L3/DST/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!--FY-3D卫星1级数据-->
+		<dataType>K.0752.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0752.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/FY-3D/L1/[7]/[10(0,4)]/[10(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!--FY-3D卫星2级产品-->
+		<dataType>K.0753.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0753.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CIMISS/SATE/FY-3D/L2L3/[1]/[4]/[7(0,4)]/[7(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!--FY-3D卫星3级产品-->
+		<dataType>K.0754.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART1_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART1_FILE_TAB</AtsTable>
+		<sodDataType>K.0754.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CIMISS/SATE/FY-3D/L2L3/[1]/[4]/[7(0,4)]/[7(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!--AVHRR 1B数据（Metop-A）-->
+		<dataType>K.0769.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0769.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/METOP-A/AVHR1B/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!--AVHRR 1B数据（Metop-B）-->
+		<dataType>K.0770.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0770.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/METOP-B/AVHR1B/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!-- 作物生长状况模型模拟产品 -->
+		<dataType>M.0058.0001.R003</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SEVP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>M.0058.0001.S003</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>_ .</splitRegex>
+		<storyPath>/CMADAAS/DATA/SEVP/NMC/IGRD/[4(0,4)]/[4(0,8)]</storyPath>
+	    <diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!-- 作物生长状况遥感监测产品 -->
+		<dataType>M.0058.0001.R004</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SEVP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>M.0058.0001.S004</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>_ .</splitRegex>
+		<storyPath>/CMADAAS/DATA/SEVP/NMC/IGRD/[4(0,4)]/[4(0,8)]</storyPath>
+	    <diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+	    <!-- 国家级格点预报指导产品-->
+		<dataType>F.0044.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>NAFP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>F.0044.0001.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/NAFP/NWFD/SCMOC/CCCC/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+	    <!-- 全国格点预报服务产品（定时拼接）-->
+		<dataType>F.0044.0002.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>NAFP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>F.0044.0002.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/NAFP/NWFD/SMERGE/CCCC/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+	    <!-- 全国格点预报服务产品（逐时滚动）	-->
+		<dataType>F.0044.0003.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>NAFP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>F.0044.0003.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/NAFP/NWFD/SNWFD/CCCC/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+	    <!-- 省级格点预报订正产品	-->
+		<dataType>F.0044.0004.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程 5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>NAFP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>F.0044.0004.S001</sodDataType>
+		<stationCode>3</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/NAFP/NWFD/SNWFD/SPCC/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	<table>
+		<!-- METEOSAT11卫星资料 -->
+		<dataType>K.0747.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SATE_PRODUCT_PART2_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable>SATE_PRODUCT_PART2_FILE_TAB</AtsTable>
+		<sodDataType>K.0747.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>- . _</splitRegex>
+		<storyPath>/CMADAAS/DATA/SATE/METEOSAT11/[6(0,4)]/[6(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir>D:\\cmadass\\testdata\\22</retweetDir>
+	</table>
+	
+	<table>
+		<!-- 国家气象中心分类强对流天气概率预报产品 -->
+		<dataType>M.0035.0002.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SEVP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>M.0035.0002.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>-_ .</splitRegex>
+		<storyPath>/CMADAAS/DATA/SEVP/NMC/CSPI/ESCP/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!-- 气象服务产品-->
+		<dataType>M.0035.0004.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>NAFP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>M.0035.0004.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>-_ .</splitRegex>
+		<storyPath>/CMADAAS/DATA/SEVP/CSPI/ESCW/BABJ/[8(0,4)]/[8(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!-- 气象服务产品 -->
+		<dataType>M.0035.0005.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>NAFP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>M.0035.0005.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>-_ .</splitRegex>
+		<storyPath>/CMADAAS/DATA/SEVP/CSPI/ESCAP/BABJ/[8(0,4)]/[8(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+	<table>
+		<!-- 公服中心气象服务图文预报产品 -->
+		<dataType>M.0059.0001.R001</dataType>
+		<!-- 存储方式 0 表示只移文件不入库，1 表示格点实况产品入库流程 4表示雷达pup产品入库流程  5表示风廓线雷达入库流程 9表示通过index.txt配置入库流程。 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>SEVP_PRODUCT_FILE_TAB</indexTable>
+		<!-- ATS入库的表名 -->
+		<AtsTable></AtsTable>
+		<sodDataType>M.0059.0001.S001</sodDataType>
+		<stationCode>filename</stationCode>
+		<splitRegex>-_ .</splitRegex>
+		<storyPath>/CMADAAS/DATA/SEVP/PMSC/FOR/FFD/[4(0,4)]/[4(0,8)]</storyPath>
+		<diSendFlag>1</diSendFlag>
+		<newFileName></newFileName>
+		<retweetDir></retweetDir>
+	</table>
+	
+</tables>

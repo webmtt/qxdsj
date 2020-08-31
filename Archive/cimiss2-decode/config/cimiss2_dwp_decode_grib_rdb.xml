@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c3p0-config>
+	<!--<named-config name="mysqldb">
+		<property name="user">dbscale</property>
+		<property name="password">abc123</property>
+		<property name="driverClass">com.mysql.jdbc.Driver</property>
+		<property name="jdbcUrl">jdbc:mysql://10.40.16.78:19100/fileindex?characterEncoding=utf-8&amp;useSSL=true</property> 
+		<property name="initialPoolSize">2</property>
+		<property name="maxIdleTime">30</property>
+		<property name="maxPoolSize">5</property>
+		<property name="minPoolSize">1</property>
+	</named-config>-->
+	<!--<named-config name="cmadass_db">
+		<property name="user">usr_sod</property>
+		<property name="password">fidb</property>
+		<property name="driverClass">com.xugu.cloudjdbc.Driver</property>
+		<property name="jdbcUrl">jdbc:xugu://10.20.64.38:5138/BABJ_FIDB?ips=10.20.64.39,10.20.64.40&amp;char_set=utf8</property>		
+		<property name="initialPoolSize">2</property>
+		<property name="maxIdleTime">30</property>
+		<property name="maxPoolSize">5</property>
+		<property name="minPoolSize">1</property>
+	</named-config>-->
+	<named-config name="cmadass_db">
+                <property name="user">usr_sod</property>
+                <property name="password">fidb</property>
+                <property name="driverClass">com.xugu.cloudjdbc.Driver</property>
+                <property name="jdbcUrl">jdbc:xugu://10.20.64.18:5138/BABJ_FIDB?ips=10.20.64.19,10.20.64.20,10.20.64.21,10.20.64.22,10.20.64.23&amp;char_set=utf8</property>
+                <property name="initialPoolSize">2</property>
+                <property name="maxIdleTime">30</property>
+                <property name="maxPoolSize">5</property>
+                <property name="minPoolSize">1</property>
+        </named-config>
+</c3p0-config> 

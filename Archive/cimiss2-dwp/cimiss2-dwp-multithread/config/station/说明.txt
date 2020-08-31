@@ -1,0 +1,8 @@
+w_t_station.txt,为风廓线雷达站对应探空站
+
+
+range.txt,为序号所对应的高度厚度范围
+
+120stationlist.txt,为探空站点信息
+
+limit_value目录下对应128个探空站风速阈值文件

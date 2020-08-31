@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="false" scanPeriod="60 seconds" debug="false">
+	<!-- 定义日志的根目录 -->
+	<property name="LOG_HOME" value="../logs" />
+	<!-- 定义日志文件名称 程序名_端口号_资料类型 -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%-4relative [%thread] %-5level %logger{35} - %msg %n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<root level="info">
+		<appender-ref ref="STDOUT" />
+	</root>
+
+	<!--日值配置 -->
+	<appender name="dayValue" class="org.cimiss2.dwp.tools.LogRollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_HOME}/grib/%d{yyyy-MM-dd}/cimiss2-dwp-grib-process-%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<MaxHistory>180</MaxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>
+				%-5level %d{yyyy-MM-dd HH:mm:ss}:begin %msg%n%-5level
+				%d{yyyy-MM-dd
+				HH:mm:ss}:end %n
+			</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+		<!--日志文件最大的大小 -->
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<MaxFileSize>10MB</MaxFileSize>
+		</triggeringPolicy>
+	</appender>
+	<appender name="dayValueASYNC" class="ch.qos.logback.classic.AsyncAppender">
+		<discardingThreshold>0</discardingThreshold>
+		<queueSize>512</queueSize>
+		<appender-ref ref="dayValue" />
+	</appender>
+
+	<appender name="messageInfo" class="org.cimiss2.dwp.tools.LogRollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_HOME}/grib/%d{yyyy-MM-dd}/cimiss2-dwp-grib-message-%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<MaxHistory>180</MaxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>
+				%-5level %d{yyyy-MM-dd HH:mm:ss}: %msg%n
+			</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+	</appender>
+	<appender name="dayValueMessageASYNC" class="ch.qos.logback.classic.AsyncAppender">
+		<discardingThreshold>0</discardingThreshold>
+		<queueSize>512</queueSize>
+		<appender-ref ref="messageInfo" />
+	</appender>
+	
+	<!--模式数据处理日志 -->
+	<appender name="gribProcessInfoLogAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_HOME}/%d{yyyy-MM-dd}/dpc-grib_${logtype}-process-%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<MaxHistory>180</MaxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>
+				%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} [%L] - %msg%n
+			</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter"><!-- 只打印INFO日志 --> 
+			<level>INFO</level> 
+			<onMatch>ACCEPT</onMatch> 
+			<onMismatch>DENY</onMismatch> 
+		</filter> 
+	</appender>
+	<appender name="gribProcessErrorLogAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_HOME}/%d{yyyy-MM-dd}/dpc-grib_${logtype}-process-error-%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<MaxHistory>180</MaxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>
+				%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} [%L] - %msg%n
+			</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter"><!-- 只打印DEBUG日志 --> 
+			<level>ERROR</level> 
+			<onMatch>ACCEPT</onMatch> 
+			<onMismatch>DENY</onMismatch> 
+		</filter> 
+	</appender>
+	
+	<!--配置日志数据输出类（可配置为包） -->
+	<logger name="messageInfo" additivity="false">
+		<level value="info" />
+		<appender-ref ref="messageInfo" />
+		<appender-ref ref="STDOUT" />
+	</logger>
+	<logger name="loggerInfo" additivity="false">
+		<level value="info" />
+		<appender-ref ref="dayValue" />
+		<appender-ref ref="STDOUT" />
+	</logger>
+	
+	<logger name="gribLoggerInfo" additivity="false">
+		<level value="info" />
+		<appender-ref ref="gribProcessInfoLogAppender" />
+		<appender-ref ref="STDOUT" />
+	</logger>
+	<logger name="gribErrorInfo" additivity="false">
+		<level value="info" />
+		<appender-ref ref="gribProcessErrorLogAppender" />
+		<appender-ref ref="STDOUT" />
+	</logger>
+
+</configuration>

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root IsCheck="true" length="230">
+	<element dataType="String" content="default" value="{V01301}{D_DATETIME}">D_RECORD_ID</element>
+	<element dataType="String" content="report" index="0" >D_DATA_ID</element>
+	<element dataType="datetime" content="default" value='SYSDATE' >D_IYMDHM</element>
+	<element dataType="datetime" content="report" index="filename{4}" format="yyyy-MM-dd HH:mm:ss">D_RYMDHM</element>
+	<element dataType="datetime" content="report" index="1" format="yyyy-MM-dd HH:mm:ss">D_DATETIME</element>
+	 <element dataType="datetime" content="report" index="2" format="yyyy-MM-dd HH:mm:ss">D_RETRIEVAL_TIME</element> 
+	<element dataType="datetime" content="default" value='SYSDATE' >D_UPDATE_TIME</element>
+	<element dataType="String" content="default" value='D_SOURCE_ID' >D_SOURCE_ID</element>
+	<element dataType="String" content="default" value='000' >V_BBB</element>
+	<element dataType="String" content="report" index="3" >V01301</element>
+	<element dataType="int" content="report" index="4" >V01300</element>
+	<element dataType="double" content="report" index="5" >V05001</element>
+	<element dataType="double" content="report" index="6" >V06001</element>
+	<element dataType="double" content="report" index="7" >V07001</element>
+	<element dataType="double" content="report" index="8" >V07031</element>
+	<element dataType="int" content="report" index="9" >V02301</element>
+	<element dataType="int" content="report" index="10" >V_ACODE</element>
+	<element dataType="int" content="report" index="11" >V04001</element>
+	<element dataType="int" content="report" index="12" >V04002</element>
+	<element dataType="int" content="report" index="13" >V04003</element>
+	<element dataType="double" content="report" index="14" >V10004_701</element>
+	<element dataType="double" content="report" index="15" >V10301</element>
+	<element dataType="int" content="report" index="16" >V10301_052</element>
+	<element dataType="double" content="report" index="17" >V10302</element>
+	<element dataType="int" content="report" index="18" >V10302_052</element>
+	<element dataType="double" content="report" index="19" >V10051_701</element>
+	<element dataType="double" content="report" index="20" >V12001_701</element>
+	<element dataType="double" content="report" index="21" >V12011</element>
+	<element dataType="int" content="report" index="22" >V12011_052</element>
+	<element dataType="double" content="report" index="23" >V12012</element>
+	<element dataType="int" content="report" index="24" >V12012_052</element>
+	<element dataType="double" content="report" index="25" >V13004_701</element>
+	<element dataType="double" content="report" index="26" >V13003_701</element>
+	<element dataType="double" content="report" index="27" >V13007</element>
+	<element dataType="int" content="report" index="28" >V13007_052</element>
+	<element dataType="double" content="report" index="29" >V20010_701</element>
+	<element dataType="double" content="report" index="30" >V20051_701</element>
+	<element dataType="String" content="report" index="31" >V20001_701_CHAR</element>
+	<element dataType="double" content="report" index="32" >V20059</element>
+	<element dataType="int" content="report" index="33" >V20059_052</element>
+	<element dataType="double" content="report" index="34" >V13302_01</element>
+	<element dataType="int" content="report" index="35" >V13302_01_052</element>
+	<element dataType="double" content="default" value='999998'>V13308</element>
+	<element dataType="double" content="default" value='999998'>V13309</element>
+	<element dataType="double" content="report" index="36" >V13305</element>
+	<element dataType="double" content="report" index="37" >V13306</element>
+	<element dataType="double" content="report" index="38" >V13308_SD</element>
+	<element dataType="double" content="report" index="39" >V13309_SD</element>
+	<element dataType="double" content="report" index="40" >V13305_SD</element>
+	<element dataType="double" content="report" index="41" >V13306_SD</element>
+	<element dataType="double" content="default" value='999998'>V13032</element>
+	<element dataType="double" content="report" index="42" >V13033</element>
+	<element dataType="double" content="report" index="43" >V13013</element>
+	<element dataType="double" content="report" index="44" >V13330</element>
+	<element dataType="int" content="default" value='999998'>V20305</element>
+	<element dataType="double" content="default" value='999998'>V20326_NS</element>
+	<element dataType="double" content="default" value='999998'>V20306_NS</element>
+	<element dataType="double" content="default" value='999998'>V20307_NS</element>
+	<element dataType="double" content="default" value='999998'>V20326_WE</element>
+	<element dataType="double" content="default" value='999998'>V20306_WE</element>
+	<element dataType="double" content="default" value='999998'>V20307_WE</element>
+	<element dataType="double" content="default" value='999998'>V12001</element>
+	<element dataType="double" content="default" value='999998'>V11001</element>
+	<element dataType="double" content="default" value='999998'>V11002</element>
+	<element dataType="String" content="report" index="45" >V11290_CHAR</element>
+	<element dataType="double" content="report" index="46" >V11291_701</element>
+	<element dataType="String" content="report" index="47" >V11292_CHAR</element>
+	<element dataType="double" content="report" index="48" >V11293_701</element>
+	<element dataType="double" content="report" index="49" >V11296</element>
+	<element dataType="double" content="report" index="50" >V11042</element>
+	<element dataType="int" content="report" index="51" >V11042_052</element>
+	<element dataType="double" content="report" index="52" >V11211</element>
+	<element dataType="double" content="report" index="53" >V11046</element>
+	<element dataType="int" content="report" index="54" >V11046_052</element>
+	<element dataType="double" content="report" index="55" >V12120_701</element>
+	<element dataType="double" content="report" index="56" >V12311</element>
+	<element dataType="int" content="report" index="57" >V12311_052</element>
+	<element dataType="double" content="report" index="58" >V12121</element>
+	<element dataType="int" content="report" index="59" >V12121_052</element>
+	<element dataType="double" content="report" index="60" >V12030_701_005</element>
+	<element dataType="double" content="report" index="61" >V12030_701_010</element>
+	<element dataType="double" content="report" index="62" >V12030_701_015</element>
+	<element dataType="double" content="report" index="63" >V12030_701_020</element>
+	<element dataType="double" content="report" index="64" >V12030_701_040</element>
+	<element dataType="double" content="report" index="65" >V12030_701_080</element>
+	<element dataType="double" content="report" index="66" >V12030_701_160</element>
+	<element dataType="double" content="report" index="67" >V12030_701_320</element>
+	<element dataType="double" content="report" index="68" >V20330_01</element>
+	<element dataType="double" content="report" index="69" >V20331_01</element>
+	<element dataType="double" content="report" index="70" >V20330_02</element>
+	<element dataType="double" content="report" index="71" >V20331_02</element>
+	<element dataType="double" content="default" value='999998'>V14032</element>
+	<element dataType="int" content="report" index="227" >V20411</element>
+	<element dataType="int" content="report" index="228" >V20412</element>
+	<element dataType="double" content="report" index="72" >V12314_701</element>
+	<element dataType="double" content="report" index="73" >V12315</element>
+	<element dataType="int" content="report" index="74" >V12315_052</element>
+	<element dataType="String" content="report" index="75" >V12316</element>
+	<element dataType="int" content="report" index="76" >V12316_052</element>
+	<element dataType="int" content="report" index="229" >V20062</element>
+	<element dataType="int" content="report" index="77" >V20302_060</element>
+	<element dataType="String" content="report" index="78" >V20302_060_052</element>
+	<element dataType="int" content="report" index="79" >V20302_070</element>
+	<element dataType="String" content="report" index="80" >V20302_070_052</element>
+	<element dataType="int" content="report" index="81" >V20302_089</element>
+	<element dataType="String" content="report" index="82" >V20302_089_052</element>
+	<element dataType="int" content="report" index="83" >V20302_042</element>
+	<element dataType="String" content="report" index="84" >V20302_042_052</element>
+	<element dataType="int" content="report" index="85" >V20302_010</element>
+	<element dataType="int" content="report" index="86" >V20302_001</element>
+	<element dataType="int" content="report" index="87" >V20302_002</element>
+	<element dataType="int" content="report" index="88" >V20302_056</element>
+	<element dataType="String" content="report" index="89" >V20302_056_052</element>
+	<element dataType="int" content="report" index="90" >V20302_048</element>
+	<element dataType="String" content="report" index="91" >V20302_048_052</element>
+	<element dataType="int" content="report" index="92" >V20302_038</element>
+	<element dataType="String" content="report" index="93" >V20302_038_052</element>
+	<element dataType="int" content="report" index="94" >V20302_039</element>
+	<element dataType="String" content="report" index="95" >V20302_039_052</element>
+	<element dataType="int" content="report" index="96" >V20302_019</element>
+	<element dataType="String" content="report" index="97" >V20302_019_052</element>
+	<element dataType="int" content="report" index="98" >V20302_016</element>
+	<element dataType="String" content="report" index="99" >V20302_003</element>
+	<element dataType="int" content="report" index="100" >V20302_031</element>
+	<element dataType="String" content="report" index="101" >V20302_031_052</element>
+	<element dataType="int" content="report" index="102" >V20302_007</element>
+	<element dataType="String" content="report" index="103" >V20302_007_052</element>
+	<element dataType="int" content="report" index="104" >V20302_006</element>
+	<element dataType="String" content="report" index="105" >V20302_006_052</element>
+	<element dataType="int" content="report" index="106" >V20302_004</element>
+	<element dataType="int" content="report" index="107" >V20302_005</element>
+	<element dataType="int" content="report" index="108" >V20302_008</element>
+	<element dataType="int" content="report" index="109" >V20302_076</element>
+	<element dataType="int" content="report" index="110" >V20302_017</element>
+	<element dataType="String" content="report" index="111" >V20302_017_052</element>
+	<element dataType="int" content="report" index="112" >V20302_013</element>
+	<element dataType="int" content="report" index="113" >V20302_014</element>
+	<element dataType="String" content="report" index="114" >V20302_014_052</element>
+	<element dataType="int" content="report" index="115" >V20302_015</element>
+	<element dataType="String" content="report" index="116" >V20302_015_052</element>
+	<element dataType="int" content="report" index="117" >V20302_018</element>
+	<element dataType="int" content="report" index="118" >V20302_018_052</element>
+	<element dataType="int" content="default" value='999998'>V20303</element>
+	<element dataType="int" content="default" value='999998'>V20304</element>
+	<element dataType="int" content="report" index="119" >Q10004_701</element>
+	<element dataType="int" content="report" index="120" >Q10301</element>
+	<element dataType="int" content="report" index="121" >Q10301_052</element>
+	<element dataType="int" content="report" index="122" >Q10302</element>
+	<element dataType="int" content="report" index="123" >Q10302_052</element>
+	<element dataType="int" content="report" index="124" >Q10051_701</element>
+	<element dataType="int" content="report" index="125" >Q12001_701</element>
+	<element dataType="int" content="report" index="126" >Q12011</element>
+	<element dataType="int" content="report" index="127" >Q12011_052</element>
+	<element dataType="int" content="report" index="128" >Q12012</element>
+	<element dataType="int" content="report" index="129" >Q12012_052</element>
+	<element dataType="int" content="report" index="130" >Q13004_701</element>
+	<element dataType="int" content="report" index="131" >Q13003_701</element>
+	<element dataType="int" content="report" index="132" >Q13007</element>
+	<element dataType="int" content="report" index="133" >Q13007_052</element>
+	<element dataType="int" content="report" index="134" >Q20010_701</element>
+	<element dataType="int" content="report" index="135" >Q20051_701</element>
+	<element dataType="int" content="report" index="136" >Q20059</element>
+	<element dataType="int" content="report" index="137" >Q20059_052</element>
+	<element dataType="int" content="report" index="138" >Q13302_01</element>
+	<element dataType="int" content="report" index="139" >Q13302_01_052</element>
+	<element dataType="int" content="default" value='9'>Q13308</element>
+	<element dataType="int" content="default" value='9'>Q13309</element>
+	<element dataType="int" content="report" index="140" >Q13305</element>
+	<element dataType="int" content="report" index="141" >Q13306</element>
+	<element dataType="int" content="report" index="142" >Q13308_SD</element>
+	<element dataType="int" content="report" index="143" >Q13309_SD</element>
+	<element dataType="int" content="report" index="144" >Q13305_SD</element>
+	<element dataType="int" content="report" index="145" >Q13306_SD</element>
+	<element dataType="int" content="default" value='9'>Q13032</element>
+	<element dataType="int" content="report" index="146" >Q13033</element>
+	<element dataType="int" content="report" index="147" >Q13013</element>
+	<element dataType="int" content="report" index="148" >Q13330</element>
+	<element dataType="int" content="default" value='9'>Q20305</element>
+	<element dataType="int" content="default" value='9'>Q20326_NS</element>
+	<element dataType="int" content="default" value='9'>Q20306_NS</element>
+	<element dataType="int" content="default" value='9'>Q20307_NS</element>
+	<element dataType="int" content="default" value='9'>Q20326_WE</element>
+	<element dataType="int" content="default" value='9'>Q20306_WE</element>
+	<element dataType="int" content="default" value='9'>Q20307_WE</element>
+	<element dataType="int" content="default" value='9'>Q12001</element>
+	<element dataType="int" content="default" value='9'>Q11001</element>
+	<element dataType="int" content="default" value='9'>Q11002</element>
+	<element dataType="int" content="report" index="149" >Q11290_CHAR</element>
+	<element dataType="int" content="report" index="150" >Q11291_701</element>
+	<element dataType="int" content="report" index="151" >Q11292_CHAR</element>
+	<element dataType="int" content="report" index="152" >Q11293_701</element>
+	<element dataType="int" content="report" index="153" >Q11296</element>
+	<element dataType="int" content="report" index="154" >Q11042</element>
+	<element dataType="int" content="report" index="155" >Q11042_052</element>
+	<element dataType="int" content="report" index="156" >Q11211</element>
+	<element dataType="int" content="report" index="157" >Q11046</element>
+	<element dataType="int" content="report" index="158" >Q11046_052</element>
+	<element dataType="int" content="report" index="159" >Q12120_701</element>
+	<element dataType="int" content="report" index="160" >Q12311</element>
+	<element dataType="int" content="report" index="161" >Q12311_052</element>
+	<element dataType="int" content="report" index="162" >Q12121</element>
+	<element dataType="int" content="report" index="163" >Q12121_052</element>
+	<element dataType="int" content="report" index="164" >Q12030_701_005</element>
+	<element dataType="int" content="report" index="165" >Q12030_701_010</element>
+	<element dataType="int" content="report" index="166" >Q12030_701_015</element>
+	<element dataType="int" content="report" index="167" >Q12030_701_020</element>
+	<element dataType="int" content="report" index="168" >Q12030_701_040</element>
+	<element dataType="int" content="report" index="169" >Q12030_701_080</element>
+	<element dataType="int" content="report" index="170" >Q12030_701_160</element>
+	<element dataType="int" content="report" index="171" >Q12030_701_320</element>
+	<element dataType="int" content="report" index="172" >Q20330_01</element>
+	<element dataType="int" content="report" index="173" >Q20331_01</element>
+	<element dataType="int" content="report" index="174" >Q20330_02</element>
+	<element dataType="int" content="report" index="175" >Q20331_02</element>
+	<element dataType="int" content="default" value='9'>Q14032</element>
+	<element dataType="int" content="report" index="176" >Q20411</element>
+	<element dataType="int" content="report" index="177" >Q20412</element>
+	<element dataType="int" content="report" index="178" >Q12314_701</element>
+	<element dataType="int" content="report" index="179" >Q12315</element>
+	<element dataType="int" content="report" index="180" >Q12315_052</element>
+	<element dataType="int" content="report" index="181" >Q12316</element>
+	<element dataType="int" content="report" index="182" >Q12316_052</element>
+	<element dataType="int" content="report" index="183" >Q20062</element>
+	<element dataType="int" content="report" index="184" >Q20302_060</element>
+	<element dataType="int" content="report" index="185" >Q20302_060_052</element>
+	<element dataType="int" content="report" index="186" >Q20302_070</element>
+	<element dataType="int" content="report" index="187" >Q20302_070_052</element>
+	<element dataType="int" content="report" index="188" >Q20302_089</element>
+	<element dataType="int" content="report" index="189" >Q20302_089_052</element>
+	<element dataType="int" content="report" index="190" >Q20302_042</element>
+	<element dataType="int" content="report" index="191" >Q20302_042_052</element>
+	<element dataType="int" content="report" index="192" >Q20302_010</element>
+	<element dataType="int" content="report" index="193" >Q20302_001</element>
+	<element dataType="int" content="report" index="194" >Q20302_002</element>
+	<element dataType="int" content="report" index="195" >Q20302_056</element>
+	<element dataType="int" content="report" index="196" >Q20302_056_052</element>
+	<element dataType="int" content="report" index="197" >Q20302_048</element>
+	<element dataType="int" content="report" index="198" >Q20302_048_052</element>
+	<element dataType="int" content="report" index="199" >Q20302_038</element>
+	<element dataType="int" content="report" index="200" >Q20302_038_052</element>
+	<element dataType="int" content="report" index="201" >Q20302_039</element>
+	<element dataType="int" content="report" index="202" >Q20302_039_052</element>
+	<element dataType="int" content="report" index="203" >Q20302_019</element>
+	<element dataType="int" content="report" index="204" >Q20302_019_052</element>
+	<element dataType="int" content="report" index="205" >Q20302_016</element>
+	<element dataType="int" content="report" index="206" >Q20302_003</element>
+	<element dataType="int" content="report" index="207" >Q20302_031</element>
+	<element dataType="int" content="report" index="208" >Q20302_031_052</element>
+	<element dataType="int" content="report" index="209" >Q20302_007</element>
+	<element dataType="int" content="report" index="210" >Q20302_007_052</element>
+	<element dataType="int" content="report" index="211" >Q20302_006</element>
+	<element dataType="int" content="report" index="212" >Q20302_006_052</element>
+	<element dataType="int" content="report" index="213" >Q20302_004</element>
+	<element dataType="int" content="report" index="214" >Q20302_005</element>
+	<element dataType="int" content="report" index="215" >Q20302_008</element>
+	<element dataType="int" content="report" index="216" >Q20302_076</element>
+	<element dataType="int" content="report" index="217" >Q20302_017</element>
+	<element dataType="int" content="report" index="218" >Q20302_017_052</element>
+	<element dataType="int" content="report" index="219" >Q20302_013</element>
+	<element dataType="int" content="report" index="220" >Q20302_014</element>
+	<element dataType="int" content="report" index="221" >Q20302_014_052</element>
+	<element dataType="int" content="report" index="222" >Q20302_015</element>
+	<element dataType="int" content="report" index="223" >Q20302_015_052</element>
+	<element dataType="int" content="report" index="224" >Q20302_018</element>
+	<element dataType="int" content="report" index="225" >Q20302_018_052</element>
+	<element dataType="int" content="default" value='9'>Q20303</element>
+	<element dataType="int" content="default" value='9'>Q20304</element>
+</root>

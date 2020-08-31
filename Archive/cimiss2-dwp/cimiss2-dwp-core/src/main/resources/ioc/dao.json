@@ -1,0 +1,110 @@
+{
+  "dataSourceRdb": {
+    "type": "com.alibaba.druid.pool.DruidDataSource",
+    "events": {
+      "depose": "close"
+    },
+    "fields": {
+      "driverClassName": {
+        "java": "$config.get('rdb.driverClassName')"
+      },
+      "url": {
+        "java": "$config.get('rdb.url')"
+      },
+      "username": {
+        "java": "$config.get('rdb.username')"
+      },
+      "password": {
+        "java": "$config.get('rdb.password')"
+      },
+      "validationQuery": {
+        "java": "$config.get('rdb.validationQuery')"
+      },
+      "testOnBorrow": {
+        "java": "$config.get('rdb.testOnBorrow')"
+      },
+      "testWhileIdle": {
+        "java": "$config.get('rdb.testWhileIdle')"
+      },
+      "timeBetweenEvictionRunsMillis": {
+        "java": "$config.get('rdb.timeBetweenEvictionRunsMillis')"
+      },
+      "filters": {
+        "java": "$config.get('rdb.filters')"
+      },
+      "maxWait": {
+        "java": "$config.get('rdb.maxWait')"
+      },
+      "defaultAutoCommit": {
+        "java": "$config.get('rdb.defaultAutoCommit')"
+      }
+    }
+  },
+  "rdb": {
+    "type": "org.nutz.dao.impl.NutDao",
+    "args": [
+      {
+        "refer": "dataSourceRdb"
+      }
+    ]
+    //引用主数据源
+  },
+  "dataSourceCimiss": {
+    "type": "com.alibaba.druid.pool.DruidDataSource",
+    "events": {
+      "depose": "close"
+    },
+    "fields": {
+      "driverClassName": {
+        "java": "$config.get('cimiss.driverClassName')"
+      },
+      "url": {
+        "java": "$config.get('cimiss.url')"
+      },
+      "username": {
+        "java": "$config.get('cimiss.username')"
+      },
+      "password": {
+        "java": "$config.get('cimiss.password')"
+      },
+      "validationQuery": {
+        "java": "$config.get('cimiss.validationQuery')"
+      },
+      "testOnBorrow": {
+        "java": "$config.get('cimiss.testOnBorrow')"
+      },
+      "testWhileIdle": {
+        "java": "$config.get('cimiss.testWhileIdle')"
+      },
+      "timeBetweenEvictionRunsMillis": {
+        "java": "$config.get('cimiss.timeBetweenEvictionRunsMillis')"
+      },
+      "filters": {
+        "java": "$config.get('cimiss.filters')"
+      },
+      "maxWait": {
+        "java": "$config.get('cimiss.maxWait')"
+      },
+      "defaultAutoCommit": {
+        "java": "$config.get('cimiss.defaultAutoCommit')"
+      }
+    }
+  },
+  "cimiss": {
+    "type": "org.nutz.dao.impl.NutDao",
+    "args": [
+      {
+        "refer": "dataSourceCimiss"
+      }
+    ]
+    //引用报文数据源
+  },
+  "config": {
+    "type": "org.nutz.ioc.impl.PropertiesProxy",
+    "fields": {
+      "paths": [
+//        "config/"
+      ]
+    }
+  }
+}

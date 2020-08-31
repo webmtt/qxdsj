@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.sys.dao.UserInterDao">
+
+    <select id="findById" resultType="java.lang.Boolean">
+        SELECT
+        *
+        FROM sys_datarole_interface a
+        WHERE a.interface_id = #{id}
+    </select>
+
+    <!--<insert id="saveUserinter">
+		INSERT INTO sys_user_interface(
+			user_id,
+			interface_id
+		) VALUES (
+			1,
+			#{id}
+		)
+	</insert>-->
+
+	<insert id="saveUserinterface" parameterType="com.thinkgem.jeesite.modules.sys.entity.Userinterface">
+		INSERT INTO sys_datarole_interface(
+			datarole_id,
+			interface_id
+		) VALUES (
+			#{dataroleId},
+			#{interfaceId}
+		)
+	</insert>
+
+	<delete id="deltetUserinterface" parameterType="String">
+		delete from sys_datarole_interface where datarole_id = #{dataroleId}
+	</delete>
+
+</mapper>

@@ -1,0 +1,125 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font: 14px normal "微软雅黑","黑体" Arial, Helvetica, sans-serif;
+	color: #555;
+}
+ul{list-style: none;}
+a{text-decoration: none;}
+input,textarea,select{outline: none;}
+.right{
+	width: 780px;
+	height: auto;
+	margin: 20px auto;
+	border: 1px solid #92d5fc;
+}
+.right dl dt{
+	font-weight: bold;
+	padding: 10px;
+	background-color: #92d5fc;
+	font-size: 14px;
+}
+.right dl dd{
+	width: 100%;
+	height: 50px;
+	font-size: 12px;
+	border-bottom: 1px solid #92d5fc;
+}
+table td.td-gz{
+	width: 150px;
+	text-align: right;
+	padding-right: 16px;
+}
+.right dl dd.special-h{
+	height: 120px;
+}
+
+.right dl dd textarea{
+	display: inline-block;
+	width: 400px;
+	height: 100px;
+	color: #555;
+	padding-left: 5px;
+	padding-top: 10px;
+	outline: none;
+	border-radius: 5px;
+	margin-top: 10px;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+}
+.right dl dd span{
+	border-right: 1px solid #92d5fc;
+	display: inline-block;
+	width: 150px;
+	text-align: right;
+	padding-right: 20px;
+	line-height: 50px;
+	vertical-align: middle;
+
+}
+.right dl dd span.active{
+	color: #2fa4e7;
+}
+.right dl dd span.default{
+	color: #aaa;
+}
+.right dl dd input{
+	width: 220px;
+	height: 30px;
+	color: #555;
+	border-radius: 5px;
+	padding: 5px 0 5px 5px;
+	border-style: none;
+	border: 1px solid #ccc;
+	outline:medium;
+	vertical-align: middle;
+	box-sizing: border-box;
+	-ms-box-sizing: border-box;
+}
+.right dl dd label{
+	vertical-align: middle;
+	margin-right: 5px;
+}
+.right dl dd select {
+  border: solid 1px #ccc;
+  border-radius: 0px;
+  margin-left: -6px;
+  color: #555;
+  width: 220px;
+  height: 30px;
+  border-radius: 5px;
+  padding: 5px 0 5px 5px;
+  border-style: none;
+  border: 1px solid #ccc;
+  outline:medium;
+  vertical-align: middle;
+  box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  appearance:none;
+  -moz-appearance:none;
+  -webkit-appearance:none;
+  -ms-appearance:none;
+  background: url("../img/cimiss/icon-down.png") no-repeat scroll 200px center transparent;
+
+}
+
+    select::-ms-expand { display: none; } 
+
+.right dl dd input.radio-input{
+	width: 14px;vertical-align: middle;margin-right: 3px;
+	padding: 0;
+	border: 0;
+}
+.right dl dd input.btn{
+	margin-right: 10px;
+	width: 60px;
+	padding: 0;
+	margin-top: 10px;
+
+}
+.right dl dd input.btn-primary{
+	background-color: #3daae9;
+	color: #fff;
+}

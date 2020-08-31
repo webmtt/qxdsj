@@ -1,0 +1,288 @@
+//T:通道		
+[T]
+I	IR1	热红外通道（约11.5-12.5微米）
+S	IR2	红外分裂窗通道（约10.3-11.5微米）
+W	VAP	水汽通道（约6.3-7.6微米）
+R	IR4	中红外通道（约1.55-1.75微米）
+V	VIS	可见光通道（约0.55-0.9微米）
+NNNN
+
+//t:气象卫星产品分发内容（通道）		
+[t]
+I	IFR	红外图像
+W	VAP	水汽图像
+V	SHE	可见光图像
+NNNN
+
+//H：产品分发时间（世界时）		
+[H]
+0	00	时
+1	01	时
+2	02	时
+3	03	时
+4	04	时
+5	05	时
+6	06	时
+7	07	时
+8	08	时
+9	09	时
+A	10	时
+B	11	时
+C	12	时
+D	13	时
+E	14	时
+F	15	时
+G	16	时
+H	17	时
+I	18	时
+J	19	时
+K	20	时
+L	21	时
+M	22	时
+N	23	时
+NNNN
+
+//h：产品分发时间		
+[h]
+A	00	时
+B	01	时
+C	02	时
+D	03	时
+E	04	时
+F	05	时
+G	06	时
+H	07	时
+I	08	时
+J	09	时
+K	10	时
+L	11	时
+M	12	时
+N	13	时
+O	14	时
+P	15	时
+Q	16	时
+R	17	时
+S	18	时
+T	19	时
+U	20	时
+V	21	时
+W	22	时
+X	23	时
+NNNN
+
+//F:时刻值		
+[F]
+0	00	分钟
+9	30	分钟
+A	00	分钟
+B	15	分钟
+C	30	分钟
+D	45	分钟
+NNNN
+
+//f：表示观测时间（分钟）		
+[f]
+0	00	分钟
+1	10	分钟
+2	20	分钟
+3	30	分钟
+4	40	分钟
+5	50	分钟
+NNNN
+
+//M：产品生成月份		
+[M]
+J	01	月
+F	02	月
+M	03	月
+A	04	月
+Y	05	月
+U	06	月
+L	07	月
+G	08	月
+S	09	月
+O	10	月
+N	11	月
+D	12	月
+NNNN
+
+//m：旬月AWX数据生成月份		
+[m]
+J	12	月
+F	01	月
+M	02	月
+A	03	月
+Y	04	月
+U	05	月
+L	06	月
+G	07	月
+S	08	月
+O	09	月
+N	10	月
+D	11	月
+NNNN
+
+//LL+L->LLL中心波长			
+[LLL]
+007	VIS007	µm	
+068	WV068	µm	
+039	IR039	µm	
+107	IR107	µm	
+115	IR115	µm	
+064	WV064	µm	
+066	WV066	µm	
+073	WV073		
+NNNN
+
+//AOAD:日期标识转换 FY-2D/E 候、旬、月产品		
+[AOAD]
+AOAD	DAY	日
+AOFD	PEN	侯
+AOTD	TEN	旬
+AOAM	MON	月
+NNNN
+
+//G:产品分发时间		
+[G]	字段取值	说明
+0	00	时
+3	03	时
+6	06	时
+9	09	时
+2	12	时
+5	15	时
+8	18	时
+1	21	时
+NNNN
+
+//KGLB：K.0143.0001.R001		
+[KGLB]
+GLB	GLB	
+NUL	NUL	
+HRP	NHE	
+NNNN
+
+//KAMA：K.0145.0001.R001		
+[KAMA]
+AMA	AMSUA	
+AMB	AMSUB	
+MHS	MHS	
+HRS	HIRS
+NNNN
+
+//NOAA：K.0145.0001.R002		
+[NOAA]
+NOAA15	N15	
+NOAA16	N16	
+NOAA17	N17	
+NOAA18	N18	
+NOAA19	N19	
+METOP02	MTA	
+METOPA	MTA
+METOPB	MTB
+NA14	N14
+NA15	N15
+NA16	N16
+NA17	N17
+NA18	N18
+NA19	N19
+MP02	MTA
+MP01	MTB
+NNNN
+
+//N：K.0145.0001.R004		
+[N]
+N	NOA	
+E	MTP	
+NNNN
+
+//A：K.0145.0001.R004		
+[A]
+A	AMSUA	
+B	AMSUB	
+M	MHS	
+H	HIRS	
+NNNN
+
+//Q：K.0148.0001.R002		
+[Q]
+X	GLB	X表示全球
+S	SHE	S表示南半球
+N	NHE	N表示北半球
+NNNN
+
+//EE：K.0338.0001.R001		
+[EE]
+KC	KWBC	
+EW	EDZW	
+EI	EKMI	
+NNNN
+
+//GRCE：K.0338.0001.R002		
+[GRCE]
+GRCE	GRC	
+MP02	MTA	
+TSAR	TSA	
+COM1	CO1	
+COM2	CO2	
+COM3	CO3	
+COM4	CO4	
+COM5	CO5	
+COM6	CO6	
+SACC	SAC	
+CNOF	CNO	
+COSM	COS	
+NNNN
+
+//GPSEXT：B.0005.0005.R001		
+[GPSEXT]
+GPS2	TXT	
+GPSG	MIC	
+NNNN
+
+//U：K.0060规则-空间区域范围		
+[U]
+A	NHEA	
+B	NHEB	
+C	NHEC	
+D	NHED	
+E	TROE	
+F	TROF	
+G	TROG	
+H	TROH	
+I	SHEI	
+L	SHEL	
+J	SHEJ	
+K	SHEK	
+NNNN
+
+//X：K.0338.0001.R001-空间区域范围		
+[X]
+A	NHEA	
+B	NHEB	
+C	NHEC	
+D	NHED	
+E	TROE	
+F	TROF	
+G	TROG	
+H	TROH	
+I	SHEI	
+L	SHEL	
+J	SHEJ	
+K	SHEK	
+NNNN
+
+//SPRE：K.0145 根据仪器名（A/KAMA）输出空间分辨率
+[SPRE]
+AMSUA	045KM	
+AMSUB	015KM	
+MHS	015KM	
+HIRS	020KM	
+NNNN
+
+//Lxx：M.0016.0001.R001-气压高度层对照		
+[Lxx]
+L85	850	
+L70	700	
+L50	500	
+L00	SUR	
+NNNN

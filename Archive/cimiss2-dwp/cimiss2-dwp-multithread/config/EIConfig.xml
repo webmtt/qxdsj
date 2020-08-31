@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EI>
+	<EIType id="OP_DPC_A_1-10-01">
+		<!-- 业务系统 -->
+		<SYSTEM>DPC</SYSTEM>
+		<!-- 事件业务分类（监视点类别属性编号），如OP_DPC_Z_99 -->
+		<GROUP_ID>OP_DPC_A_10</GROUP_ID>
+		<!-- 事件标题 -->
+		<EVENT_TITLE>数据文件操作异常</EVENT_TITLE>
+		<!-- 事件级别	0:正常，1:提醒，2:警告，3:紧急 -->
+		<EVENT_LEVEL>2</EVENT_LEVEL>
+		<!-- 01:Rest API   02：消息； -->
+		<COL_TYPE>01</COL_TYPE>
+		<!--  -->
+		<DATA_FROM>BABJ</DATA_FROM>
+		<!-- 事件发生可能原因 -->
+		<EVENT_TRAG>1、目标文件不存在;2、文件没有权限;3、文件存在异常</EVENT_TRAG>
+		<!-- 事件处理导向 -->
+		<EVENT_CONTROL>0</EVENT_CONTROL>
+	</EIType>
+	
+	<EIType id="OP_DPC_A_1-10-02">
+		<!-- 业务系统 -->
+		<SYSTEM>DPC</SYSTEM>
+		<!-- 事件业务分类（监视点类别属性编号），如OP_DPC_Z_99 -->
+		<GROUP_ID>OP_DPC_A_10</GROUP_ID>
+		<!-- 事件标题 -->
+		<EVENT_TITLE>数据库连接异常</EVENT_TITLE>
+		<!-- 事件级别	0:正常，1:提醒，2:警告，3:紧急 -->
+		<EVENT_LEVEL>2</EVENT_LEVEL>
+		<!-- 01:Rest API   02：消息； -->
+		<COL_TYPE>01</COL_TYPE>
+		<!--  -->
+		<DATA_FROM>BABJ</DATA_FROM>
+		<!-- 事件发生可能原因 -->
+		<EVENT_TRAG>1、数据库配置文件错误;2、数据库服务异常;3、数据库服务器异常</EVENT_TRAG>
+		<!-- 事件处理导向 -->
+		<EVENT_CONTROL>0</EVENT_CONTROL>
+	</EIType>
+	
+	
+	<EIType id="OP_DPC_A_1-10-03">
+		<!-- 业务系统 -->
+		<SYSTEM>DPC</SYSTEM>
+		<!-- 事件业务分类（监视点类别属性编号），如OP_DPC_Z_99 -->
+		<GROUP_ID>OP_DPC_A_10</GROUP_ID>
+		<!-- 事件标题 -->
+		<EVENT_TITLE>消息中间件连接异常</EVENT_TITLE>
+		<!-- 事件级别	0:正常，1:提醒，2:警告，3:紧急 -->
+		<EVENT_LEVEL>2</EVENT_LEVEL>
+		<!-- 01:Rest API   02：消息； -->
+		<COL_TYPE>01</COL_TYPE>
+		<!--  -->
+		<DATA_FROM>BABJ</DATA_FROM>
+		<!-- 事件发生可能原因 -->
+		<EVENT_TRAG>1、连接参数配置错误;2、消息中间件服务异常;3、消息中间件服务器异常</EVENT_TRAG>
+		<!-- 事件处理导向 -->
+		<EVENT_CONTROL>0</EVENT_CONTROL>
+	</EIType>
+	
+	
+	<EIType id="OP_DPC_A_1-10-04">
+		<!-- 业务系统 -->
+		<SYSTEM>DPC</SYSTEM>
+		<!-- 事件业务分类（监视点类别属性编号），如OP_DPC_Z_99 -->
+		<GROUP_ID>OP_DPC_A_10</GROUP_ID>
+		<!-- 事件标题 -->
+		<EVENT_TITLE>应用程序配置文件异常</EVENT_TITLE>
+		<!-- 事件级别	0:正常，1:提醒，2:警告，3:紧急 -->
+		<EVENT_LEVEL>2</EVENT_LEVEL>
+		<!-- 01:Rest API   02：消息； -->
+		<COL_TYPE>01</COL_TYPE>
+		<!--  -->
+		<DATA_FROM>BABJ</DATA_FROM>
+		<!-- 事件发生可能原因 -->
+		<EVENT_TRAG>1、应用程序配置文件不存在;2、应用程序配置文件破坏;3、应用程序配置件格式配置错误</EVENT_TRAG>
+		<!-- 事件处理导向 -->
+		<EVENT_CONTROL>0</EVENT_CONTROL>
+	</EIType>
+	
+	
+	<EIType id="OP_DPC_A_1-10-05">
+		<!-- 业务系统 -->
+		<SYSTEM>DPC</SYSTEM>
+		<!-- 事件业务分类（监视点类别属性编号），如OP_DPC_Z_99 -->
+		<GROUP_ID>OP_DPC_A_10</GROUP_ID>
+		<!-- 事件标题 -->
+		<EVENT_TITLE>数据资料解码错误</EVENT_TITLE>
+		<!-- 事件级别	0:正常，1:提醒，2:警告，3:紧急 -->
+		<EVENT_LEVEL>2</EVENT_LEVEL>
+		<!-- 01:Rest API   02：消息； -->
+		<COL_TYPE>01</COL_TYPE>
+		<!--  -->
+		<DATA_FROM>BABJ</DATA_FROM>
+		<!-- 事件发生可能原因 -->
+		<EVENT_TRAG>1、报文格式错误;2、要素值格式错误</EVENT_TRAG>
+		<!-- 事件处理导向 -->
+		<EVENT_CONTROL>0</EVENT_CONTROL>
+	</EIType>
+	
+	<EIType id="OP_DPC_A_1_33_07">
+		<!-- 业务系统 -->
+		<SYSTEM>DPC</SYSTEM>
+		<!-- 事件业务分类（监视点类别属性编号），如OP_DPC_Z_99 -->
+		<GROUP_ID>OP_DPC_A_10</GROUP_ID>
+		<!-- 事件标题 -->
+		<EVENT_TITLE>台站信息获取失败</EVENT_TITLE>
+		<!-- 事件级别	0:正常，1:提醒，2:警告，3:紧急 -->
+		<EVENT_LEVEL>2</EVENT_LEVEL>
+		<!-- 01:Rest API   02：消息； -->
+		<COL_TYPE>01</COL_TYPE>
+		<!--  -->
+		<DATA_FROM>BABJ</DATA_FROM>
+		<!-- 事件发生可能原因 -->
+		<EVENT_TRAG>1、台站信息配置表中未配置该台站信息;2、台站信息解析错误</EVENT_TRAG>
+		<!-- 事件处理导向 -->
+		<EVENT_CONTROL>0</EVENT_CONTROL>
+	</EIType>
+</EI>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	
+	<!-- fxy:前三个值bufr文件数据段识别码,第4个值为整个数据段中第几次出现的识别码 -->
+	<!-- name:对应的字段名称 -->
+	<!-- dec:字段说明 -->
+	<!-- datatype:字段类型 -->
+	<!-- default:如果从bufr文件中取出的数据为空设置默认值 -->
+	<!-- qc:true或false,此行是否为质控码 -->
+	<!-- expression:配置此行字段值的表达式
+			表达式说明:
+				${col:arg} -> 当前配置文件中对应的字段值，arg：配置文件中配置的字段
+				${dateFormat(arg1,arg2,arg3)} -> 日期格式化,arg1:日期字符串20170809001211，arg2:arg1的格式yyyyMMddHHmmss，arg3:转换后的日期格式(如：yyyy-MM-dd HH:mm:ss) 
+				${dateTime} -> 获取系统当前时间,默认格式为yyyyMMddHHmmss
+				${dateTime(yyyy-MM-dd HH:mm:ss)} -> 获取指定格式的系统当前时间
+				${ascii:arg} -> arg代表的值转换为ascii码
+				${stationInfo(arg1,arg2,arg3)} -> 根据站号从stationinfo_conf.lua配置文件中取值，第一个参数arg1：字符站号；第二个参数arg2：站号对应的序列号;arg3：缺省值，如果从配置文件中取不到值，则取arg3作为默认值
+				${seqDayFormat(arg1,arg2,arg3)} -> 序日的格式化，第一个参数arg1：4位年；第二个参数arg2：序日(1-3位数字)；第三个参数arg3：格式(遵循java中的日期格式化pattern)
+				#########################################################
+				${col:arg} ${seqDayFormat(arg1,arg2,arg3)} ${stationInfo(arg1,arg2)} ${dateFormat(arg1,arg2,arg3)} 这几个表达式后都可以根据需要添加.split('')[]和.substring()表达式
+				.split('')[]按单引号中的符号分隔前面表达式的值，中括号中是分隔后取第n-1个
+				.substring(snum,enum) 在紧前面的表达式的值中截取snum到enum字符串,包前不包后
+	 -->
+	<colunm fxy="D_RECORD_ID" name="id" dec="主键" datatype="string" expression="${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} ${col:V04004}:${col:V04005}:${col:V04006},yyyy-MM-dd HH:mm:ss,yyyyMMddHHmmss)}_${col:V01007}_${col:V07004}_${col:V05001}_${col:V06001}_${col:V02028}_${col:V02029}_${col:V02023}">D_RECORD_ID</colunm>
+	<colunm fxy="D_DATA_ID" name="data_id" dec="资料标识" datatype="string" default="K.0787.0001.S001">D_DATA_ID</colunm>
+	<colunm fxy="D_IYMDHM" name="insert datetime" dec="入库时间" datatype="date" expression="${dateFormat(${dateTime},yyyyMMddHHmmss,yyyy-MM-dd HH:mm:ss)}">D_IYMDHM</colunm>
+	<colunm fxy="D_RYMDHM" name="recive_datetime" dec="收到时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_RYMDHM</colunm>
+	<colunm fxy="D_UPDATE_TIME" name="update datetime" dec="更新时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_UPDATE_TIME</colunm>
+	<colunm fxy="D_DATETIME" name="data_datetime" dec="资料时间" datatype="date" expression="${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} ${col:V04004}:00:00,yyyy-MM-dd HH:mm:ss,yyyy-MM-dd HH:mm:ss)}">D_DATETIME</colunm>
+	
+	<colunm fxy="0-1-31-0" name="Identification of originating/generating centre" dec="产品加工中心" datatype="int" default="999998">V01031</colunm>
+	<colunm fxy="0-1-7-0" name="Satellite identifier" dec="卫星标识" datatype="int" default="999998">V01007</colunm>
+	<colunm fxy="0-5-1-0" name="纬度" dec="纬度" datatype="double" default="999998">V05001</colunm>
+	<colunm fxy="0-6-1-0" name="经度" dec="经度" datatype="double" default="999998">V06001</colunm>
+	<colunm fxy="0-2-20-0" name="Satellite classification" dec="卫星分类" datatype="int" default="999998">V02020</colunm>
+	<colunm fxy="?" name="" dec="产品类型" datatype="double" default="999998">V01210</colunm>
+	<colunm fxy="?" name="" dec="资料区域范围" datatype="double" default="999998">V05310</colunm>
+	<colunm fxy="0-2-25-0" name="" dec="计算中所使用的卫星通道" datatype="double" default="999998">V02025</colunm>
+	<colunm fxy="0-2-28-0" name="Segment size at nadir in x-direction" dec="卫星标在天底X方向段的大小" datatype="double" default="999998">V02028</colunm>
+	<colunm fxy="0-2-29-0" name="" dec="Segment size at nadir in y-direction" datatype="double" default="999998">V02029</colunm>
+	<colunm fxy="0-2-152-0" name="Satellite instrument used in data processing" dec="用于数据处理的卫星仪器" datatype="int" default="999998">V02152</colunm>
+	<colunm fxy="0-2-23-0" name="Satellite-derived wind computation method" dec="卫星导风的计算方法" datatype="double" default="999998">V02023</colunm>
+	<colunm fxy="0-7-24-0" name="Satellite zenith angle" dec="卫星天顶角" datatype="double" default="999998">V07024</colunm>
+	<colunm fxy="0-4-1-0" name="年" dec="资料探测年" datatype="int" >V04001</colunm>
+	<colunm fxy="0-4-2-0" name="月" dec="资料探测月" datatype="int" >V04002</colunm>
+	<colunm fxy="0-4-3-0" name="日" dec="资料探测日" datatype="int" >V04003</colunm>
+	<colunm fxy="0-4-4-0" name="时" dec="资料探测时" datatype="int" >V04004</colunm>
+	<colunm fxy="0-4-5-0" name="分" dec="资料探测分" datatype="int" >V04005</colunm>
+	<colunm fxy="0-4-6-0" name="秒" dec="资料观测秒" datatype="int" >V04006</colunm>
+	<colunm fxy="0-7-4-0" name="气压" dec="气压" datatype="double" expression="${{0}*0.01}" default="999998">V07004</colunm>
+	<colunm fxy="0-11-1-0" name="风向" dec="风向" datatype="double" default="999998">V11001</colunm>
+	<colunm fxy="0-11-2-0" name="风速" dec="风速" datatype="double" default="999998">V11002</colunm>
+	<colunm fxy="0-12-71-0" name="Coldest cluster temperature" dec="冷云温度" datatype="double" expression="${{0}-273.2}" default="999998">V12071</colunm>
+	<colunm fxy="0-2-153-0" name="Satellite channel centre frequency" dec="卫星信道中心频率" datatype="double" expression="${{0}*0.000001}" default="999998">V02153</colunm>
+	<colunm fxy="0-2-154-0" name="Satellite channel band width" dec="卫星信道带宽" datatype="double" expression="${{0}*0.000001}" default="999998">V02154</colunm>
+	<colunm fxy="0-33-7-0" name="Per cent confidence" dec="气压可信度1" datatype="int" default="999998">Q07004_001</colunm>
+	<colunm fxy="0-33-7-0" name="Per cent confidence" dec="风向可信度1" datatype="int" default="999998">Q11001_001</colunm>
+	<colunm fxy="0-33-7-0" name="Per cent confidence" dec="风速可信度1" datatype="int" default="999998">Q11002_001</colunm>
+	<colunm fxy="0-33-7-0" name="Per cent confidence" dec="气温可信度1" datatype="int" default="999998">Q12071_001</colunm>
+	<colunm fxy="0-33-35-0" name="人工/自动质量控制" dec="可信度1的人工/自动质量控制标志" datatype="int" default="999998">V33035_001</colunm>
+	<colunm fxy="0-1-32-0" name="Generating application" dec="可信度1的质量控制定义" datatype="int" default="999998">V01032_001</colunm>
+	<colunm fxy="0-33-36-0" name="Nominal confidence threshold" dec="气压可信度1的可信临界值" datatype="int" default="999998">V33036_011</colunm>
+	<colunm fxy="0-33-36-1" name="Nominal confidence threshold" dec="风向可信度1的可信临界值" datatype="int" default="999998">V33036_012</colunm>
+	<colunm fxy="0-33-36-2" name="Nominal confidence threshold" dec="风速可信度1的可信临界值" datatype="int" default="999998">V33036_013</colunm>
+	<colunm fxy="0-33-36-3" name="Nominal confidence threshold" dec="气温可信度1的可信临界值" datatype="int" default="999998">V33036_014</colunm>
+	<colunm fxy="0-33-7-10" name="Per cent confidence" dec="气压可信度2" datatype="int" default="999998">Q07004_002</colunm>
+	<colunm fxy="0-33-7-10" name="Per cent confidence" dec="风向可信度2" datatype="int" default="999998">Q11001_002</colunm>
+	<colunm fxy="0-33-7-10" name="Per cent confidence" dec="风速可信度2" datatype="int" default="999998">Q11002_002</colunm>
+	<colunm fxy="0-33-7-10" name="Per cent confidence" dec="气温可信度2" datatype="int" default="999998">Q12071_002</colunm>
+	<colunm fxy="0-33-35-1" name="人工/自动质量控制" dec="可信度2的人工/自动质量控制标志" datatype="int" default="999998">V33035_002</colunm>
+	<colunm fxy="0-1-32-1" name="Generating application" dec="可信度2的质量控制定义" datatype="int" default="999998">V01032_002</colunm>
+	<colunm fxy="0-33-36-4" name="Nominal confidence threshold" dec="气压可信度2的可信临界值" datatype="int" default="999998">V33036_021</colunm>
+	<colunm fxy="0-33-36-5" name="Nominal confidence threshold" dec="风向可信度2的可信临界值" datatype="int" default="999998">V33036_022</colunm>
+	<colunm fxy="0-33-36-6" name="Nominal confidence threshold" dec="风速可信度2的可信临界值" datatype="int" default="999998">V33036_023</colunm>
+	<colunm fxy="0-33-36-7" name="Nominal confidence threshold" dec="气温可信度2的可信临界值" datatype="int" default="999998">V33036_024</colunm>
+	<colunm fxy="0-33-7-20" name="" dec="气压可信度3" datatype="int" default="999998">Q07004_003</colunm>
+	<colunm fxy="0-33-7-20" name="" dec="风向可信度3" datatype="int" default="999998">Q11001_003</colunm>
+	<colunm fxy="0-33-7-20" name="" dec="风速可信度3" datatype="int" default="999998">Q11002_003</colunm>
+	<colunm fxy="0-33-7-20" name="" dec="气温可信度3" datatype="int" default="999998">Q12071_003</colunm>
+	<colunm fxy="0-33-35-2" name="人工/自动质量控制" dec="可信度3的人工/自动质量控制标志" datatype="int" default="999998">V33035_003</colunm>
+	<colunm fxy="0-1-32-2" name="Generating application" dec="可信度3的质量控制定义" datatype="int" default="999998">V01032_003</colunm>
+	<colunm fxy="0-33-36-8" name="Nominal confidence threshold" dec="气压可信度3的可信临界值" datatype="int" default="999998">V33036_031</colunm>
+	<colunm fxy="0-33-36-9" name="Nominal confidence threshold" dec="风向可信度3的可信临界值" datatype="int" default="999998">V33036_032</colunm>
+	<colunm fxy="0-33-36-10" name="Nominal confidence threshold" dec="风速可信度3的可信临界值" datatype="int" default="999998">V33036_033</colunm>
+	<colunm fxy="0-33-36-11" name="Nominal confidence threshold" dec="气温可信度3的可信临界值" datatype="int" default="999998">V33036_034</colunm>
+	<colunm fxy="D_SOURCE_ID" name="d_source_id" dec="资料四级编码" datatype="string" default="K.0342.0001.R001">D_SOURCE_ID</colunm>
+</root>

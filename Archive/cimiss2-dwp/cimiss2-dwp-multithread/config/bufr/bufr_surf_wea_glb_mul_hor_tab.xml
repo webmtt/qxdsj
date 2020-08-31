@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	
+	<!-- fxy:前三个值bufr文件数据段识别码,第4个值为整个数据段中第几次出现的识别码 -->
+	<!-- name:对应的字段名称 -->
+	<!-- dec:字段说明 -->
+	<!-- datatype:字段类型 -->
+	<!-- default:如果从bufr文件中取出的数据为空设置默认值 -->
+	<!-- qc:true或false,此行是否为质控码 -->
+	<!-- expression:配置此行字段值的表达式
+			表达式说明:
+				${col:arg} -> 当前配置文件中对应的字段值，arg：配置文件中配置的字段
+				${dateFormat(arg1,arg2,arg3)} -> 日期格式化,arg1:日期字符串20170809001211，arg2:arg1的格式yyyyMMddHHmmss，arg3:转换后的日期格式(如：yyyy-MM-dd HH:mm:ss) 
+				${dateTime} -> 获取系统当前时间,默认格式为yyyyMMddHHmmss
+				${dateTime(yyyy-MM-dd HH:mm:ss)} -> 获取指定格式的系统当前时间
+				${ascii:arg} -> arg代表的值转换为ascii码
+				${stationInfo(arg1,arg2,arg3)} -> 根据站号从stationinfo_conf.lua配置文件中取值，第一个参数arg1：字符站号；第二个参数arg2：站号对应的序列号;arg3：缺省值，如果从配置文件中取不到值，则取arg3作为默认值
+				${seqDayFormat(arg1,arg2,arg3)} -> 序日的格式化，第一个参数arg1：4位年；第二个参数arg2：序日(1-3位数字)；第三个参数arg3：格式(遵循java中的日期格式化pattern)
+				#########################################################
+				${col:arg} ${seqDayFormat(arg1,arg2,arg3)} ${stationInfo(arg1,arg2)} ${dateFormat(arg1,arg2,arg3)} 这几个表达式后都可以根据需要添加.split('')[]和.substring()表达式
+				.split('')[]按单引号中的符号分隔前面表达式的值，中括号中是分隔后取第n-1个
+				.substring(snum,enum) 在紧前面的表达式的值中截取snum到enum字符串,包前不包后
+	 -->
+	<colunm fxy="D_RECORD_ID" name="id" dec="记录标识" datatype="string" expression="${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} ${col:V04004}:00:00,yyyy-MM-dd HH:mm:ss,yyyyMMddHHmmss)}_${col:V01301}_${col:V05001}_${col:V06001}">D_RECORD_ID</colunm>
+	
+	<colunm fxy="D_DATA_ID" name="data_id" dec="资料标识" datatype="string" default="A.0013.0001.S001">D_DATA_ID</colunm>
+	
+	<colunm fxy="D_SOURCE_ID" name="D_SOURCE_ID" dec="" datatype="string" default="A.0001.0021.R001">D_SOURCE_ID</colunm> 
+	
+	<colunm fxy="D_IYMDHM" name="insert_datetime" dec="入库时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_IYMDHM</colunm>
+	
+	<colunm fxy="D_RYMDHM" name="recive_datetime" dec="收到时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_RYMDHM</colunm>
+	
+	<colunm fxy="D_UPDATE_TIME" name="update datetime" dec="更新时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_UPDATE_TIME</colunm>
+	
+	<colunm fxy="D_DATETIME" name="data_datetime" dec="资料时间" datatype="date" expression="${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} ${col:V04004}:00:00,yyyy-MM-dd HH:mm:ss,yyyy-MM-dd HH:mm:ss)}">D_DATETIME</colunm>
+	
+	<colunm fxy="D_DATA_DPCID" name="D_DATA_DPCID" dec="DPC产品标识,DPC的4级编码" datatype="string" expression="" default="A.0013.0001.P004">D_DATA_DPCID</colunm>
+		
+	<!-- <colunm fxy="V_SQCODE" name="stationLevel" dec="台站级质量控制标识" datatype="string">V_SQCODE</colunm> -->
+	
+	<!-- <colunm fxy="V_SQCODE" name="stationLevel" dec="国家级质量控制标识" datatype="string">V_NQCODE</colunm> -->
+	
+	<colunm fxy="V_BBB" name="V_BBB" dec="更正标识" datatype="string" default="000">V_BBB</colunm>
+	
+	<colunm fxy="0-4-1-0" name="year" dec="资料年" datatype="int" >V04001_02</colunm>
+	
+	<colunm fxy="0-4-2-0" name="Month" dec="资料月" datatype="int" >V04002_02</colunm>
+	
+	<colunm fxy="0-4-3-0" name="Day" dec="资料日" datatype="int" >V04003_02</colunm>
+	
+	<colunm fxy="0-4-4-0" name="Hour" dec="资料时" datatype="int" >V04004_02</colunm>
+	
+	<!-- <colunm fxy="0-4-5-0" name="Minute" dec="资料分" datatype="int" >V04005_02</colunm> -->
+	
+	<!-- <colunm fxy="0-4-6-0" name="Second" dec="资料秒" datatype="int" >V04006</colunm> -->
+	
+	<colunm fxy="0-1-11-0" name="ship or moving land Station ID" dec="船舶或移动陆站标识" datatype="string">V01301</colunm>
+	
+	<colunm fxy="V01300" name="stationId_N" dec="区站号(数字)" datatype="string" default="999999">V01300</colunm>
+	
+	<colunm fxy="0-5-2-0" name="Latitude" dec="纬度（粗精度）" datatype="double" >V05001</colunm>
+	
+	<colunm fxy="0-6-2-0" name="Longitude" dec="经度（粗精度）" datatype="double" >V06001</colunm>
+	
+	<colunm fxy="0-7-30-0" name="Height_of_station_ground_above_mean_sea_level" dec="测站高度" datatype="double" >V07001</colunm>
+	
+	<colunm fxy="0-7-31-0" name="Height_of_barometer_above_mean_sea_level" dec="气压传感器海拔高度" datatype="double" >V07031</colunm>
+	
+	<colunm fxy="0-7-32-0" name="Temperature_and_humidity_sensor_height_above_ground/deck" dec="温湿传感器距地面/甲板高度" datatype="double" expression="{0}" >V07032_01</colunm>
+	
+	<colunm fxy="0-7-32-1" name="Visibility sensor height above ground" dec="能见度传感器距地高度" datatype="double" expression="{0}">V07032_02</colunm>
+	
+	<colunm fxy="0-7-32-2" name="Precipitation sensor height from ground" dec="降水量传感器距地高度" datatype="double" expression="{0}">V07032_03</colunm>
+	
+	<colunm fxy="0-7-32-6" name="Wind sensor height above ground" dec="风速传感器距地面高度" datatype="double" expression="{0}">V07032_04</colunm>
+	
+	<colunm fxy="0-2-2-0" name="The type of instrument used to measure the wind" dec="测风仪的仪器类型" datatype="double" expression="{0}">V02002</colunm>
+
+	<colunm fxy="?" name="Type of instrument or crop for measuring evaporation" dec="测量蒸发的仪器类型或作物类型" datatype="double" default="999998">V02004</colunm>
+	
+	<colunm fxy="0-2-1-0" name="Type_of_station" dec="测站类型" datatype="int" expression="{0}" default="0">V02001</colunm>
+	
+	<colunm fxy="?" name="country code" dec="国家代码" datatype="int" default="999998">V_NCODE</colunm>
+	
+	<colunm fxy="?" name="Station_or_site_name" dec="站名或场地名" datatype="string" default="999998">V01015</colunm>
+	
+	<colunm fxy="V02301" name="stationLevel" dec="台站级别" datatype="string" expression="${stationInfo(${col:V01301},01,999999)}.split(',')[6]">V02301</colunm>
+	
+	<colunm fxy="0-4-1-0" name="year" dec="资料观测年" datatype="int" >V04001</colunm>
+	
+	<colunm fxy="0-4-2-0" name="Month" dec="资料观测月" datatype="int" >V04002</colunm>
+	
+	<colunm fxy="0-4-3-0" name="Day" dec="资料观测日" datatype="int" >V04003</colunm>
+	
+	<colunm fxy="0-4-4-0" name="Hour" dec="资料观测时" datatype="int" >V04004</colunm>
+	
+	<colunm fxy="0-4-5-0" name="Minute" dec="资料观测分" datatype="int" >V04005</colunm>
+
+	<colunm fxy="?" name="Message type" dec="报文类型" datatype="string" default="SS">V_TT</colunm>
+	
+	<colunm fxy="?" name="The application center" dec="编报中心" datatype="string" default="NULL">C_CCCC</colunm>
+	
+	<colunm fxy="0-20-11-0" name="The_amount_of_cloud_in_low_or_medium_clouds" dec="低云或中云的云量" datatype="double" expression="{0}">V20011</colunm>
+	<colunm fxy="0-20-11-0" name="he_amount_of_cloud_in_low_or_medium_clouds_QC" dec="低云或中云的云量质量标志" datatype="double" expression="{0}" qc="true" default="9">Q20011</colunm>
+	
+	<colunm fxy="0-20-1-0" name="Horizontal visibility (manual observation)" dec="水平能见度（人工观测）" datatype="double" expression="{0}">V20001</colunm>
+	<colunm fxy="0-20-1-0" name="Horizontal visibility (manual observation) QC" dec="水平能见度（人工观测）质量标志" datatype="double" expression="{0}" qc="true" default="9">Q20001</colunm>
+	
+	<colunm fxy="0-20-10-0" name="Total_cloud_cover" dec="总云量" datatype="double" expression="{0}">V20010</colunm>
+	<colunm fxy="0-20-10-0" name="Total_cloud_cover_QC" dec="总云量质量标志" datatype="double" expression="{0}" qc="true" default="9">Q20010</colunm>
+		
+	<colunm fxy="0-11-1-0" name="wind direction" dec="风向" datatype="double" expression="{0}" >V11001</colunm>
+	<colunm fxy="0-11-1-0" name="wind direction QC" dec="风向质量标质" datatype="double" expression="{0}" qc="true" default="9">Q11001</colunm>
+	
+	<colunm fxy="0-11-2-0" name="Wind Speed" dec="风速" datatype="double" expression="{0}" >V11002</colunm>
+	<colunm fxy="0-11-2-0" name="Wind Speed QC" dec="风速质量标质" datatype="double" expression="{0}" qc="true" default="9">Q11002</colunm>
+	
+	<colunm fxy="0-12-101-0" name="temperature" dec="气温" datatype="double" expression="${{0}-273.15}">V12001</colunm>
+	<colunm fxy="0-12-101-0" name="temperature_QC" dec="气温质量标志" datatype="double" expression="{0}" qc="true" default="9">Q12001</colunm>
+	
+	<colunm fxy="0-12-103-0" name="Dew_point_temperature" dec="露点温度" datatype="double" expression="${{0}-273.15}">V12003</colunm>
+	<colunm fxy="0-12-103-0" name="Dew_point_temperature_QC" dec="露点温度质量标志" datatype="double" expression="{0}" qc="true" default="9">Q12003</colunm>
+	
+	<colunm fxy="0-13-3-0" name="Relative_humidity" dec="相对湿度" datatype="double" expression="{0}">V13003</colunm>
+	<colunm fxy="0-13-3-0" name="Relative_humidity_QC" dec="相对湿度" datatype="double" expression="{0}" qc="true" default="9">Q13003</colunm>
+	
+	<colunm fxy="0-10-4-0" name="Pressure" dec="本站气压" datatype="double" expression="${{0}*0.01}">V10004</colunm>
+	<colunm fxy="0-10-4-0" name="Pressure_QC" dec="本站气压质量标志" datatype="double" expression="{0}" qc="true" default="9" >Q10004</colunm>
+	
+	<colunm fxy="0-10-51-0" name="Pressure_reduced_to_mean_sea_level" dec="海平面气压" datatype="double" expression="${{0}*0.01}">V10051</colunm>
+	<colunm fxy="0-10-51-0" name="Pressure_reduced_to_mean_sea_level_QC" dec="海平面气压质量标志" datatype="double" expression="{0}" qc="true" default="9" >Q10051</colunm>
+	 
+	<colunm fxy="0-10-63-0" name="The characteristics of pressure inclination" dec="气压倾向特征" datatype="int" expression="{0}">V10063</colunm>
+	<colunm fxy="0-10-63-0" name="The characteristics of pressure inclination QC" dec="气压倾向特征质量标志" datatype="double" expression="{0}" qc="true" default="9">Q10063</colunm>
+	
+	<colunm fxy="?" name="Air pressure (the standard layer closest to the station)" dec="气压（测站最接近的标准层）" datatype="double" default="999998">V07004</colunm>
+	<colunm fxy="?" name="Air pressure (the standard layer closest to the station) QC" dec="气压（测站最接近的标准层）质量标志" datatype="double" qc="true" default="9">Q07004</colunm>
+	
+	<colunm fxy="?" name="Potential height (standard layer)" dec="位势高度（标准层）" datatype="double" default="999998">V10009</colunm>
+	<colunm fxy="?" name="Potential height (standard layer) QC" dec="位势高度（标准层）质量标志" datatype="double" qc="true" default="9">Q10009</colunm>
+	
+	<colunm fxy="0-10-61-0" name="3-hour_pressure_change" dec="3小时变压" datatype="double" expression="${{0}*0.01}">V10061</colunm>
+	<colunm fxy="0-10-61-0" name="3-hour_pressure_change_QC" dec="3小时变压质量标志" datatype="double" expression="{0}" qc="true" default="9">Q10061</colunm>
+	
+	<colunm fxy="1-2-2-0" name="One_hour_of_rain_in_the_past" dec="过去1小时降水量" datatype="double" expression="{1}">V13019</colunm>
+	<colunm fxy="1-2-2-0" name="One_hour_of_rain_in_the_past_QC" dec="过去1小时降水量质量标志" datatype="double" expression="{1}" qc="true" default="9">Q13019</colunm>
+	
+	<colunm fxy="?" name="Two_hour_of_rain_in_the_past" dec="过去2小时降水量" datatype="double" default="999998">V13011_02</colunm>
+	<colunm fxy="?" name="Two_hour_of_rain_in_the_past_QC" dec="过去2小时降水量质量标志" datatype="double" qc="true" default="9">Q13011_02</colunm>
+	
+	<colunm fxy="?" name="Precipitation_in_the_past_3_hours" dec="过去3小时降水量" datatype="double" default="999998">V13020</colunm>
+	<colunm fxy="?" name="Precipitation_in_the_past_3_hours_QC" dec="过去3小时降水量质量标志" datatype="double" qc="true" default="9">Q13020</colunm>
+	
+	<colunm fxy="1-2-2-0" name="Precipitation_in_the_past_6_hours" dec="过去6小时降水量" datatype="double" expression="{3}">V13021</colunm>
+	<colunm fxy="1-2-2-0" name="Precipitation_in_the_past_6_hours_QC" dec="过去6小时降水量质量标志" datatype="double" expression="{3}" qc="true" default="9">Q13021</colunm>
+	
+	<colunm fxy="?" name="Precipitation_in_the_past_9_hours" dec="过去9小时降水量" datatype="double" default="999998">V13011_09</colunm>
+	<colunm fxy="?" name="Precipitation_in_the_past_9_hours_QC" dec="过去9小时降水量质量标志" datatype="double" qc="true" default="9">Q13011_09</colunm>
+	
+	<colunm fxy="?" name="Precipitation_in_the_past_12_hours" dec="过去12小时降水量" datatype="double" default="999998">V13022</colunm>
+	<colunm fxy="?" name="Precipitation_in_the_past_12_hours_QC" dec="过去12小时降水量质量标志" datatype="double"  qc="true" default="9">Q13022</colunm>
+	
+	<colunm fxy="?" name="Precipitation_in_the_past_15_hours" dec="过去15小时降水量" datatype="double" default="999998">V13011_15</colunm>
+	<colunm fxy="?" name="Precipitation_in_the_past_15_hours_QC" dec="过去15小时降水量质量标志" datatype="double" qc="true" default="9">Q13011_15</colunm>
+	
+	<colunm fxy="?" name="Precipitation_in_the_past_18_hours" dec="过去18小时降水量" datatype="double" default="999998">V13011_18</colunm>
+	<colunm fxy="?" name="Precipitation_in_the_past_18_hours_QC" dec="过去18小时降水量质量标志" datatype="double" qc="true" default="9">Q13011_18</colunm>
+	
+	<colunm fxy="0-13-23-0" name="Precipitation_in_the_past_24_hours" dec="过去24小时降水量" datatype="double" expression="{0}">V13023</colunm>
+	<colunm fxy="0-13-23-0" name="Precipitation_in_the_past_24_hours_QC" dec="过去24小时降水量质量标志" datatype="double" expression="{0}" qc="true" default="9">Q13023</colunm>
+	<!--
+	<colunm fxy="1-1-0-0" name="The_height_of_a_low_or_medium_cloud" dec="低云或中云的云高" datatype="double" expression="{3}">V20013</colunm>
+	<colunm fxy="1-1-0-0" name="The_height_of_a_low_or_medium_cloud_QC" dec="低云或中云的云高质量标志" datatype="double" expression="{3}" qc="true" default="9">Q20013</colunm>
+	-->
+	<colunm fxy="0-20-13-0" name="The_height_of_a_low_or_medium_cloud" dec="低云或中云的云高" datatype="double" expression="{0}">V20013</colunm>
+	<colunm fxy="0-20-13-0" name="The_height_of_a_low_or_medium_cloud_QC" dec="低云或中云的云高质量标志" datatype="double" expression="{0}" qc="true" default="9">Q20013</colunm>
+	
+	<colunm fxy="0-20-3-0" name="Current_weather" dec="现在天气" datatype="double" expression="{0}">V20003</colunm>
+	<colunm fxy="0-20-3-0" name="Current_weather_QC" dec="现在天气质量标志" datatype="double" expression="{0}" qc="true" default="9">Q20003</colunm>
+	
+	<colunm fxy="0-20-4-0" name="Past_weather_1" dec="过去天气1" datatype="double" expression="{0}">V20004</colunm>
+	<colunm fxy="0-20-4-0" name="Past_weather_1_QC" dec="高过去天气1质量标志" datatype="double" expression="{0}" qc="true" default="9">Q20004</colunm>
+	
+	<colunm fxy="0-20-5-0" name="Past_weather_2" dec="过去天气2" datatype="double" expression="{0}">V20005</colunm>
+	<colunm fxy="0-20-5-0" name="Past_weather_2_QC" dec="过去天气2质量标志" datatype="double" expression="{0}" qc="true" default="9">Q20005</colunm>
+	
+	<colunm fxy="0-20-12-0" name="Low_cloud" dec="低云状" datatype="double" >V20350_11</colunm>
+	<colunm fxy="0-20-12-0" name="Low_cloud_QC" dec="低云状质量标志" datatype="double" qc="true" default="9">Q20350_11</colunm>
+	
+	<colunm fxy="0-20-12-1" name="Medium_cloud" dec="中云状" datatype="double" >V20350_12</colunm>
+	<colunm fxy="0-20-12-1" name="Medium_cloud_QC" dec="中云状质量标志" datatype="double" qc="true" default="9">Q20350_12</colunm>
+	
+	<colunm fxy="0-20-12-2" name="High_cloud" dec="高云状" datatype="double" >V20350_13</colunm>
+	<colunm fxy="0-20-12-2" name="High_cloud_QC" dec="高云状质量标志" datatype="double" qc="true" default="9">Q20350_13</colunm>
+ 
+	<colunm fxy="?" name="24-hour_pressure_change" dec="24小时变压" datatype="double" expression="${{0}*0.01}" default="999998">V10062</colunm>
+	<colunm fxy="?" name="24-hour_pressure_change_QC" dec="24小时变压质量标志" datatype="double" expression="{0}" qc="true" default="9">Q10062</colunm>
+	
+	<colunm fxy="?" name="24_hour_transformation_temperature" dec="24小时变温" datatype="double" expression="{0}" default="999998">V12405</colunm>
+	<colunm fxy="?" name="24_hour_transformation_temperature_QC" dec="24小时变温质量标志" datatype="double" expression="{0}" qc="true" default="9">Q12405</colunm>
+	
+	<colunm fxy="?" name="The_highest_temperature_in_the_past_12_hours" dec="过去12小时最高气温" datatype="double" default="999998">V12014</colunm>
+	<colunm fxy="?" name="The_highest_temperature_in_the_past_12_hours_QC" dec="过去12小时最高气温质量标志" datatype="double" qc="true" default="9">Q12014</colunm>
+	
+	<colunm fxy="0-12-111-0" name="The_highest_temperature_in_the_past_24_hours" dec="过去24小时最高气温" datatype="double" expression="${{0}-273.15}" >V12016</colunm>
+	<colunm fxy="0-12-111-0" name="The_highest_temperature_in_the_past_24_hours_QC" dec="过去24小时最高气温质量标志" datatype="double" expression="{0}" qc="true" default="9">Q12016</colunm>
+	
+	<colunm fxy="?" name="The_Minimum_temperature_in_the_past_12_hours" dec="过去12小时最低气温" datatype="double" default="999998">V12015</colunm>
+	<colunm fxy="?" name="The_Minimum_temperature_in_the_past_12_hours_QC" dec="过去12小时最低气温质量标志" datatype="double" qc="true" default="9">Q12015</colunm>
+	
+	<colunm fxy="0-12-112-0" name="The_Minimum_temperature_in_the_past_24_hours" dec="过去24小时最低气温" datatype="double" expression="${{0}-273.15}" >V12017</colunm>
+	<colunm fxy="0-12-112-0" name="The_Minimum_temperature_in_the_past_24_hours_QC" dec="过去24小时最低气温质量标志" datatype="double" expression="{0}" qc="true" default="9">Q12017</colunm>
+		
+	<colunm fxy="?" name="The lowest ground temperature in the last 12 hours" dec="过去12小时地面最低温度" datatype="double" expression="${{0}-273.15}" default="999998">V12013</colunm>
+	<colunm fxy="?" name="The lowest ground temperature in the last 12 hours" dec="过去12小时地面最低温度质量标志" datatype="double" expression="{0}" qc="true" default="9">Q12013</colunm>
+	
+	<colunm fxy="?" name="Ground_stat" dec="地面状态" datatype="double" expression="{0}" default="999998">V20062</colunm>
+	<colunm fxy="?" name="Ground_stat_QC" dec="地面状态质量标志" datatype="double" expression="{0}" qc="true" default="9">Q20062</colunm>
+	
+	<colunm fxy="?" name="Snow_depth" dec="积雪深度" datatype="double" expression="{0}" default="999998">V13013</colunm>
+	<colunm fxy="?" name="Snow_depth_QC" dec="积雪深度质量标志" datatype="double" expression="{0}" qc="true" default="9">Q13013</colunm>
+	
+	<colunm fxy="?" name="vapor" dec="日蒸发量" datatype="double" expression="{0}" default="999998">V13340</colunm>
+	<colunm fxy="?" name="vapor_QC" dec="日蒸发量质量标志" datatype="double" expression="{0}" qc="true" default="9">Q13340</colunm>
+	
+	<colunm fxy="?" name="Hours of sunshine in the past 1 hour" dec="过去1小时日照时数" datatype="double" expression="${{3}/60}" default="999998">V14032_01</colunm>
+	<colunm fxy="?" name="Hours of sunshine in the past 1 hour QC" dec="过去1小时日照时数质量标志" datatype="double" expression="{3}" qc="true" default="9">Q14032_01</colunm>
+	
+	<colunm fxy="?" name="Hours of sunshine in the past 24 hours" dec="过去24小时日照时数" datatype="double" expression="${{1}/60}" default="999998">V14032_24</colunm>
+	<colunm fxy="?" name="Hours of sunshine in the past 24 hours QC" dec="过去24小时日照时数质量标志" datatype="double" expression="{1}" qc="true" default="9">Q14032_24</colunm>
+
+	<colunm fxy="?" name="Net radiation in the past 1 hour" dec="过去1小时净辐射" datatype="double"  expression="{3}" default="999998">V14016_01</colunm>
+	<colunm fxy="?" name="Net radiation in the past 1 hour QC" dec="过去1小时净辐射质量标志" datatype="double"  expression="{3}" qc="true" default="9">Q14016_01</colunm>
+	
+	<colunm fxy="?" name="Net radiation in the past 24 hours" dec="过去24小时净辐射" datatype="double"  expression="{10}" default="999998">V14015</colunm>
+	<colunm fxy="?" name="Net radiation in the past 24 hours QC" dec="过去24小时净辐射质量标志" datatype="double" expression="{10}" qc="true" default="9">Q14015</colunm>
+	
+	<colunm fxy="?" name="Total solar radiation in the past hour" dec="过去1小时总太阳辐射" datatype="double" default="999998">V14021_01</colunm>
+	<colunm fxy="?" name="Total solar radiation in the past hour QC" dec="过去1小时总太阳辐射质量标志" datatype="double" qc="true" default="9">Q14021_01</colunm>
+	
+	<colunm fxy="?" name="Total solar radiation in the past 24 hours" dec="过去24小时总太阳辐射" datatype="double" default="999998">V14020</colunm>
+	<colunm fxy="?" name="Total solar radiation in the past 24 hours QC" dec="过去24小时总太阳辐射质量标志" datatype="double" qc="true" default="9">Q14020</colunm>
+	
+	<colunm fxy="?" name="Diffuse solar radiation in the past hour" dec="过去1小时漫射太阳辐射" datatype="double" expression="{5}" default="999998">V14023_01</colunm>
+	<colunm fxy="?" name="Diffuse solar radiation in the past hour QC" dec="过去1小时漫射太阳辐射质量标志" datatype="double" expression="{5}" qc="true" default="9">Q14023_01</colunm>
+	
+	<colunm fxy="?" name="Diffuse solar radiation over the past 24 hours" dec="过去24小时漫射太阳辐射" datatype="double" expression="{12}" default="999998">V14022</colunm>
+	<colunm fxy="?" name="Diffuse solar radiation over the past 24 hours QC" dec="过去24小时漫射太阳辐射质量标志" datatype="double" expression="{12}" qc="true" default="9">Q14022</colunm>
+	
+	<colunm fxy="?" name="Long wave radiation in the past hour" dec="过去1小时长波辐射" datatype="double" expression="{1}" default="999998">V14002_01</colunm>
+	<colunm fxy="?" name="Long wave radiation in the past hour QC" dec="过去1小时长波辐射质量标志" datatype="double" expression="{1}" qc="true" default="9">Q14002_01</colunm>
+	
+	<colunm fxy="?" name="Long wave radiation in the past 24 hours" dec="过去24小时长波辐射" datatype="double" expression="{8}" default="999998">V14001</colunm>
+	<colunm fxy="?" name="Long wave radiation in the past 24 hours QC" dec="过去24小时长波辐射质量标志" datatype="double" expression="{8}" qc="true" default="9">Q14001</colunm>
+	
+	<colunm fxy="?" name="Shortwave radiation in the past hour" dec="过去1小时短波辐射" datatype="double" expression="{2}" default="999998">V14004_01</colunm>
+	<colunm fxy="?" name="Shortwave radiation in the past hour QC" dec="过去1小时短波辐射质量标志" datatype="double" expression="{2}" qc="true" default="9">Q14004_01</colunm>
+	
+	<colunm fxy="?" name="Short wave radiation over the past 24 hours" dec="过去24小时短波辐射" datatype="double" expression="{9}" default="999998">V14003</colunm>
+	<colunm fxy="?" name="Short wave radiation over the past 24 hours QC" dec="过去24小时短波辐射质量标志" datatype="double" expression="{9}" qc="true" default="9">Q14003</colunm>
+	
+	<colunm fxy="?" name="Direct solar radiation in the past hour" dec="过去1小时直接太阳辐射" datatype="double" expression="{6}" default="999998">V14025_01</colunm>
+	<colunm fxy="?" name="Direct solar radiation in the past hour QC" dec="过去1小时直接太阳辐射质量标志" datatype="double" expression="{6}" qc="true" default="9">Q14025_01</colunm>
+	
+	<colunm fxy="?" name="Direct solar radiation over the past 24 hours" dec="过去24小时直接太阳辐射" datatype="double" expression="{13}" default="999998">V14024</colunm>
+	<colunm fxy="?" name="Direct solar radiation over the past 24 hours QC" dec="过去24小时直接太阳辐射质量标志" datatype="double" expression="{13}" qc="true" default="9">Q14024</colunm>
+	
+	<colunm fxy="?" name="Low clouds to move to" dec="低云移向" datatype="double" default="999998">V20054_01</colunm>
+	<colunm fxy="?" name="Low clouds to move to QC" dec="低云移向质量标志" datatype="double" qc="true" default="9">Q20054_01</colunm>
+	
+	<colunm fxy="?" name="In the clouds to move to" dec="中云移向" datatype="double" default="999998">V20054_02</colunm>
+	<colunm fxy="?" name="In the clouds to move to QC" dec="中云移向质量标志" datatype="double" qc="true" default="9">Q20054_02</colunm>
+	
+	<colunm fxy="?" name="To move to the heights of the clouds" dec="高云移向" datatype="double" default="999998">V20054_03</colunm>
+	<colunm fxy="?" name="To move to the heights of the clouds QC" dec="高云移向质量标志" datatype="double" qc="true" default="9">Q20054_03</colunm>
+	
+	<colunm fxy="?" name="A genus of topographic or vertical development clouds" dec="地形云或垂直发展云的云属" datatype="double" default="999998">V20012</colunm>
+	<colunm fxy="?" name="A genus of topographic or vertical development clouds QC" dec="地形云或垂直发展云的云属质量标志" datatype="double" qc="true" default="9">Q20012</colunm>
+	
+	<colunm fxy="?" name="Orientation of topographic or vertical development clouds" dec="地形云或垂直发展云的方位" datatype="double" default="999998">V05021</colunm>
+	<colunm fxy="?" name="Orientation of topographic or vertical development clouds QC" dec="地形云或垂直发展云的方位质量标志" datatype="double" qc="true" default="9">Q05021</colunm>
+	
+	<colunm fxy="?" name="Elevation Angle of a topographic cloud or vertical development cloud" dec="地形云或垂直发展云的高度角" datatype="double" default="999998">V07021</colunm>
+	<colunm fxy="?" name="Elevation Angle of a topographic cloud or vertical development cloud QC" dec="地形云或垂直发展云的高度角质量标志" datatype="double" qc="true" default="9">Q07021</colunm>
+	
+	<colunm fxy="?" name="cloud attribute 1" dec="云属1" datatype="double" expression="{0}" default="999998">V20012_01</colunm>
+	<colunm fxy="?" name="cloud attribute 1 QC" dec="云属1质量标志" datatype="double" expression="{0}" qc="true" default="9">Q20012_01</colunm>
+	
+	<colunm fxy="?" name="Cloud amount of cloud attribute 1" dec="云属1的云量" datatype="double" default="999998">V20011_01</colunm>
+	<colunm fxy="?" name="Cloud amount of cloud attribute 1 QC" dec="云属1的云量质量标志" datatype="double" qc="true" default="9">Q20011_01</colunm>
+	
+	<colunm fxy="?" name="Cloud height of cloud attribute 1" dec="云属1的云高" datatype="double" default="999998">V20013_01</colunm>
+	<colunm fxy="?" name="Cloud height of cloud attribute 1 QC" dec="云属1的云高质量标志" datatype="double" qc="true" default="9">Q20013_01</colunm>
+	
+	<colunm fxy="?" name="cloud attribute 2" dec="云属2" datatype="double" expression="{0}" default="999998">V20012_02</colunm>
+	<colunm fxy="?" name="cloud attribute 2 QC" dec="云属2质量标志" datatype="double" expression="{0}" qc="true" default="9">Q20012_02</colunm>
+	
+	<colunm fxy="?" name="Cloud amount of cloud attribute 2" dec="云属2的云量" datatype="double" default="999998">V20011_02</colunm>
+	<colunm fxy="?" name="Cloud amount of cloud attribute 2 QC" dec="云属2的云量质量标志" datatype="double" qc="true" default="9">Q20011_02</colunm>
+	
+	<colunm fxy="?" name="Cloud height of cloud attribute 2" dec="云属2的云高" datatype="double" default="999998">V20013_02</colunm>
+	<colunm fxy="?" name="Cloud height of cloud attribute 2 QC" dec="云属2的云高质量标志" datatype="double" qc="true" default="9">Q20013_02</colunm>
+	
+	<colunm fxy="?" name="cloud attribute 3" dec="云属3" datatype="double" expression="{0}" default="999998">V20012_03</colunm>
+	<colunm fxy="?" name="cloud attribute 3 QC" dec="云属3质量标志" datatype="double" expression="{0}" qc="true" default="9">Q20012_03</colunm>
+	
+	<colunm fxy="?" name="Cloud amount of cloud attribute 3" dec="云属3的云量" datatype="double" default="999998">V20011_03</colunm>
+	<colunm fxy="?" name="Cloud amount of cloud attribute 3 QC" dec="云属3的云量质量标志" datatype="double" qc="true" default="9">Q20011_03</colunm>
+	
+	<colunm fxy="?" name="Cloud height of cloud attribute 3" dec="云属3的云高" datatype="double" default="999998">V20013_03</colunm>
+	<colunm fxy="?" name="Cloud height of cloud attribute 3 QC" dec="云属3的云高质量标志" datatype="double" qc="true" default="9">Q20013_03</colunm>
+	
+	<colunm fxy="?" name="cloud attribute of cumulonimbus" dec="积雨云的云属" datatype="double" default="999998">V20012_04</colunm>
+	<colunm fxy="?" name="cloud attribute of cumulonimbus QC" dec="积雨云的云属质量标志" datatype="double" qc="true" default="9">Q20012_04</colunm>
+	
+	<colunm fxy="?" name="cloud amount of cumulonimbus" dec="积雨云的云量" datatype="double" default="999998">V20011_04</colunm>
+	<colunm fxy="?" name="cloud amount of cumulonimbus QC" dec="积雨云的云量质量标志" datatype="double" qc="true" default="9">Q20011_04</colunm>
+	
+	<colunm fxy="?" name="cloud height of cumulonimbus" dec="积雨云的云高" datatype="double" default="999998">V20013_04</colunm>
+	<colunm fxy="?" name="cloud height of cumulonimbus QC" dec="积雨云的云高质量标志" datatype="double" qc="true" default="9">Q20013_04</colunm>
+	
+	<colunm fxy="?" name="Special weather phenomenon 1" dec="特殊天气现象1" datatype="double" default="999998">V20063_01</colunm>
+	<colunm fxy="?" name="Special weather phenomenon 1 QC" dec="特殊天气现象1质量标志" datatype="double" qc="true" default="9">Q20063_01</colunm>
+	
+	<colunm fxy="?" name="Special weather phenomenon 2" dec="特殊天气现象2" datatype="double" default="999998">V20063_02</colunm>
+	<colunm fxy="?" name="Special weather phenomenon 2 QC" dec="特殊天气现象2质量标志" datatype="double" qc="true" default="9">Q20063_02</colunm>
+	
+	<colunm fxy="?" name="Special weather phenomenon 3" dec="特殊天气现象3" datatype="double" default="999998">V20063_03</colunm>
+	<colunm fxy="?" name="Special weather phenomenon 3 QC" dec="特殊天气现象3质量标志" datatype="double" qc="true" default="9">Q20063_03</colunm>
+	
+</root>

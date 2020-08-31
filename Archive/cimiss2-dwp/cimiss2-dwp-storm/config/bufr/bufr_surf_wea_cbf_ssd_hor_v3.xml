@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	
+	<!-- fxy:前三个值bufr文件数据段识别码,第4个值为整个数据段中第几次出现的识别码 -->
+	<!-- name:对应的字段名称 -->
+	<!-- dec:字段说明 -->
+	<!-- datatype:字段类型 -->
+	<!-- defaultValue:如果从bufr文件中取出的数据为空设置默认值 -->
+	<!-- qc:true或false,此行是否为质控码 -->
+	<!-- expression:配置此行字段值的表达式
+			表达式说明:
+				${col:arg} -> 当前配置文件中对应的字段值，arg：配置文件中配置的字段
+				${dateFormat(arg1,arg2,arg3)} -> 日期格式化,arg1:日期字符串20170809001211，arg2:arg1的格式yyyyMMddHHmmss，arg3:转换后的日期格式(如：yyyy-MM-dd HH:mm:ss) 
+				${dateTime} -> 获取系统当前时间,默认格式为yyyyMMddHHmmss
+				${ascii:arg} -> arg代表的值转换为ascii码
+				${stationInfo(arg1,arg2,arg3)} -> 根据站号从stationinfo_conf.lua配置文件中取值，第一个参数arg1：字符站号；第二个参数arg2：站号对应的序列号
+				${seqDayFormat(arg1,arg2,arg3)} -> 序日的格式化，第一个参数arg1：4位年；第二个参数arg2：序日(1-3位数字)；第三个参数arg3：格式(遵循java中的日期格式化pattern)
+				#########################################################
+				${col:arg} ${seqDayFormat(arg1,arg2,arg3)} ${stationInfo(arg1,arg2)} ${dateFormat(arg1,arg2,arg3)} 这几个表达式后都可以根据需要添加.split('')[]和.substring()表达式
+				.split('')[]按单引号中的符号分隔前面表达式的值，中括号中是分隔后取第n-1个
+				.substring(snum,enum) 在紧前面的表达式的值中截取snum到enum字符串,包前不包后
+	 -->
+	<colunm fxy="D_RECORD_ID" name="id" dec="主键" datatype="string" expression="${col:V01301}_${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} 00:00:00,yyyy-MM-dd HH:mm:ss,yyyyMMddHHmmss)}">D_RECORD_ID</colunm>
+	<colunm fxy="D_DATA_ID" name="data_id" dec="资料标识" datatype="string" default="A.0011.0001.S001">D_DATA_ID</colunm>
+	<colunm fxy="D_IYMDHM" name="insert datetime" dec="入库时间" datatype="date" expression="${dateFormat(${dateTime},yyyyMMddHHmmss,yyyy-MM-dd HH:mm:ss)}">D_IYMDHM</colunm>
+	<colunm fxy="D_RYMDHM" name="recive_datetime" dec="收到时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_RYMDHM</colunm>	
+	<colunm fxy="D_UPDATE_TIME" name="update datetime" dec="更新时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_UPDATE_TIME</colunm>
+	<colunm fxy="D_DATETIME" name="data datetime" dec="资料时间" datatype="date" expression="${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} 00:00:00,yyyy-MM-dd HH:mm:ss,yyyy-MM-dd HH:mm:ss)}">D_DATETIME</colunm>
+	<colunm fxy="V_BBB" name="V_BBB" dec="更正报标识" datatype="string"  default="000">V_BBB</colunm>
+	<colunm fxy="0-1-1-0" name="WMO_block_number" dec="区站号" datatype="string">V01301</colunm>
+	<colunm fxy="V01300" name="stationId_N" dec="区站号(数字)" datatype="string" expression="${ascii:${col:V01301}}">V01300</colunm>
+	<colunm fxy="0-5-1-0" name="Latitude" dec="纬度" datatype="double" >V05001</colunm>
+	<colunm fxy="0-6-1-0" name="Longitude" dec="经度" datatype="double" >V06001</colunm>
+	<colunm fxy="0-7-30-0" name="Height_of_station_ground_above_mean_sea_level" dec="测站高度" datatype="double" >V07001</colunm>
+	<colunm fxy="V02301" name="stationLevel" dec="台站级别" datatype="string" expression="${stationInfo(${col:V01301},01,999999)}.split(',')[6]">V02301</colunm>
+	<colunm fxy="V_ACODE" name="adminCode" dec="行政区划代码" datatype="string" expression="${stationInfo(${col:V01301},01,999999)}.split(',')[5]" default="999999">V_ACODE</colunm>
+	<colunm fxy="0-2-207-0" name="Sunshine_hour_system" dec="日照时制方式" datatype="double" default="999998">V14332</colunm>
+	<colunm fxy="1-7-0-0" name="year" dec="资料年" datatype="int" expression="{0-4-1-0}">V04001</colunm>
+	<colunm fxy="1-7-0-0" name="Month" dec="资料月" datatype="int" expression="{0-4-2-0}">V04002</colunm>
+	<colunm fxy="1-7-0-0" name="Day" dec="资料日" datatype="int" expression="{0-4-3-0}">V04003</colunm>
+	
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_00-01_hours" dec="00-01时日照时数" datatype="double" expression="{0-14-31-0}/60">V14032_001</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_00-01_hours_QC" dec="00-01时日照时数质量标志" datatype="double" expression="{0-14-31-0}" qc="true" default="9" >Q14032_001</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_01-02_hours" dec="01-02时日照时数" datatype="double" expression="{0-14-31-1}/60">V14032_002</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_01-02_hours_QC" dec="01-02时日照时数质量标志" datatype="double" expression="{0-14-31-1}" qc="true" default="9" >Q14032_002</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_02-03_hours" dec="02-03时日照时数" datatype="double" expression="{0-14-31-2}/60">V14032_003</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_02-03_hours_QC" dec="02-03时日照时数质量标志" datatype="double" expression="{0-14-31-2}" qc="true" default="9" >Q14032_003</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_03-04_hours" dec="03-04时日照时数" datatype="double" expression="{0-14-31-3}/60">V14032_004</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_03-04_hours_QC" dec="03-04时日照时数质量标志" datatype="double" expression="{0-14-31-3}" qc="true" default="9" >Q14032_004</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_04-05_hours" dec="04-05时日照时数" datatype="double" expression="{0-14-31-4}/60">V14032_005</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_04-05_hours_QC" dec="04-05时日照时数质量标志" datatype="double" expression="{0-14-31-4}" qc="true" default="9" >Q14032_005</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_05-06_hours" dec="05-06时日照时数" datatype="double" expression="{0-14-31-5}/60">V14032_006</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_05-06_hours_QC" dec="05-06时日照时数质量标志" datatype="double" expression="{0-14-31-5}" qc="true" default="9" >Q14032_006</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_06-07_hours" dec="06-07时日照时数" datatype="double" expression="{0-14-31-6}/60">V14032_007</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_06-07_hours_QC" dec="06-07时日照时数质量标志" datatype="double" expression="{0-14-31-6}" qc="true" default="9" >Q14032_007</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_07-08_hours" dec="07-08时日照时数" datatype="double" expression="{0-14-31-7}/60">V14032_008</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_07-08_hours_QC" dec="07-08时日照时数质量标志" datatype="double" expression="{0-14-31-7}" qc="true" default="9" >Q14032_008</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_08-09_hours" dec="08-09时日照时数" datatype="double" expression="{0-14-31-8}/60">V14032_009</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_08-09_hours_QC" dec="08-09时日照时数质量标志" datatype="double" expression="{0-14-31-8}" qc="true" default="9" >Q14032_009</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_09-10_hours" dec="09-10时日照时数" datatype="double" expression="{0-14-31-9}/60">V14032_010</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_09-10_hours_QC" dec="09-10时日照时数质量标志" datatype="double" expression="{0-14-31-9}" qc="true" default="9" >Q14032_010</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_10-11_hours" dec="10-11时日照时数" datatype="double" expression="{0-14-31-10}/60">V14032_011</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_10-11_hours_QC" dec="10-11时日照时数质量标志" datatype="double" expression="{0-14-31-10}" qc="true" default="9" >Q14032_011</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_11-12_hours" dec="11_12时日照时数" datatype="double" expression="{0-14-31-11}/60">V14032_012</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_11-12_hours_QC" dec="11-12时日照时数质量标志" datatype="double" expression="{0-14-31-11}" qc="true" default="9" >Q14032_012</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_12-13_hours" dec="12-13时日照时数" datatype="double" expression="{0-14-31-12}/60">V14032_013</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_12-13_hours_QC" dec="12-13时日照时数质量标志" datatype="double" expression="{0-14-31-12}" qc="true" default="9" >Q14032_013</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_13-14_hours" dec="13-14时日照时数" datatype="double" expression="{0-14-31-13}/60">V14032_014</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_13-14_hours_QC" dec="13-14时日照时数质量标志" datatype="double" expression="{0-14-31-13}" qc="true" default="9" >Q14032_014</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_14-15_hours" dec="14-15时日照时数" datatype="double" expression="{0-14-31-14}/60">V14032_015</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_14-15_hours_QC" dec="14-15时日照时数质量标志" datatype="double" expression="{0-14-31-14}" qc="true" default="9" >Q14032_015</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_15-16_hours" dec="15-16时日照时数" datatype="double" expression="{0-14-31-15}/60">V14032_016</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_15-16_hours_QC" dec="15-16时日照时数质量标志" datatype="double" expression="{0-14-31-15}" qc="true" default="9" >Q14032_016</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_16-17_hours" dec="16-17时日照时数" datatype="double" expression="{0-14-31-16}/60">V14032_017</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_16-17_hours_QC" dec="16-17时日照时数质量标志" datatype="double" expression="{0-14-31-16}" qc="true" default="9" >Q14032_017</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_17-18_hours" dec="17-18时日照时数" datatype="double" expression="{0-14-31-17}/60">V14032_018</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_17-18_hours_QC" dec="17-18时日照时数质量标志" datatype="double" expression="{0-14-31-17}" qc="true" default="9" >Q14032_018</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_18-19_hours" dec="18-19时日照时数" datatype="double" expression="{0-14-31-18}/60">V14032_019</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_18-19_hours_QC" dec="18-19时日照时数质量标志" datatype="double" expression="{0-14-31-18}" qc="true" default="9" >Q14032_019</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_19-20_hours" dec="19-20时日照时数" datatype="double" expression="{0-14-31-19}/60">V14032_020</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_19-20_hours_QC" dec="19-20时日照时数质量标志" datatype="double" expression="{0-14-31-19}" qc="true" default="9" >Q14032_020</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_20-21_hours" dec="20-21时日照时数" datatype="double" expression="{0-14-31-20}/60">V14032_021</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_20-21_hours_QC" dec="20-21时日照时数质量标志" datatype="double" expression="{0-14-31-20}" qc="true" default="9" >Q14032_021</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_21-22_hours" dec="21-22时日照时数" datatype="double" expression="{0-14-31-21}/60">V14032_022</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_21-22_hours_QC" dec="21-22时日照时数质量标志" datatype="double" expression="{0-14-31-21}" qc="true" default="9" >Q14032_022</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_22-23_hours" dec="22-23时日照时数" datatype="double" expression="{0-14-31-22}/60">V14032_023</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_22-23_hours_QC" dec="22-23时日照时数质量标志" datatype="double" expression="{0-14-31-22}" qc="true" default="9" >Q14032_023</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_23-24_hours" dec="23-24时日照时数" datatype="double" expression="{0-14-31-23}/60">V14032_024</colunm>
+	<colunm fxy="1-3-24-0" name="Hours_of_sunshine_at_23-24_hours_QC" dec="23-24时日照时数质量标志" datatype="double" expression="{0-14-31-23}" qc="true" default="9" >Q14032_024</colunm>
+	
+	<colunm fxy="1-7-0-0" name="Day_nshine_hours" dec="日日照时数" datatype="double" expression="{0-14-31-0}/60" default="999998">V14032</colunm>
+	<colunm fxy="1-7-0-0" name="Day_nshine_hours_QC" dec="日日照时数质量标志" datatype="double" expression="{0-14-31-0}" qc="true" default="9" >Q14032</colunm>
+	<colunm fxy="" name="" datatype="string" default="A.0001.0044.R001">D_SOURCE_ID</colunm>
+</root>

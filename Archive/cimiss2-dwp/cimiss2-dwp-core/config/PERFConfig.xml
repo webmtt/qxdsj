@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PERF>
+	<Type id="base">
+		<TABLE_HOR>surf_wea_chn_hor_all_perf_tab</TABLE_HOR>
+		<TABLE_MIN>surf_wea_chn_min_all_perf_tab</TABLE_MIN>
+		<TABLE_REP>surf_wea_chn_rep_tab</TABLE_REP>
+		<BATCHSIZE>1000</BATCHSIZE>
+		<INTERVALTIME>3600000</INTERVALTIME><!-- 毫秒 -->
+		<DATASOURCE>2</DATASOURCE>
+	</Type>
+	<Type id="DIEI">
+		<DI_OPTION>false</DI_OPTION>
+		<EI_OPTION>false</EI_OPTION>
+	</Type>
+	<Type id="file">
+		<SRC>/home/dpc/xzh/data</SRC>
+		<TARGET>/home/dpc/xzh/data1</TARGET>
+	</Type>
+</PERF>

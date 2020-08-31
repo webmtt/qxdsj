@@ -1,0 +1,239 @@
+package com.piesat.kettlescheduler.model;
+
+import java.io.Serializable;
+import java.util.Date;
+
+/**
+ * k_trans
+ * @author 
+ */
+public class KTrans implements Serializable {
+    /**
+     * 转换ID
+     */
+    private Integer transId;
+
+    private Integer categoryId;
+
+    /**
+     * 转换名称
+     */
+    private String transName;
+
+    /**
+     * 1:数据库资源库；2:上传的文件
+     */
+    private Integer transType;
+
+    /**
+     * 转换的资源库ID
+     */
+    private Integer transRepositoryId;
+
+    /**
+     * 定时策略（外键ID）
+     */
+    private Integer transQuartz;
+
+    /**
+     * 转换执行记录（外键ID）
+     */
+    private Integer transRecord;
+
+    /**
+     * 日志级别(basic，detail，error，debug，minimal，rowlevel）
+     */
+    private String transLogLevel;
+
+    /**
+     * 状态（1：正在运行；2：已停止）
+     */
+    private Integer transStatus;
+
+    /**
+     * 添加时间
+     */
+    private Date addTime;
+
+    /**
+     * 添加者
+     */
+    private Integer addUser;
+
+    /**
+     * 编辑时间
+     */
+    private Date editTime;
+
+    /**
+     * 编辑者
+     */
+    private Integer editUser;
+
+    /**
+     * 是否删除（1：存在；0：删除）
+     */
+    private Integer delFlag;
+
+    /**
+     * 转换描述
+     */
+    private String transDescription;
+
+    /**
+     * 转换保存路径（可以是资源库中的路径也可以是服务器中保存作业文件的路径）
+     */
+    private String transPath;
+
+    private static final long serialVersionUID = 1L;
+
+    public Integer getTransId() {
+        return transId;
+    }
+
+    public void setTransId(Integer transId) {
+        this.transId = transId;
+    }
+
+    public Integer getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Integer categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public String getTransName() {
+        return transName;
+    }
+
+    public void setTransName(String transName) {
+        this.transName = transName;
+    }
+
+    public Integer getTransType() {
+        return transType;
+    }
+
+    public void setTransType(Integer transType) {
+        this.transType = transType;
+    }
+
+    public Integer getTransRepositoryId() {
+        return transRepositoryId;
+    }
+
+    public void setTransRepositoryId(Integer transRepositoryId) {
+        this.transRepositoryId = transRepositoryId;
+    }
+
+    public Integer getTransQuartz() {
+        return transQuartz;
+    }
+
+    public void setTransQuartz(Integer transQuartz) {
+        this.transQuartz = transQuartz;
+    }
+
+    public Integer getTransRecord() {
+        return transRecord;
+    }
+
+    public void setTransRecord(Integer transRecord) {
+        this.transRecord = transRecord;
+    }
+
+    public String getTransLogLevel() {
+        return transLogLevel;
+    }
+
+    public void setTransLogLevel(String transLogLevel) {
+        this.transLogLevel = transLogLevel;
+    }
+
+    public Integer getTransStatus() {
+        return transStatus;
+    }
+
+    public void setTransStatus(Integer transStatus) {
+        this.transStatus = transStatus;
+    }
+
+    public Date getAddTime() {
+        return addTime;
+    }
+
+    public void setAddTime(Date addTime) {
+        this.addTime = addTime;
+    }
+
+    public Integer getAddUser() {
+        return addUser;
+    }
+
+    public void setAddUser(Integer addUser) {
+        this.addUser = addUser;
+    }
+
+    public Date getEditTime() {
+        return editTime;
+    }
+
+    public void setEditTime(Date editTime) {
+        this.editTime = editTime;
+    }
+
+    public Integer getEditUser() {
+        return editUser;
+    }
+
+    public void setEditUser(Integer editUser) {
+        this.editUser = editUser;
+    }
+
+    public Integer getDelFlag() {
+        return delFlag;
+    }
+
+    public void setDelFlag(Integer delFlag) {
+        this.delFlag = delFlag;
+    }
+
+    public String getTransDescription() {
+        return transDescription;
+    }
+
+    public void setTransDescription(String transDescription) {
+        this.transDescription = transDescription;
+    }
+
+    public String getTransPath() {
+        return transPath;
+    }
+
+    public void setTransPath(String transPath) {
+        this.transPath = transPath;
+    }
+
+    @Override
+    public String toString() {
+        return "KTrans{" +
+                "transId=" + transId +
+                ", categoryId=" + categoryId +
+                ", transName='" + transName + '\'' +
+                ", transType=" + transType +
+                ", transRepositoryId=" + transRepositoryId +
+                ", transQuartz=" + transQuartz +
+                ", transRecord=" + transRecord +
+                ", transLogLevel='" + transLogLevel + '\'' +
+                ", transStatus=" + transStatus +
+                ", addTime=" + addTime +
+                ", addUser=" + addUser +
+                ", editTime=" + editTime +
+                ", editUser=" + editUser +
+                ", delFlag=" + delFlag +
+                ", transDescription='" + transDescription + '\'' +
+                ", transPath='" + transPath + '\'' +
+                '}';
+    }
+}

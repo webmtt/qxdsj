@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	
+	<!-- fxy:前三个值bufr文件数据段识别码,第4个值为整个数据段中第几次出现的识别码 -->
+	<!-- name:对应的字段名称 -->
+	<!-- dec:字段说明 -->
+	<!-- datatype:字段类型 -->
+	<!-- defaultValue:如果从bufr文件中取出的数据为空设置默认值 -->
+	<!-- qc:true或false,此行是否为质控码 -->
+	<!-- expression:配置此行字段值的表达式
+			表达式说明:
+				${col:arg} -> 当前配置文件中对应的字段值，arg：配置文件中配置的字段
+				${dateFormat(arg1,arg2,arg3)} -> 日期格式化,arg1:日期字符串20170809001211，arg2:arg1的格式yyyyMMddHHmmss，arg3:转换后的日期格式(如：yyyy-MM-dd HH:mm:ss) 
+				${dateTime} -> 获取系统当前时间,默认格式为yyyyMMddHHmmss
+				${ascii:arg} -> arg代表的值转换为ascii码
+				${stationInfo(arg1,arg2,arg3)} -> 根据站号从stationinfo_conf.lua配置文件中取值，第一个参数arg1：字符站号；第二个参数arg2：站号对应的序列号
+				${seqDayFormat(arg1,arg2,arg3)} -> 序日的格式化，第一个参数arg1：4位年；第二个参数arg2：序日(1-3位数字)；第三个参数arg3：格式(遵循java中的日期格式化pattern)
+				#########################################################
+				${col:arg} ${seqDayFormat(arg1,arg2,arg3)} ${stationInfo(arg1,arg2)} ${dateFormat(arg1,arg2,arg3)} 这几个表达式后都可以根据需要添加.split('')[]和.substring()表达式
+				.split('')[]按单引号中的符号分隔前面表达式的值，中括号中是分隔后取第n-1个
+				.substring(snum,enum) 在紧前面的表达式的值中截取snum到enum字符串,包前不包后
+	 -->
+	<colunm fxy="D_RECORD_ID" name="id" dec="主键" datatype="string" expression="${col:V01301}_${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} ${col:V04004}:${col:V04005}:00,yyyy-MM-dd HH:mm:ss,yyyyMMddHHmmss)}">D_RECORD_ID</colunm> 
+	
+	<colunm fxy="D_DATA_ID" name="data_id" dec="资料标识" datatype="string" default="G.0016.0002.S001">D_DATA_ID</colunm>
+	<colunm fxy="?" name="" dec="" datatype="string" default="">D_SOURCE_ID</colunm>
+	<colunm fxy="D_IYMDHM" name="insert datetime" dec="入库时间" datatype="date" expression="${dateFormat(${dateTime},yyyyMMddHHmmss,yyyy-MM-dd HH:mm:ss)}">D_IYMDHM</colunm>
+	<colunm fxy="D_RYMDHM" name="recive_datetime" dec="收到时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_RYMDHM</colunm>
+	
+	<colunm fxy="D_UPDATE_TIME" name="update datetime" dec="更新时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_UPDATE_TIME</colunm>
+	
+	<colunm fxy="D_DATETIME" name="data datetime" dec="资料时间" datatype="date" expression="${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} ${col:V04004}:${col:V04005}:00,yyyy-MM-dd HH:mm:ss,yyyy-MM-dd HH:mm:ss)}">D_DATETIME</colunm>
+	
+	<!-- <colunm fxy="D_DATETIME" name="D_RETRIEVAL_ TIME" dec="小时资料检索时间" datatype="date" expression="${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} 00:00:00,yyyy-MM-dd HH:mm:ss,yyyy-MM-dd HH:mm:ss)}">D_RETRIEVAL_TIME</colunm> --> 
+	<colunm fxy="V_BBB" name="V_BBB" dec="更正报标识" datatype="string"  default="000">V_BBB</colunm> 
+	<colunm fxy="0-1-1-0" name="WMO_block_number" dec="区站号" datatype="string">V01301</colunm>
+	<!--   <colunm fxy="V01300" name="stationId_N" dec="区站号(数字)" datatype="string" expression="${ascii:${col:V01301}}">V01300</colunm> -->
+	<colunm fxy="0-1-101-0" name="National and local identifiers" dec="国家和地标识符" datatype="string" default="999999">V01101</colunm>
+	<colunm fxy="0-1-192-0" name="Local station logo" dec="本地测站标识" datatype="string" default="999999">V01192</colunm>
+	<colunm fxy="0-5-1-0" name="Latitude" dec="纬度" datatype="double" >V05001</colunm>
+	<colunm fxy="0-6-1-0" name="Longitude" dec="经度" datatype="double" >V06001</colunm>
+	<colunm fxy="0-4-1-0" name="year" dec="资料年" datatype="int" >V04001</colunm>
+	<colunm fxy="0-4-2-0" name="Month" dec="资料月" datatype="int" >V04002</colunm>
+	<colunm fxy="0-4-3-0" name="day" dec="资料日" datatype="int" >V04003</colunm>
+	<colunm fxy="0-4-4-0" name="hour" dec="资料时" datatype="int" >V04004</colunm>
+	<colunm fxy="0-4-5-0" name="minute" dec="资料分" datatype="int" >V04005</colunm>
+	<colunm fxy="0-7-30-0" name="Ground height above average sea level" dec="平均海平面以上测站地面高度" datatype="double" default="999999">V07030</colunm>
+	<colunm fxy="0-7-31-0" name="Air pressure gauge height above mean sea level" dec="平均海平面以上气压表高度" datatype="double" default="999999">V07031</colunm>
+	<colunm fxy="1-21-0-0" name="Instrument Model" dec="仪器型号" datatype="string" expression="{0}" default="999999">V02241</colunm>
+	<colunm fxy="1-21-0-0" name="Serial number" dec="序列号" datatype="string"  expression="{1}" default="999999">V02208</colunm>
+	<colunm fxy="1-21-0-0" name="Method of measurement" dec="测量方法" datatype="int" expression="{2}" default="999999">V02242</colunm>
+	<colunm fxy="V_CAWN_TYPE" name="Method of measurement" dec="大气成分类型" datatype="string" default="999999">V_CAWN_TYPE</colunm>
+	<!--  <group fxy="1-16-0-0" name="" dec="" delay="5"> -->
+	<colunm fxy="1-16-0-0" name="Sampling time, minutes(world time)" dec="采样时间，分（世界时）" datatype="int" expression="{0}" default="999999">V04005_S</colunm>
+	<colunm fxy="1-16-0-0" name="Sampling time, seconds(world time)" dec="采样时间，秒（世界时）" datatype="int" expression="{1}" default="999999">V04006_S</colunm>
+	<colunm fxy="1-16-0-0" name="Mass concentration" dec="质量浓度" datatype="double" expression="{3}" default="999999">V15471</colunm>
+	<colunm fxy="1-16-0-0" name="Measuring data identification" dec="测量数据标识" datatype="string" expression="{4}" default="999999">V01324</colunm>
+	<!-- </group> --> 
+	<!-- <group fxy="1-1-0-0" name="" dec="" delay="29"> -->
+	<colunm fxy="" name="Total mass" dec="总质量" datatype="double"  default="999998">V15207</colunm>
+	<colunm fxy="" name="Main traffic" dec="主路流量" datatype="double" default="999998">V15730_M</colunm>
+	<colunm fxy="" name="Bypass flow" dec="旁路流量" datatype="double"  default="999998">V15730_S</colunm>
+	<colunm fxy="" name="Load Rate" dec="负载率" datatype="double" default="999998">V15880</colunm>
+	<colunm fxy="" name="frequency" dec="频率" datatype="double" default="999998">V15883</colunm>
+	<colunm fxy="" name="noise" dec="噪音" datatype="double"  default="999998">V15886</colunm>
+	<colunm fxy="" name="Air temperature" dec="空气温度" datatype="double" default="999998">V12001</colunm>
+	<colunm fxy="" name="Air temperature" dec="气压" datatype="double" default="999998">V10004</colunm>
+	<colunm fxy="" name="Running status code" dec="运行状态码"  datatype="double" default="999998">V02375</colunm>
+	<colunm fxy="" name="Main road temperature" dec="主路温度" datatype="double" default="999998">V12198</colunm>
+	<colunm fxy="" name="Main relative humidity" dec="主路相对湿度"  datatype="double" default="999998">V13003_M</colunm>
+	<colunm fxy="" name="Bypass relative humidity" dec="旁路相对湿度"  datatype="double" default="999998">V13003_B</colunm>
+	<colunm fxy="" name="Relative humidity of air" dec="空气相对湿度" datatype="double" default="999998">V13003_A</colunm>
+	<colunm fxy="" name="Relative humidity" dec="相对湿度"  datatype="double" default="999998">V13003</colunm>
+	<colunm fxy="" name="Flow measured by the instrument" dec="仪器测量的流量"  datatype="double" default="999998">V15730</colunm>
+	
+	<colunm fxy="1-1-0-0" name="Storage Location" dec="存储位置" expression="{0}" datatype="int" default="999999">V_STORAGE_PLACE</colunm>
+	<colunm fxy="1-1-0-0" name="Weight factor" dec="重量因数" expression="{1}" datatype="int" default="999999">V_WEIGHT_FACTOR</colunm>
+	<colunm fxy="1-1-0-0" name="GRIMM180 error code" dec="GRIMM180错误代码" expression="{2}" datatype="int" default="999999">V_ERROR_CODE</colunm>
+	<colunm fxy="1-1-0-0" name="Battery voltage code" dec="电池电压代码" expression="{3}" datatype="int" default="999999">V15752</colunm>
+	<colunm fxy="1-1-0-0" name="Valve current" dec="阀电流" expression="{4}" datatype="double" default="999999">V15765</colunm>
+	<colunm fxy="1-1-0-0" name="Integrated revised count Uele" dec="综合订正计数UeL" expression="{5}" datatype="int" default="999999">V_CORRECT_COUNT</colunm>
+	<colunm fxy="1-1-0-0" name="Air pressure count, Ue4." dec="气压计数Ue4" expression="{6}" datatype="double" default="999999">V10004_040</colunm>
+	<colunm fxy="1-1-0-0" name="Humidity Count Ue2" dec="湿度计数Ue2" expression="{8}" datatype="double" default="999999">V13003_040</colunm>
+	<colunm fxy="1-1-0-0" name="Temperature Count Ue1" dec="温度计数Ue1" expression="{9}" datatype="double" default="999999">V12001_040</colunm>
+	<colunm fxy="1-1-0-0" name="time interval" dec="时间间隔" expression="{10}" datatype="int" default="999999">V_TIME_SPACING</colunm>
+	<colunm fxy="1-1-0-0" name="Wind speed measurement factor S1" dec="风速计量因子S1" expression="{11}" datatype="double" default="999999">V11002_071</colunm>
+	<colunm fxy="1-1-0-0" name="Wind direction factor S2" dec="风向计量因子S2" expression="{12}" datatype="double" default="999999">V11001_071</colunm>
+	<colunm fxy="1-1-0-0" name="Precipitation factor S3" dec="降水计量因子S3" expression="{13}" datatype="double" default="999999">V13011_071</colunm>
+	<colunm fxy="1-1-0-0" name="Temperature slope revision T_K" dec="温度斜率订正T_K" expression="{14}" datatype="double" default="999999">V12200</colunm>
+	<colunm fxy="1-1-0-0" name="Humidity slope revision H_K" dec="湿度斜率订正H_K" expression="{15}" datatype="double" default="999999">V13198</colunm>
+	<colunm fxy="1-1-0-0" name="Pressure slope revision P_K" dec="气压斜率订正P_K" expression="{16}" datatype="double" default="999999">V10196</colunm>
+	<colunm fxy="1-1-0-0" name="Temperature offset revision T_b" dec="温度偏移订正T_b" expression="{17}" datatype="double" default="999999">V12204</colunm>
+	<colunm fxy="1-1-0-0" name="Moisture offset revision H_b" dec="湿度偏移订正H_b" expression="{18}" datatype="double" default="999999">V13199</colunm>
+	<colunm fxy="1-1-0-0" name="Pressure offset revision H_b" dec="气压偏移订正P_b" expression="{19}" datatype="double" default="999999">V10197</colunm>
+	<colunm fxy="1-1-0-0" name="Wind speed sensitivity WS" dec="风速灵敏度WS" expression="{20}" datatype="double" default="999999">V11194</colunm>
+	<colunm fxy="1-1-0-0" name="Wind inclination WD" dec="风向倾角WD" expression="{21}" datatype="double" default="999999">V11195</colunm>
+	<colunm fxy="1-1-0-0" name="Precipitation sensor revision factor Rain" dec="降水传感器订正因子Rain" expression="{22}" datatype="double" default="999999">V02440</colunm>
+	<colunm fxy="1-1-0-0" name="wind direction" dec="风向" expression="{26}" datatype="double" default="999999">V11001</colunm>
+	<colunm fxy="1-1-0-0" name="wind speed" dec="风速" expression="{27}" datatype="double" default="999999">V11002</colunm>
+	<colunm fxy="1-1-0-0" name="Precipitation" dec="降水" expression="{28}" datatype="double" default="999999">V13011</colunm>
+	<!-- </group> -->
+	
+	
+	
+</root>

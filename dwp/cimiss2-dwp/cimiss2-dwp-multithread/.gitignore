@@ -1,0 +1,15 @@
+.mymetadata
+.checkstyle
+.classpath
+.project
+.class
+.war
+.zip
+.rar
+.idea
+cimiss2-dwp-multithread.iml
+*.iml
+.settings/*
+/indexes/*
+/target/*
+

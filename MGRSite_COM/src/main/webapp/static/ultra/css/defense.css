@@ -1,0 +1,48 @@
+#count {
+	width: 80px;
+}
+
+#percentage {
+	width: 80px;
+}
+
+input {
+	margin: 0;
+}
+
+#units {
+	width: 450px;
+	text-align: center;
+	border: 1px solid #dddddd;
+	border-top: 0px;
+	margin-left: 10px;
+}
+.title {
+	width: 452px;
+	height: 30px;
+	line-height: 30px;
+	margin-left: 10px;
+}
+
+.single {
+	background-color: #f9f9f9;
+	border-bottom: 1px solid #dddddd;
+	height: 40px;
+	line-height: 40px;
+	width: 450px;
+	padding: 6px 0 0;
+}
+form{
+	margin:0px;
+	
+}
+input{
+	margin: 0px;
+}
+.double {
+	border-bottom: 1px solid #dddddd;
+	height: 40px;	
+	line-height: 40px;
+	width: 450px;
+ 	padding: 6px 0 0; 
+}

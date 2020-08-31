@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.piesat.kettlescheduler.dao.KTransDao">
+  <resultMap id="BaseResultMap" type="com.piesat.kettlescheduler.model.KTrans">
+    <id column="trans_id" jdbcType="INTEGER" property="transId" />
+    <result column="category_id" jdbcType="INTEGER" property="categoryId" />
+    <result column="trans_name" jdbcType="VARCHAR" property="transName" />
+    <result column="trans_type" jdbcType="INTEGER" property="transType" />
+    <result column="trans_repository_id" jdbcType="INTEGER" property="transRepositoryId" />
+    <result column="trans_quartz" jdbcType="INTEGER" property="transQuartz" />
+    <result column="trans_record" jdbcType="INTEGER" property="transRecord" />
+    <result column="trans_log_level" jdbcType="VARCHAR" property="transLogLevel" />
+    <result column="trans_status" jdbcType="INTEGER" property="transStatus" />
+    <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
+    <result column="add_user" jdbcType="INTEGER" property="addUser" />
+    <result column="edit_time" jdbcType="TIMESTAMP" property="editTime" />
+    <result column="edit_user" jdbcType="INTEGER" property="editUser" />
+    <result column="del_flag" jdbcType="INTEGER" property="delFlag" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.piesat.kettlescheduler.model.KTransWithBLOBs">
+    <result column="trans_description" jdbcType="LONGVARCHAR" property="transDescription" />
+    <result column="trans_path" jdbcType="LONGVARCHAR" property="transPath" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    trans_id, category_id, trans_name, trans_type, trans_repository_id, trans_quartz, 
+    trans_record, trans_log_level, trans_status, add_time, add_user, edit_time, edit_user, 
+    del_flag
+  </sql>
+  <sql id="Blob_Column_List">
+    trans_description, trans_path
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from k_trans
+    where trans_id = #{transId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from k_trans
+    where trans_id = #{transId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.piesat.kettlescheduler.model.KTransWithBLOBs">
+    insert into k_trans (trans_id, category_id, trans_name, 
+      trans_type, trans_repository_id, trans_quartz, 
+      trans_record, trans_log_level, trans_status, 
+      add_time, add_user, edit_time, 
+      edit_user, del_flag, trans_description, 
+      trans_path)
+    values (#{transId,jdbcType=INTEGER}, #{categoryId,jdbcType=INTEGER}, #{transName,jdbcType=VARCHAR}, 
+      #{transType,jdbcType=INTEGER}, #{transRepositoryId,jdbcType=INTEGER}, #{transQuartz,jdbcType=INTEGER}, 
+      #{transRecord,jdbcType=INTEGER}, #{transLogLevel,jdbcType=VARCHAR}, #{transStatus,jdbcType=INTEGER}, 
+      #{addTime,jdbcType=TIMESTAMP}, #{addUser,jdbcType=INTEGER}, #{editTime,jdbcType=TIMESTAMP}, 
+      #{editUser,jdbcType=INTEGER}, #{delFlag,jdbcType=INTEGER}, #{transDescription,jdbcType=LONGVARCHAR}, 
+      #{transPath,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.piesat.kettlescheduler.model.KTransWithBLOBs">
+    insert into k_trans
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="transId != null">
+        trans_id,
+      </if>
+      <if test="categoryId != null">
+        category_id,
+      </if>
+      <if test="transName != null">
+        trans_name,
+      </if>
+      <if test="transType != null">
+        trans_type,
+      </if>
+      <if test="transRepositoryId != null">
+        trans_repository_id,
+      </if>
+      <if test="transQuartz != null">
+        trans_quartz,
+      </if>
+      <if test="transRecord != null">
+        trans_record,
+      </if>
+      <if test="transLogLevel != null">
+        trans_log_level,
+      </if>
+      <if test="transStatus != null">
+        trans_status,
+      </if>
+      <if test="addTime != null">
+        add_time,
+      </if>
+      <if test="addUser != null">
+        add_user,
+      </if>
+      <if test="editTime != null">
+        edit_time,
+      </if>
+      <if test="editUser != null">
+        edit_user,
+      </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
+      <if test="transDescription != null">
+        trans_description,
+      </if>
+      <if test="transPath != null">
+        trans_path,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="transId != null">
+        #{transId,jdbcType=INTEGER},
+      </if>
+      <if test="categoryId != null">
+        #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="transName != null">
+        #{transName,jdbcType=VARCHAR},
+      </if>
+      <if test="transType != null">
+        #{transType,jdbcType=INTEGER},
+      </if>
+      <if test="transRepositoryId != null">
+        #{transRepositoryId,jdbcType=INTEGER},
+      </if>
+      <if test="transQuartz != null">
+        #{transQuartz,jdbcType=INTEGER},
+      </if>
+      <if test="transRecord != null">
+        #{transRecord,jdbcType=INTEGER},
+      </if>
+      <if test="transLogLevel != null">
+        #{transLogLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="transStatus != null">
+        #{transStatus,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null">
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addUser != null">
+        #{addUser,jdbcType=INTEGER},
+      </if>
+      <if test="editTime != null">
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="editUser != null">
+        #{editUser,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=INTEGER},
+      </if>
+      <if test="transDescription != null">
+        #{transDescription,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="transPath != null">
+        #{transPath,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.piesat.kettlescheduler.model.KTransWithBLOBs">
+    update k_trans
+    <set>
+      <if test="categoryId != null">
+        category_id = #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="transName != null">
+        trans_name = #{transName,jdbcType=VARCHAR},
+      </if>
+      <if test="transType != null">
+        trans_type = #{transType,jdbcType=INTEGER},
+      </if>
+      <if test="transRepositoryId != null">
+        trans_repository_id = #{transRepositoryId,jdbcType=INTEGER},
+      </if>
+      <if test="transQuartz != null">
+        trans_quartz = #{transQuartz,jdbcType=INTEGER},
+      </if>
+      <if test="transRecord != null">
+        trans_record = #{transRecord,jdbcType=INTEGER},
+      </if>
+      <if test="transLogLevel != null">
+        trans_log_level = #{transLogLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="transStatus != null">
+        trans_status = #{transStatus,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null">
+        add_time = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addUser != null">
+        add_user = #{addUser,jdbcType=INTEGER},
+      </if>
+      <if test="editTime != null">
+        edit_time = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="editUser != null">
+        edit_user = #{editUser,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=INTEGER},
+      </if>
+      <if test="transDescription != null">
+        trans_description = #{transDescription,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="transPath != null">
+        trans_path = #{transPath,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where trans_id = #{transId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.piesat.kettlescheduler.model.KTransWithBLOBs">
+    update k_trans
+    set category_id = #{categoryId,jdbcType=INTEGER},
+      trans_name = #{transName,jdbcType=VARCHAR},
+      trans_type = #{transType,jdbcType=INTEGER},
+      trans_repository_id = #{transRepositoryId,jdbcType=INTEGER},
+      trans_quartz = #{transQuartz,jdbcType=INTEGER},
+      trans_record = #{transRecord,jdbcType=INTEGER},
+      trans_log_level = #{transLogLevel,jdbcType=VARCHAR},
+      trans_status = #{transStatus,jdbcType=INTEGER},
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      add_user = #{addUser,jdbcType=INTEGER},
+      edit_time = #{editTime,jdbcType=TIMESTAMP},
+      edit_user = #{editUser,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=INTEGER},
+      trans_description = #{transDescription,jdbcType=LONGVARCHAR},
+      trans_path = #{transPath,jdbcType=LONGVARCHAR}
+    where trans_id = #{transId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.piesat.kettlescheduler.model.KTrans">
+    update k_trans
+    set category_id = #{categoryId,jdbcType=INTEGER},
+      trans_name = #{transName,jdbcType=VARCHAR},
+      trans_type = #{transType,jdbcType=INTEGER},
+      trans_repository_id = #{transRepositoryId,jdbcType=INTEGER},
+      trans_quartz = #{transQuartz,jdbcType=INTEGER},
+      trans_record = #{transRecord,jdbcType=INTEGER},
+      trans_log_level = #{transLogLevel,jdbcType=VARCHAR},
+      trans_status = #{transStatus,jdbcType=INTEGER},
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      add_user = #{addUser,jdbcType=INTEGER},
+      edit_time = #{editTime,jdbcType=TIMESTAMP},
+      edit_user = #{editUser,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=INTEGER}
+    where trans_id = #{transId,jdbcType=INTEGER}
+  </update>
+</mapper>

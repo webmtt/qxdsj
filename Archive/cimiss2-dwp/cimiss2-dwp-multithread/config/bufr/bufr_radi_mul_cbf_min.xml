@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	
+	<!-- fxy:前三个值bufr文件数据段识别码,第4个值为整个数据段中第几次出现的识别码 -->
+	<!-- name:对应的字段名称 -->
+	<!-- dec:字段说明 -->
+	<!-- datatype:字段类型 -->
+	<!-- defaultValue:如果从bufr文件中取出的数据为空设置默认值 -->
+	<!-- qc:true或false,此行是否为质控码 -->
+	<!-- expression:配置此行字段值的表达式
+			表达式说明:
+				${col:arg} -> 当前配置文件中对应的字段值，arg：配置文件中配置的字段
+				${dateFormat(arg1,arg2,arg3)} -> 日期格式化,arg1:日期字符串20170809001211，arg2:arg1的格式yyyyMMddHHmmss，arg3:转换后的日期格式(如：yyyy-MM-dd HH:mm:ss) 
+				${dateTime} -> 获取系统当前时间,默认格式为yyyyMMddHHmmss
+				${ascii:arg} -> arg代表的值转换为ascii码
+				${stationInfo(arg1,arg2,arg3)} -> 根据站号从stationinfo_conf.lua配置文件中取值，第一个参数arg1：字符站号；第二个参数arg2：站号对应的序列号
+				${seqDayFormat(arg1,arg2,arg3)} -> 序日的格式化，第一个参数arg1：4位年；第二个参数arg2：序日(1-3位数字)；第三个参数arg3：格式(遵循java中的日期格式化pattern)
+				#########################################################
+				${col:arg} ${seqDayFormat(arg1,arg2,arg3)} ${stationInfo(arg1,arg2)} ${dateFormat(arg1,arg2,arg3)} 这几个表达式后都可以根据需要添加.split('')[]和.substring()表达式
+				.split('')[]按单引号中的符号分隔前面表达式的值，中括号中是分隔后取第n-1个
+				.substring(snum,enum) 在紧前面的表达式的值中截取snum到enum字符串,包前不包后
+	 -->
+	<colunm fxy="D_RECORD_ID" name="id" dec="记录标识" datatype="string" expression="${col:V01301}_${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} ${col:V04004}:${col:V04005}:00,yyyy-MM-dd HH:mm:ss,yyyyMMddHHmmss)}">D_RECORD_ID</colunm>
+	<colunm fxy="D_DATA_ID" name="data_id" dec="资料标识" datatype="string" default="D.0013.0001.S001">D_DATA_ID</colunm>
+	<colunm fxy="D_IYMDHM" name="insert datetime" dec="入库时间" datatype="date" expression="${dateFormat(${dateTime},yyyyMMddHHmmss,yyyy-MM-dd HH:mm:ss)}">D_IYMDHM</colunm>
+	<colunm fxy="D_RYMDHM" name="recive_datetime" dec="收到时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_RYMDHM</colunm>
+	<colunm fxy="D_UPDATE_TIME" name="update datetime" dec="更新时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_UPDATE_TIME</colunm>
+	<colunm fxy="D_DATETIME" name="data datetime" dec="资料时间" datatype="date" expression="${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} ${col:V04004}:${col:V04005}:00,yyyy-MM-dd HH:mm:ss,yyyy-MM-dd HH:mm:ss)}">D_DATETIME</colunm>
+	<colunm fxy="V_BBB" name="V_BBB" dec="更正标识" datatype="string" default="000">V_BBB</colunm>
+	<colunm fxy="V01300" name="stationId_N" dec="区站号(数字)" datatype="string" expression="${ascii:${col:V01301}}">V01300</colunm>
+	<colunm fxy="0-1-1-0" name="WMO_block_number" dec="区站号" datatype="string">V01301</colunm>
+	<colunm fxy="?" name="" dec="DPC资料标识" datatype="String" default="D.0013.0001.P001">D_DATA_DPCID</colunm>
+	<colunm fxy="0-2-1-0" name="" dec="测站类型" datatype="int">V02001</colunm>
+	<colunm fxy="?" name="" dec="国家和地区标识" datatype="int" expression="${stationInfo(${col:V01301},11,999999)}.split(',')[4]">V01101</colunm>
+	<colunm fxy="0-4-1-0" name="year" dec="资料年" datatype="int" >V04001</colunm>
+	<colunm fxy="0-4-2-0" name="Month" dec="资料月" datatype="int" >V04002</colunm>
+	<colunm fxy="0-4-3-0" name="Day" dec="资料日" datatype="int" >V04003</colunm>
+	<colunm fxy="0-4-4-0" name="Hour" dec="资料时" datatype="int" >V04004</colunm>
+	<colunm fxy="0-4-5-0" name="Minute" dec="资料分" datatype="int" >V04005</colunm>
+	<colunm fxy="0-5-1-0" name="Latitude" dec="纬度" datatype="double" >V05001</colunm>
+	<colunm fxy="0-6-1-0" name="Longitude" dec="经度" datatype="double" >V06001</colunm>
+	<colunm fxy="0-7-30-0" name="Height_of_station_ground_above_mean_sea_level" dec="测站高度" datatype="double" >V07001</colunm>
+	<colunm fxy="0-7-31-0" name="Height_of_barometer_above_mean_sea_level" dec="平均海平面以上气压表高度" datatype="double" >V07031</colunm>
+	<colunm fxy="1-2-9-0" name="Solar_Direct_Radiation_sensor_height_above_ground" dec="太阳直射辐射传感器离地高度" datatype="double" expression="0-7-32-0">V07032_1</colunm>
+	<colunm fxy="1-2-9-0" name="Solar_Diffuse_Radiation_sensor_height_above_ground" dec="太阳散射辐射传感器离地高度" datatype="double" expression="0-7-32-1">V07032_2</colunm>
+	<colunm fxy="1-2-9-0" name="Total_Solar_Radiation_sensor_height_above_ground" dec="太阳总射辐射传感器离地高度" datatype="double" expression="0-7-32-2">V07032_3</colunm>
+	<colunm fxy="1-2-9-0" name="Reflection_Radiation_sensor_height_above_ground" dec="反射辐射传感器离地高度" datatype="double" expression="0-7-32-3">V07032_4</colunm>
+	<colunm fxy="1-2-9-0" name="Atmospheric_Long_Wave_Radiation_sensor_height_above_ground" dec="大气长波辐射传感器离地高度" datatype="double" expression="0-7-32-4">V07032_5</colunm>
+	<colunm fxy="1-2-9-0" name="Earth_Long_Wave_Radiation_sensor_height_above_ground" dec="地球长波辐射传感器离地高度" datatype="double" expression="0-7-32-5">V07032_6</colunm>
+	<colunm fxy="1-2-9-0" name="Ultraviolet_Radiation_sensor_height_above_ground" dec="紫外辐射传感器离地高度" datatype="double" expression="0-7-32-6">V07032_7</colunm>
+	<colunm fxy="1-2-9-0" name="Photosynthetically_Active_Radiation_sensor_height_above_ground" dec="光合有效辐射传感器离地高度" datatype="double" expression="0-7-32-7">V07032_8</colunm>
+	<colunm fxy="1-2-9-0" name="Net_Total_Radiation_sensor_height_above_ground" dec="净全辐射传感器离地高度" datatype="double" expression="0-7-32-8">V07032_14206</colunm>
+	<!--  一阶统计（=4）平均值-->
+	<colunm fxy="1-56-0-0" name="Direct_Radiation_Irradiance" dec="直接辐射辐照度" datatype="double" expression="0-14-192-0" >V14313</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="直接辐射辐照度质量标志" datatype="int" expression="0-14-192-0" qc="true" default="9" >Q14313</colunm> 
+	<colunm fxy="1-56-0-0" name="Diffuse_Radiation_Irradiance" dec="散射辐射辐照度" datatype="double" expression="0-14-193-0" >V14314</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="散射辐射辐照度质量标志" datatype="int" expression="0-14-193-0" qc="true" default="9" >Q14314</colunm> 
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance" dec="总辐射辐照度" datatype="double" expression="0-14-194-0" >V14311</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="总辐射辐照度质量标志" datatype="int" expression="0-14-194-0" qc="true" default="9">Q14311</colunm>
+	<colunm fxy="1-56-0-0" name="Reflection_Radiation_Irradiance" dec="反射辐射辐照度" datatype="double" expression="0-14-195-0" >V14315</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="反射辐射辐照度质量标志" datatype="int" expression="0-14-195-0" qc="true" default="9" >Q14315</colunm> 
+	<colunm fxy="1-56-0-0" name="Atmospheric_Long_Wave_Radiation_Irradiance" dec="大气长波辐射辐照度" datatype="double" expression="0-14-196-0" >V14196</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="大气长波辐射辐照度质量标志" datatype="int" expression="0-14-196-0" qc="true" default="9" >Q14196</colunm> 
+	<colunm fxy="1-56-0-0" name="Earth_Long_Wave_Irradiance" dec="地球长波辐射辐照度" datatype="double" expression="0-14-197-0" >V14197</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="地球长波辐射辐照度质量标志" datatype="int" expression="0-14-197-0" qc="true" default="9" >Q14197</colunm> 
+	<colunm fxy="1-56-0-0" name="Ultraviolet_Radiation(UVA)_Irradiance" dec="紫外辐射(UVA)辐照度" datatype="double" expression="0-14-198-0" >V14198</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="紫外辐射(UVA)辐照度质量标志" datatype="int" expression="0-14-198-0" qc="true" default="9" >Q14198</colunm> 
+	<colunm fxy="1-56-0-0" name="Ultraviolet_Radiation(UVB)_Irradiance" dec="紫外辐射(UVB)辐照度" datatype="double" expression="0-14-199-0" >V14199</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="紫外辐射(UVB)辐照度质量标志" datatype="int" expression="0-14-199-0" qc="true" default="9" >Q14199</colunm> 
+	<colunm fxy="1-56-0-0" name="Photosynthetically_Active_Radiation_Irradiance" dec="光合有效辐射辐照度" datatype="double" expression="0-14-200-0" >V14200</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="光合有效辐射辐照度质量标志" datatype="int" expression="0-14-200-0" qc="true" default="9" >Q14200</colunm> 
+	<colunm fxy="1-56-0-0" name="Net_Total_Radiation_Irradiance" dec="净全辐射辐照度" datatype="double" expression="0-14-206-0" >V14312</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="净全辐射辐照度质量标志" datatype="int" expression="0-14-206-0" qc="true" default="9" >Q14312</colunm> 
+	<colunm fxy="1-56-0-0" name="Ultraviolet_Radiation_Irradiance" dec="紫外辐射辐照度" datatype="double" expression="0-14-207-0" >V14316</colunm>
+	<colunm fxy="1-56-0-0" name="Ultraviolet_Radiation_Irradiance_QC" dec="紫外辐射辐照度质量标志" datatype="int" expression="0-14-207-0" qc="true" default="9">Q14316</colunm> 
+	<!--  一阶统计（=3）最小值 -->
+	<colunm fxy="1-56-0-0" name="Direct_Radiation_Irradiance" dec="直接辐射辐照度" datatype="double" expression="0-14-192-1" >V14313_06</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="直接辐射辐照度质量标志" datatype="int" expression="0-14-192-1" qc="true" default="9" >Q14313_06</colunm> 
+	<colunm fxy="1-56-0-0" name="Diffuse_Radiation_Irradiance" dec="散射辐射辐照度" datatype="double" expression="0-14-193-1" >V14314_06</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="散射辐射辐照度质量标志" datatype="int" expression="0-14-193-1" qc="true" default="9" >Q14314_06</colunm> 
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance" dec="总辐射辐照度" datatype="double" expression="0-14-194-1" >V14311_06</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="总辐射照度质量标志" datatype="int" expression="0-14-194-1" qc="true" default="9" >Q14311_06</colunm> 
+	<colunm fxy="1-56-0-0" name="Reflection_Radiation_Irradiance" dec="反射辐射辐照度" datatype="double" expression="0-14-195-1" >V14315_06</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="反射辐射辐照度质量标志" datatype="int" expression="0-14-195-1" qc="true" default="9" >Q14315_06</colunm> 
+	<colunm fxy="1-56-0-0" name="Atmospheric_Long_Wave_Radiation_Irradiance" dec="大气长波辐射辐照度" datatype="double" expression="0-14-196-1" >V14196_06</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="大气长波辐射辐照度质量标志" datatype="int" expression="0-14-196-1" qc="true" default="9" >Q14196_06</colunm> 
+	<colunm fxy="1-56-0-0" name="Earth_Long_Wave_Irradiance" dec="地球长波辐射辐照度" datatype="double" expression="0-14-197-1" >V14197_06</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="地球长波辐射辐照度质量标志" datatype="int" expression="0-14-197-1" qc="true" default="9" >Q14197_06</colunm> 
+	<colunm fxy="1-56-0-0" name="Ultraviolet_Radiation(UVA)_Irradiance" dec="紫外辐射(UVA)辐照度" datatype="double" expression="0-14-198-1" >V14198_06</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="紫外辐射(UVA)辐照度质量标志" datatype="int" expression="0-14-198-1" qc="true" default="9" >Q14198_06</colunm> 
+	<colunm fxy="1-56-0-0" name="Ultraviolet_Radiation(UVB)_Irradiance" dec="紫外辐射(UVB)辐照度" datatype="double" expression="0-14-199-1" >V14199_06</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="紫外辐射(UVB)辐照度质量标志" datatype="int" expression="0-14-199-1" qc="true" default="9" >Q14199_06</colunm> 
+	<colunm fxy="1-56-0-0" name="Photosynthetically_Active_Radiation_Irradiance" dec="光合有效辐射辐照度" datatype="double" expression="0-14-200-1" >V14200_06</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="光合有效辐射辐照度质量标志" datatype="int" expression="0-14-200-1" qc="true" default="9" >Q14200_06</colunm> 
+	<colunm fxy="1-56-0-0" name="Net_Total_Radiation_Irradiance" dec="净全辐射辐照度" datatype="double" expression="0-14-206-1" >V14312_06</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="净全辐射辐照度质量标志" datatype="int" expression="0-14-206-1" qc="true" default="9" >Q14312_06</colunm> 
+	<colunm fxy="1-56-0-0" name="Ultraviolet_Radiation_Irradiance" dec="紫外辐射辐照度" datatype="double" expression="0-14-207-1" >V14316_06</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="紫外辐射辐照度质量标志" datatype="int" expression="0-14-207-1" qc="true" default="9" >Q14316_06</colunm> 
+	<!--  一阶统计（=2）最大值 -->
+	<colunm fxy="1-56-0-0" name="Direct_Radiation_Irradiance" dec="直接辐射辐照度" datatype="double" expression="0-14-192-2" >V14313_05</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="直接辐射辐照度质量标志" datatype="int" expression="0-14-192-2" qc="true" default="9" >Q14313_05</colunm> 
+	<colunm fxy="1-56-0-0" name="Diffuse_Radiation_Irradiance" dec="散射辐射辐照度" datatype="double" expression="0-14-193-2" >V14314_05</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="散射辐射辐照度质量标志" datatype="int" expression="0-14-193-2" qc="true" default="9" >Q14314_05</colunm> 
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance" dec="总辐射辐照度" datatype="double" expression="0-14-194-2" >V14311_05</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="总辐射照度质量标志" datatype="int" expression="0-14-194-2" qc="true" default="9" >Q14311_05</colunm> 
+	<colunm fxy="1-56-0-0" name="Reflection_Radiation_Irradiance" dec="反射辐射辐照度" datatype="double" expression="0-14-195-2" >V14315_05</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="反射辐射辐照度质量标志" datatype="int" expression="0-14-195-2" qc="true" default="9" >Q14315_05</colunm> 
+	<colunm fxy="1-56-0-0" name="Atmospheric_Long_Wave_Radiation_Irradiance" dec="大气长波辐射辐照度" datatype="double" expression="0-14-196-2" >V14196_05</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="大气长波辐射辐照度质量标志" datatype="int" expression="0-14-196-2" qc="true" default="9" >Q14196_05</colunm> 
+	<colunm fxy="1-56-0-0" name="Earth_Long_Wave_Irradiance" dec="地球长波辐射辐照度" datatype="double" expression="0-14-197-2" >V14197_05</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="地球长波辐射辐照度质量标志" datatype="int" expression="0-14-197-2" qc="true" default="9" >Q14197_05</colunm> 
+	<colunm fxy="1-56-0-0" name="Ultraviolet_Radiation(UVA)_Irradiance" dec="紫外辐射(UVA)辐照度" datatype="double" expression="0-14-198-2" >V14198_05</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="紫外辐射(UVA)辐照度质量标志" datatype="int" expression="0-14-198-2" qc="true" default="9" >Q14198_05</colunm> 
+	<colunm fxy="1-56-0-0" name="Ultraviolet_Radiation(UVB)_Irradiance" dec="紫外辐射(UVB)辐照度" datatype="double" expression="0-14-199-2" >V14199_05</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="紫外辐射(UVB)辐照度质量标志" datatype="int" expression="0-14-199-2" qc="true" default="9" >Q14199_05</colunm> 
+	<colunm fxy="1-56-0-0" name="Photosynthetically_Active_Radiation_Irradiance" dec="光合有效辐射辐照度" datatype="double" expression="0-14-200-2" >V14200_05</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="光合有效辐射辐照度质量标志" datatype="int" expression="0-14-200-2" qc="true" default="9" >Q14200_05</colunm> 
+	<colunm fxy="1-56-0-0" name="Net_Total_Radiation_Irradiance" dec="净全辐射辐照度" datatype="double" expression="0-14-206-2" >V14312_05</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="净全辐射辐照度质量标志" datatype="int" expression="0-14-206-2" qc="true" default="9" >Q14312_05</colunm> 
+	<colunm fxy="1-56-0-0" name="Ultraviolet_Radiation_Irradiance" dec="紫外辐射辐照度" datatype="double" expression="0-14-207-2" >V14316_05</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="紫外辐射辐照度质量标志" datatype="int" expression="0-14-207-2" qc="true" default="9" >Q14316_05</colunm> 
+		<!--  一阶统计（=10）标准差-->
+	<colunm fxy="1-56-0-0" name="Direct_Radiation_Irradiance" dec="直接辐射辐照度" datatype="double" expression="0-14-192-3" >V14313_04</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="直接辐射辐照度质量标志" datatype="int" expression="0-14-192-3" qc="true" default="9" >Q14313_04</colunm> 
+	<colunm fxy="1-56-0-0" name="Diffuse_Radiation_Irradiance" dec="散射辐射辐照度" datatype="double" expression="0-14-193-3" >V14314_04</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="散射辐射辐照度质量标志" datatype="int" expression="0-14-193-3" qc="true" default="9" >Q14314_04</colunm> 
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance" dec="总辐射辐照度" datatype="double" expression="0-14-194-3" >V14311_04</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="总辐射辐照度质量标志" datatype="int" expression="0-14-194-3" qc="true" default="9" >Q14311_04</colunm> 
+	<colunm fxy="1-56-0-0" name="Reflection_Radiation_Irradiance" dec="反射辐射辐照度" datatype="double" expression="0-14-195-3" >V14315_04</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="反射辐射辐照度质量标志" datatype="int" expression="0-14-195-3" qc="true" default="9" >Q14315_04</colunm> 
+	<colunm fxy="1-56-0-0" name="Atmospheric_Long_Wave_Radiation_Irradiance" dec="大气长波辐射辐照度" datatype="double" expression="0-14-196-3" >V14196_04</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="总辐射照度质量标志" datatype="int" expression="0-14-196-3" qc="true" default="9" >Q14196_04</colunm> 
+	<colunm fxy="1-56-0-0" name="Earth_Long_Wave_Irradiance" dec="地球长波辐射辐照度" datatype="double" expression="0-14-197-3" >V14197_04</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="总辐射照度质量标志" datatype="int" expression="0-14-197-3" qc="true" default="9" >Q14197_04</colunm> 
+	<colunm fxy="1-56-0-0" name="Ultraviolet_Radiation(UVA)_Irradiance" dec="紫外辐射(UVA)辐照度" datatype="double" expression="0-14-198-3" >V14198_04</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="总辐射照度质量标志" datatype="int" expression="0-14-198-3" qc="true" default="9" >Q14198_04</colunm> 
+	<colunm fxy="1-56-0-0" name="Ultraviolet_Radiation(UVB)_Irradiance" dec="紫外辐射(UVB)辐照度" datatype="double" expression="0-14-199-3" >V14199_04</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="总辐射照度质量标志" datatype="int" expression="0-14-199-3" qc="true" default="9" >Q14199_04</colunm> 
+	<colunm fxy="1-56-0-0" name="Photosynthetically_Active_Radiation_Irradiance" dec="光合有效辐射辐照度" datatype="double" expression="0-14-200-3" >V14200_04</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="总辐射照度质量标志" datatype="int" expression="0-14-200-3" qc="true" default="9" >Q14200_04</colunm> 
+	<colunm fxy="1-56-0-0" name="Net_Total_Radiation_Irradiance" dec="净全辐射辐照度" datatype="double" expression="0-14-206-3" >V14312_04</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="总辐射照度质量标志" datatype="int" expression="0-14-206-3" qc="true" default="9" >Q14312_04</colunm> 
+	<colunm fxy="1-56-0-0" name="Ultraviolet_Radiation_Irradiance" dec="紫外辐射辐照度" datatype="double" expression="0-14-207-3" >V14316_04</colunm>
+	<colunm fxy="1-56-0-0" name="Total_Radiation_Irradiance_QC" dec="总辐射照度质量标志" datatype="int" expression="0-14-207-3" qc="true" default="9" >Q14316_04</colunm> 
+	<!--  通风速度 & 平均温度-->
+	<colunm fxy="1-1-5-0" name="Average_ventilation_speed_of_radiometer-Diffuse_Radiation" dec="辐射表平均通风速度-散射辐射" datatype="double" expression="{0}" >V14402</colunm>
+	<colunm fxy="1-1-5-0" name="Average_ventilation_speed_of_radiometer-Diffuse_Radiation" dec="辐射表平均通风速度-散射辐射" datatype="int" expression="{0}" qc="true" default="9" >Q14402</colunm>
+	<colunm fxy="1-1-5-0" name="Average_ventilation_speed_of_radiometer-Total_Radiation" dec="辐射表平均通风速度-总辐射" datatype="double" expression="{1}" >V14401</colunm>
+	<colunm fxy="1-1-5-0" name="Average_ventilation_speed_of_radiometer-Total_Radiation" dec="辐射表平均通风速度-总辐射" datatype="int" expression="{1}" qc="true" default="9" >Q14401</colunm>
+	<colunm fxy="1-1-5-0" name="Average_ventilation_speed_of_radiometer-Reflection_Radiation" dec="辐射表平均通风速度-反射辐射" datatype="double" expression="{2}" >V14403</colunm>
+	<colunm fxy="1-1-5-0" name="Average_ventilation_speed_of_radiometer-Reflection_Radiation" dec="辐射表平均通风速度-反射辐射" datatype="int" expression="{2}" qc="true" default="9" >Q14403</colunm>
+	<colunm fxy="1-1-5-0" name="Average_ventilation_speed_of_radiometer-Atmospheric_Long_Wave_Radiation" dec="辐射表平均通风速度-大气长波辐射" datatype="double" expression="{3}" >V14404</colunm>
+	<colunm fxy="1-1-5-0" name="Average_ventilation_speed_of_radiometer-Atmospheric_Long_Wave_Radiation" dec="辐射表平均通风速度-大气长波辐射" datatype="int" expression="{3}" qc="true" default="9" >Q14404</colunm>
+	<colunm fxy="1-1-5-0" name="Average_ventilation_speed_of_radiometer-Earth_Long_Wave_Radiation" dec="辐射表平均通风速度-地球长波辐射" datatype="double" expression="{4}" >V14405</colunm>
+	<colunm fxy="1-1-5-0" name="Average_ventilation_speed_of_radiometer-Earth_Long_Wave_Radiation" dec="辐射表平均通风速度-地球长波辐射" datatype="int" expression="{4}" qc="true" default="9" >Q14405</colunm>
+	<colunm fxy="1-1-6-0" name="Average_temperature_of_radiometer-Diffuse_Radiation" dec="辐射表平均温度-散射辐射" datatype="double" expression="{0}" >V14412</colunm>
+	<colunm fxy="1-1-6-0" name="Average_temperature_of_radiometer-Diffuse_Radiation" dec="辐射表平均温度-散射辐射" datatype="int" expression="{0}" qc="true" default="9" >Q14412</colunm>
+	<colunm fxy="1-1-6-0" name="Average_temperature_of_radiometer-Total_Radiation" dec="辐射表平均温度-总辐射" datatype="double" expression="{1}" >V14411</colunm>
+	<colunm fxy="1-1-6-0" name="Average_temperature_of_radiometer-Total_Radiation" dec="辐射表平均温度-总辐射" datatype="int" expression="{1}" qc="true" default="9" >Q14411</colunm>
+	<colunm fxy="1-1-6-0" name="Average_temperature_of_radiometer-Reflection_Radiation" dec="辐射表平均温度-反射辐射" datatype="double" expression="{2}" >V14413</colunm>
+	<colunm fxy="1-1-6-0" name="Average_temperature_of_radiometer-Reflection_Radiation" dec="辐射表平均温度-反射辐射" datatype="int" expression="{2}" qc="true" default="9" >Q14413</colunm>
+	<colunm fxy="1-1-6-0" name="Average_temperature_of_radiometer-Atmospheric_Long_Wave_Radiation" dec="辐射表平均温度-大气长波辐射" datatype="double" expression="{3}" >V14414</colunm>
+	<colunm fxy="1-1-6-0" name="Average_temperature_of_radiometer-Atmospheric_Long_Wave_Radiation" dec="辐射表平均温度-大气长波辐射" datatype="int" expression="{3}" qc="true" default="9" >Q14414</colunm>
+	<colunm fxy="1-1-6-0" name="Average_temperature_of_radiometer-Earth_Long_Wave_Radiation" dec="辐射表平均温度-地球长波辐射" datatype="double" expression="{4}" >V14415</colunm>
+	<colunm fxy="1-1-6-0" name="Average_temperature_of_radiometer-Earth_Long_Wave_Radiation" dec="辐射表平均温度-地球长波辐射" datatype="int" expression="{4}" qc="true" default="9" >Q14415</colunm>
+	<colunm fxy="1-1-6-0" name="Average_temperature_of_radiometer-Diffuse_Radiation" dec="辐射表平均温度-紫外辐射" datatype="double" expression="{5}" >V14416</colunm>
+	<colunm fxy="1-1-6-0" name="Average_temperature_of_radiometer-Diffuse_Radiation" dec="辐射表平均温度-紫外辐射" datatype="int" expression="{5}" qc="true" default="9" >Q14416</colunm>
+	<colunm fxy="D_SOURCE_ID" name="d_source_id" dec="资料四级编码" datatype="string" default="D.0001.0006.R001">D_SOURCE_ID</colunm>
+</root>

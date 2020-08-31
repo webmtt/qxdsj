@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tables>
+	<table>
+		<!-- 雷达资料-毫米波数据 -->
+		<!-- 锡林浩特毫米云雷达四级编码 -->
+
+		<!-- RabbitMQ.queueName -->
+		<queueName>Z_RADA_HMBR_XL_J.0020.0004.R001_001</queueName>
+		<!-- 资料四级编码 -->
+		<dataType>J.0020.0004.R001</dataType>
+		<!-- 存储四级编码 -->
+		<sodDataType>J.0020.0004.S001</sodDataType>
+		<!-- 是否搬移文件	0：搬，1：不搬 -->
+		<moveFileType>0</moveFileType>
+		<!-- 程序处理方式 0：接收消息，1：目录轮询 -->
+		<fileloop>1</fileloop>
+		<!-- 入库方式	0，不入库，9：通过index.txt入库索引表 -->
+		<storeType>9</storeType>
+		<!-- 要入索引库的表名 -->
+		<indexTable>RADA_CHN_DOR_CUT_F_NM_TAB</indexTable>
+		<!-- 入索引库的表名 -->
+<!--		<AtsTable>RADA_CHN_DOR_CUT_F_NM_TAB</AtsTable>-->
+		<!-- 文件名称分割符 -->
+		<splitRegex>- . _</splitRegex>
+		<!-- 存储路径 -->
+<!--		<storyPath>F:\piesat\项目\内蒙气象大数据管理云平台\解码测试2\</storyPath>-->
+		<storyPath>/CMADAAS/DATA/NM/RADA/HMBR/</storyPath>
+		<!-- 是否发生DI标识 -->
+		<diSendFlag>3</diSendFlag>
+		<!-- 重命名文件名 -->
+		<newFileName></newFileName>
+		<!-- 轮询目录 -->
+<!--		<retweetDir>F:\piesat\项目\内蒙气象大数据管理云平台\解码测试\</retweetDir>-->
+		<retweetDir>/CMADAAS/DATA/NM/RADA/HMBR2/</retweetDir>
+	</table>
+
+
+</tables>

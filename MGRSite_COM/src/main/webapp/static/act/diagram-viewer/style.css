@@ -1,0 +1,138 @@
+/**{
+	padding: 0;
+	margin: 0;
+}*/
+
+/*ul,ol{
+	list-style: none;
+}*/
+/*body{
+	font-size: 14px;
+}*/
+.slider,
+.slider .main,
+.slider .main .main-i{
+	width: 1650px;
+	margin: 0 auto;
+	height: 380px;
+	position: relative;
+}
+.slider .main{
+	overflow: hidden;
+}
+.slider .main .main-i img{
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.slider .main1 .main1-i{
+	width: 1650px;
+	margin: 0 auto;
+	height: 380px;
+	position: relative;
+}
+.slider .main1{
+	overflow: hidden;
+}
+.slider .main1 .main1-i img{
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.slider .main .main-i .caption{
+	position: absolute;
+	right: 23%;
+	top: 30%;
+	z-index: 9;
+}
+.slider .main .main-i .caption h2{
+	font-size: 50px;
+	line-height: 50px;
+	color: #000;
+	text-align: right;
+}
+.slider .main .main-i .caption h3{
+	font-size: 30px;
+	line-height: 70px;
+	color: #b5b5b5;
+	text-align: right;
+}
+.slider .ctrl{
+	width: 100%;
+	height: 13px;
+	line-height: 13px;
+	text-align: center;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+.slider .ctrl .ctrl-i{
+	display: inline-block;
+	width: 150px;
+	height: 13px;
+	background-color: #c7c7c7;
+	box-shadow: 0 1px 1px rgba(105, 190, 243, 0.3);
+	position: relative;
+	margin-left: 1px;
+}
+.slider .ctrl .ctrl-i img{
+	width: 100%;
+	position: absolute;
+	left: 0;
+	bottom: 50px;
+	z-index: 1;
+	opacity: 0;
+	-webkit-transition: all .2s;
+}
+.slider .ctrl .ctrl-i:hover{
+	background-color: #f0f0f0;
+}
+.slider .ctrl .ctrl-i:hover img{
+	bottom: 13px;
+	/*图片倒影*/
+	-webkit-box-reflect: below 0px -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		from(transparent),
+		color-stop(50%,transparent),
+		to(rgba(255,255,255,.3))
+	);
+	opacity: 1;
+}
+.slider .ctrl .ctrl-i-active,
+.slider .ctrl .ctrl-i-active:hover{
+	background-color: #69bef3;
+}
+.slider .ctrl .ctrl-i-active:hover img{
+	opacity: 0;
+}
+.slider .main .main-i{
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	right: 50%;
+	-webkit-transition: all .5s;
+}
+.slider .main .main-i h2{
+	margin-right: 45px;
+}
+.slider .main .main-i h3{
+	margin-right: -45px;
+}
+.slider .main .main-i h2,
+.slider .main .main-i h3{
+	-webkit-transition: all 1s .5s;
+	opacity: 0;
+}
+.slider .main .main-i-active{
+	opacity: 1;
+	right: 0;
+}
+.slider .main .main-i-active h2,
+.slider .main .main-i-active h3{
+	margin-right: 0;
+	opacity: 1;
+}

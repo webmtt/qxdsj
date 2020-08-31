@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nmpiesat.idata.products.dao.ProductesDao">
+  <resultMap id="BaseResultMap" type="com.nmpiesat.idata.products.entity.ProductesConfig">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="product" jdbcType="VARCHAR" property="product" />
+    <result column="userid" jdbcType="VARCHAR" property="userid" />
+    <result column="create" jdbcType="TIMESTAMP" property="create" />
+    <result column="del_flag" jdbcType="VARCHAR" property="delFlag" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="prodname" jdbcType="VARCHAR" property="prodname" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, product, userid, `create`, del_flag,username,url,prodname
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_products
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from sys_products
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <select id="getConfig" resultType="java.util.Map">
+    select * from sys_product_new
+  </select>
+
+  <select id="getUnitTypes" resultType="java.util.Map">
+    select ID,CREATEDBY,HITS,p.FILESHOWNAME as fileshowname,p.CREATED as created,p.URL as url from pro_dataindex p
+    where p.PRODUCTSUBCODE in
+    <if test="alerteproductList != null">
+      <foreach collection="alerteproductList" item="product" index="indexp"
+               open="(" close=")" separator=",">
+        #{product}
+      </foreach>
+      order by p.CREATED DESC
+    </if>
+    <if test="alerteproductList == null">
+    ((SELECT b.PRODUCTSUBCODE FROM bmp_productinfo b
+    where 1=1
+    <if test="alerteunitList!=null and alerteproductList == null">
+      and b.UNITCODE in
+    <foreach collection="alerteunitList" item="unit" index="indexu"
+             open="(" close=")" separator=",">
+      #{unit}
+    </foreach>
+    </if>
+    <if test="alertetypeList != null and alerteproductList == null">
+     and b.TYPECODE in
+    <foreach collection="alertetypeList" item="types" index="indext"
+             open="(" close=")" separator=",">
+      #{types}
+    </foreach>
+    </if>
+     ))
+    order by p.CREATED DESC
+    </if>
+  </select>
+
+  <select id="getProduct" resultType="java.util.Map">
+    select ID,CREATEDBY,HITS,p.FILESHOWNAME as fileshowname,p.CREATED as created,p.URL as url from pro_dataindex p
+    where p.PRODUCTSUBCODE in
+    <if test="forecastproductList != null">
+      <foreach collection="forecastproductList" item="product" index="indexp"
+               open="(" close=")" separator=",">
+        #{product}
+      </foreach>
+      order by p.CREATED DESC
+    </if>
+    <if test="forecastproductList == null">
+    ((SELECT b.PRODUCTSUBCODE FROM bmp_productinfo b
+    where 1=1
+    <if test="forecastunitList != null and forecastproductList == null">
+      and b.UNITCODE in
+      <foreach collection="forecastunitList" item="unit" index="indexu"
+               open="(" close=")" separator=",">
+        #{unit}
+      </foreach>
+    </if>
+    <if test="forecasttypeList != null and forecastproductList == null">
+      and b.TYPECODE in
+      <foreach collection="forecasttypeList" item="types" index="indext"
+               open="(" close=")" separator=",">
+        #{types}
+      </foreach>
+    </if>
+    ))
+    order by p.CREATED DESC
+    </if>
+
+  </select>
+
+  <insert id="insert" parameterType="com.nmpiesat.idata.products.entity.ProductesConfig">
+    insert into sys_products (id,product,`create`,del_flag,url,prodname)
+    values (#{id,jdbcType=VARCHAR}, #{product,jdbcType=VARCHAR},#{create,jdbcType=TIMESTAMP},#{delFlag,jdbcType=VARCHAR},#{url,jdbcType=VARCHAR},#{prodname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.nmpiesat.idata.products.entity.ProductesConfig">
+    insert into sys_products
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="product != null">
+        product,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="create != null">
+        `create`,
+      </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="product != null">
+        #{product,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="create != null">
+        #{create,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nmpiesat.idata.products.entity.ProductesConfig">
+    update sys_products
+    <set>
+      <if test="product != null">
+        product = #{product,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        userid = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="create != null">
+        `create` = #{create,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.nmpiesat.idata.products.entity.ProductesConfig">
+    update sys_products
+    set product = #{product,jdbcType=VARCHAR},`create`=#{create,jdbcType=TIMESTAMP}
+    <if test="prodname != null and prodname != ''">
+      ,prodname=#{prodname,jdbcType=VARCHAR}
+    </if>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <select id="getAllProducts" resultType="com.nmpiesat.idata.products.entity.ProductesConfig">
+    select * from sys_products
+  </select>
+  <select id="getProductByUrl" resultType="com.nmpiesat.idata.products.entity.ProductesConfig">
+    select * from sys_products where url=#{url}
+  </select>
+
+  <insert id="insertLog" parameterType="com.nmpiesat.idata.products.entity.ProductLog">
+    insert into OPERATION_LOG(ID,CLIENT_IP,WORD_ID,VISIT_TIME)VALUES(#{id},#{ip},#{wordId},#{date})
+  </insert>
+
+  <update id="updateOracle" parameterType="java.lang.String">
+    update idata_nm_data.pro_dataindex set
+    HITS=HITS+1,updated=to_timestamp((select to_char(max(updated)+1/24/60,'yyyy-mm-dd hh24:mi:ss') from idata_nm_data.pro_dataindex),'yyyy-mm-dd hh24:mi:ss')
+    where id=#{id}
+  </update>
+
+  <select id="getFactor" resultType="java.util.Map">
+    select * from bmp_productenumdef
+  </select>
+
+  <select id="getBmpProductInfo" resultType="java.util.Map">
+    select * from bmp_productinfo where PUBLISHSTATE=1 and VERIFYSTATUS=1
+  </select>
+
+  <select id="getType" resultType="java.lang.String">
+    select TYPECODE from bmp_productinfo
+    WHERE 1=1
+    <if test="products != null">
+      and UNITCODE in
+      <foreach collection="products" item="types" index="indext"
+               open="(" close=")" separator=",">
+        #{types}
+      </foreach>
+    </if>
+    GROUP BY TYPECODE
+  </select>
+
+  <select id="getAllUnitTypes"  resultType="java.util.Map">
+    select * from pro_dataindex
+    WHERE 1=1
+    <if test="products != null">
+      and UNITCODE in
+      <foreach collection="products" item="prod" index="indext"
+               open="(" close=")" separator=",">
+        #{prod}
+      </foreach>
+    </if>
+    and TYPECODE = #{type}
+  </select>
+
+  <select id="getTypeName" parameterType="java.lang.String" resultType="java.util.Map">
+    select TYPENAME,TOKENSNAME,TOKENSCODE,TYPECODE from bmp_productinfo where TYPECODE=#{typeCode} LIMIT 1
+  </select>
+</mapper>

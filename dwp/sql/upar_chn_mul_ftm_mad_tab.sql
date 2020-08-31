@@ -1,0 +1,20 @@
+CREATE TABLE `upar_chn_mul_ftm_mad_tab`  (
+  `D_RECORD_ID` varchar(200)  NOT NULL COMMENT '记录标识',
+  `D_DATETIME` datetime(0) NOT NULL COMMENT '资料时间',
+  `V04001` decimal(4, 0) NOT NULL COMMENT '年',
+  `V04002` decimal(2, 0) NOT NULL COMMENT '月',
+  `V01301` varchar(9)  NOT NULL COMMENT '区站号/观测平台标识(字符)',
+  `V01300` decimal(6, 0) NOT NULL COMMENT '区站号/观测平台标识(数字)',
+  `V_TIME_LEVEL` decimal(10, 4) NOT NULL COMMENT '实际观测时次',
+  `V10004` decimal(10, 4) NOT NULL COMMENT '气压',
+  `V10009` decimal(10, 4) NOT NULL COMMENT '位势高度',
+  `V12001` decimal(10, 4) NOT NULL COMMENT '温度',
+  `V12003` decimal(10, 4) NOT NULL COMMENT '露点温度',
+  `V11001` decimal(10, 4) NOT NULL COMMENT '风向',
+  `V11002` decimal(10, 4) NOT NULL COMMENT '风速',
+  `Q10009` decimal(1, 0) NOT NULL COMMENT '位势高度质量控制码',
+  `Q12001` decimal(10, 4) NOT NULL COMMENT '温度质量控制码',
+  `Q12003` decimal(1, 0) NOT NULL COMMENT '露点温度质量控制码',
+  `Q11001` decimal(1, 0) NOT NULL COMMENT '风向质量控制码',
+  `Q11002` decimal(1, 0) NOT NULL COMMENT '风速质量控制码'
+) 

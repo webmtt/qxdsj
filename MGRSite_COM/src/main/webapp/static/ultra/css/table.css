@@ -1,0 +1,98 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font: 14px normal "Î¢ÈíÑÅºÚ","ºÚÌå" Arial, Helvetica, sans-serif;
+	color: #555;
+	font-size: 14px;
+	box-sizing: border-box;
+}
+
+.right{
+	width: 780px;
+	height: auto;
+	margin: 20px auto;
+}
+.right table{
+	width: 780px;
+	height: auto;
+	border-collapse:collapse;
+	border: 1px solid #92d5fc;
+}
+.right table tr th{
+	height: 40px;
+	background-color: #c5e6f8;
+	border: 1px solid #92d5fc;
+}
+.right table tr td{
+	height: 50px;
+	border: 1px solid #92d5fc;
+}
+.right table tr td.table-left{
+	width: 140px;
+	text-align: right;
+	padding-right: 10px;
+}
+.right table tr td.table-right{
+	padding: 6px 0px 6px 6px;
+}
+.right table tr td input{
+	width: 220px;
+	height: 30px;
+	color: #555;
+	border-radius: 5px;
+	padding: 5px 0 5px 5px;
+	border-style: none;
+	border: 1px solid #ccc;
+	outline:medium;
+	vertical-align: middle;
+	box-sizing: border-box;
+	-ms-box-sizing: border-box;
+}
+.right table tr td textarea{
+	display: inline-block;
+	width: 610px;
+	height: 100px;
+	color: #555;
+	padding: 10px 5px;
+	outline: none;
+	border-radius: 5px;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+}
+.right table tr td dl dt{
+	font-weight: bold;
+}
+.right table tr td dl dt label{
+	vertical-align: middle;
+	margin-right: 10px;
+}
+.right table tr td dl dd label{
+	vertical-align: middle;
+	margin-right: 3px;
+}
+.right table tr td input.radio-input{
+	width: 14px;
+	vertical-align: middle;
+	margin-right: 3px;
+	padding: 0;
+	border: 0;
+}
+.right table tr td input.btn{
+	margin-right: 50px;
+	width: 60px;
+	padding: 0;
+	border: none;
+	margin-top: 10px;
+
+}
+.right table tr td input.btn-primary{
+	background-color: #3daae9;
+	color: #fff;
+}
+
+.starIcon {
+    color: red;
+    padding-right: 5px;
+}

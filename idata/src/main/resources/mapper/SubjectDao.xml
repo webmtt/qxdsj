@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nmpiesat.idata.subject.dao.SubjectDao">
+    <select id="getDSAccessDef" parameterType="java.lang.String" resultType="com.nmpiesat.idata.subject.entity.DSAccessDef">
+        select * from BMD_DSAccessDef where dSAccessCode =#{dSAccessCode} and invalid='0'
+    </select>
+    <select id="getPortalImageRullListByType" parameterType="java.lang.String" resultType="com.nmpiesat.idata.subject.entity.PortalImageRull">
+        select * from sup_portalimagerull where invalid = 0 order by orderno
+    </select>
+    <select id="getPortalImageProDefList" parameterType="java.lang.String" resultType="com.nmpiesat.idata.subject.entity.PortalImageProDef">
+        select * from SUP_PORTALIMAGEPRODUCTDEF order by id
+    </select>
+    <select id="getNowPngList" parameterType="java.lang.String" resultType="java.lang.String">
+        select url from ${tablename} where d_datetime &gt;= #{startime} and d_datetime &lt;= #{endtime}  and productcode =#{productcode} order by d_datetime desc
+    </select>
+    <select id="getNowPngList1" parameterType="java.lang.String" resultType="java.lang.String">
+       select url from ${tablename} where  productcode =#{productcode} order by d_datetime desc limit #{defaultcount}
+    </select>
+    <select id="getNowPng" parameterType="java.lang.String" resultType="java.lang.String">
+        select t.c_fdir||'/'||t.c_fname from odb_files t where  t.c_data_id =#{productcode} order by t.v_shijian,v_ttime
+    </select>
+    <select id="getNowPng1" parameterType="java.lang.String" resultType="java.lang.String">
+       select url from ${tablename} where d_datetime =#{maxDate} and productcode in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+    <select id="findNationWarnFile" parameterType="java.lang.String" resultType="com.nmpiesat.idata.subject.entity.NationWarnFileInfo">
+        select * from BMD_NationWarnFileInfo where invalid=0 and issueTime &gt;= TO_DATE(#{startime}, 'yyyyMMddHH24miss') and issueTime &lt;= TO_DATE(#{endtime}, 'yyyyMMddHH24miss') and warnTypeName=#{warnTypeName} order by issueTime desc
+    </select>
+    <select id="getProImgMaxDate" parameterType="java.lang.String" resultType="java.lang.Object">
+       select max(d_datetime) from ${tablename} where ispub="1" and productcode in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+     </select>
+    <select id="findMainList" parameterType="java.lang.String" resultType="com.nmpiesat.idata.subject.entity.SupSubjectdef">
+        select * from sup_subjectdef where del_flag='0' and parent_id='1' and ispub="1"
+        <if test="userid!=null">
+            and id in (select dataid from sup_datarolelimits a
+            left join sup_userdatarole dr on dr.DATAROLEID=a.ROLEDATAID
+            where dr.USERID=#{userid})
+        </if>
+        or type like '%1%'
+        order by update_date asc
+        <if test="beginNum!= null">
+            LIMIT #{beginNum},#{endNum}
+        </if>
+
+    </select>
+    <select id="findProductImg" parameterType="java.lang.String" resultType="com.nmpiesat.idata.subject.entity.ProductImgDef">
+        select * from SEVP_NMG_THEMATIC_TAB where ISPUBLISH='1' and V_PROD_CODE=#{procode} and V_ELE_KIND=#{kind}
+            <if test="startTime != null and startTime != '' and endTime!=null and endTime!=''">
+                and PRODATE &gt;=#{startTime} and PRODATE &lt;= #{endTime}
+            </if>
+        order by  PRODATE desc
+        <if test="startTime == null || startTime == ''">
+            limit 10
+        </if>
+    </select>
+    <select id="getHomeProduct" parameterType="java.lang.String" resultType="com.nmpiesat.idata.subject.entity.SupSubjectdef">
+        select * from sup_subjectdef where del_flag='0' and parent_id='1' and ispub="1" and type like '%1%' order by update_date asc limit 4
+    </select>
+    <select id="getTreeProductFree" parameterType="java.lang.String" resultType="com.nmpiesat.idata.subject.entity.SupSubjectdef">
+         select * from sup_subjectdef where del_flag='0' and ispub="1" and id in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+         order by update_date asc
+    </select>
+    <select id="getHotProduct" parameterType="java.lang.String" resultType="com.nmpiesat.idata.subject.entity.SupSubjectdef">
+        select * from sup_subjectdef where del_flag='0' and parent_id='1' and ispub="1" and type like '%2%' order by update_date asc
+    </select>
+    <select id="getFeaturesProduct" parameterType="java.lang.String" resultType="com.nmpiesat.idata.subject.entity.SupSubjectdef">
+        select * from sup_subjectdef where del_flag='0' and parent_id='1' and ispub="1" and type like '%3%' order by update_date asc
+    </select>
+    <select id="getTreeProduct" parameterType="java.lang.String" resultType="com.nmpiesat.idata.subject.entity.SupSubjectdef">
+        select * from sup_subjectdef where del_flag='0' and parent_id!='1' and ispub="1" and parent_id=#{id}
+        and id in (select dataid from sup_datarolelimits a
+        left join sup_userdatarole dr on dr.DATAROLEID=a.ROLEDATAID
+        where dr.USERID=#{userid}) order by update_date asc
+    </select>
+    <select id="getProductById" parameterType="java.lang.String" resultType="com.nmpiesat.idata.subject.entity.SupSubjectdef">
+        select * from sup_subjectdef where del_flag='0' and ispub="1" and id=#{id}
+         order by update_date asc
+    </select>
+    <select id="getTreeProductById" parameterType="java.lang.String" resultType="com.nmpiesat.idata.subject.entity.SupSubjectdef">
+        select * from sup_subjectdef where del_flag='0' and parent_id!='1' and ispub="1" and parent_id=#{id}
+         order by update_date asc
+    </select>
+    <select id="ispermissions" parameterType="java.lang.String" resultType="java.lang.String">
+        select dataid from sup_datarolelimits a
+        left join sup_userdatarole dr on dr.DATAROLEID=a.ROLEDATAID
+        where dr.USERID=#{userid}
+    </select>
+
+</mapper>

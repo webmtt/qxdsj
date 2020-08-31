@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	
+	<!-- fxy:前三个值bufr文件数据段识别码,第4个值为整个数据段中第几次出现的识别码 -->
+	<!-- name:对应的字段名称 -->
+	<!-- dec:字段说明 -->
+	<!-- datatype:字段类型 -->
+	<!-- defaultValue:如果从bufr文件中取出的数据为空设置默认值 -->
+	<!-- qc:true或false,此行是否为质控码 -->
+	<!-- expression:配置此行字段值的表达式
+			表达式说明:
+				${col:arg} -> 当前配置文件中对应的字段值，arg：配置文件中配置的字段
+				${dateFormat(arg1,arg2,arg3)} -> 日期格式化,arg1:日期字符串20170809001211，arg2:arg1的格式yyyyMMddHHmmss，arg3:转换后的日期格式(如：yyyy-MM-dd HH:mm:ss) 
+				${dateTime} -> 获取系统当前时间,默认格式为yyyyMMddHHmmss
+				${ascii:arg} -> arg代表的值转换为ascii码
+				${stationInfo(arg1,arg2,arg3)} -> 根据站号从stationinfo_conf.lua配置文件中取值，第一个参数arg1：字符站号；第二个参数arg2：站号对应的序列号
+				${seqDayFormat(arg1,arg2,arg3)} -> 序日的格式化，第一个参数arg1：4位年；第二个参数arg2：序日(1-3位数字)；第三个参数arg3：格式(遵循java中的日期格式化pattern)
+				#########################################################
+				${col:arg} ${seqDayFormat(arg1,arg2,arg3)} ${stationInfo(arg1,arg2)} ${dateFormat(arg1,arg2,arg3)} 这几个表达式后都可以根据需要添加.split('')[]和.substring()表达式
+				.split('')[]按单引号中的符号分隔前面表达式的值，中括号中是分隔后取第n-1个
+				.substring(snum,enum) 在紧前面的表达式的值中截取snum到enum字符串,包前不包后
+	 -->
+	<colunm fxy="D_RECORD_ID" name="id" dec="主键" datatype="string" expression="${dateFormat(${col:V04001_02}.substring(0,4)-${col:V04002_02}-${col:V04003_02} ${col:V04004_02}:00:00,yyyy-MM-dd HH:mm:ss,yyyyMMddHHmmss)}_${col:V01301}">D_RECORD_ID</colunm>
+	<colunm fxy="D_DATA_ID" name="data_id" dec="资料标识" datatype="string" default="B.0008.0001.S001">D_DATA_ID</colunm>
+	<colunm fxy="D_IYMDHM" name="insert datetime" dec="入库时间" datatype="date" expression="${dateFormat(${dateTime},yyyyMMddHHmmss,yyyy-MM-dd HH:mm:ss)}">D_IYMDHM</colunm>
+	<colunm fxy="D_RYMDHM" name="recive_datetime" dec="收到时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_RYMDHM</colunm>
+	<colunm fxy="D_UPDATE_TIME" name="update datetime" dec="更新时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_UPDATE_TIME</colunm>
+	<colunm fxy="D_DATETIME" name="data_datetime" dec="资料时间" datatype="date" expression="${dateFormat(${col:V04001_02}.substring(0,4)-${col:V04002_02}-${col:V04003_02} ${col:V04004_02}:00:00,yyyy-MM-dd HH:mm:ss,yyyy-MM-dd HH:mm:ss)}">D_DATETIME</colunm>
+	<colunm fxy="?" name="" dec="资料优先级" datatype="string" default="999998">V_PRIORITY</colunm>
+	<colunm fxy="D_SOURCE_ID" name="" dec="" datatype="string" default="B.0001.0017.R001" >D_SOURCE_ID</colunm>
+	<colunm fxy="?" name="" dec="报文类型" datatype="string" default="">V_TT</colunm>
+	<!--<colunm fxy="D_DATA_DPCID" name="D_DATA_DPCID" dec="DPC产品标识,DPC的4级编码" datatype="string" default="B.0011.0001.P015">D_DATA_DPCID</colunm>-->
+
+	<colunm fxy="V_BBB" name="V_BBB" dec="更正报标识" datatype="string"  default="000">V_BBB</colunm>
+	<colunm fxy="0-4-1-0" name="year" dec="资料时间（年）" datatype="int" >V04001_02</colunm>
+	<colunm fxy="0-4-2-0" name="Month" dec="资料时间（月）" datatype="int" >V04002_02</colunm>
+	<colunm fxy="0-4-3-0" name="Day" dec="" datatype="int" >V04003_02</colunm>
+	<colunm fxy="0-4-4-0" name="Hour" dec="" datatype="int" >V04004_02</colunm>
+	<colunm fxy="0-1-2-0" name="WMO_block_number" dec="区站号" datatype="string">V01301</colunm>
+	<colunm fxy="V01300" name="stationId_N" dec="区站号(数字)" datatype="string" expression="${ascii:${col:V01301}}">V01300</colunm>
+	
+	<colunm fxy="0-5-1-0" name="Latitude" dec="纬度" datatype="double" >V05001</colunm>
+	<colunm fxy="0-6-1-0" name="Longitude" dec="经度" datatype="double" >V06001</colunm>
+	<colunm fxy="0-7-30-0" name="Height_of_station_ground_above_mean_sea_level" dec="测站高度" datatype="double" >V07001</colunm>
+	
+	<colunm fxy="0-4-1-0" name="year" dec="气球施放时间（年）" datatype="int" >V04001</colunm>
+	<colunm fxy="0-4-2-0" name="Month" dec="气球施放时间（月）" datatype="int" >V04002</colunm>
+	<colunm fxy="0-4-3-0" name="Day" dec="气球施放时间（日）" datatype="int" >V04003</colunm>
+	<colunm fxy="0-4-4-0" name="Hour" dec="气球施放时间（时）" datatype="int" >V04004</colunm>
+	<colunm fxy="0-4-5-0" name="Minute" dec="气球施放时间（分）" datatype="int" default="0">V04005</colunm>
+	<colunm fxy="0-4-6-0" name="Second" dec="气球施放时间（秒）" datatype="int" default="0">V04006</colunm>
+	
+	<colunm fxy="0-1-81-0" name="无线电探空仪系列号" dec="" datatype="string" default="999998">V01081</colunm>
+	<colunm fxy="0-1-82-0" name="无线电探空仪上升序列号" dec="" datatype="int" default="999998">V01082</colunm>
+	<colunm fxy="0-2-67-0" name="无线电探空仪业务频率" dec="" datatype="double" default="999998">V02067</colunm>
+	<colunm fxy="0-2-81-0" name="气球类型" dec="" datatype="int" default="999998">V02081</colunm>
+	<colunm fxy="0-2-84-0" name="气球中所用的气体类型" dec="" datatype="int" default="999998">V02084</colunm>
+	<colunm fxy="0-2-95-0" name="气压传感器类型" dec="" datatype="int" default="999998">V02095</colunm>
+	<colunm fxy="0-2-96-0" name="温度传感器类型" dec="" datatype="int" default="999998">V02096</colunm>
+	
+	<colunm fxy="0-2-97-0" name="湿度传感器类型" dec="" datatype="int" default="999998">V02097</colunm>
+	<colunm fxy="?" name="探测系统型号" dec="" datatype="string" default="999998">V02303</colunm>
+	<colunm fxy="0-2-11-0" name="探空仪型号" dec="" datatype="string" default="999998">V02304</colunm>
+	<colunm fxy="?" name="探空仪生产厂家" dec="" datatype="int" default="999998">V02420</colunm>
+	<colunm fxy="?" name="探空仪生产日期" dec="" datatype="int" default="999998">V02421</colunm>
+	<colunm fxy="?" name="探空仪编号" dec="" datatype="string" default="999998">V02305</colunm>
+	<colunm fxy="?" name="施放计数" dec="" datatype="int" default="999998">V31001</colunm>
+	<colunm fxy="0-2-82-0" name="气球重量" dec="kg转化为g入库" datatype="double" expression="${{0}*1000}" default="999998">V02082</colunm>
+	<colunm fxy="?" name="探测系统天线高度" dec="" datatype="double" default="999998">V02102</colunm>
+		
+	<colunm fxy="?" name="附加物重量" dec="kg转化为g入库" datatype="double" default="999998">V02307</colunm>
+	<colunm fxy="?" name="总举力" dec="kg转化为g入库" datatype="double" default="999998">V02308</colunm>
+	<colunm fxy="?" name="净举力" dec="kg转化为g入库" datatype="double" default="999998">V02309</colunm>
+	<colunm fxy="?" name="球与探空仪间实际绳长" dec="" datatype="double" default="999998">V02422</colunm>
+	<colunm fxy="?" name="平均升速" dec="" datatype="double" default="999998">V02310</colunm>
+	<colunm fxy="?" name="温度基测值" dec="" datatype="double" default="999998">V12312</colunm>
+	<colunm fxy="?" name="温度仪器值" dec="" datatype="double" default="999998">V12313</colunm>
+	<colunm fxy="?" name="温度偏差" dec="" datatype="double" default="999998">V12401</colunm>
+	<colunm fxy="?" name="气压基测值" dec="" datatype="double" default="999998">V10303</colunm>
+	<colunm fxy="?" name="气压仪器值" dec="" datatype="double" default="999998">V10304</colunm>
+	<colunm fxy="?" name="气压偏差" dec="" datatype="double" default="999998">V10402</colunm>
+	
+	<colunm fxy="?" name="相对湿度基测值" dec="" datatype="double" default="999998">V13360</colunm>
+	<colunm fxy="?" name="相对湿度仪器值" dec="" datatype="double" default="999998">V13361</colunm>
+	<colunm fxy="?" name="相对湿度偏差" dec="" datatype="double" default="999998">V13362</colunm>
+	<colunm fxy="?" name="仪器检测结论" dec="" datatype="double" default="999998">V02311</colunm>
+	
+	<colunm fxy="?" name="施放时间（世界时）" dec="" datatype="string" default="999998">V04300_017_01</colunm>
+	<colunm fxy="?" name="施放时间（地方时），程序中+八小时" dec="" datatype="string" default="999998">V04300_017_02</colunm>
+	
+	<colunm fxy="?" name="探空终止时间（世界时）" dec="" datatype="int" default="999998">V04300_018_01</colunm>
+	<colunm fxy="?" name="测风终止时间（世界时）" dec="" datatype="int" default="999998">V04300_018_02</colunm>
+	<colunm fxy="?" name="探空终止原因" dec="" datatype="int" default="999998">V35035_01</colunm>
+	<colunm fxy="?" name="测风终止原因" dec="" datatype="int" default="999998">V35035_02</colunm>
+	
+	<colunm fxy="?" name="探空终止高度" dec="" datatype="double" default="999998">V35300_01</colunm>
+	<colunm fxy="?" name="测风终止高度" dec="" datatype="double" default="999998" >V35300_02</colunm>
+	<colunm fxy="?" name="施放时太阳高度角" dec="" datatype="double" default="999998" >V07022_01</colunm>
+	<colunm fxy="?" name="终止时太阳高度角" dec="" datatype="double" default="999998">V07022_02</colunm>
+	<colunm fxy="?" name="施放瞬间地面气温" dec="" datatype="double" default="999998">V12001</colunm>
+	<colunm fxy="?" name="施放瞬间地面气压" dec="" datatype="double" default="999998">V10004</colunm>
+	<colunm fxy="?" name="施放瞬间地面相对湿度" dec="" datatype="double" default="999998">V13003</colunm>
+	<colunm fxy="?" name="施放瞬间地面风向	" dec="" datatype="double" default="999998">V11001</colunm>
+	<colunm fxy="?" name="施放瞬间地面风速" dec="" datatype="double" default="999998">V11002</colunm>
+	<colunm fxy="?" name="施放瞬间能见度" dec="" datatype="int" default="999998">V20001</colunm>
+	<colunm fxy="0-20-12-0" name="施放瞬间云属1" dec="" datatype="int" expression="{0}">V20012_01</colunm>
+	<colunm fxy="0-20-12-1" name="施放瞬间云属2" dec="" datatype="int" expression="{0}">V20012_02</colunm>
+	<colunm fxy="0-20-12-2" name="施放瞬间云属3" dec="" datatype="int" expression="{0}">V20012_03</colunm>
+	<colunm fxy="?" name="施放瞬间总云量" dec="" datatype="double" default="999998">V20010</colunm>
+	<colunm fxy="0-20-11-0" name="施放瞬间低云量" dec="" datatype="double" default="999998">V20051</colunm>
+	<colunm fxy="?" name="施放瞬间天气现象1	" dec="" datatype="int" default="999998">V20003_01</colunm>
+	<colunm fxy="?" name="施放瞬间天气现象2" dec="" datatype="int" default="999998">V20003_02</colunm>
+	<colunm fxy="?" name="施放瞬间天气现象3	" dec="" datatype="int" default="999998">V20003_03</colunm>
+	<colunm fxy="?" name="施放点方位角" dec="" datatype="double" default="999998">V05021</colunm>
+	<colunm fxy="?" name="施放点仰角" dec="" datatype="double" default="999998">V07021</colunm>
+	<colunm fxy="?" name="施放点距离（探测仪器与天线之间距离）" dec="" datatype="double" default="999998">V06021</colunm>
+	<colunm fxy="0-25-61-0" name="探测系统软件和版本信息" dec="" datatype="string" default="999998">V25061</colunm>
+	<colunm fxy="0-2-191-0" name="位势高度计算方法" dec="" datatype="double" default="999998">V02191</colunm>
+	
+	<colunm fxy="?" name="气压计算方法" dec="" datatype="double" default="999998">V02203</colunm>
+	<colunm fxy="0-7-31-0" name="高度(施放点的平均海平面以上高度)" dec="" datatype="double" default="999998">V07030</colunm>
+	<colunm fxy="0-33-24-0" name="移动站海拔高度质量标识	" dec="" datatype="double" default="999998">V33024</colunm>
+	<colunm fxy="?" name="温湿传感器距地高度" dec="" datatype="double" default="999998">V07032_01</colunm>
+	<colunm fxy="?" name="施放瞬间本站地面露点温度" dec="" datatype="double" default="999998">V12003</colunm>
+	<colunm fxy="?" name="测风仪高度	" dec="" datatype="double" default="999998">V07032_04</colunm>
+	<colunm fxy="?" name="测风仪类型" dec="" datatype="double" default="999998">V02002</colunm>
+	<colunm fxy="?" name="现在天气" dec="" datatype="double" default="999998">V20003</colunm>
+	<!--
+	<colunm fxy="?" name="" dec="备用字段1" datatype="double" default="999998" >V_RESERVE_1</colunm>
+	<colunm fxy="?" name="" dec="备用字段2" datatype="double" default="999998" >V_RESERVE_2</colunm>
+	<colunm fxy="?" name="" dec="备用字段3" datatype="double" default="999998" >V_RESERVE_3</colunm>
+	<colunm fxy="?" name="" dec="备用字段4" datatype="double" default="999998" >V_RESERVE_4</colunm>
+-->
+</root>

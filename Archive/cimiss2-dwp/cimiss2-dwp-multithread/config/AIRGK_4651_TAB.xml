@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root IsCheck="true" length="15">
+	<element dataType="String" content="default" value="{D_DATETIME}{V01301}">D_RECORD_ID</element>
+	<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+	<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+	<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+	<element dataType="datetime" content="report" index="14" format="yyyy-MM-dd HH:mm:ss">D_UPDATE_TIME</element>
+	<element dataType="datetime" content="report" index="13" format="yyyy-MM-dd HH:mm">D_DATETIME</element>
+	<element dataType="String" content="report" index="0">V01301</element>
+	<element dataType="String" content="report" index="1">V01015</element>
+	<element dataType="String" content="undefined" value="GK">V_trib</element>
+	<element dataType="double" content="report" index="2">V05001</element>
+	<element dataType="double" content="report" index="3">V06001</element>
+	<element dataType="String" content="report" index="4">V_PROV</element>
+	<element dataType="String" content="report" index="5">V_CITY</element>
+	<element dataType="int" content="report" index="13" Expression="[0:4]">V04001</element>
+	<element dataType="int" content="report" index="13" Expression="[5:7]">V04002</element>
+	<element dataType="int" content="report" index="13" Expression="[8:10]">V04003</element>
+	<element dataType="int" content="report" index="13" Expression="[11:13]">V04004</element>	
+	<element dataType="int" content="report" index="13" Expression="[14:16]">V04005</element>
+	<element dataType="int" content="undefined" value='0' >V04006</element>
+	<element dataType="double" dec="SO2" content="report" index="9">V15810</element>
+	<element dataType="double" dec="NO2" content="report" index="10">V15817</element>
+	<element dataType="double" dec="CO" content="report" index="11">V15823</element>
+	<element dataType="double" dec="O3" content="report" index="12">V15826</element>
+	<element dataType="double" dec="PM10质量浓度" content="report" index="8">V15471</element>
+	<element dataType="double" dec="PM2.5质量浓度" content="report" index="7">V15472</element>
+	<element dataType="double" content="undefined" value='999998'>V_AQI</element>
+	<element dataType="String" content="undefined" value='999998'>V_PPOLLU</element>
+	<element dataType="String" content="undefined" value='999998'>V_QUAL</element>
+	<element dataType="String" content="default" value="D_SOURCE_ID">D_SOURCE_ID</element>
+</root>

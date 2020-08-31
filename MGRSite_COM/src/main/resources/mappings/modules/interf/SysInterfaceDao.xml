@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.interf.dao.SysInterfaceDao">
+    
+	<sql id="sysInterfaceColumns">
+		a.id AS "id",
+		a.parent_id AS "parent.id",
+		a.parent_ids AS "parentIds",
+		a.name AS "name",
+		a.sort AS "sort",
+		a.is_show AS "isShow",
+		a.permission AS "permission",
+		a.create_by AS "createBy.id",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate",
+		a.remarks AS "remarks",
+		a.del_flag AS "delFlag",
+		a.inerface_id AS "inerfaceId",
+		a.data_encoding AS "dataEncoding",
+		a.data_type AS "dataType",
+		a.parameter_id AS "parameterId",
+		a.parameter_type AS "parameterType"
+	</sql>
+	
+	<sql id="sysInterfaceJoins">
+	</sql>
+    
+	<select id="get" resultType="SysInterface">
+		SELECT 
+			<include refid="sysInterfaceColumns"/>
+		FROM sys_interface a
+		<include refid="sysInterfaceJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="SysInterface">
+		SELECT 
+			<include refid="sysInterfaceColumns"/>
+		FROM sys_interface a
+		<include refid="sysInterfaceJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+			<if test="parent != null and parent.id != null and parent.id != ''">
+				AND a.parent_id = #{parent.id}
+			</if>
+			<if test="parentIds != null and parentIds != ''">
+				AND a.parent_ids LIKE 
+					<if test="dbName == 'oracle'">'%'||#{parentIds}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{parentIds}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{parentIds},'%')</if>
+			</if>
+			<if test="name != null and name != ''">
+				AND a.name LIKE 
+					<if test="dbName == 'oracle'">'%'||#{name}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{name}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{name},'%')</if>
+			</if>
+		</where>
+		ORDER BY a.sort ASC
+	</select>
+	
+	<select id="findAllList" resultType="SysInterface">
+		SELECT 
+			<include refid="sysInterfaceColumns"/>
+		FROM sys_interface a
+		<include refid="sysInterfaceJoins"/>
+		<where>
+			a.del_flag = 0
+		</where>
+		ORDER BY a.sort ASC
+	</select>
+	
+	<select id="findByParentIdsLike" resultType="SysInterface">
+		SELECT
+			a.id,
+			a.parent_id AS "parent.id",
+			a.parent_ids
+		FROM sys_interface a
+		<include refid="sysInterfaceJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+			AND a.parent_ids LIKE #{parentIds}
+		</where>
+		ORDER BY a.sort ASC
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO sys_interface(
+			id,
+			parent_id,
+			parent_ids,
+			name,
+			sort,
+			is_show,
+			permission,
+			create_by,
+			create_date,
+			update_by,
+			update_date,
+			remarks,
+			del_flag,
+			inerface_id,
+			data_encoding,
+			data_type
+		) VALUES (
+			#{id},
+			#{parent.id},
+			#{parentIds},
+			#{name},
+			#{sort},
+			#{isShow},
+			#{permission},
+			#{createBy.id},
+			#{createDate},
+			#{updateBy.id},
+			#{updateDate},
+			#{remarks},
+			#{delFlag},
+			#{inerfaceId},
+			#{dataEncoding},
+			#{dataType}
+		)
+	</insert>
+
+	<insert id="insertInter" parameterType="com.thinkgem.jeesite.modules.interf.entity.SysInterface">
+		INSERT INTO sys_interface(
+			id,
+			parent_id,
+			name,
+			sort,
+			create_date,
+			inerface_id,
+			data_encoding,
+			data_type,
+			parameter_id,
+			parameter_type
+		) VALUES (
+			#{id},
+			#{parentId},
+			#{name},
+			#{sort},
+			#{createDate},
+			#{inerfaceId},
+			#{dataEncoding},
+			#{dataType},
+			#{parameterId},
+			#{parameterType}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sys_interface SET 	
+			parent_id = #{parent.id},
+			parent_ids = #{parentIds},
+			name = #{name},
+			sort = #{sort},
+			is_show = #{isShow},
+			permission = #{permission},
+			update_by = #{updateBy.id},
+			update_date = #{updateDate},
+			remarks = #{remarks},
+			inerface_id = #{inerfaceId},
+			data_encoding = #{dataEncoding},
+			data_type = #{dataType}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="updateParentIds">
+		UPDATE sys_interface SET 
+			parent_id = #{parent.id}, 
+			parent_ids = #{parentIds}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="deleteById">
+		UPDATE sys_interface SET 
+			del_flag = 1
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

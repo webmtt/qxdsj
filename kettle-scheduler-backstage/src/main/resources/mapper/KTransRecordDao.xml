@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.piesat.kettlescheduler.dao.KTransRecordDao">
+  <resultMap id="BaseResultMap" type="com.piesat.kettlescheduler.model.KTransRecord">
+    <id column="record_id" jdbcType="INTEGER" property="recordId" />
+    <result column="record_trans" jdbcType="INTEGER" property="recordTrans" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="stop_time" jdbcType="TIMESTAMP" property="stopTime" />
+    <result column="record_status" jdbcType="INTEGER" property="recordStatus" />
+    <result column="add_user" jdbcType="INTEGER" property="addUser" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.piesat.kettlescheduler.model.KTransRecord">
+    <result column="log_file_path" jdbcType="LONGVARCHAR" property="logFilePath" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    record_id, record_trans, start_time, stop_time, record_status, add_user
+  </sql>
+  <sql id="Blob_Column_List">
+    log_file_path
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from k_trans_record
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from k_trans_record
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.piesat.kettlescheduler.model.KTransRecord">
+    insert into k_trans_record (record_id, record_trans, start_time, 
+      stop_time, record_status, add_user, 
+      log_file_path)
+    values (#{recordId,jdbcType=INTEGER}, #{recordTrans,jdbcType=INTEGER}, #{startTime,jdbcType=TIMESTAMP}, 
+      #{stopTime,jdbcType=TIMESTAMP}, #{recordStatus,jdbcType=INTEGER}, #{addUser,jdbcType=INTEGER}, 
+      #{logFilePath,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.piesat.kettlescheduler.model.KTransRecord">
+    insert into k_trans_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="recordId != null">
+        record_id,
+      </if>
+      <if test="recordTrans != null">
+        record_trans,
+      </if>
+      <if test="startTime != null">
+        start_time,
+      </if>
+      <if test="stopTime != null">
+        stop_time,
+      </if>
+      <if test="recordStatus != null">
+        record_status,
+      </if>
+      <if test="addUser != null">
+        add_user,
+      </if>
+      <if test="logFilePath != null">
+        log_file_path,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="recordId != null">
+        #{recordId,jdbcType=INTEGER},
+      </if>
+      <if test="recordTrans != null">
+        #{recordTrans,jdbcType=INTEGER},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stopTime != null">
+        #{stopTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recordStatus != null">
+        #{recordStatus,jdbcType=INTEGER},
+      </if>
+      <if test="addUser != null">
+        #{addUser,jdbcType=INTEGER},
+      </if>
+      <if test="logFilePath != null">
+        #{logFilePath,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.piesat.kettlescheduler.model.KTransRecord">
+    update k_trans_record
+    <set>
+      <if test="recordTrans != null">
+        record_trans = #{recordTrans,jdbcType=INTEGER},
+      </if>
+      <if test="startTime != null">
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stopTime != null">
+        stop_time = #{stopTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recordStatus != null">
+        record_status = #{recordStatus,jdbcType=INTEGER},
+      </if>
+      <if test="addUser != null">
+        add_user = #{addUser,jdbcType=INTEGER},
+      </if>
+      <if test="logFilePath != null">
+        log_file_path = #{logFilePath,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.piesat.kettlescheduler.model.KTransRecord">
+    update k_trans_record
+    set record_trans = #{recordTrans,jdbcType=INTEGER},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      stop_time = #{stopTime,jdbcType=TIMESTAMP},
+      record_status = #{recordStatus,jdbcType=INTEGER},
+      add_user = #{addUser,jdbcType=INTEGER},
+      log_file_path = #{logFilePath,jdbcType=LONGVARCHAR}
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.piesat.kettlescheduler.model.KTransRecord">
+    update k_trans_record
+    set record_trans = #{recordTrans,jdbcType=INTEGER},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      stop_time = #{stopTime,jdbcType=TIMESTAMP},
+      record_status = #{recordStatus,jdbcType=INTEGER},
+      add_user = #{addUser,jdbcType=INTEGER}
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </update>
+</mapper>

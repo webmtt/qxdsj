@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nmpiesat.idata.data.dao.DataCategoryDefDao">
+    <resultMap id="BaseResultMap" type="com.nmpiesat.idata.data.entity.DataCategoryDef">
+        <id column="categoryid" jdbcType="INTEGER" property="categoryid" />
+        <result column="chnname" jdbcType="VARCHAR" property="chnname" />
+        <result column="shortchnname" jdbcType="VARCHAR" property="shortchnname" />
+        <result column="engname" jdbcType="VARCHAR" property="engname" />
+        <result column="chndescription" jdbcType="VARCHAR" property="chndescription" />
+        <result column="engdescription" jdbcType="VARCHAR" property="engdescription" />
+        <result column="imageurl" jdbcType="VARCHAR" property="imageurl" />
+        <result column="timeseq" jdbcType="VARCHAR" property="timeseq" />
+        <result column="imagechntitle" jdbcType="VARCHAR" property="imagechntitle" />
+        <result column="imageengtitle" jdbcType="VARCHAR" property="imageengtitle" />
+        <result column="categorylayer" jdbcType="INTEGER" property="categorylayer" />
+        <result column="parentid" jdbcType="INTEGER" property="parentid" />
+        <result column="orderno" jdbcType="INTEGER" property="orderno" />
+        <result column="invalid" jdbcType="INTEGER" property="invalid" />
+        <result column="showtype" jdbcType="INTEGER" property="showtype" />
+        <result column="templatefile" jdbcType="VARCHAR" property="templatefile" />
+        <result column="linkurl" jdbcType="VARCHAR" property="linkurl" />
+        <result column="datacount" jdbcType="INTEGER" property="datacount" />
+        <result column="showtype" jdbcType="INTEGER" property="showtype" />
+        <result column="showuserrankid" jdbcType="INTEGER" property="showuserrankid" />
+        <result column="iconurl" jdbcType="VARCHAR" property="iconurl" />
+        <result column="largeiconurl" jdbcType="VARCHAR" property="largeiconurl" />
+        <result column="middleiconurl" jdbcType="VARCHAR" property="middleiconurl" />
+    </resultMap>
+    <sql id="Base_Column_List">
+    categoryid, chnname, shortchnname, engname, chndescription,engdescription,imageurl,timeseq,imagechntitle,imageengtitle,categorylayer,
+    parentid,orderno,invalid,showtype,templatefile,linkurl,datacount,showtype,showuserrankid,iconurl,largeiconurl,middleiconurl
+  </sql>
+    <select id="findAll" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from BMD_DATACATEGORYDEF
+        where invalid='0' order by orderno
+    </select>
+    <select id="findDataCategoryDefByUserId" resultMap="BaseResultMap">
+       select
+         <include refid="Base_Column_List" />
+          from bmd_DataCategoryDef dc,sup_DataRolelimits drl,sup_UserDatarole dr
+            where drl.dataid=dc.categoryid
+            and dr.dataroleid= drl.roledataid
+            and dc.invalid='0' and  dr.userid=#{userid,jdbcType=VARCHAR}
+            and (dc.categoryid=#{id,jdbcType=INTEGER}
+            or parentid=#{id,jdbcType=INTEGER}) order by dc.orderno
+    </select>
+    <select id="findDataCategoryDefById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from BMD_DATACATEGORYDEF
+         where invalid='0' and (categoryid =#{id} or parentid = #{id}) order by orderno
+    </select>
+    <select id="findByUserId" parameterType="java.lang.String" resultMap="BaseResultMap">
+       select
+        <include refid="Base_Column_List" />
+        from bmd_DataCategoryDef dc,sup_DataRolelimits drl,sup_UserDatarole dr
+            where drl.dataid=dc.categoryid
+            and dr.dataroleid= drl.roledataid
+            and dc.invalid='0' and  dr.userid=#{userid}
+        <if test="keyword!= null and keyword!='' ">
+            and dc.chnname like concat ("%", #{keyword},"%")
+        </if>
+    </select>
+    <select id="findDataCategoryDefByIdUnique" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from BMD_DATACATEGORYDEF
+        where invalid='0' and categoryid =#{id} order by orderno
+    </select>
+    <select id="findDataCategory" parameterType="java.lang.String" resultType="com.nmpiesat.idata.data.entity.DataCateDef">
+      select f.* from (select cd.DATACODE, dd.chnname,cd.CATEGORYID from BMD_CATEGORYDATARELT cd,bmd_datadef dd
+        where dd.DATACODE=cd.DATACODE and dd.INVALID='0') f
+    </select>
+    <select id="findDataTypeCount" parameterType="java.lang.String" resultType="com.nmpiesat.idata.data.entity.DataCategoryDef">
+        select
+        <include refid="Base_Column_List" />
+        from BMD_DATACATEGORYDEF
+        where invalid='0' and PARENTID!=0 order by CATEGORYID
+    </select>
+</mapper>

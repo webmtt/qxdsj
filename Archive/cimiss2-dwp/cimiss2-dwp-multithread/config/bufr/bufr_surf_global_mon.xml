@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	
+	<!-- fxy:前三个值bufr文件数据段识别码,第4个值为整个数据段中第几次出现的识别码 -->
+	<!-- name:对应的字段名称 -->
+	<!-- dec:字段说明 -->
+	<!-- datatype:字段类型 -->
+	<!-- defaultValue:如果从bufr文件中取出的数据为空设置默认值 -->
+	<!-- qc:true或false,此行是否为质控码 -->
+	<!-- expression:配置此行字段值的表达式
+			表达式说明:
+				${col:arg} -> 当前配置文件中对应的字段值，arg：配置文件中配置的字段
+				${dateFormat(arg1,arg2,arg3)} -> 日期格式化,arg1:日期字符串20170809001211，arg2:arg1的格式yyyyMMddHHmmss，arg3:转换后的日期格式(如：yyyy-MM-dd HH:mm:ss) 
+				${dateTime} -> 获取系统当前时间,默认格式为yyyyMMddHHmmss
+				${ascii:arg} -> arg代表的值转换为ascii码
+				${stationInfo(arg1,arg2,arg3)} -> 根据站号从stationinfo_conf.lua配置文件中取值，第一个参数arg1：字符站号；第二个参数arg2：站号对应的序列号
+				${seqDayFormat(arg1,arg2,arg3)} -> 序日的格式化，第一个参数arg1：4位年；第二个参数arg2：序日(1-3位数字)；第三个参数arg3：格式(遵循java中的日期格式化pattern)
+				#########################################################
+				${col:arg} ${seqDayFormat(arg1,arg2,arg3)} ${stationInfo(arg1,arg2)} ${dateFormat(arg1,arg2,arg3)} 这几个表达式后都可以根据需要添加.split('')[]和.substring()表达式
+				.split('')[]按单引号中的符号分隔前面表达式的值，中括号中是分隔后取第n-1个
+				.substring(snum,enum) 在紧前面的表达式的值中截取snum到enum字符串,包前不包后
+	 -->
+	<colunm fxy="D_RECORD_ID" name="id" dec="主键" datatype="string" expression="${col:V01301}_${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-01 00:00:00,yyyy-MM-dd HH:mm:ss,yyyyMMddHHmmss)}">D_RECORD_ID</colunm>
+	
+	<colunm fxy="D_DATA_ID" name="data_id" dec="资料标识" datatype="string" default="A.0020.0001.S002">D_DATA_ID</colunm>
+	<colunm fxy="?" name="" dec="" datatype="string" default="A.0001.0022.R001">D_SOURCE_ID</colunm>
+	<colunm fxy="D_IYMDHM" name="insert datetime" dec="入库时间" datatype="date" expression="${dateFormat(${dateTime},yyyyMMddHHmmss,yyyy-MM-dd HH:mm:ss)}">D_IYMDHM</colunm>
+	<colunm fxy="D_RYMDHM" name="recive_datetime" dec="收到时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_RYMDHM</colunm>
+	
+	<colunm fxy="D_UPDATE_TIME" name="update datetime" dec="更新时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_UPDATE_TIME</colunm>
+	
+	<colunm fxy="D_DATETIME" name="data datetime" dec="资料时间" datatype="date" expression="${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-01 00:00:00,yyyy-MM-dd HH:mm:ss,yyyy-MM-dd HH:mm:ss)}">D_DATETIME</colunm>
+	
+	<!-- <colunm fxy="D_DATETIME" name="D_RETRIEVAL_ TIME" dec="小时资料检索时间" datatype="date" expression="${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} 00:00:00,yyyy-MM-dd HH:mm:ss,yyyy-MM-dd HH:mm:ss)}">D_RETRIEVAL_TIME</colunm> --> 
+	<!-- <colunm fxy="V_BBB" name="V_BBB" dec="更正报标识" datatype="string"  default="000">V_BBB</colunm>  -->
+	<colunm fxy="0-1-1-0" name="WMO_block_number" dec="区站号" datatype="string">V01301</colunm>
+	<colunm fxy="V01300" name="stationId_N" dec="区站号(数字)" datatype="string" expression="${ascii:${col:V01301}}">V01300</colunm>
+	<colunm fxy="0-5-1-0" name="Latitude" dec="纬度" datatype="double" >V05001</colunm>
+	<colunm fxy="0-6-1-0" name="Longitude" dec="经度" datatype="double" >V06001</colunm>
+	<colunm fxy="0-7-30-0" name="Height_of_station_ground_above_mean_sea_level" dec="测站高度" datatype="double" >V07001</colunm>
+	<colunm fxy="0-7-32-0" name="Temperature_and_humidity_sensor_height_above_ground/deck" dec="温湿传感器距地面/甲板高度" datatype="double" expression="{0}" >V07032_01</colunm>
+	<colunm fxy="0-7-32-4" name="Precipitation_sensor_height_above_local_ground_(or offshore platform deck)" dec="降水传感器离本地地面（或海上平台甲板）的高度" datatype="double" expression="{0}">V07032_03</colunm>
+	<colunm fxy="0-7-32-3" name="Wind sensor height above ground" dec="风速传感器距离地面高度" datatype="double" expression="{0}">V07032_04</colunm>
+	<colunm fxy="0-2-2-0" name="The type of instrument used to measure the wind" dec="测风仪的仪器类型" datatype="double" expression="{0}">V02002</colunm>
+	<colunm fxy="0-2-1-0" name="Type_of_station" dec="测站类型" datatype="int" expression="{0}" default="0">V02001</colunm>
+	<colunm fxy="?" name="country code" dec="国家代码" datatype="int" default="999999" expression="${stationInfo(${col:V01301},01,999999)}.split(',')[4]">V_NCODE</colunm>
+	<colunm fxy="0-1-15-0" name="Station_or_site_name" dec="站名或场地名" datatype="string" expression="{0}">V01015</colunm>
+	<colunm fxy="0-4-1-0" name="year" dec="资料年" datatype="int" >V04001</colunm>
+	<colunm fxy="0-4-2-0" name="Month" dec="资料月" datatype="int" >V04002</colunm>
+	<colunm fxy="0-10-4-0" name="Daily_mean_local_pressure" dec="月平均本站气压" datatype="double" expression="${{0}*0.01}">V10004_701</colunm>
+	<colunm fxy="0-10-51-0" name="Daily_mean_sea_level_pressure" dec="月平均海平面气压" datatype="double" expression="${{0}*0.01}">V10051_701</colunm>
+	<colunm fxy="0-7-4-0" name="Air pressure (the standard layer closest to the station)" dec="气压（测站最接近的标准层）" datatype="double" expression="${{0}*0.01}">V07004</colunm>
+	<colunm fxy="0-10-9-0" name="Potential height (standard layer)" dec="位势高度（标准层）" datatype="double" expression="{0}">V10009</colunm>
+	<colunm fxy="0-12-101-0" name="Daily_mean_air_temperature" dec="月平均气温" datatype="double" expression="${{0}-273.15}">V12001_701</colunm>
+	<colunm fxy="0-12-151-0" name="Daily average temperature standard difference" dec="日平均气温标准差" datatype="double" default="999999">V12151</colunm>
+	<colunm fxy="0-12-118-0" name="Average daily maximum temperature" dec="平均日最高气温" datatype="double" expression="${{0}-273.15}">V12011_701</colunm>
+	<colunm fxy="0-12-119-0" name="Average daily minimum temperature" dec="平均日最低气温" datatype="double" expression="${{0}-273.15}">V12012_701</colunm>
+	<colunm fxy="0-13-4-0" name="Daily_mean_vapor_pressure" dec="月平均水汽压" datatype="double" expression="${{0}*0.01}">V13004_701</colunm>
+	<colunm fxy="0-13-60-0" name="Observe_precipitation" dec="月降水量" datatype="double" default="999999">V13011</colunm>
+	<colunm fxy="0-13-51-0" name="Frequency level of monthly precipitation" dec="月降水量的频率级" datatype="double" expression="{0}">V13351_500</colunm>
+	<colunm fxy="0-14-32-0" name="Total_hours_of_sunshine_per_day" dec="日照时数" datatype="double" default="999999">V14032</colunm>
+	<colunm fxy="0-14-33-0" name="Percentage of sunshine" dec="日照百分率" datatype="double" default="999999">V14033</colunm>
+	<colunm fxy="1-2-5-0" name="Air pressure missed days at station" dec="本站气压缺测日数" datatype="int" expression="{1}">V10004_566</colunm>
+	<colunm fxy="1-2-5-0" name="Temperature missed days" dec="气温缺测日数" datatype="int" expression="{3}">V12001_566</colunm>
+	<colunm fxy="?" name="Lack of days for extreme temperatures" dec="极端气温缺测日数" datatype="int" default="999998">V12410_566</colunm>
+	<colunm fxy="1-2-5-0" name="Water vapor pressure missing measurement days" dec="水汽压缺测日数" datatype="int" expression="{5}">V13004_566</colunm>
+	<colunm fxy="0-8-20-1" name="Precipitation missing days" dec="降水量缺测日数" datatype="int"  expression="{0}" default="999998">V13011_566</colunm>
+	<colunm fxy="0-8-20-0" name="Missing days of sunshine hours" dec="日照时数缺测日数" datatype="int" expression="{0}"  default="999998">V14032_566</colunm>
+	<colunm fxy="1-2-5-0" name="Maximum temperature missed days" dec="最高气温缺测日数" datatype="int" expression="{7}">V12011_566</colunm>
+	<colunm fxy="1-2-5-0" name="Minimum temperature missed days" dec="最低气温缺测日数" datatype="int" expression="{9}">V12012_566</colunm>
+	<colunm fxy="1-2-18-0" name="Daily maximum temperature ≥ 25 °C days" dec="日最高气温≥25℃日数" datatype="int" expression="{9}">V12605_25</colunm>
+	<colunm fxy="1-2-18-0" name="Daily maximum temperature ≥ 30 °C days" dec="日最高气温≥30℃日数" datatype="int" expression="{11}">V12605_30</colunm>
+	<colunm fxy="1-2-18-0" name="Daily maximum temperature ≥ 35 °C days" dec="日最高气温≥35℃日数" datatype="int" expression="{13}">V12605_35</colunm>
+	<colunm fxy="1-2-18-0" name="Daily maximum temperature ≥ 40 °C days" dec="日最高气温≥40℃日数" datatype="int" expression="{15}">V12605_40</colunm>
+	<colunm fxy="1-2-18-0" name="Daily maximum temperature Less than 0 °C days" dec="日最高气温＜0℃日数" datatype="int" expression="{7}">V12602</colunm>
+	<colunm fxy="1-2-18-0" name="Daily minimum temperature Less than 0 °C days" dec="日最低气温＜0℃日数" datatype="int" expression="{17}">V12603</colunm>
+	<colunm fxy="1-2-6-0" name="Number of days with precipitation equal to or more than 1 mm" dec="日降水量≥1mm日数" datatype="int" expression="{1}">V13355_001</colunm>
+	<colunm fxy="1-2-6-0" name="Number of days with precipitation equal to or more than 5 mm" dec="日降水量≥5mm日数" datatype="int" expression="{3}">V13355_005</colunm>
+	<colunm fxy="1-2-6-0" name="Number of days with precipitation equal to or more than 10 mm" dec="日降水量≥10mm日数" datatype="int" expression="{5}">V13355_010</colunm>
+	<colunm fxy="1-2-6-0" name="Number of days with precipitation equal to or more than 50 mm" dec="日降水量≥50mm日数" datatype="int" expression="{7}">V13355_050</colunm>
+	<colunm fxy="1-2-6-0" name="Number of days with precipitation equal to or more than 100 mm" dec="日降水量≥100mm日数" datatype="int" expression="{9}">V13355_100</colunm>
+	<colunm fxy="1-2-6-0" name="Number of days with precipitation equal to or more than 150 mm" dec="日降水量≥150mm日数" datatype="int" expression="{11}">V13355_150</colunm>
+	<colunm fxy="1-2-18-0" name="Number of days of snow depth ≥ 0cm" dec="积雪深度≥0cm日数" datatype="int" expression="{19}">V13356_000</colunm>
+	<colunm fxy="1-2-18-0" name="Number of days of snow depth ≥ 1cm" dec="积雪深度≥1cm日数" datatype="int" expression="{21}">V13356_001</colunm>
+	<colunm fxy="1-2-18-0" name="Number of days of snow depth ≥ 10cm" dec="积雪深度≥10cm日数" datatype="int" expression="{23}">V13356_010</colunm>
+	<colunm fxy="1-2-18-0" name="Number of days of snow depth ≥ 50cm" dec="积雪深度≥50cm日数" datatype="int" expression="{25}">V13356_050</colunm>
+	<colunm fxy="1-2-18-0" name="Maximum wind speed ≥ 10m/s days" dec="最大风速≥10m/s日数" datatype="int" expression="{1}">V11042_10</colunm>
+	<colunm fxy="1-2-18-0" name="Maximum wind speed ≥ 20m/s days" dec="最大风速≥20m/s日数" datatype="int" expression="{3}">V11042_20</colunm>
+	<colunm fxy="1-2-18-0" name="Maximum wind speed ≥ 30m/s days" dec="最大风速≥30m/s日数" datatype="int" expression="{5}">V11042_30</colunm>
+	<colunm fxy="1-2-18-0" name="50 m visibility days" dec="能见度＜50m日数" datatype="int" expression="{27}">V20310_005</colunm>
+	<colunm fxy="1-2-18-0" name="100 m visibility days" dec="能见度＜100m日数" datatype="int" expression="{29}">V20310_010</colunm>
+	<colunm fxy="1-2-18-0" name="1000 m visibility days" dec="能见度＜1000m日数" datatype="int" expression="{31}">V20310_100</colunm>
+	<colunm fxy="0-12-152-0" name="Maximum daily average temperature" dec="最高日平均气温" datatype="double" expression="${{0}-273.15}">V12052</colunm>
+	<colunm fxy="0-4-3-1" name="The highest daily average temperature appears on the day" dec="最高日平均气温出现日" datatype="double" default="999998">V12052_060</colunm>
+	<colunm fxy="0-12-153-0" name="Minimum daily average temperature" dec="最低日平均气温" datatype="double" expression="${{0}-273.15}">V12053</colunm>
+	<colunm fxy="0-4-3-2" name="The lowest daily average temperature occurs on the day" dec="最低日平均气温出现日" datatype="double" default="999998">V12053_060</colunm>
+	<colunm fxy="0-12-101-1" name="Extreme maximum temperature this month" dec="本月极端最高气温" datatype="double" expression="${{0}-273.15}">V12011</colunm>
+	<colunm fxy="0-4-3-3" name="Extreme maximum temperature day" dec="极端最高气温出现日" datatype="double" default="999998">V12011_060</colunm>
+	<colunm fxy="0-12-101-2" name="Extreme minimum temperature this month" dec="本月极端最低气温" datatype="double" expression="${{0}-273.15}">V12012</colunm>
+	<colunm fxy="0-4-3-4" name="Extreme minimum temperature day" dec="极端最低气温出现日" datatype="double" default="999998">V12012_060</colunm>
+	<colunm fxy="0-13-52-0" name="The largest daily precipitation of the month" dec="本月最大日降水量" datatype="double" default="999998">V13052</colunm>
+	<colunm fxy="0-4-3-7" name="The maximum daily precipitation occurs on the day" dec="最大日降水量出现日" datatype="double" default="999998">V13052_060</colunm>
+	<colunm fxy="0-11-46-0" name="Great wind speed this month" dec="本月极大风速" datatype="double" default="999998">V11046</colunm>
+	<colunm fxy="0-4-3-5" name="Extreme wind speed occurs on a date" dec="极大风速出现日期" datatype="double" default="999998">V11046_067</colunm>
+	<colunm fxy="1-2-18-0" name="Days of thunderstorms" dec="雷暴出现的日数" datatype="int" expression="{35}">V04330_017</colunm>
+	<colunm fxy="1-2-18-0" name="Days of hail" dec="冰雹出现的日数" datatype="int" expression="{33}">V04330_089</colunm>
+	<colunm fxy="0-2-51-0" name="Indicator to specify observing method for extreme temperatures" dec="极端温度观测方法指示码" datatype="double" default="999999">V02051</colunm>
+	<colunm fxy="0-4-51-0" name="Principal time of daily reading of maximum temperature" dec="日最高气温读取时间" datatype="double" default="999999">V04051</colunm>
+	<colunm fxy="0-4-52-0" name="Principal time of daily reading of minimum temperature" dec="日最低气温读取时间" datatype="double" default="999999">V04052</colunm>
+	
+</root>

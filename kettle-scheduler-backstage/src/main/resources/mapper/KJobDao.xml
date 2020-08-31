@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.piesat.kettlescheduler.dao.KJobDao">
+  <resultMap id="BaseResultMap" type="com.piesat.kettlescheduler.model.KJob">
+    <id column="job_id" jdbcType="INTEGER" property="jobId" />
+    <result column="category_id" jdbcType="INTEGER" property="categoryId" />
+    <result column="data_ids" jdbcType="INTEGER" property="dataIds" />
+    <result column="job_name" jdbcType="VARCHAR" property="jobName" />
+    <result column="job_type" jdbcType="INTEGER" property="jobType" />
+    <result column="job_repository_id" jdbcType="INTEGER" property="jobRepositoryId" />
+    <result column="job_quartz" jdbcType="INTEGER" property="jobQuartz" />
+    <result column="job_record" jdbcType="INTEGER" property="jobRecord" />
+    <result column="job_log_level" jdbcType="VARCHAR" property="jobLogLevel" />
+    <result column="job_status" jdbcType="INTEGER" property="jobStatus" />
+    <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
+    <result column="add_user" jdbcType="INTEGER" property="addUser" />
+    <result column="edit_time" jdbcType="TIMESTAMP" property="editTime" />
+    <result column="edit_user" jdbcType="INTEGER" property="editUser" />
+    <result column="del_flag" jdbcType="INTEGER" property="delFlag" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.piesat.kettlescheduler.model.KJobWithBLOBs">
+    <result column="job_description" jdbcType="LONGVARCHAR" property="jobDescription" />
+    <result column="job_path" jdbcType="LONGVARCHAR" property="jobPath" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    job_id, category_id, data_ids, job_name, job_type, job_repository_id, job_quartz, 
+    job_record, job_log_level, job_status, add_time, add_user, edit_time, edit_user, 
+    del_flag
+  </sql>
+  <sql id="Blob_Column_List">
+    job_description, job_path
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from k_job
+    where job_id = #{jobId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from k_job
+    where job_id = #{jobId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.piesat.kettlescheduler.model.KJobWithBLOBs">
+    insert into k_job (job_id, category_id, data_ids, 
+      job_name, job_type, job_repository_id, 
+      job_quartz, job_record, job_log_level, 
+      job_status, add_time, add_user, 
+      edit_time, edit_user, del_flag, 
+      job_description, job_path)
+    values (#{jobId,jdbcType=INTEGER}, #{categoryId,jdbcType=INTEGER}, #{dataIds,jdbcType=INTEGER}, 
+      #{jobName,jdbcType=VARCHAR}, #{jobType,jdbcType=INTEGER}, #{jobRepositoryId,jdbcType=INTEGER}, 
+      #{jobQuartz,jdbcType=INTEGER}, #{jobRecord,jdbcType=INTEGER}, #{jobLogLevel,jdbcType=VARCHAR}, 
+      #{jobStatus,jdbcType=INTEGER}, #{addTime,jdbcType=TIMESTAMP}, #{addUser,jdbcType=INTEGER}, 
+      #{editTime,jdbcType=TIMESTAMP}, #{editUser,jdbcType=INTEGER}, #{delFlag,jdbcType=INTEGER}, 
+      #{jobDescription,jdbcType=LONGVARCHAR}, #{jobPath,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.piesat.kettlescheduler.model.KJobWithBLOBs">
+    insert into k_job
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="jobId != null">
+        job_id,
+      </if>
+      <if test="categoryId != null">
+        category_id,
+      </if>
+      <if test="dataIds != null">
+        data_ids,
+      </if>
+      <if test="jobName != null">
+        job_name,
+      </if>
+      <if test="jobType != null">
+        job_type,
+      </if>
+      <if test="jobRepositoryId != null">
+        job_repository_id,
+      </if>
+      <if test="jobQuartz != null">
+        job_quartz,
+      </if>
+      <if test="jobRecord != null">
+        job_record,
+      </if>
+      <if test="jobLogLevel != null">
+        job_log_level,
+      </if>
+      <if test="jobStatus != null">
+        job_status,
+      </if>
+      <if test="addTime != null">
+        add_time,
+      </if>
+      <if test="addUser != null">
+        add_user,
+      </if>
+      <if test="editTime != null">
+        edit_time,
+      </if>
+      <if test="editUser != null">
+        edit_user,
+      </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
+      <if test="jobDescription != null">
+        job_description,
+      </if>
+      <if test="jobPath != null">
+        job_path,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="jobId != null">
+        #{jobId,jdbcType=INTEGER},
+      </if>
+      <if test="categoryId != null">
+        #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="dataIds != null">
+        #{dataIds,jdbcType=INTEGER},
+      </if>
+      <if test="jobName != null">
+        #{jobName,jdbcType=VARCHAR},
+      </if>
+      <if test="jobType != null">
+        #{jobType,jdbcType=INTEGER},
+      </if>
+      <if test="jobRepositoryId != null">
+        #{jobRepositoryId,jdbcType=INTEGER},
+      </if>
+      <if test="jobQuartz != null">
+        #{jobQuartz,jdbcType=INTEGER},
+      </if>
+      <if test="jobRecord != null">
+        #{jobRecord,jdbcType=INTEGER},
+      </if>
+      <if test="jobLogLevel != null">
+        #{jobLogLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="jobStatus != null">
+        #{jobStatus,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null">
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addUser != null">
+        #{addUser,jdbcType=INTEGER},
+      </if>
+      <if test="editTime != null">
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="editUser != null">
+        #{editUser,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=INTEGER},
+      </if>
+      <if test="jobDescription != null">
+        #{jobDescription,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="jobPath != null">
+        #{jobPath,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.piesat.kettlescheduler.model.KJobWithBLOBs">
+    update k_job
+    <set>
+      <if test="categoryId != null">
+        category_id = #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="dataIds != null">
+        data_ids = #{dataIds,jdbcType=INTEGER},
+      </if>
+      <if test="jobName != null">
+        job_name = #{jobName,jdbcType=VARCHAR},
+      </if>
+      <if test="jobType != null">
+        job_type = #{jobType,jdbcType=INTEGER},
+      </if>
+      <if test="jobRepositoryId != null">
+        job_repository_id = #{jobRepositoryId,jdbcType=INTEGER},
+      </if>
+      <if test="jobQuartz != null">
+        job_quartz = #{jobQuartz,jdbcType=INTEGER},
+      </if>
+      <if test="jobRecord != null">
+        job_record = #{jobRecord,jdbcType=INTEGER},
+      </if>
+      <if test="jobLogLevel != null">
+        job_log_level = #{jobLogLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="jobStatus != null">
+        job_status = #{jobStatus,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null">
+        add_time = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addUser != null">
+        add_user = #{addUser,jdbcType=INTEGER},
+      </if>
+      <if test="editTime != null">
+        edit_time = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="editUser != null">
+        edit_user = #{editUser,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=INTEGER},
+      </if>
+      <if test="jobDescription != null">
+        job_description = #{jobDescription,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="jobPath != null">
+        job_path = #{jobPath,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where job_id = #{jobId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.piesat.kettlescheduler.model.KJobWithBLOBs">
+    update k_job
+    set category_id = #{categoryId,jdbcType=INTEGER},
+      data_ids = #{dataIds,jdbcType=INTEGER},
+      job_name = #{jobName,jdbcType=VARCHAR},
+      job_type = #{jobType,jdbcType=INTEGER},
+      job_repository_id = #{jobRepositoryId,jdbcType=INTEGER},
+      job_quartz = #{jobQuartz,jdbcType=INTEGER},
+      job_record = #{jobRecord,jdbcType=INTEGER},
+      job_log_level = #{jobLogLevel,jdbcType=VARCHAR},
+      job_status = #{jobStatus,jdbcType=INTEGER},
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      add_user = #{addUser,jdbcType=INTEGER},
+      edit_time = #{editTime,jdbcType=TIMESTAMP},
+      edit_user = #{editUser,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=INTEGER},
+      job_description = #{jobDescription,jdbcType=LONGVARCHAR},
+      job_path = #{jobPath,jdbcType=LONGVARCHAR}
+    where job_id = #{jobId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.piesat.kettlescheduler.model.KJob">
+    update k_job
+    set category_id = #{categoryId,jdbcType=INTEGER},
+      data_ids = #{dataIds,jdbcType=INTEGER},
+      job_name = #{jobName,jdbcType=VARCHAR},
+      job_type = #{jobType,jdbcType=INTEGER},
+      job_repository_id = #{jobRepositoryId,jdbcType=INTEGER},
+      job_quartz = #{jobQuartz,jdbcType=INTEGER},
+      job_record = #{jobRecord,jdbcType=INTEGER},
+      job_log_level = #{jobLogLevel,jdbcType=VARCHAR},
+      job_status = #{jobStatus,jdbcType=INTEGER},
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      add_user = #{addUser,jdbcType=INTEGER},
+      edit_time = #{editTime,jdbcType=TIMESTAMP},
+      edit_user = #{editUser,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=INTEGER}
+    where job_id = #{jobId,jdbcType=INTEGER}
+  </update>
+</mapper>

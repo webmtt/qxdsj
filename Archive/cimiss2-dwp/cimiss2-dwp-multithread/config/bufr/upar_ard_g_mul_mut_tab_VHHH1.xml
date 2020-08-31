@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	
+	<!-- fxy:前三个值bufr文件数据段识别码,第4个值为整个数据段中第几次出现的识别码 -->
+	<!-- name:对应的字段名称 -->
+	<!-- dec:字段说明 -->
+	<!-- datatype:字段类型 -->
+	<!-- default:如果从bufr文件中取出的数据为空设置默认值 -->
+	<!-- qc:true或false,此行是否为质控码 -->
+	<!-- expression:配置此行字段值的表达式
+			表达式说明:
+				${col:arg} -> 当前配置文件中对应的字段值，arg：配置文件中配置的字段
+				${dateFormat(arg1,arg2,arg3)} -> 日期格式化,arg1:日期字符串20170809001211，arg2:arg1的格式yyyyMMddHHmmss，arg3:转换后的日期格式(如：yyyy-MM-dd HH:mm:ss) 
+				${dateTime} -> 获取系统当前时间,默认格式为yyyyMMddHHmmss
+				${dateTime(yyyy-MM-dd HH:mm:ss)} -> 获取指定格式的系统当前时间
+				${ascii:arg} -> arg代表的值转换为ascii码
+				${stationInfo(arg1,arg2,arg3)} -> 根据站号从stationinfo_conf.lua配置文件中取值，第一个参数arg1：字符站号；第二个参数arg2：站号对应的序列号;arg3：缺省值，如果从配置文件中取不到值，则取arg3作为默认值
+				${seqDayFormat(arg1,arg2,arg3)} -> 序日的格式化，第一个参数arg1：4位年；第二个参数arg2：序日(1-3位数字)；第三个参数arg3：格式(遵循java中的日期格式化pattern)
+				#########################################################
+				${col:arg} ${seqDayFormat(arg1,arg2,arg3)} ${stationInfo(arg1,arg2)} ${dateFormat(arg1,arg2,arg3)} 这几个表达式后都可以根据需要添加.split('')[]和.substring()表达式
+				.split('')[]按单引号中的符号分隔前面表达式的值，中括号中是分隔后取第n-1个
+				.substring(snum,enum) 在紧前面的表达式的值中截取snum到enum字符串,包前不包后
+	 -->
+	<colunm fxy="D_RECORD_ID" name="id" dec="记录标识" datatype="string" expression="${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} ${col:V04004}:${col:V04005}:${col:V04006},yyyy-MM-dd HH:mm:ss,yyyyMMddHHmmss)}_${col:V01301}_${col:V05001}_${col:V06001}_${col:V07002}_${col:V07010}_${col:V08009}">D_RECORD_ID</colunm>
+	<colunm fxy="D_DATA_ID" name="data_id" dec="资料标识" datatype="string" default="B.0014.0001.S001">D_DATA_ID</colunm>
+	<colunm fxy="D_IYMDHM" name="insert_datetime" dec="入库时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_IYMDHM</colunm>
+	<colunm fxy="D_RYMDHM" name="recive_datetime" dec="收到时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_RYMDHM</colunm>
+	<colunm fxy="D_UPDATE_TIME" name="update datetime" dec="更新时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_UPDATE_TIME</colunm>
+	<colunm fxy="D_DATETIME" name="data_datetime" dec="资料时间" datatype="date" expression="${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} ${col:V04004}:${col:V04005}:${col:V04006},yyyy-MM-dd HH:mm:ss,yyyy-MM-dd HH:mm:ss)}">D_DATETIME</colunm>
+ 	<colunm fxy="V_TT" name="V_TT" dec="报文类型" datatype="string" >V_TT</colunm>
+ 	<colunm fxy="V_BBB" name="V_BBB" dec="更正标识" datatype="string" default="000">V_BBB</colunm>
+	<colunm fxy="0-4-1-0" name="year" dec="资料年" datatype="int" expression="{0}">V04001_02</colunm>
+	<colunm fxy="0-4-2-0" name="Month" dec="资料月" datatype="int" expression="{0}">V04002_02</colunm>
+	<colunm fxy="0-4-3-0" name="Day" dec="资料日 " datatype="int" >V04003_02</colunm>
+	<colunm fxy="0-4-4-0" name="Hour" dec="资料时" datatype="int" >V04004_02</colunm>
+	<colunm fxy="0-4-5-0" name="minute" dec="资料分" datatype="int" default="0">V04005_02</colunm>
+ 	<colunm fxy="V_STT" name="V_STT" dec="报文类型" datatype="string" default="SS">V_STT</colunm>
+ 	<colunm fxy="C_CCCC" name="The application center" dec="编报中心" datatype="string" default="NULL">C_CCCC</colunm>
+ 	<colunm fxy="?" name="" dec="数据源标识码" datatype="int" expression="{0}">V01031</colunm>
+ 	<colunm fxy="?" name="" dec="生成应用" datatype="int" expression="{0}">V01032</colunm>
+ 	<colunm fxy="0-1-8-0" name="WMO_block_number" dec="区站号（飞机标识符）" datatype="string">V01301</colunm>
+ 	<colunm fxy="0-1-8-0" name="" dec="飞机注册号" datatype="string">V01008</colunm>
+ 	<colunm fxy="0-1-23-0" name="" dec="观测序列号" datatype="double">V01023</colunm>
+ 	<colunm fxy="0-1-110-0" name="" dec="飞机尾号" datatype="string">V01110</colunm>
+ 	<colunm fxy="0-1-111-0" name="" dec="起飞机场" datatype="string" >V01111</colunm>
+ 	<colunm fxy="0-1-112-0" name="" dec="目的地机场" datatype="string" >V01112</colunm>
+ 	<colunm fxy="0-2-61-0" name="" dec="飞机导航系统类型" datatype="int">V02061</colunm>
+ 	<colunm fxy="0-2-62-0" name="" dec="飞机数据转发系统类型" datatype="int">V02062</colunm>
+ 	<colunm fxy="0-2-170-0" name="" dec="飞机湿度传感器" datatype="int">V02170</colunm>
+ 	<colunm fxy="?" name="" dec="风仪器类型" datatype="int">V02002</colunm>
+ 	<colunm fxy="?" name="" dec="测站类型" datatype="double">V02001</colunm>
+ 	<colunm fxy="?" name="" dec="ACARS地面接收站" datatype="string" >V02065</colunm>
+ 	<colunm fxy="0-33-25-0" name="" dec="ACARS内插值指示符" datatype="int" expression="{0}">V33025</colunm>
+ 	<colunm fxy="?" name="" dec="经纬度的原始说明" datatype="double">V02070</colunm>
+ 
+ 	<colunm fxy="0-2-5-0" name="" dec="温度观测准确度" datatype="double">V02005</colunm>
+ 	<colunm fxy="?" name="" dec="气压质控码" datatype="int" default="9" qc="true">Q07004</colunm>
+ 	<colunm fxy="?" name="" dec="测站海拔高度" datatype="double">V07001</colunm>
+ 	<colunm fxy="0-4-1-0" name="" dec="资料探测年" datatype="int">V04001</colunm>
+ 	<colunm fxy="0-4-2-0" name="" dec="资料探测月" datatype="int">V04002</colunm>
+ 	<colunm fxy="0-4-3-0" name="" dec="资料探测日" datatype="int">V04003</colunm>
+ 	<colunm fxy="0-4-4-0" name="" dec="资料探测时" datatype="int" >V04004</colunm>
+ 	<colunm fxy="0-4-5-0" name="" dec="资料探测分" datatype="int" >V04005</colunm>
+ 	<colunm fxy="0-4-6-0" name="" dec="资料探测秒 " datatype="int" default="0">V04006</colunm>
+ 	<colunm fxy="?" name="" dec="气压" datatype="double">V07004</colunm>
+ 	<colunm fxy="0-7-2-0" name="" dec="绝对飞行高度" datatype="double" default="999998">V07002</colunm>
+ 	<colunm fxy="?" name="" dec="指示飞行高度" datatype="double">V10070</colunm>
+ 	<colunm fxy="0-8-9-0" name="" dec="飞行状态" datatype="int">V08009</colunm>
+ 	<colunm fxy="0-13-3-0" name="" dec="相对湿度" datatype="double">V13003</colunm>
+ 	<colunm fxy="1-3-0-0" name="" dec="液体水含量的峰值" datatype="double" expression="{1}" >V20043</colunm>
+ 	<colunm fxy="1-3-0-0" name="" dec="液体水含量的平均值" datatype="double" expression="{0}" >V20044</colunm>
+ 	<colunm fxy="1-3-0-0" name="" dec="过冷大滴(SLD)情况" datatype="int" expression="{2}" >V20045</colunm>
+ 	<colunm fxy="0-33-26-0" name="" dec="水气质量" datatype="int">V33026</colunm>
+ 	<colunm fxy="1-3-0-2" name="" dec="垂直阵风风速" datatype="double" expression="{0}" >V11034</colunm>
+ 	<colunm fxy="1-3-0-2" name="" dec="垂直阵风加速度" datatype="double" expression="{1}" >V11035</colunm>
+ 	<colunm fxy="0-11-36-0" name="" dec="最大等价垂直阵风" datatype="double" expression="{0}" >V11036</colunm>
+ 	<colunm fxy="0-11-75-0" name="" dec="平均湍流强度（涡旋消散率）" datatype="double" >V11075</colunm>
+ 	<colunm fxy="0-11-76-0" name="" dec="峰值湍流强度（涡旋消散率）" datatype="double" >V11076</colunm>
+ 	<colunm fxy="" name="" dec="涡动消散率的报告间隔或平均时间" datatype="double" >V11077</colunm>
+ 	<colunm fxy="0-11-39-0" name="" dec="涡动消散率峰值出现的延展时间" datatype="int" >V11039</colunm>
+ 	<colunm fxy="" name="" dec="湍流指数" datatype="int" >V11037</colunm>
+ 	<colunm fxy="0-11-31-0" name="" dec="湍流度" datatype="int">V11031</colunm>
+ 	<colunm fxy="0-11-100-0" name="" dec="飞机的真空速" datatype="double">V11100</colunm>
+ 	<colunm fxy="0-11-101-0" name="" dec="飞机地速U-分量" datatype="double">V11101</colunm>
+ 	<colunm fxy="0-11-102-0" name="" dec="飞机地速V-分量" datatype="double">V11102</colunm>
+ 	<colunm fxy="0-11-103-0" name="" dec="飞机地速W-分量" datatype="double">V11103</colunm>
+ 	<colunm fxy="0-11-104-0" name="" dec="飞机真航向" datatype="double">V11104</colunm>
+ 	<colunm fxy="?" name="" dec="飞机翻滚角" datatype="double">V02063</colunm>
+ 	<colunm fxy="0-7-10-0" name="" dec="飞行高度质控码" datatype="int" expression="{0}"  default="9" qc="true">Q07010</colunm>
+ 	<colunm fxy="0-7-2-0" name="" dec="绝对飞行高度质控码" datatype="int"  default="9" qc="true">Q07002</colunm>
+ 	<colunm fxy="?" name="" dec="指示飞行高度质控码" datatype="int"  default="9" qc="true">Q10070</colunm>
+ 	<colunm fxy="0-8-9-0" name="" dec="飞行状态质控码" datatype="int" default="9"  qc="true">Q08009</colunm>
+ 	<colunm fxy="0-12-101-0" name="" dec="温度质控码" datatype="int" expression="{0}" default="9" qc="true">Q12001</colunm>
+ 	<colunm fxy="0-2-5-0" name="" dec="温度观测准确度质控码" datatype="int" default="9"  qc="true">Q02005</colunm>
+ 	<colunm fxy="0-12-103-0" name="" dec="露点温度质控码" datatype="int" expression="{0}" default="9" qc="true">Q12003</colunm>
+ 	<colunm fxy="0-13-3-0" name="" dec="相对湿度质控码" datatype="int" expression="{0}" default="9" qc="true">Q13003</colunm>
+ 	<colunm fxy="0-13-2-0" name="" dec="混合比质控码" datatype="int" expression="{0}" default="9" qc="true">Q13002</colunm>
+ 	<colunm fxy="1-3-0-0" name="" dec="液体水含量的峰值质控码" datatype="int" expression="{1}" default="9" qc="true">Q20043</colunm>
+ 	<colunm fxy="1-3-0-0" name="" dec="液体水含量的平均值质控码" datatype="int" expression="{0}"  default="9" qc="true">Q20044</colunm>
+ 	<colunm fxy="1-3-0-0" name="" dec="过冷大滴(SLD)情况质控码" datatype="int" expression="{2}"  default="9" qc="true">Q20045</colunm>
+ 	<colunm fxy="0-33-26-0" name="" dec="水气质量质控码" datatype="int"  default="9" qc="true">Q33026</colunm>
+ 	<colunm fxy="0-11-1-0" name="" dec="风向质控码" datatype="int" expression="{0}" default="9" qc="true">Q11001</colunm>
+ 	<colunm fxy="0-11-2-0" name="" dec="风速质控码" datatype="int" expression="{0}" default="9" qc="true">Q11002</colunm>
+ 	<colunm fxy="1-3-0-2" name="" dec="垂直阵风风速质控码" datatype="int" expression="{0}" default="9" qc="true">Q11034</colunm>
+ 	<colunm fxy="1-3-0-2" name="" dec="气压垂直阵风加速度质控码" datatype="int" expression="{1}" default="9" qc="true">Q11035</colunm>
+ 	<colunm fxy="0-11-36-0" name="" dec="最大等价垂直阵风质控码" datatype="int" expression="{0}" default="9" qc="true">Q11036</colunm>
+ 	<colunm fxy="0-11-75-0" name="" dec="平均湍流强度（涡旋消散率）质控码" datatype="int"  default="9" qc="true">Q11075</colunm>
+ 	<colunm fxy="0-11-76-0" name="" dec="峰值湍流强度（涡旋消散率）质控码" datatype="int"  default="9" qc="true">Q11076</colunm>
+ 	<colunm fxy="" name="" dec="涡动消散率的报告间隔或平均时间质控码" datatype="int" default="9" qc="true">Q11077</colunm>
+ 	<colunm fxy="0-11-39-0" name="" dec="涡动消散率峰值出现的延展时间质控码" datatype="int"  default="9" qc="true">Q11039</colunm>
+ 	<colunm fxy="" name="" dec="湍流指数质控码" datatype="int" default="9" qc="true">Q11037</colunm>
+ 	<colunm fxy="0-11-31-0" name="" dec="湍流度质控码" datatype="int"  default="9" qc="true">Q11031</colunm>
+ 	<colunm fxy="0-11-100-0" name="" dec="飞机的真空速质控码" datatype="int"  default="9" qc="true">Q11100</colunm>
+ 	<colunm fxy="0-11-101-0" name="" dec="飞机地速U-分量质控码" datatype="int"  default="9" qc="true">Q11101</colunm>
+ 	<colunm fxy="0-11-102-0" name="" dec="飞机地速V-分量质控码" datatype="int"  default="9" qc="true">Q11102</colunm>
+ 	<colunm fxy="0-11-103-0" name="" dec="飞机地速W-分量质控码" datatype="int"  default="9" qc="true">Q11103</colunm>
+ 	<colunm fxy="0-11-104-0" name="" dec="飞机真航向质控码" datatype="int"  default="9" qc="true">Q11104</colunm>
+ 	<colunm fxy="?" name="" dec="飞机翻滚角质控码" datatype="int"  default="9" qc="true">Q02063</colunm>
+ 	<colunm fxy="0-2-64-0" name="" dec="飞机翻滚角质量质控码" datatype="int" expression="{0}" default="9" qc="true">Q02064</colunm>
+ 	<colunm fxy="?" name="" dec="气压过程质控码" datatype="string">QR07004</colunm>
+ 	<colunm fxy="?" name="" dec="飞行高度过程质控码" datatype="string">QR07010</colunm>
+ 	<colunm fxy="?" name="" dec="绝对飞行高度质控码" datatype="string">QR07002</colunm>
+ 	<colunm fxy="?" name="" dec="飞行状态过程质控码" datatype="string">QR08009</colunm>
+ 	<colunm fxy="?" name="" dec="混合比过程质控码" datatype="string">QR12001</colunm>
+ 	<colunm fxy="?" name="" dec="温度过程质控码" datatype="string">QR12003</colunm>
+ 	<colunm fxy="?" name="" dec="相对湿度过程质控码" datatype="string">QR13003</colunm>
+ 	<colunm fxy="?" name="" dec="混合比过程质控码" datatype="string">QR13002</colunm>
+ 	<colunm fxy="?" name="" dec="风向过程质控码" datatype="string">QR11001</colunm>
+ 	<colunm fxy="?" name="" dec="风速过程质控码" datatype="string">QR11002</colunm>
+ 	<colunm fxy="?" name="" dec="垂直阵风风速过程质控码" datatype="string">QR11034</colunm>
+ 	<colunm fxy="?" name="" dec="垂直阵风加速度过程质控码" datatype="string">QR11035</colunm>
+ 	<colunm fxy="?" name="" dec="湍流度过程质控码" datatype="string">QR11031</colunm>
+	<colunm fxy="?" name="" dec="" datatype="string" default="B.0001.0020.R001">D_SOURCE_ID</colunm>
+	 
+	 <group fxy="1-2-0-0" name="" dec="飞行高度、经纬度位置" delay="7">
+		<colunm fxy="1-2-0-0" name="" dec="飞行高度" datatype="double" expression="{0}" >V07010</colunm>
+ 		<colunm fxy="0-5-1-0" name="" dec="纬度" datatype="double" expression="{0}" >V05001</colunm>
+ 		<colunm fxy="0-6-1-0" name="" dec="经度" datatype="double" expression="{0}" >V06001</colunm>
+ 		<colunm fxy="1-2-0-0" name="" dec="风向" datatype="double" expression="{1}" >V11001</colunm>
+ 		<colunm fxy="1-2-0-0" name="" dec="风速" datatype="double" expression="{2}" >V11002</colunm>
+ 		<colunm fxy="1-2-0-0" name="" dec="飞机翻滚角质量" datatype="double" expression="{3}" >V02064</colunm>
+ 		<colunm fxy="1-2-0-0" name="" dec="温度" datatype="double" expression="${{4}-273.15}">V12001</colunm>
+ 		<colunm fxy="1-2-0-0" name="" dec="露点温度" datatype="double" expression="${{5}-273.15}">V12003</colunm>
+ 		<colunm fxy="1-2-0-0" name="" dec="混合比" datatype="double" expression="{6}">V13002</colunm>
+ 	</group>
+	 
+</root> 

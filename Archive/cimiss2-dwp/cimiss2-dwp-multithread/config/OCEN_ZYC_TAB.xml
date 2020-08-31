@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root IsCheck="true" length="8">
+	<element dataType="String" content="default" value='D_DATA_ID'>D_DATA_ID</element>
+	<element dataType="datetime" content="default" value='SYSDATE'>D_IYMDHM</element>
+	<element dataType="datetime" content="default" value='FILE_LAST_MODIF'>D_RYMDHM</element>
+	<element dataType="datetime" content="default" value='SYSDATE'>D_UPDATE_TIME</element>
+	<element dataType="String" content="default" value="{D_DATETIME}{V01301}">D_RECORD_ID</element> 
+	<element dataType="double" content="report" index="3" >V05001</element>
+	<element dataType="double" content="report" index="2" >V06001</element>
+	<element dataType="double" content="report" index="4" >V12001</element>
+	<element dataType="double" content="report" index="5" >V10051</element>
+	<element dataType="double" content="report" index="6" >V11002</element>
+	<element dataType="double" content="report" index="7" >V11001</element>
+	<element dataType="datetime" content="report" index="0"  format="yyyy-MM-dd HH:mm:ss">D_DATETIME</element>
+	<!-- <element dataType="datetime" content="report" index="FileName{7}" format="yyyy-MM-dd HH:mm:ss" >D_STARTTIME</element>
+	<element dataType="datetime" content="report" index="FileName{8}" format="yyyy-MM-dd HH:mm:ss">D_ENDTIME</element> -->
+	<element dataType="String" content='default' value='000'>V_BBB</element>
+	<element dataType="int" content="report" index="0" Expression="[0:4]">V04001</element>
+	<element dataType="int" content="report" index="0" Expression="[5:7]">V04002</element>
+	<element dataType="int" content="report" index="0" Expression="[8:10]">V04003</element>
+	<element dataType="int" content="report" index="0" Expression="[11:13]">V04004</element>
+	<element dataType="int" content="report" index="0" Expression="[14:16]">V04005</element>
+	<element dataType="int" content="report" index="0" Expression="[17:19]">V04006</element>
+	<element dataType="int" content="report" index="0" Expression="[0:4]">V04001_02</element>
+	<element dataType="int" content="report" index="0" Expression="[5:7]">V04002_02</element>
+	<element dataType="int" content="report" index="0" Expression="[8:10]">V04003_02</element>
+	<element dataType="int" content="report" index="0" Expression="[11:13]">V04004_02</element>
+	<element dataType="int" content="report" index="0" Expression="[14:16]">V04005_02</element>
+	<element dataType="String" content='report' index="1">V01301</element>
+	<element dataType="String" content='default' value='D_DATA_DPCID'>D_DATA_DPCID</element>
+	<element dataType="String" content='default' value='V_TT'>V_TT</element>
+	<element dataType="int" content="default" value='10'>V02001</element>
+	<!-- <element dataType="string" content="default" value="D_SOURCE_ID">D_SOURCE_ID</element> -->
+</root>

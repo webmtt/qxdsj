@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nmpiesat.idata.data.dao.DataDefDao">
+    <select id="findCount" resultType="java.lang.Integer">
+     select count(*) from BMD_DATADEF where invalid='0' and datacode in
+     <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+        #{item}
+     </foreach>
+    </select>
+    <select id="findlist" resultType="com.nmpiesat.idata.data.entity.DataDef">
+     select * from BMD_DATADEF where invalid='0' and datacode in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+            limit ${beginNum},${endNum}
+
+    </select>
+    <select id="finlistByCateId" resultType="com.nmpiesat.idata.data.entity.DataDef">
+        select a.* from BMD_DATADEF a,bmd_categorydatarelt b where a.invalid='0' and a.datacode=b.datacode and b.categoryid=${categoryid}
+    </select>
+
+    <select id="findDataDefByDataCode" parameterType="java.lang.String" resultType="com.nmpiesat.idata.data.entity.DataDef">
+        select * from BMD_DATADEF where invalid='0' and datacode =#{datacode}
+    </select>
+    <select id="finlistByCateName" resultType="com.nmpiesat.idata.data.entity.DataDef">
+        select a.* from BMD_DATADEF a,bmd_categorydatarelt b,bmd_datacategorydef c where a.invalid='0' and a.datacode=b.datacode and b.categoryid=c.categoryid and c.chnname like #{name}
+    </select>
+
+</mapper>

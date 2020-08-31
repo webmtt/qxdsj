@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.mybatis.modules.report.dao.SupDatafileinfoDao">
+
+    <sql id="supDatafileinfoColumns">
+		a.id AS "id",
+		a.data_name AS "dataName",
+		a.link AS "link",
+		a.data_type AS "dataType",
+		a.starttime_con AS "starttimeCon",
+		a.endtime_con AS "endtimeCon",
+		a.state AS "state",
+		a.create_by AS "createBy.id",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate",
+		a.remarks AS "remarks",
+		a.del_flag AS "delFlag"
+	</sql>
+
+    <sql id="supDatafileinfoJoins">
+    </sql>
+
+    <select id="get" resultType="SupDatafileinfo">
+        SELECT
+        <include refid="supDatafileinfoColumns"/>
+        FROM sup_datafileinfo a
+        <include refid="supDatafileinfoJoins"/>
+        WHERE a.id = #{id}
+    </select>
+
+    <select id="findList" resultType="SupDatafileinfo">
+        SELECT
+        <include refid="supDatafileinfoColumns"/>
+        FROM sup_datafileinfo a
+        <include refid="supDatafileinfoJoins"/>
+        <where>
+            a.del_flag = #{DEL_FLAG_NORMAL}
+            <if test="starttimeCon != null and starttimeCon != ''">
+                AND a.starttime_con = #{starttimeCon}
+            </if>
+            <if test="endtimeCon != null and endtimeCon != ''">
+                AND a.endtime_con = #{endtimeCon}
+            </if>
+        </where>
+        <choose>
+            <when test="page !=null and page.orderBy != null and page.orderBy != ''">
+                ORDER BY ${page.orderBy}
+            </when>
+            <otherwise>
+                ORDER BY a.update_date DESC
+            </otherwise>
+        </choose>
+    </select>
+
+    <select id="findAllList" resultType="SupDatafileinfo">
+        SELECT
+        <include refid="supDatafileinfoColumns"/>
+        FROM sup_datafileinfo a
+        <include refid="supDatafileinfoJoins"/>
+        <where>
+            a.del_flag = #{DEL_FLAG_NORMAL}
+        </where>
+        <choose>
+            <when test="page !=null and page.orderBy != null and page.orderBy != ''">
+                ORDER BY ${page.orderBy}
+            </when>
+            <otherwise>
+                ORDER BY a.update_date DESC
+            </otherwise>
+        </choose>
+    </select>
+
+    <insert id="insert">
+		INSERT INTO sup_datafileinfo(
+			id,
+			data_name,
+			link,
+			data_type,
+			starttime_con,
+			endtime_con,
+			state,
+			create_by,
+			create_date,
+			update_by,
+			update_date,
+			remarks,
+			del_flag
+		) VALUES (
+			#{id},
+			#{dataName},
+			#{link},
+			#{dataType},
+			#{starttimeCon},
+			#{endtimeCon},
+			#{state},
+			#{createBy.id},
+			#{createDate},
+			#{updateBy.id},
+			#{updateDate},
+			#{remarks},
+			#{delFlag}
+		)
+	</insert>
+
+    <update id="update">
+		UPDATE sup_datafileinfo SET 	
+			data_name = #{dataName},
+			link = #{link},
+			data_type = #{dataType},
+			starttime_con = #{starttimeCon},
+			endtime_con = #{endtimeCon},
+			update_by = #{updateBy.id},
+			update_date = #{updateDate},
+			remarks = #{remarks}
+		WHERE id = #{id}
+	</update>
+
+    <update id="delete">
+		UPDATE sup_datafileinfo SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+
+</mapper>

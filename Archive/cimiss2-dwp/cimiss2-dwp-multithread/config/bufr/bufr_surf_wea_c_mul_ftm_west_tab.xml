@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	
+	<!-- fxy:前三个值bufr文件数据段识别码,第4个值为整个数据段中第几次出现的识别码 -->
+	<!-- name:对应的字段名称 -->
+	<!-- dec:字段说明 -->
+	<!-- datatype:字段类型 -->
+	<!-- defaultValue:如果从bufr文件中取出的数据为空设置默认值 -->
+	<!-- qc:true或false,此行是否为质控码 -->
+	<!-- expression:配置此行字段值的表达式
+			表达式说明:
+				${col:arg} -> 当前配置文件中对应的字段值，arg：配置文件中配置的字段
+				${dateFormat(arg1,arg2,arg3)} -> 日期格式化,arg1:日期字符串20170809001211，arg2:arg1的格式yyyyMMddHHmmss，arg3:转换后的日期格式(如：yyyy-MM-dd HH:mm:ss) 
+				${dateTime} -> 获取系统当前时间,默认格式为yyyyMMddHHmmss
+				${ascii:arg} -> arg代表的值转换为ascii码
+				${stationInfo(arg1,arg2,arg3)} -> 根据站号从stationinfo_conf.lua配置文件中取值，第一个参数arg1：字符站号；第二个参数arg2：站号对应的序列号
+				${seqDayFormat(arg1,arg2,arg3)} -> 序日的格式化，第一个参数arg1：4位年；第二个参数arg2：序日(1-3位数字)；第三个参数arg3：格式(遵循java中的日期格式化pattern)
+				#########################################################
+				${col:arg} ${seqDayFormat(arg1,arg2,arg3)} ${stationInfo(arg1,arg2)} ${dateFormat(arg1,arg2,arg3)} 这几个表达式后都可以根据需要添加.split('')[]和.substring()表达式
+				.split('')[]按单引号中的符号分隔前面表达式的值，中括号中是分隔后取第n-1个
+				.substring(snum,enum) 在紧前面的表达式的值中截取snum到enum字符串,包前不包后
+	 -->
+	<colunm fxy="D_RECORD_ID" name="id" dec="主键" datatype="string" expression="${col:V01301}_${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} ${col:V04004}:${col:V04005}:00,yyyy-MM-dd HH:mm:ss,yyyyMMddHHmmss)}">D_RECORD_ID</colunm>
+	<colunm fxy="D_DATA_ID" name="data_id" dec="资料标识" datatype="string" default="A.0024.0001.S001">D_DATA_ID</colunm>
+	<colunm fxy="D_IYMDHM" name="insert datetime" dec="入库时间" datatype="date" expression="${dateFormat(${dateTime},yyyyMMddHHmmss,yyyy-MM-dd HH:mm:ss)}">D_IYMDHM</colunm>
+	<colunm fxy="D_RYMDHM" name="recive_datetime" dec="收到时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_RYMDHM</colunm>
+	<colunm fxy="D_UPDATE_TIME" name="update datetime" dec="更新时间" datatype="date" expression="${dateTime(yyyy-MM-dd HH:mm:ss)}">D_UPDATE_TIME</colunm>
+	<colunm fxy="D_DATETIME" name="data datetime" dec="资料时间" datatype="date" expression="${dateFormat(${col:V04001}.substring(0,4)-${col:V04002}-${col:V04003} ${col:V04004}:${col:V04005}:00,yyyy-MM-dd HH:mm:ss,yyyy-MM-dd HH:mm:ss)}">D_DATETIME</colunm>
+	<colunm fxy="V_BBB" name="V_BBB" dec="更正报标识" datatype="string"  default="000">V_BBB</colunm>
+
+	<colunm fxy="V01300" name="stationId_N" dec="区站号(数字)" datatype="string" expression="${ascii:${col:V01301}}">V01300</colunm>
+	<colunm fxy="V02301" name="stationLevel" dec="台站级别" datatype="string" expression="${stationInfo(${col:V01301},01,999999)}.split(',')[6]" >V02301</colunm>
+	<colunm fxy="V_ACODE" name="adminCode" dec="行政区划代码" datatype="string" expression="${stationInfo(${col:V01301},01,999999)}.split(',')[5]" default="999999">V_ACODE</colunm>
+	
+	<colunm fxy="0-1-1-0" name="WMO_block_number" dec="区站号" datatype="string">V01301</colunm>
+	<colunm fxy="0-4-1-0" name="year" dec="资料年" datatype="int" >V04001</colunm>
+	<colunm fxy="0-4-2-0" name="Month" dec="资料月" datatype="int" >V04002</colunm>
+	<colunm fxy="0-4-3-0" name="Day" dec="资料日" datatype="int" >V04003</colunm>
+	<colunm fxy="0-4-4-0" name="Hour" dec="资料时" datatype="int" >V04004</colunm>
+	<colunm fxy="0-4-5-0" name="Hour" dec="资料分" datatype="int" >V04005</colunm>
+	<colunm fxy="0-5-1-0" name="Latitude" dec="纬度" datatype="double" >V05001</colunm>
+	<colunm fxy="0-6-1-0" name="Longitude" dec="经度" datatype="double" >V06001</colunm>
+	<colunm fxy="0-7-30-0" name="Height_of_station_ground_above_mean_sea_level" dec="测站高度" datatype="double" >V07001</colunm>
+	<!-- 如果风数据段极大风速11046≥17m/s，属于重要天气，取11211 -->
+	<colunm fxy="1-25-0-0" name="The_direction_of_great_wind_speed_in_an_hour" dec="极大风速的风向" datatype="double" expression="{0-11-10-1}">V11211</colunm>
+	<colunm fxy="1-25-0-0" name="The_direction_of_great_wind_speed_in_an_hour_QC" dec="极大风速的风向质量标志" datatype="double" expression="{0-11-10-1}" qc="true" default="9">Q11211</colunm>
+	<!-- 如果风数据段极大风速11046≥17m/s，属于重要天气，取11046 -->
+	<colunm fxy="1-25-0-0" name="Great_wind_speed_in_hours" dec="极大风速" datatype="double" expression="{0-11-46-0}">V11046</colunm>
+	<colunm fxy="1-25-0-0" name="Great_wind_speed_in_hours_QC" dec="极大风速质量标志" datatype="double" expression="{0-11-46-0}" qc="true" default="9">Q11046</colunm>
+	
+	<colunm fxy="1-7-0-0" name="" dec="龙卷类型和距离" datatype="double" expression="{0-20-197-0}" default="999998">V20401</colunm>
+	<colunm fxy="1-7-0-0" name="" dec="龙卷类型和距离质控码" datatype="double" expression="{0-20-197-0}" qc="true" default="9">Q20401</colunm>
+	
+	<colunm fxy="1-7-0-0" name="" dec="龙卷所在方位" datatype="double" expression="{0-20-54-0}" default="999998">V20402</colunm>
+	<colunm fxy="1-7-0-0" name="" dec="龙卷所在方位质控码" datatype="double" expression="{0-20-54-0}" qc="true" default="9">Q20402</colunm>
+	
+	<!-- 如果编码值为-1或-2，表示微量，赋值999990；如果编码值＞0，又不为缺测，取13013，编码值*100 -->
+	<colunm fxy="1-3-0-0" name="" dec="积雪深度" datatype="double" expression="{0-13-13-0}*100" default="999998">V13013</colunm>
+	<colunm fxy="1-3-0-0" name="" dec="积雪深度质控吗" datatype="double" expression="{0-13-13-0}" qc="true" default="9">Q13013</colunm>
+	
+	<!-- 电线积冰直径	V20326	实型	毫米	取重要天气段20067 -->
+	<colunm fxy="1-7-0-0" name="" dec="电线积冰直径" datatype="double" expression="{0-20-67-0}" default="999998">V20326</colunm>
+	<colunm fxy="1-7-0-0" name="" dec="电线积冰直径质控码" datatype="double" expression="{0-20-67-0}" qc="true" default="9">Q20326</colunm>
+	
+	<!-- 冰雹的最大直径	V20066	实型	毫米	取重要天气段20066 -->
+	<colunm fxy="1-7-0-0" name="" dec="冰雹的最大直径" datatype="double" expression="{0-20-66-0}" default="999998">V20066</colunm>
+	<colunm fxy="1-7-0-0" name="" dec="冰雹的最大直径质控码" datatype="double" expression="{0-20-66-0}" qc="true" default="9">Q20066</colunm>
+	
+	<colunm fxy="" name="" dec="过去1小时降水量" datatype="double" default="999998">V13019</colunm> 
+	<colunm fxy="" name="" dec="过去1小时降水量质控码" datatype="double" qc="true" default="9">Q13019</colunm> 
+
+	<colunm fxy="" name="" dec="过去3小时降水量" datatype="double" default="999998">V13020</colunm>
+	<colunm fxy="" name="" dec="过去3小时降水量质控码" datatype="double" qc="true" default="9">Q13020</colunm>
+	
+	<colunm fxy="" name="" dec="过去6小时降水量" datatype="double" default="999998">V13021</colunm>
+	<colunm fxy="" name="" dec="过去6小时降水量质控码" datatype="double" qc="true" default="9">Q13021</colunm>
+	
+	<colunm fxy="" name="" dec="日降水量" datatype="double" default="999998">V13011_24</colunm>
+	<colunm fxy="" name="" dec="日降水量质控码" datatype="double" qc="true" default="9">Q13011_24</colunm>
+	
+	<colunm fxy="" name="" dec="雷暴" datatype="double" default="999998">V20302_017</colunm>
+	<colunm fxy="" name="" dec="雷暴质控码" datatype="double" qc="true" default="9">Q20302_017</colunm>
+	
+	<colunm fxy="" name="" dec="视程障碍能见度" datatype="double" default="999998">V20001</colunm>
+	<colunm fxy="" name="" dec="视程障碍能见度质控码" datatype="double" qc="true" default="9">Q20001</colunm>
+	
+	<colunm fxy="1-29-0-0" name="" dec="视程障碍能见度" datatype="double" expression="{0-20-1-0}" default="999998">V20001</colunm>
+	<colunm fxy="1-29-0-0" name="" dec="视程障碍能见度质控码" datatype="double" expression="{0-20-1-0}" qc="true" default="9">Q20001</colunm>
+	
+	<colunm fxy="1-7-0-0" name="" dec="视程障碍天气现象" datatype="double" expression="{0-20-3-0}" default="999998">V20003</colunm>
+	<colunm fxy="1-7-0-0" name="" dec="视程障碍天气现象质控码" datatype="double" expression="{0-20-3-0}" qc="true" default="9">Q20003</colunm>
+
+	<colunm fxy="1-7-0-0" name="" dec="最大冰雹重量" datatype="double" expression="{0-20-214-0}" default="999998">V20214</colunm>
+	<colunm fxy="1-7-0-0" name="" dec="最大冰雹重量质控码" datatype="int" expression="{0-20-214-0}" qc="true" default="9">Q20214</colunm> 
+	
+	<!-- coluum fxy="" name="" dec="DPC code" datatype="string" default="A.0024.0001.P006"></coluum> -->
+	<colunm fxy="" name="" dec="资料四级编码" datatype="string" default="A.0001.0044.R001">D_SOURCE_ID</colunm>
+</root>

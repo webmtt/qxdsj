@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.products.dao.ProductsDao">
+    <!--<resultMap id="BaseResultMap" type="com.thinkgem.jeesite.modules.products.entity.Products">
+        <id column="id" jdbcType="VARCHAR" property="id" />
+        <result column="product" jdbcType="VARCHAR" property="product" />
+        <result column="userid" jdbcType="VARCHAR" property="userid" />
+        <result column="create" jdbcType="TIMESTAMP" property="create" />
+        <result column="del_flag" jdbcType="VARCHAR" property="delFlag" />
+        <result column="username" jdbcType="VARCHAR" property="username" />
+        <result column="password" jdbcType="VARCHAR" property="password" />
+    </resultMap>-->
+    <select id="findList" resultType="com.thinkgem.jeesite.modules.products.entity.Products">
+        SELECT
+        *
+        FROM sys_products p
+        <where>
+            p.del_flag=0
+            <if test="prodname != null and prodname != ''">
+                AND p.prodname LIKE
+                <if test="dbName == 'oracle'">'%'||#{prodname}||'%'</if>
+                <if test="dbName == 'mssql'">'%'+#{prodname}+'%'</if>
+                <if test="dbName == 'mysql'">concat('%',#{prodname},'%')</if>
+            </if>
+            <if test="username != null and username != ''">
+                AND p.username LIKE
+                <if test="dbName == 'oracle'">'%'||#{username}||'%'</if>
+                <if test="dbName == 'mssql'">'%'+#{username}+'%'</if>
+                <if test="dbName == 'mysql'">concat('%',#{username},'%')</if>
+            </if>
+            <if test="beginCreateDate != null and endCreateDate != null and beginCreateDate != '' and endCreateDate != ''">
+                AND p.create BETWEEN #{beginCreateDate} AND #{endCreateDate}
+            </if>
+        </where>
+        <choose>
+            <when test="page !=null and page.orderBy != null and page.orderBy != ''">
+                ORDER BY ${page.orderBy}
+            </when>
+            <otherwise>
+                ORDER BY p.create ASC
+            </otherwise>
+        </choose>
+    </select>
+
+    <update id="delete" parameterType="java.lang.String">
+		UPDATE sys_products SET
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+
+    <select id="get" resultType="com.thinkgem.jeesite.modules.products.entity.Products">
+    SELECT * from sys_products where id=#{id}
+    </select>
+
+    <update id="update">
+        UPDATE sys_products SET
+			prodname = #{prodname}
+		WHERE id = #{id}
+    </update>
+
+    <insert id="saveAlert" parameterType="com.thinkgem.jeesite.modules.products.entity.Newproducts">
+        update sys_product_new set unit=#{alerteunit},types=#{alertetype},product=#{alerteproduct},created=#{created} where id=1
+    </insert>
+
+    <insert id="saveForecast" parameterType="com.thinkgem.jeesite.modules.products.entity.Newproducts">
+        update sys_product_new set unit=#{forecastunit},types=#{forecasttype},product=#{forecastproduct},created=#{created} where id=2
+    </insert>
+
+    <update id="updateUserName" parameterType="com.thinkgem.jeesite.modules.products.entity.Products">
+        update sys_products SET
+			username = #{username}
+		WHERE id = #{id}
+    </update>
+
+    <insert id="saveProductRepert" parameterType="com.thinkgem.jeesite.modules.products.entity.ProductRepert">
+        update sys_product_repert set MSP1=#{MSP1},MSP2=#{MSP2},MSP3=#{MSP3} where id=1
+    </insert>
+
+    <select id="getProductRepert" resultType="com.thinkgem.jeesite.modules.products.entity.ProductRepert">
+        select * from sys_product_repert
+    </select>
+
+
+    <select id="getNewproducts" resultType="java.util.Map">
+        select * from sys_product_new
+    </select>
+
+    <select id="findAllLists" resultType="com.thinkgem.jeesite.modules.products.entity.Products">
+        select * from sys_products
+    </select>
+
+    <select id="getProductUpload" parameterType="java.lang.String" resultType="java.lang.String">
+        select url from sys_upload_product where id=#{id}
+    </select>
+
+    <delete id="deleteProductUp" parameterType="java.lang.String">
+        DELETE FROM sys_upload_product WHERE id=#{id}
+    </delete>
+
+    <update id="saveProductUpload" parameterType="com.thinkgem.jeesite.modules.products.entity.UploadProduct">
+        update sys_upload_product set link=#{link} where id=#{id}
+    </update>
+</mapper>

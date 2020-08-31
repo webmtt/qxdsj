@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<path_NAS_file>data_service/</path_NAS_file>	
+	<log_file_path>log/</log_file_path>
+	<oracle_di>0</oracle_di> <!-- 是否发翁oracle的diﺿ1为发送，其它为不发罿 -->
+	<rest_di>1</rest_di> <!-- 是否发翁restful的diﺿ1为发送，其它为不发罿 -->
+	<scan_dir>scan_dir/</scan_dir> <!-- 轮询扫描的目廿 -->
+	<trash_dir>trash_dir/</trash_dir> <!-- 扫描完成移到新目廿 -->
+	<dataBaseType>1</dataBaseType> <!-- 数据库类圿 =1阿里云DRDS数据库， =0万里庿源数据库 -->
+	<data>		
+		<data_id>F.0003.0001.R001</data_id>
+		<description>T639</description>	
+		<precision>HIGH</precision>
+		<grib_version>2</grib_version>
+		<!-- 多场文件的组织方庿-->
+		<!--common表示䶿般的GRIB...7777...GRIB...7777组织方式 -->
+		<!--other表示循环嵌套的组织方庿  -->
+		<field_organize>common</field_organize>
+		<!-- 云岗备份的模式表 -->
+		<yungang_back_table>NAFP_T639_FOR_FTM_F_TAB</yungang_back_table>
+		<!-- 时间字段在原始文件名的第几段，如：Z_NAFP_C_BABJ_20180725060000_P_CNPC-T639-GMFS-HNEHE-02100.grib2-->
+		<time_index_of_filename>5</time_index_of_filename>
+		<index_type>0</index_type> <!-- 索引解析类型ﺿ0为走拆分入库ﺿ1为解析文件名(实况、智能网格产呿) -->
+	</data>
+	<data>		
+		<data_id>F.0004.0001.R001</data_id>
+		<description>T639</description>	
+		<precision>LOW</precision>
+		<grib_version>1</grib_version>
+		<field_organize>common</field_organize>
+		<yungang_back_table>NAFP_T639_FOR_FTM_F_TAB</yungang_back_table>
+		<time_index_of_filename>5</time_index_of_filename>
+		<index_type>0</index_type> <!-- 索引解析类型ﺿ0为走拆分入库ﺿ1为解析文件名(实况、智能网格产呿) -->
+	</data>
+	<data>		
+		<data_id>F.0006.0001.R001</data_id>
+		<description>GRAPESGFS</description>	
+		<precision>HIGH</precision>	
+		<grib_version>2</grib_version>
+		<field_organize>common</field_organize>
+		<yungang_back_table>NAFP_GRAPESGFS_FOR_FTM_F_TAB</yungang_back_table>
+		<time_index_of_filename>5</time_index_of_filename>
+		<index_type>0</index_type> <!-- 索引解析类型ﺿ0为走拆分入库ﺿ1为解析文件名(实况、智能网格产呿) -->
+	</data>
+	<data>		
+		<data_id>F.0009.0001.R001</data_id>
+		<description>GRAPES</description>	
+		<precision>LOW</precision>
+		<grib_version>2</grib_version>
+		<field_organize>common</field_organize>
+		<yungang_back_table>NAFP_GRAPESME_FOR_FTM_F_TAB</yungang_back_table>
+		<time_index_of_filename>5</time_index_of_filename>
+		<index_type>0</index_type> <!-- 索引解析类型ﺿ0为走拆分入库ﺿ1为解析文件名(实况、智能网格产呿) -->
+	</data>
+	<data>		
+		<data_id>F.0010.0001.R001</data_id>
+		<description>ECMF</description>	
+		<precision>LOW</precision>	
+		<grib_version>12</grib_version>
+		<field_organize>common</field_organize>
+		<yungang_back_table>NAFP_GLB_FOR_FTM_F_TAB</yungang_back_table>
+		<time_index_of_filename>5</time_index_of_filename>
+		<index_type>0</index_type> <!-- 索引解析类型ﺿ0为走拆分入库ﺿ1为解析文件名(实况、智能网格产呿) -->
+	</data>
+	<data>		
+		<data_id>F.0010.0002.R001</data_id>
+		<description>ECMF</description>	
+		<precision>HIGH</precision>	
+		<grib_version>12</grib_version>	
+		<field_organize>common</field_organize>
+		<yungang_back_table>NAFP_GLB_FOR_FTM_F_TAB</yungang_back_table>
+		<time_index_of_filename>5</time_index_of_filename>
+		<index_type>0</index_type> <!-- 索引解析类型ﺿ0为走拆分入库ﺿ1为解析文件名(实况、智能网格产呿) -->
+	</data>
+	<data>		
+		<data_id>F.0010.0003.R001</data_id>
+		<description>ECMF</description>	
+		<precision>HIGH</precision>	
+		<grib_version>12</grib_version>	
+		<field_organize>common</field_organize>
+		<yungang_back_table>NAFP_GLB_FOR_FTM_F_TAB</yungang_back_table>
+		<time_index_of_filename>5</time_index_of_filename>
+		<index_type>0</index_type> <!-- 索引解析类型ﺿ0为走拆分入库ﺿ1为解析文件名(实况、智能网格产呿) -->
+	</data>
+	<data>		
+		<data_id>F.0010.0004.R001</data_id>
+		<description>ECMF</description>	
+		<precision>HIGH</precision>	
+		<grib_version>12</grib_version>	
+		<field_organize>common</field_organize>
+		<yungang_back_table>NAFP_GLB_FOR_FTM_F_TAB</yungang_back_table>
+		<time_index_of_filename>5</time_index_of_filename>
+		<index_type>0</index_type> <!-- 索引解析类型ﺿ0为走拆分入库ﺿ1为解析文件名(实况、智能网格产呿) -->
+	</data>
+	<data>		
+		<data_id>F.0011.0001.R001</data_id>
+		<description>RJTD</description>	
+		<precision>LOW</precision>	
+		<grib_version>1</grib_version>
+		<field_organize>common</field_organize>
+		<yungang_back_table>NAFP_GLB_FOR_FTM_F_TAB</yungang_back_table>
+		<time_index_of_filename>5</time_index_of_filename>
+		<index_type>0</index_type> <!-- 索引解析类型ﺿ0为走拆分入库ﺿ1为解析文件名(实况、智能网格产呿) -->
+	</data>
+	<data>		
+		<data_id>F.0011.0002.R001</data_id>
+		<description>RJTD</description>	
+		<precision>HIGH</precision>	
+		<grib_version>2</grib_version>
+		<field_organize>other</field_organize>
+		<yungang_back_table>NAFP_GLB_FOR_FTM_F_TAB</yungang_back_table>
+		<time_index_of_filename>5</time_index_of_filename>
+		<index_type>0</index_type> <!-- 索引解析类型ﺿ0为走拆分入库ﺿ1为解析文件名(实况、智能网格产呿) -->
+	</data>
+	<data>		
+		<data_id>F.0012.0001.R001</data_id>
+		<description>KWBC</description>		
+		<precision>LOW</precision>
+		<grib_version>1</grib_version>
+		<field_organize>common</field_organize>
+		<yungang_back_table>NAFP_GLB_FOR_FTM_F_TAB</yungang_back_table>
+		<time_index_of_filename>5</time_index_of_filename>
+		<index_type>0</index_type> <!-- 索引解析类型ﺿ0为走拆分入库ﺿ1为解析文件名(实况、智能网格产呿) -->
+	</data>
+	<data>		
+		<data_id>F.0013.0001.R001</data_id>
+		<description>EDZW</description>
+		<precision>HIGH</precision>	
+		<grib_version>2</grib_version>	
+		<field_organize>common</field_organize>
+		<yungang_back_table>NAFP_GLB_FOR_FTM_F_TAB</yungang_back_table>
+		<time_index_of_filename>5</time_index_of_filename>
+		<index_type>0</index_type> <!-- 索引解析类型ﺿ0为走拆分入库ﺿ1为解析文件名(实况、智能网格产呿) -->
+	</data>
+	<data>		
+		<data_id>F.0041.0001.R001</data_id>
+		<description>T799</description>		
+		<precision>HIGH</precision>
+		<grib_version>1</grib_version>
+		<field_organize>common</field_organize>
+		<yungang_back_table>NAFP_GRAPESME_FOR_FTM_F_TAB</yungang_back_table>	
+		<time_index_of_filename>2</time_index_of_filename>	
+		<index_type>0</index_type> <!-- 索引解析类型ﺿ0为走拆分入库ﺿ1为解析文件名(实况、智能网格产呿) -->
+	</data>	
+	<data>		
+		<data_id>F.0044.0001.R001</data_id>
+		<description>SCMOC</description>		
+		<precision>HIGH</precision>
+		<grib_version>2</grib_version>
+		<field_organize>common</field_organize>
+		<yungang_back_table>NAFP_GRAPESME_FOR_FTM_F_TAB</yungang_back_table>	
+		<time_index_of_filename>9</time_index_of_filename>	
+		<index_type>0</index_type> <!-- 索引解析类型ﺿ0为走拆分入库ﺿ1为解析文件名(实况、智能网格产呿) -->
+	</data>	
+	<data>		
+		<data_id>F.0035.0001.R001</data_id>
+		<description>CLDAS</description>		
+		<precision>HIGH</precision>
+		<grib_version>2</grib_version>
+		<field_organize>common</field_organize>
+		<yungang_back_table>NAFP_GRAPESME_FOR_FTM_F_TAB</yungang_back_table>	
+		<time_index_of_filename>12</time_index_of_filename>	
+		<index_type>0</index_type> <!-- 索引解析类型ﺿ0为走拆分入库ﺿ1为解析文件名(实况、智能网格产呿) -->
+	</data>		
+</root>

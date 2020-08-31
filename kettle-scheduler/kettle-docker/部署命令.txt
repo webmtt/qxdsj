@@ -1,0 +1,19 @@
+一、创建共享网络
+docker network create --driver bridge kettle-network
+二、部署mysql
+1.运用dockerfile创建mysql镜像，在kettle-mysql目录下运行命令：
+docker build -t kettle-mysql:5.7.30 .
+2.启动容器：
+docker run -d -p 23306:3306 --name mysql --network kettle-network  kettle-mysql:5.7.30
+3.查看日志
+docker logs 容器id
+
+三、部署tomcat-kettle
+1.运用dockerfile创建tomcat镜像，在kettle-tomcat目录下运行命令：
+docker build -t tomcat:kettle-schedule .
+2.启动容器：
+docker run -itd -p 8080:8080 -e jdbc.url="jdbc:mysql://mysql:3306/kettle-scheduler?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&useSSL=false" --name tomcat1 --network kettle-network tomcat:kettle-schedule
+3.查看日志
+docker logs 容器id
+
+
